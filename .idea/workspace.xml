@@ -4,25 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se generan las matrices de etiquetas">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se eliminan datos de exportación y se asignan a un nuevo directorio">
+      <change afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelGENERATOR.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelGENERATOR.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/y_test.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/y_test1.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/y_test2.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/y_test3.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/y_train.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/y_train1.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/y_train2.npy" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/y_train3.npy" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -30,9 +27,9 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="ffa3a7ec-c3fd-4747-b35d-85710e814352" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2cynYjKbXyoWSnGnOvJwF1mF8tA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -45,6 +42,7 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.extractDATA.executor": "Run",
+    "Python.liveTEST.executor": "Run",
     "Python.modelGENERATOR.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -101,13 +99,22 @@
       <option name="project" value="LOCAL" />
       <updated>1709094486939</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Se eliminan datos de exportación y se asignan a un nuevo directorio">
+      <option name="closed" value="true" />
+      <created>1709096961328</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709096961328</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Colocación de codigos para la tesis, fase 1" />
     <MESSAGE value="Se generan las matrices de etiquetas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se generan las matrices de etiquetas" />
+    <MESSAGE value="Se eliminan datos de exportación y se asignan a un nuevo directorio" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se eliminan datos de exportación y se asignan a un nuevo directorio" />
   </component>
 </project>

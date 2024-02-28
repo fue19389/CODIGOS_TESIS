@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 # ------------------------------------------------------
 
 # Actualmente, se tienen modelos del 0 -> 3
-n_model = 2
+n_model = 3
 
 # -----------------------------------------------------
 
@@ -23,13 +23,13 @@ n_model = 2
 # ------------------------------------------------------
 
 if n_model == 0:
-    modeldir = r'C:\Users\gerar\PycharmProjects\head_or.keras'
+    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or.keras'
 elif n_model == 1:
-    modeldir = r'C:\Users\gerar\PycharmProjects\head_or1.keras'
+    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or1.keras'
 elif n_model == 2:
-    modeldir = r'C:\Users\gerar\PycharmProjects\head_or2.keras'
+    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or2.keras'
 elif n_model == 3:
-    modeldir = r'C:\Users\gerar\PycharmProjects\head_or3.keras'
+    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or3.keras'
 ho_model = tf.keras.models.load_model(modeldir)
 
 # -----------------------------------------------------
