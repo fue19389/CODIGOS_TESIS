@@ -13,8 +13,8 @@ import matplotlib.pyplot as plt
 # -----------------Selección de modelo------------------
 # ------------------------------------------------------
 
-# Actualmente, se tienen modelos del 0 -> 3
-n_model = 3
+# Actualmente, se tienen modelos del 0 -> 5
+n_model = 5
 
 # -----------------------------------------------------
 
@@ -30,6 +30,10 @@ elif n_model == 2:
     modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or2.keras'
 elif n_model == 3:
     modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or3.keras'
+elif n_model == 4:
+    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or4.keras'
+elif n_model == 5:
+    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or5.keras'
 ho_model = tf.keras.models.load_model(modeldir)
 
 # -----------------------------------------------------

@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se eliminan datos de exportación y se asignan a un nuevo directorio">
-      <change afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modelGENERATOR.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelGENERATOR.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,7 +109,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709096961328</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar">
+      <option name="closed" value="true" />
+      <created>1709098459764</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1709098459764</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -115,6 +125,7 @@
     <MESSAGE value="Colocación de codigos para la tesis, fase 1" />
     <MESSAGE value="Se generan las matrices de etiquetas" />
     <MESSAGE value="Se eliminan datos de exportación y se asignan a un nuevo directorio" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se eliminan datos de exportación y se asignan a un nuevo directorio" />
+    <MESSAGE value="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar" />
   </component>
 </project>

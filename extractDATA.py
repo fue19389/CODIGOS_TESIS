@@ -15,10 +15,11 @@ import pandas as pd
 imglbl = 1
 
 # 0 extrae grupo de entrenamiento, 1 extrae grupo de prueba
-tsttrn = 1
+tsttrn = 0
 
-# Si se escoge etiquetas, guardar para modelos 0 -> 3
-lbl = 0
+# Si se escoge etiquetas, guardar para modelos 0 -> 5
+
+lbl = 5
 
 # ------------------------------------------------
 # ----- Rutina extracción pixeles-----------------
@@ -30,7 +31,8 @@ if imglbl == 0:
     # Las variables exportadas de imágenes se guardan fuera del repositorio por su tamaño
     if tsttrn == 0:
         directory = r"C:\Users\gerar\PycharmProjects\TRAINFACE"
-        xdir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train'
+        xdir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train4' # RENOMBRE DE VARIABLE DADO QUE SE CAMBIÓ
+                                                                      # EL SET DE IMAGENES, DESPUES LO ARREGLO
     if tsttrn == 1:
         directory = r"C:\Users\gerar\PycharmProjects\TESTFACE"
         xdir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_test'
@@ -74,6 +76,12 @@ if imglbl == 1:
         if lbl == 3:
             sheet = 'traintags3'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train3'
+        if lbl == 4:
+            sheet = 'traintags4'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train4'
+        if lbl == 5:
+            sheet = 'traintags5'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train5'
 
     if tsttrn == 1:
         if lbl == 0:
@@ -88,6 +96,12 @@ if imglbl == 1:
         if lbl == 3:
             sheet = 'testtags3'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test3'
+        if lbl == 4:
+            sheet = 'testtags4'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test4'
+        if lbl == 5:
+            sheet = 'testtags5'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test5'
 
     y_t = np.array(pd.read_excel(lbldir, sheet_name=sheet))
     y_t = y_t.astype(int)

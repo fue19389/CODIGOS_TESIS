@@ -14,8 +14,9 @@ from tensorflow.keras.optimizers import SGD
 # ----- Seleccionar de datos ---------------------
 # ------------------------------------------------
 
-# Grupo de etiquetas a usar de 0 -> 3
-ndat = 3
+# Grupo de etiquetas a usar de 0 -> 5
+# JUSTO AHORA SOLO SE PUEDE USAR EL 4 y 5!!!!!!!
+ndat = 5
 
 # ------------------------------------------------
 # ----- Definición de tamaño de letra y figura----
@@ -27,8 +28,8 @@ plt.rcParams['figure.figsize'] = [12, 12]
 # ----Extraer data previamente arreglada----------
 # ------------------------------------------------
 
-x_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train.npy')
-x_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_test.npy')
+x_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train4.npy') #TEMPORALMENTE SE CAMBIÓ LA VARIABLE
+x_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_test.npy')   #PORQUE CAMBIE UNOS DATOS, DSPS LO ARREGLO
 
 if ndat == 0:
     y_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test.npy')
@@ -58,7 +59,20 @@ elif ndat == 3:
     dirlossacc = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\LA3'
     dircm = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\CM3'
     n_nodesal = 6
-
+elif ndat == 4:
+    y_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test4.npy')
+    y_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train4.npy')
+    dirmodel = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or4.keras'
+    dirlossacc = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\LA4'
+    dircm = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\CM4'
+    n_nodesal = 4
+elif ndat == 5:
+    y_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test5.npy')
+    y_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train5.npy')
+    dirmodel = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or5.keras'
+    dirlossacc = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\LA5'
+    dircm = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\CM5'
+    n_nodesal = 3
 
 # --------------------------------------------------
 # ----Normalizar datos -----------------------------
