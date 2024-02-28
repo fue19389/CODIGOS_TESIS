@@ -3,13 +3,11 @@
 # ------------------------------------------------------
 
 import cv2
-import os
+import numpy as np
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.optimizers import SGD
 import matplotlib.pyplot as plt
-import numpy as np
-
 
 # ------------------------------------------------------
 # -----------------Selección de modelo------------------

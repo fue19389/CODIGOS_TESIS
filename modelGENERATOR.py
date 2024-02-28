@@ -2,20 +2,20 @@
 # ----- Librerías a utilizar ---------------------
 # ------------------------------------------------
 
-import tensorflow as tf
-from tensorflow import keras
-from tensorflow.keras.optimizers import SGD
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
 from matplotlib import rcParams
 import numpy as np
 import seaborn as sn
+import tensorflow as tf
+from tensorflow import keras
+from tensorflow.keras.optimizers import SGD
 
 # ------------------------------------------------
 # ----- Seleccionar de datos ---------------------
 # ------------------------------------------------
 
 # Grupo de etiquetas a usar de 0 -> 3
-ndat = 0
+ndat = 3
 
 # ------------------------------------------------
 # ----- Definición de tamaño de letra y figura----
@@ -27,37 +27,38 @@ plt.rcParams['figure.figsize'] = [12, 12]
 # ----Extraer data previamente arreglada----------
 # ------------------------------------------------
 
-x_train = np.load(r'C:\Users\gerar\PycharmProjects\x_train.npy')
-x_test = np.load(r'C:\Users\gerar\PycharmProjects\x_test.npy')
+x_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train.npy')
+x_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_test.npy')
 
 if ndat == 0:
-    y_test = np.load('y_test.npy')
-    y_train = np.load('y_train.npy')
-    dirmodel = r'C:\Users\gerar\PycharmProjects\head_or.keras'
+    y_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test.npy')
+    y_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train.npy')
+    dirmodel = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or.keras'
     dirlossacc = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\LA0'
     dircm = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\CM0'
     n_nodesal = 9
 elif ndat == 1:
-    y_test = np.load('y_test1.npy')
-    y_train = np.load('y_train1.npy')
-    dirmodel = r'C:\Users\gerar\PycharmProjects\head_or1.keras'
+    y_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test1.npy')
+    y_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train1.npy')
+    dirmodel = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or1.keras'
     dirlossacc = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\LA1'
     dircm = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\CM1'
     n_nodesal = 9
 elif ndat == 2:
-    y_test = np.load('y_test2.npy')
-    y_train = np.load('y_train2.npy')
-    dirmodel = r'C:\Users\gerar\PycharmProjects\head_or2.keras'
+    y_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test2.npy')
+    y_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train2.npy')
+    dirmodel = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or2.keras'
     dirlossacc = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\LA2'
     dircm = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\CM2'
     n_nodesal = 6
 elif ndat == 3:
-    y_test = np.load('y_test3.npy')
-    y_train = np.load('y_train3.npy')
-    dirmodel = r'C:\Users\gerar\PycharmProjects\head_or3.keras'
+    y_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test3.npy')
+    y_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train3.npy')
+    dirmodel = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or3.keras'
     dirlossacc = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\LA3'
     dircm = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures\CM3'
     n_nodesal = 6
+
 
 # --------------------------------------------------
 # ----Normalizar datos -----------------------------

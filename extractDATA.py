@@ -15,7 +15,7 @@ import pandas as pd
 imglbl = 1
 
 # 0 extrae grupo de entrenamiento, 1 extrae grupo de prueba
-tsttrn = 0
+tsttrn = 1
 
 # Si se escoge etiquetas, guardar para modelos 0 -> 3
 lbl = 0
@@ -30,10 +30,10 @@ if imglbl == 0:
     # Las variables exportadas de imágenes se guardan fuera del repositorio por su tamaño
     if tsttrn == 0:
         directory = r"C:\Users\gerar\PycharmProjects\TRAINFACE"
-        xdir = r'C:\Users\gerar\PycharmProjects\x_train'
+        xdir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train'
     if tsttrn == 1:
         directory = r"C:\Users\gerar\PycharmProjects\TESTFACE"
-        xdir = r'C:\Users\gerar\PycharmProjects\x_test'
+        xdir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_test'
 
     xlist = os.listdir(directory)
     lenolist = int(len(np.array(xlist)))
@@ -60,34 +60,34 @@ if imglbl == 1:
     # Se selecciona el archivo .xlsx dentro del repositorio
     lbldir = r"C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx"
 
-    # Las variables exportadas de etiquetas se guardan dentro del repositorio por su tamaño
+    # Las variables exportadas de etiquetas se guardan fuera del repositorio para tener un mejor orden
     if tsttrn == 0:
         if lbl == 0:
             sheet = 'traintags'
-            ydir = 'y_train'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train'
         if lbl == 1:
             sheet = 'traintags1'
-            ydir = 'y_train1'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train1'
         if lbl == 2:
             sheet = 'traintags2'
-            ydir = 'y_train2'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train2'
         if lbl == 3:
             sheet = 'traintags3'
-            ydir = 'y_train3'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train3'
 
     if tsttrn == 1:
         if lbl == 0:
             sheet = 'testtags'
-            ydir = 'y_test'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test'
         if lbl == 1:
             sheet = 'testtags1'
-            ydir = 'y_test1'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test1'
         if lbl == 2:
             sheet = 'testtags2'
-            ydir = 'y_test2'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test2'
         if lbl == 3:
             sheet = 'testtags3'
-            ydir = 'y_test3'
+            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test3'
 
     y_t = np.array(pd.read_excel(lbldir, sheet_name=sheet))
     y_t = y_t.astype(int)
