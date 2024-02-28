@@ -12,7 +12,7 @@ import pandas as pd
 # ------------------------------------------------
 
 # 0 extrae imágenes, 1 extrae etiquetas
-imglbl = 1
+imglbl = 0
 
 # 0 extrae grupo de entrenamiento, 1 extrae grupo de prueba
 tsttrn = 0
