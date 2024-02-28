@@ -12,13 +12,13 @@ import pandas as pd
 # ------------------------------------------------
 
 # 0 extrae imágenes, 1 extrae etiquetas
-imglbl = 0
+imglbl = 1
 
 # 0 extrae grupo de entrenamiento, 1 extrae grupo de prueba
 tsttrn = 0
 
 # Si se escoge etiquetas, guardar para modelos 0 -> 3
-lbl = 1
+lbl = 0
 
 # ------------------------------------------------
 # ----- Rutina extracción pixeles-----------------
@@ -58,7 +58,7 @@ if imglbl == 0:
 if imglbl == 1:
 
     # Se selecciona el archivo .xlsx dentro del repositorio
-    lbldir = r"C:\Users\gerar\PycharmProjects\FaceMesh\facelabels.xlsx"
+    lbldir = r"C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx"
 
     # Las variables exportadas de etiquetas se guardan dentro del repositorio por su tamaño
     if tsttrn == 0:
