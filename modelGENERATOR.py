@@ -15,7 +15,7 @@ import seaborn as sn
 # ------------------------------------------------
 
 # Grupo de etiquetas a usar de 0 -> 3
-ndat = 2
+ndat = 0
 
 # ------------------------------------------------
 # ----- Definición de tamaño de letra y figura----

@@ -18,7 +18,7 @@ imglbl = 0
 tsttrn = 0
 
 # Si se escoge etiquetas, guardar para modelos 0 -> 3
-lbl = 0
+lbl = 1
 
 # ------------------------------------------------
 # ----- Rutina extracción pixeles-----------------
