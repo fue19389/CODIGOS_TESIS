@@ -16,7 +16,7 @@ from tensorflow.keras.optimizers import SGD
 
 # Grupo de etiquetas a usar de 0 -> 5
 # JUSTO AHORA SOLO SE PUEDE USAR EL 4 y 5!!!!!!!
-ndat = 5
+ndat = 1
 
 # ------------------------------------------------
 # ----- Definición de tamaño de letra y figura----
@@ -28,8 +28,8 @@ plt.rcParams['figure.figsize'] = [12, 12]
 # ----Extraer data previamente arreglada----------
 # ------------------------------------------------
 
-x_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train4.npy') #TEMPORALMENTE SE CAMBIÓ LA VARIABLE
-x_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_test.npy')   #PORQUE CAMBIE UNOS DATOS, DSPS LO ARREGLO
+x_train = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train.npy')
+x_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_test.npy')
 
 if ndat == 0:
     y_test = np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test.npy')

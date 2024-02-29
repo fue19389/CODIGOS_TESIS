@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
@@ -45,6 +45,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.extractDATA.executor": "Run",
     "Python.liveTEST.executor": "Run",
+    "Python.miscTEST.executor": "Run",
     "Python.modelGENERATOR.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -117,7 +118,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709098459764</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora">
+      <option name="closed" value="true" />
+      <created>1709106149066</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1709106149066</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -126,6 +135,7 @@
     <MESSAGE value="Se generan las matrices de etiquetas" />
     <MESSAGE value="Se eliminan datos de exportación y se asignan a un nuevo directorio" />
     <MESSAGE value="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar" />
+    <MESSAGE value="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora" />
+    <option name="LAST_COMMIT_MESSAGE" value="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora" />
   </component>
 </project>

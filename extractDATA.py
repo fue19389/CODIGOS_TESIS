@@ -12,14 +12,14 @@ import pandas as pd
 # ------------------------------------------------
 
 # 0 extrae imágenes, 1 extrae etiquetas
-imglbl = 1
+imglbl = 0
 
 # 0 extrae grupo de entrenamiento, 1 extrae grupo de prueba
-tsttrn = 0
+tsttrn = 1
 
 # Si se escoge etiquetas, guardar para modelos 0 -> 5
 
-lbl = 5
+lbl = 0
 
 # ------------------------------------------------
 # ----- Rutina extracción pixeles-----------------
@@ -31,8 +31,7 @@ if imglbl == 0:
     # Las variables exportadas de imágenes se guardan fuera del repositorio por su tamaño
     if tsttrn == 0:
         directory = r"C:\Users\gerar\PycharmProjects\TRAINFACE"
-        xdir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train4' # RENOMBRE DE VARIABLE DADO QUE SE CAMBIÓ
-                                                                      # EL SET DE IMAGENES, DESPUES LO ARREGLO
+        xdir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train'
     if tsttrn == 1:
         directory = r"C:\Users\gerar\PycharmProjects\TESTFACE"
         xdir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_test'
@@ -64,45 +63,48 @@ if imglbl == 1:
 
     # Las variables exportadas de etiquetas se guardan fuera del repositorio para tener un mejor orden
     if tsttrn == 0:
+        sheet = 'traintags'
         if lbl == 0:
-            sheet = 'traintags'
+            hdr = 'A'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train'
         if lbl == 1:
-            sheet = 'traintags1'
+            hdr = 'B'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train1'
         if lbl == 2:
-            sheet = 'traintags2'
+            hdr = 'C'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train2'
         if lbl == 3:
-            sheet = 'traintags3'
+            hdr = 'D'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train3'
         if lbl == 4:
-            sheet = 'traintags4'
+            hdr = 'E'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train4'
         if lbl == 5:
-            sheet = 'traintags5'
+            hdr = 'F'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train5'
 
     if tsttrn == 1:
+        sheet = 'testtags'
         if lbl == 0:
-            sheet = 'testtags'
+            hdr = 'A'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test'
         if lbl == 1:
-            sheet = 'testtags1'
+            hdr = 'B'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test1'
         if lbl == 2:
-            sheet = 'testtags2'
+            hdr = 'C'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test2'
         if lbl == 3:
-            sheet = 'testtags3'
+            hdr = 'D'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test3'
         if lbl == 4:
-            sheet = 'testtags4'
+            hdr = 'E'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test4'
         if lbl == 5:
-            sheet = 'testtags5'
+            hdr = 'F'
             ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test5'
 
-    y_t = np.array(pd.read_excel(lbldir, sheet_name=sheet))
+    y_t = np.array(pd.read_excel(lbldir, sheet_name=sheet, usecols=hdr))
     y_t = y_t.astype(int)
     np.save(ydir, y_t)
+    print(hdr)
