@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos">
+      <change afterPath="$PROJECT_DIR$/complex_example.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/photoGUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelGENERATOR.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelGENERATOR.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,15 +43,18 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.__init__.executor": "Run",
+    "Python.complex_example.executor": "Run",
     "Python.extractDATA.executor": "Run",
     "Python.liveTEST.executor": "Run",
     "Python.miscTEST.executor": "Run",
     "Python.modelGENERATOR.executor": "Run",
+    "Python.photoGUI.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/gerar/PycharmProjects/FaceMesh",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "preferences.editor.code.editing"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -126,7 +129,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709106149066</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos">
+      <option name="closed" value="true" />
+      <created>1709189028445</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1709189028445</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -136,6 +147,7 @@
     <MESSAGE value="Se eliminan datos de exportación y se asignan a un nuevo directorio" />
     <MESSAGE value="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar" />
     <MESSAGE value="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora" />
-    <option name="LAST_COMMIT_MESSAGE" value="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora" />
+    <MESSAGE value="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos" />
   </component>
 </project>
