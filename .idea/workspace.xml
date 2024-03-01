@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -50,7 +51,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/FaceMesh",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS",
     "settings.editor.selected.configurable": "preferences.editor.code.editing"
   }
 }]]></component>
@@ -142,7 +143,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709266074370</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos">
+      <option name="closed" value="true" />
+      <created>1709269839256</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1709269839256</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -154,6 +163,7 @@
     <MESSAGE value="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora" />
     <MESSAGE value="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos" />
     <MESSAGE value="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls" />
-    <option name="LAST_COMMIT_MESSAGE" value="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls" />
+    <MESSAGE value="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos" />
+    <option name="LAST_COMMIT_MESSAGE" value="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos" />
   </component>
 </project>
