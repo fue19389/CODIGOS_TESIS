@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos">
-      <change afterPath="$PROJECT_DIR$/complex_example.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/photoGUI.py" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -137,7 +134,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709189028445</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls">
+      <option name="closed" value="true" />
+      <created>1709266074369</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1709266074370</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -148,6 +153,7 @@
     <MESSAGE value="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar" />
     <MESSAGE value="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora" />
     <MESSAGE value="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos" />
+    <MESSAGE value="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls" />
+    <option name="LAST_COMMIT_MESSAGE" value="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls" />
   </component>
 </project>
