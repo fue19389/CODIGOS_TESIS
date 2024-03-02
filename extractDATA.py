@@ -12,38 +12,55 @@ import pandas as pd
 # ------------------------------------------------
 
 # 0 extrae imágenes, 1 extrae etiquetas
-imglbl = 0
+imglbl = 1
 
 # 0 extrae grupo de entrenamiento, 1 extrae grupo de prueba
 tsttrn = 1
 
-# Si se escoge etiquetas, guardar para modelos 0 -> 5
+# Si se escoge etiquetas, guardar para modelos 0 -> 6
 
-lbl = 0
+lbl = 6
+
+# ------------------------------------------------
+# ----- Directorios a utilizar -------------------
+# ------------------------------------------------
+
+# Se selecciona el archivo .xlsx dentro del repositorio
+lbldir = r"C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx"
+# Directorio para guardar las variables a exportar
+expordir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS'
+# Directorio para con carpetas de fotografias
+imgdir = r'C:\Users\gerar\PycharmProjects'
+
+# De esta manera solo se tienen que solicitar estos directorios y se aclara que
+# las carpetas de fotografías se llaman TRAINFACE y TESTFACE
+# El nombre de las variables exportadas aún lo tengo de manera fija
 
 # ------------------------------------------------
 # ----- Rutina extracción pixeles-----------------
 # ------------------------------------------------
 
+#Ahora se trabajará con el modelo 6 únicamente, cuando este listo sera el original nada mas
 if imglbl == 0:
 
-    # Se seleccionan los directorios con las fotografías, por tamaño están fuera del repositorio
-    # Las variables exportadas de imágenes se guardan fuera del repositorio por su tamaño
     if tsttrn == 0:
-        directory = r"C:\Users\gerar\PycharmProjects\TRAINFACE"
-        xdir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train'
+        foldname = 'TRAINFACE'
+        xname = 'x_train6'
     if tsttrn == 1:
-        directory = r"C:\Users\gerar\PycharmProjects\TESTFACE"
-        xdir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_test'
+        foldname = 'TESTFACE'
+        xname = 'x_test6'
 
-    xlist = os.listdir(directory)
+    tdir = os.path.join(imgdir, foldname)
+    xdir = os.path.join(expordir, xname)
+
+    xlist = os.listdir(tdir)
     lenolist = int(len(np.array(xlist)))
     x_t = np.zeros((lenolist, 180, 320, 3))
     i = 0
 
     for filename in xlist:
         # if filename.endswith('.jpg'): / Esto solo aplica si hay mas de un tipo de archivos
-        im = cv2.imread(os.path.join(directory, filename))
+        im = cv2.imread(os.path.join(tdir, filename))
         imr = cv2.resize(im, (320, 180))
         imr = cv2.cvtColor(imr, cv2.COLOR_BGR2RGB)
         x_t[i] = imr
@@ -58,53 +75,57 @@ if imglbl == 0:
 # ------------------------------------------------
 if imglbl == 1:
 
-    # Se selecciona el archivo .xlsx dentro del repositorio
-    lbldir = r"C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx"
 
-    # Las variables exportadas de etiquetas se guardan fuera del repositorio para tener un mejor orden
+    # Las variables exportadas de etiquetas se guardan dependiento de la etiqueta
     if tsttrn == 0:
         sheet = 'traintags'
         if lbl == 0:
-            hdr = 'A'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train'
+            col = 0
+            yname = 'y_train'
         if lbl == 1:
-            hdr = 'B'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train1'
+            col = 1
+            yname = 'y_train1'
         if lbl == 2:
-            hdr = 'C'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train2'
+            col = 2
+            yname = 'y_train2'
         if lbl == 3:
-            hdr = 'D'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train3'
+            col = 3
+            yname = 'y_train3'
         if lbl == 4:
-            hdr = 'E'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train4'
+            col = 4
+            yname = 'y_train4'
         if lbl == 5:
-            hdr = 'F'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train5'
+            col = 5
+            yname = 'y_train5'
+        if lbl == 6:
+            col = 6
+            yname = 'y_train6'
 
     if tsttrn == 1:
         sheet = 'testtags'
         if lbl == 0:
-            hdr = 'A'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test'
+            col = 0
+            yname = 'y_test'
         if lbl == 1:
-            hdr = 'B'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test1'
+            col = 1
+            yname = 'y_test1'
         if lbl == 2:
-            hdr = 'C'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test2'
+            col = 2
+            yname = 'y_test2'
         if lbl == 3:
-            hdr = 'D'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test3'
+            col = 3
+            yname = 'y_test3'
         if lbl == 4:
-            hdr = 'E'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test4'
+            col = 4
+            yname = 'y_test4'
         if lbl == 5:
-            hdr = 'F'
-            ydir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_test5'
+            col = 5
+            yname = 'y_test5'
+        if lbl == 6:
+            col = 6
+            yname = 'y_test6'
 
-    y_t = np.array(pd.read_excel(lbldir, sheet_name=sheet, usecols=hdr))
+    ydir = os.path.join(expordir, yname)
+    y_t = np.array(pd.read_excel(lbldir, sheet_name=sheet, index_col=col))
     y_t = y_t.astype(int)
     np.save(ydir, y_t)
-    print(hdr)

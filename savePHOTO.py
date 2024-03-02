@@ -1,98 +1,127 @@
+# ------------------------------------------------
+# ----- Librerías a utilizar ---------------------
+# ------------------------------------------------
+
 import os
 import cv2
 import math as mt
 import numpy as np
 import pandas as pd
 
-# Directiorios a utilizar
-dirphoto = r'C:\Users\gerar\PycharmProjects\TRAINFACE'
-dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOS'
-dirvrbls = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train.npy'
+class captura:
 
-# proceso para guardar labels sin acceder al archivo
-val = 2
-y_ttrain = np.load(dirvrbls)
-print
-y_t = np.append(y_ttrain, val)
+    def __init__(self):
 
-# proceso para guardar labels accediendo al archivo
 
-# Setup
-nsmpls = pd.read_excel('facelabels.xlsx', sheet_name='traintags', index_col=7)
-plen = int(len(nsmpls) + 1)
+# ------------------------------------------------
+# ----- Seleccionar modelo -----------------------
+# ------------------------------------------------
 
-lbl = [None] * 9
+        self.nmodel = 6
 
-# Guardar fotos
+# ------------------------------------------------
+# ----- Directorios a utilizar -------------------
+# ------------------------------------------------
 
-# Setup
+        self.dirphoto = r'C:\Users\gerar\PycharmProjects\TRAINFACE'
+        self.dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOS'
+        self.dirvrbls = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train.npy'
 
-phoidx = 0
-pholist = os.listdir(dirphoto)
-for filename in pholist:
-    if filename.startswith('z'):
-        phoidx += 1
-grpnmbr = str(int(mt.floor((phoidx / 9) + 1)))
-pfxname = 'z'
+# ------------------------------------------------
+# ----- Cantidad de labels base +1 ---------------
+# ------------------------------------------------
+        self.plen = 2083
 
-while True:
+# ------------------------------------------------
+# ----- Funciones --------------------------------
+# ------------------------------------------------
 
-    # Simulación de click
-    captura = input('Seleccione la posicion de la cabeza (1-9): ')
-    captura = int(captura)
+    def takePHOTO(self, tipo):
 
-    if 0 < captura < 10:
+        if tipo == 1 or tipo == 4 or tipo == 7:
+            self.pfxname = 'z_00_'
+        if tipo == 2 or tipo == 5:
+            self.pfxname = 'z_01_'
+        if tipo == 3 or tipo == 6 or tipo == 9:
+            self.pfxname = 'z_02_'
+        if tipo == 8:
+            self.pfxname = 'z_03_'
+
+        # ------------------------------------------------
+        # ----- Tomar, guardar y nombrar fotografía ------
+        # ------------------------------------------------
+
+        idx = 0
+        pholist = os.listdir(self.dirphoto)
+        holdlist = os.listdir(self.dirhold)
+        for file in pholist:
+            if file.startswith(self.pfxname):
+                idx += 1
+        for file in holdlist:
+            if file.startswith(self.pfxname):
+                idx += 1
+
+        name = self.pfxname + str(int(idx + 1)) + '.jpg'
+
         # Take photo
-        cap = cv2.VideoCapture(0)  # video capture source camera (Here webcam of laptop)
-        _, frame = cap.read()  # return a single frame in variable `frame`
+        cap = cv2.VideoCapture(0)
+        _, frame = cap.read()
 
-        # Save photo and labels
-
-        if captura == 1:
-            sfxname = '01.jpg'
-            lbl[0] = 0
-        elif captura == 2:
-            sfxname = '02.jpg'
-            lbl[1] = 1
-        elif captura == 3:
-            sfxname = '03.jpg'
-            lbl[2] = 2
-        elif captura == 4:
-            sfxname = '04.jpg'
-            lbl[3] = 0
-        elif captura == 5:
-            sfxname = '05.jpg'
-            lbl[4] = 1
-        elif captura == 6:
-            sfxname = '06.jpg'
-            lbl[5] = 2
-        elif captura == 7:
-            sfxname = '07.jpg'
-            lbl[6] = 0
-        elif captura == 8:
-            sfxname = '08.jpg'
-            lbl[7] = 3
-        elif captura == 9:
-            sfxname = '09.jpg'
-            lbl[8] = 2
-
-        jnt = pfxname + grpnmbr + sfxname
-        savedir = os.path.join(dirhold, jnt)
+        savedir = os.path.join(self.dirhold, name)
         cv2.imwrite(savedir, frame)
-        print(lbl)
 
-        # If complete, move or not, the files to the traning set
-        usrlist = os.listdir(dirhold)
-        if np.array(usrlist).size == 9:  # Para la GUI seria bueno que abra el directorio
-            move = int(input('Mover archivos?:'))
-            if move == 1:
-                for file in usrlist:
-                    oldpath = os.path.join(dirhold, file)
-                    newpath = os.path.join(dirphoto, file)
-                    os.replace(oldpath, newpath)
+# ------------------------------------------------
+# ----- Simulacion de guardar foto ---------------
+# ------------------------------------------------
 
-                df = pd.DataFrame(list(zip(lbl)))
-                # print(df)
-                with pd.ExcelWriter('facelabels.xlsx', mode='a', if_sheet_exists='overlay') as writer:
-                    df.to_excel(writer, sheet_name='traintags', header=False, index=False, startcol=4, startrow=plen)
-                break
+    def loadD(self, do):
+
+        if do == 1:
+
+            # Mover archivos
+
+            holdlist = os.listdir(self.dirhold)
+
+            for file in holdlist:
+                oldpath = os.path.join(self.dirhold, file)
+                newpath = os.path.join(self.dirphoto, file)
+                os.replace(oldpath, newpath)
+
+            # Creación de labels
+            lbl = []
+            pholist = os.listdir(self.dirphoto)
+            for file in pholist:
+                if file.startswith('z_00'):
+                    lbl.append(0)
+                if file.startswith('z_01'):
+                    lbl.append(1)
+                if file.startswith('z_02'):
+                    lbl.append(2)
+                if file.startswith('z_03'):
+                    lbl.append(3)
+
+            # Enviar a archivo excel
+            df = pd.DataFrame(list(zip(lbl)))
+            with pd.ExcelWriter('facelabels.xlsx', mode='a', if_sheet_exists='overlay') as writer:
+                df.to_excel(writer, sheet_name='traintags', header=False, index=False, startcol=self.nmodel, startrow=self.plen)
+
+        if do != 1:
+            pass
+
+
+
+def main():
+
+    camara = captura()
+
+    poshead = int(input('Seleccione la posicion de cabeza: '))
+    camara.takePHOTO(poshead)
+    loaddat = int(input('¿Cargar datos? '))
+    camara.loadD(loaddat)
+
+
+
+if __name__ == '__main__':
+    main()
+
+

@@ -12,7 +12,7 @@ class MyGUI:
         self.root = ctk.CTk()
 
         self.label = ctk.CTkLabel(self.root, text='Your message', font=('aptos',18))
-        self.label.pack(padx=10, pady=10)\
+        self.label.pack(padx=10, pady=10)
 
         self.textbox = ctk.CTkTextbox(self.root, font=('aptos', 16))
         self.textbox.bind('<KeyPress>', self.shortcut)

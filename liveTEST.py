@@ -2,6 +2,7 @@
 # -----------------Librerías a utilizar-----------------
 # ------------------------------------------------------
 
+import os
 import cv2
 import numpy as np
 import tensorflow as tf
@@ -13,27 +14,38 @@ import matplotlib.pyplot as plt
 # -----------------Selección de modelo------------------
 # ------------------------------------------------------
 
-# Actualmente, se tienen modelos del 0 -> 5
-n_model = 4
+# Actualmente, se tienen modelos del 0 -> 6
+n_model = 6
 # -----------------------------------------------------
+
+# ------------------------------------------------
+# ----- Directorios a utilizar -------------------
+# ------------------------------------------------
+
+# Directorio para guardar las variables a exportar
+expordir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS'
 
 # -----------------------------------------------------
 # -------------------Cargar modelo---------------------
 # -----------------------------------------------------
 
 if n_model == 0:
-    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or.keras'
+    mname = 'head_or.keras'
 elif n_model == 1:
-    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or1.keras'
+    mname = 'head_or1.keras'
 elif n_model == 2:
-    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or2.keras'
+    mname = 'head_or2.keras'
 elif n_model == 3:
-    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or3.keras'
+    mname = 'head_or3.keras'
 elif n_model == 4:
-    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or4.keras'
+    mname = 'head_or4.keras'
 elif n_model == 5:
-    modeldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or5.keras'
-ho_model = tf.keras.models.load_model(modeldir)
+    mname = 'head_or5.keras'
+elif n_model == 6:
+    mname = 'head_or6.keras'
+
+ho_model = os.path.join(expordir, mname)
+ho_model = tf.keras.models.load_model(ho_model)
 
 # -----------------------------------------------------
 
@@ -43,13 +55,13 @@ ho_model = tf.keras.models.load_model(modeldir)
 
 # # Capture webcam
 #
-# cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0)
 
 # Capture webcam & Set resolution
 
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
-cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 180)
+# cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+# cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
+# cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 180)
 
 # ----------------------------------------------------
 
@@ -63,11 +75,10 @@ while True:
 
     _, img = cap.read()
     imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    # imgRGB = cv2.resize(imgRGB, (320, 180))
+    imgRGB = cv2.resize(imgRGB, (320, 180))
     imgRGB = imgRGB.astype(int)/255
 
     y_predicted = ho_model.predict(np.array([imgRGB]), verbose=None)
-    # print(y_predicted)
     prediction = np.argmax(y_predicted)
     print(prediction)
 
