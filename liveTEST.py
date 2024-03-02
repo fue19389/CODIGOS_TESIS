@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 # ------------------------------------------------------
 
 # Actualmente, se tienen modelos del 0 -> 6
-n_model = 6
+n_model = 4
 # -----------------------------------------------------
 
 # ------------------------------------------------
@@ -86,5 +86,5 @@ while True:
     cv2.imshow('Image', img)
 
     key = cv2.waitKey(30)
-    if key == 27: # 27= Esc
+    if key == 27: # 13 = enter, 27 = esc
         break

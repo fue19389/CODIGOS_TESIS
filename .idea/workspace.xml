@@ -4,13 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/complex_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/complex_example.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelGENERATOR.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelGENERATOR.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/savePHOTO.py" beforeDir="false" afterPath="$PROJECT_DIR$/savePHOTO.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -52,6 +50,7 @@
     "Python.miscTEST.executor": "Run",
     "Python.modelGENERATOR.executor": "Run",
     "Python.photoGUI.executor": "Run",
+    "Python.projectGUI.executor": "Run",
     "Python.savePHOTO.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -172,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709338846778</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY">
+      <option name="closed" value="true" />
+      <created>1709365442617</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1709365442617</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -187,6 +194,7 @@
     <MESSAGE value="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos" />
     <MESSAGE value="Ya se guardan las fotos como se debe, ahora faltan las labels" />
     <MESSAGE value="El código para poder capturar y guardar está listo, solo falta orientarlo a objetos" />
-    <option name="LAST_COMMIT_MESSAGE" value="El código para poder capturar y guardar está listo, solo falta orientarlo a objetos" />
+    <MESSAGE value="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY" />
+    <option name="LAST_COMMIT_MESSAGE" value="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY" />
   </component>
 </project>

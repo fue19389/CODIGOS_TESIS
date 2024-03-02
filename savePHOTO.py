@@ -19,6 +19,7 @@ class captura:
 
         self.nmodel = 6
 
+
 # ------------------------------------------------
 # ----- Directorios a utilizar -------------------
 # ------------------------------------------------
@@ -36,78 +37,88 @@ class captura:
 # ----- Funciones --------------------------------
 # ------------------------------------------------
 
-    def takePHOTO(self, tipo):
-
-        if tipo == 1 or tipo == 4 or tipo == 7:
-            self.pfxname = 'z_00_'
-        if tipo == 2 or tipo == 5:
-            self.pfxname = 'z_01_'
-        if tipo == 3 or tipo == 6 or tipo == 9:
-            self.pfxname = 'z_02_'
-        if tipo == 8:
-            self.pfxname = 'z_03_'
-
-        # ------------------------------------------------
-        # ----- Tomar, guardar y nombrar fotografía ------
-        # ------------------------------------------------
-
-        idx = 0
-        pholist = os.listdir(self.dirphoto)
-        holdlist = os.listdir(self.dirhold)
-        for file in pholist:
-            if file.startswith(self.pfxname):
-                idx += 1
-        for file in holdlist:
-            if file.startswith(self.pfxname):
-                idx += 1
-
-        name = self.pfxname + str(int(idx + 1)) + '.jpg'
+    def takePHOTO(self, hpos):
 
         # Take photo
         cap = cv2.VideoCapture(0)
-        _, frame = cap.read()
+        while True:
+            _, frame = cap.read()
+            # Show the complete image
+            cv2.imshow('Image', frame)
+            key = cv2.waitKey(30)
+            if key == 13:
+                break
 
-        savedir = os.path.join(self.dirhold, name)
-        cv2.imwrite(savedir, frame)
+        if key == 13:  # 13 = enter, 27 = esc
+
+            if hpos == 1 or hpos == 4 or hpos == 7:
+                self.pfxname = 'z_00_'
+            if hpos == 2 or hpos == 5:
+                self.pfxname = 'z_01_'
+            if hpos == 3 or hpos == 6 or hpos == 9:
+                self.pfxname = 'z_02_'
+            if hpos == 8:
+                self.pfxname = 'z_03_'
+
+            # ------------------------------------------------
+            # ----- Tomar, guardar y nombrar fotografía ------
+            # ------------------------------------------------
+
+            idx = 0
+            pholist = os.listdir(self.dirphoto)
+            holdlist = os.listdir(self.dirhold)
+            for file in pholist:
+                if file.startswith(self.pfxname):
+                    idx += 1
+            for file in holdlist:
+                if file.startswith(self.pfxname):
+                    idx += 1
+
+            name = self.pfxname + str(int(idx + 1)) + '.jpg'
+            savedir = os.path.join(self.dirhold, name)
+            cv2.imwrite(savedir, frame)
+            os.startfile(filepath=self.dirhold)
 
 # ------------------------------------------------
 # ----- Simulacion de guardar foto ---------------
 # ------------------------------------------------
 
-    def loadD(self, do):
+    def loadD(self):
 
-        if do == 1:
+        # Mover archivos
 
-            # Mover archivos
+        holdlist = os.listdir(self.dirhold)
 
-            holdlist = os.listdir(self.dirhold)
+        for file in holdlist:
+            oldpath = os.path.join(self.dirhold, file)
+            newpath = os.path.join(self.dirphoto, file)
+            os.replace(oldpath, newpath)
 
-            for file in holdlist:
-                oldpath = os.path.join(self.dirhold, file)
-                newpath = os.path.join(self.dirphoto, file)
-                os.replace(oldpath, newpath)
+        # Creación de labels
+        lbl = []
+        pholist = os.listdir(self.dirphoto)
+        for file in pholist:
+            if file.startswith('z_00'):
+                lbl.append(0)
+            if file.startswith('z_01'):
+                lbl.append(1)
+            if file.startswith('z_02'):
+                lbl.append(2)
+            if file.startswith('z_03'):
+                lbl.append(3)
 
-            # Creación de labels
-            lbl = []
-            pholist = os.listdir(self.dirphoto)
-            for file in pholist:
-                if file.startswith('z_00'):
-                    lbl.append(0)
-                if file.startswith('z_01'):
-                    lbl.append(1)
-                if file.startswith('z_02'):
-                    lbl.append(2)
-                if file.startswith('z_03'):
-                    lbl.append(3)
+        # Enviar a archivo excel
+        df = pd.DataFrame(list(zip(lbl)))
+        with pd.ExcelWriter('facelabels.xlsx', mode='a', if_sheet_exists='overlay') as writer:
+            df.to_excel(writer, sheet_name='traintags', header=False, index=False, startcol=self.nmodel, startrow=self.plen)
 
-            # Enviar a archivo excel
-            df = pd.DataFrame(list(zip(lbl)))
-            with pd.ExcelWriter('facelabels.xlsx', mode='a', if_sheet_exists='overlay') as writer:
-                df.to_excel(writer, sheet_name='traintags', header=False, index=False, startcol=self.nmodel, startrow=self.plen)
+    def eraseD(self):
+        # Borrar archivos
+        holdlist = os.listdir(self.dirhold)
 
-        if do != 1:
-            pass
-
+        for file in holdlist:
+            path = os.path.join(self.dirhold, file)
+            os.remove(path)
 
 
 def main():
@@ -116,8 +127,8 @@ def main():
 
     poshead = int(input('Seleccione la posicion de cabeza: '))
     camara.takePHOTO(poshead)
-    loaddat = int(input('¿Cargar datos? '))
-    camara.loadD(loaddat)
+    # loaddat = int(input('¿Cargar datos? '))
+    # camara.loadD(loaddat)
 
 
 
