@@ -4,39 +4,31 @@
 
 import os
 import cv2
-import math as mt
-import numpy as np
 import pandas as pd
 
-class captura:
+class modelfeeder:
 
     def __init__(self):
-
 
 # ------------------------------------------------
 # ----- Seleccionar modelo -----------------------
 # ------------------------------------------------
 
+        # Escoge la columna de la data en el archivo excel
         self.nmodel = 6
-
 
 # ------------------------------------------------
 # ----- Directorios a utilizar -------------------
 # ------------------------------------------------
 
-        self.dirphoto = r'C:\Users\gerar\PycharmProjects\TRAINFACE'
+        self.dirtrain = r'C:\Users\gerar\PycharmProjects\TRAINFACE'
+        self.dirtest = r'C:\Users\gerar\PycharmProjects\TESTFACE'
         self.dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOS'
-        self.dirvrbls = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\y_train.npy'
+        self.dirxlsx = r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx'
 
 # ------------------------------------------------
-# ----- Cantidad de labels base +1 ---------------
+# ----- Tomar y nombrar fotos  -------------------
 # ------------------------------------------------
-        self.plen = 2083
-
-# ------------------------------------------------
-# ----- Funciones --------------------------------
-# ------------------------------------------------
-
     def takePHOTO(self, hpos):
 
         # Take photo
@@ -65,9 +57,13 @@ class captura:
             # ------------------------------------------------
 
             idx = 0
-            pholist = os.listdir(self.dirphoto)
+            trainlist = os.listdir(self.dirtrain)
+            testlist = os.listdir(self.dirtest)
             holdlist = os.listdir(self.dirhold)
-            for file in pholist:
+            for file in trainlist:
+                if file.startswith(self.pfxname):
+                    idx += 1
+            for file in testlist:
                 if file.startswith(self.pfxname):
                     idx += 1
             for file in holdlist:
@@ -80,37 +76,55 @@ class captura:
             os.startfile(filepath=self.dirhold)
 
 # ------------------------------------------------
-# ----- Simulacion de guardar foto ---------------
+# ----- Cargar fotos al sistema ------------------
 # ------------------------------------------------
 
-    def loadD(self):
+    def loadD(self, tsttrn):
+
+        tsttrn = int(tsttrn)
+
+        # Selección de carga a test o train, con su respectiva columna de inicio
+        if tsttrn == 1:
+            shtnm = 'traintags'
+            strtrw = 2083
+            dirtrgt = self.dirtrain
+        elif tsttrn == 2:
+            shtnm = 'testags'
+            strtrw = 745
+            dirtrgt = self.dirtest
+        else:
+            pass
 
         # Mover archivos
-
         holdlist = os.listdir(self.dirhold)
-
         for file in holdlist:
             oldpath = os.path.join(self.dirhold, file)
-            newpath = os.path.join(self.dirphoto, file)
+            newpath = os.path.join(dirtrgt, file)
             os.replace(oldpath, newpath)
 
         # Creación de labels
         lbl = []
-        pholist = os.listdir(self.dirphoto)
-        for file in pholist:
+        filelist = os.listdir(dirtrgt)
+        for file in filelist:
             if file.startswith('z_00'):
                 lbl.append(0)
-            if file.startswith('z_01'):
+            elif file.startswith('z_01'):
                 lbl.append(1)
-            if file.startswith('z_02'):
+            elif file.startswith('z_02'):
                 lbl.append(2)
-            if file.startswith('z_03'):
+            elif file.startswith('z_03'):
                 lbl.append(3)
+            else:
+                pass
 
         # Enviar a archivo excel
         df = pd.DataFrame(list(zip(lbl)))
-        with pd.ExcelWriter('facelabels.xlsx', mode='a', if_sheet_exists='overlay') as writer:
-            df.to_excel(writer, sheet_name='traintags', header=False, index=False, startcol=self.nmodel, startrow=self.plen)
+        with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
+            df.to_excel(writer, sheet_name=shtnm, header=False, index=False, startcol=self.nmodel, startrow=strtrw)
+
+# ------------------------------------------------
+# ----- Borrar fotos de directorio temp-----------
+# ------------------------------------------------
 
     def eraseD(self):
         # Borrar archivos
@@ -121,18 +135,25 @@ class captura:
             os.remove(path)
 
 
-def main():
-
-    camara = captura()
-
-    poshead = int(input('Seleccione la posicion de cabeza: '))
-    camara.takePHOTO(poshead)
-    # loaddat = int(input('¿Cargar datos? '))
-    # camara.loadD(loaddat)
-
-
-
-if __name__ == '__main__':
-    main()
+# def main():
+#
+#     camara = captura()
+#
+#     poshead = int(input('Seleccione la posicion de cabeza: '))
+#     camara.takePHOTO(poshead)
+#     loaddat = int(input('¿Cargar datos? '))
+#     if loaddat == 1:
+#         camara.loadD()
+#     elif loaddat != 1:
+#         pass
+#     erase = int(input('¿Borrar datos? '))
+#     if erase == 1:
+#         camara.eraseD()
+#     elif erase != 1:
+#         pass
+#
+#
+# if __name__ == '__main__':
+#     main()
 
 

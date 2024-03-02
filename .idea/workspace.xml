@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/complex_example.py" beforeDir="false" afterPath="$PROJECT_DIR$/complex_example.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savePHOTO.py" beforeDir="false" afterPath="$PROJECT_DIR$/savePHOTO.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/savePHOTO.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,7 +176,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709365442617</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes">
+      <option name="closed" value="true" />
+      <created>1709415944904</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709415944904</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -195,6 +200,7 @@
     <MESSAGE value="Ya se guardan las fotos como se debe, ahora faltan las labels" />
     <MESSAGE value="El código para poder capturar y guardar está listo, solo falta orientarlo a objetos" />
     <MESSAGE value="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY" />
-    <option name="LAST_COMMIT_MESSAGE" value="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY" />
+    <MESSAGE value="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes" />
+    <option name="LAST_COMMIT_MESSAGE" value="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes" />
   </component>
 </project>
