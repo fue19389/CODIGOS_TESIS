@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Listos todos los códigos en de la forma OOP">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora también está listo el código de las pruebas en vivo, de la forma OOP">
+      <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -200,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709433806456</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Ahora también está listo el código de las pruebas en vivo, de la forma OOP">
+      <option name="closed" value="true" />
+      <created>1709441562430</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1709441562430</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -219,6 +226,7 @@
     <MESSAGE value="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes" />
     <MESSAGE value="Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP" />
     <MESSAGE value="Listos todos los códigos en de la forma OOP" />
-    <option name="LAST_COMMIT_MESSAGE" value="Listos todos los códigos en de la forma OOP" />
+    <MESSAGE value="Ahora también está listo el código de las pruebas en vivo, de la forma OOP" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora también está listo el código de las pruebas en vivo, de la forma OOP" />
   </component>
 </project>
