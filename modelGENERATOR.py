@@ -1,4 +1,15 @@
 # ------------------------------------------------
+# ------------- Datos Generales ------------------
+# ------------------------------------------------
+
+# Universidad del Valle de Guatemala
+# Facultad de Ingeniería
+# Departamento de Electrónica, Mecatrónica y Biomédica
+# Gerardo Andres Fuentes Bámaca
+# 19389
+# Código para generar el modelo de aprendizaje con base en la data obtenida
+
+# ------------------------------------------------
 # ----- Librerías a utilizar ---------------------
 # ------------------------------------------------
 

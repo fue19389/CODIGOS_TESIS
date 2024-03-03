@@ -1,3 +1,14 @@
+# ------------------------------------------------
+# ------------- Datos Generales ------------------
+# ------------------------------------------------
+
+# Universidad del Valle de Guatemala
+# Facultad de Ingeniería
+# Departamento de Electrónica, Mecatrónica y Biomédica
+# Gerardo Andres Fuentes Bámaca
+# 19389
+# Código para realizar pruebas de reconocimiento de orientación de cabeza
+
 # ------------------------------------------------------
 # -----------------Librerías a utilizar-----------------
 # ------------------------------------------------------

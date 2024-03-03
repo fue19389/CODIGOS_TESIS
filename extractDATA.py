@@ -1,4 +1,15 @@
 # ------------------------------------------------
+# ------------- Datos Generales ------------------
+# ------------------------------------------------
+
+# Universidad del Valle de Guatemala
+# Facultad de Ingeniería
+# Departamento de Electrónica, Mecatrónica y Biomédica
+# Gerardo Andres Fuentes Bámaca
+# 19389
+# Código para transformar las fotos y labels de excel en datos utilizables
+
+# ------------------------------------------------
 # ----- Librerías a utilizar ---------------------
 # ------------------------------------------------
 
@@ -41,7 +52,7 @@ class GetModelData:
 
     # Ahora se trabajará con el modelo 6 únicamente, cuando este listo será el original nada mas
 
-    def extracIMG(self, tsttrn):
+    def prepareIMG(self, tsttrn):
 
         tsttrn = int(tsttrn)
 
@@ -75,7 +86,7 @@ class GetModelData:
     # ----- Rutina extracción etiquetas---------------
     # ------------------------------------------------
 
-    def extracLBL(self, tsttrn):
+    def prepareLBL(self, tsttrn):
 
         tsttrn = int(tsttrn)
 
