@@ -6,30 +6,33 @@ import os
 import cv2
 import pandas as pd
 
-class modelfeeder:
+
+class ModelFeeder:
 
     def __init__(self):
 
-# ------------------------------------------------
-# ----- Seleccionar modelo -----------------------
-# ------------------------------------------------
+        # ------------------------------------------------
+        # ----- Seleccionar modelo -----------------------
+        # ------------------------------------------------
 
         # Escoge la columna de la data en el archivo excel
         self.nmodel = 6
 
-# ------------------------------------------------
-# ----- Directorios a utilizar -------------------
-# ------------------------------------------------
+        # ------------------------------------------------
+        # ----- Directorios a utilizar -------------------
+        # ------------------------------------------------
 
         self.dirtrain = r'C:\Users\gerar\PycharmProjects\TRAINFACE'
         self.dirtest = r'C:\Users\gerar\PycharmProjects\TESTFACE'
         self.dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOS'
         self.dirxlsx = r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx'
 
-# ------------------------------------------------
-# ----- Tomar y nombrar fotos  -------------------
-# ------------------------------------------------
+    # ------------------------------------------------
+    # ----- Tomar y nombrar fotos  -------------------
+    # ------------------------------------------------
     def takePHOTO(self, hpos):
+
+        hpos = int(hpos)
 
         # Take photo
         cap = cv2.VideoCapture(0)
@@ -75,9 +78,9 @@ class modelfeeder:
             cv2.imwrite(savedir, frame)
             os.startfile(filepath=self.dirhold)
 
-# ------------------------------------------------
-# ----- Cargar fotos al sistema ------------------
-# ------------------------------------------------
+    # ------------------------------------------------
+    # ----- Cargar fotos al sistema ------------------
+    # ------------------------------------------------
 
     def loadD(self, tsttrn):
 
@@ -122,9 +125,9 @@ class modelfeeder:
         with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
             df.to_excel(writer, sheet_name=shtnm, header=False, index=False, startcol=self.nmodel, startrow=strtrw)
 
-# ------------------------------------------------
-# ----- Borrar fotos de directorio temp-----------
-# ------------------------------------------------
+    # ------------------------------------------------
+    # ----- Borrar fotos de directorio temp-----------
+    # ------------------------------------------------
 
     def eraseD(self):
         # Borrar archivos
@@ -133,6 +136,24 @@ class modelfeeder:
         for file in holdlist:
             path = os.path.join(self.dirhold, file)
             os.remove(path)
+
+    # ------------------------------------------------
+    # ----- Borrar fotos de directorio temp-----------
+    # ------------------------------------------------
+
+    def resetM(self):
+        # Borrar archivos
+        trainlist = os.listdir(self.dirtrain)
+
+        for file in trainlist:
+            path = os.path.join(self.dirtrain, file)
+            os.remove(path)
+
+
+
+
+
+
 
 
 # def main():
@@ -155,5 +176,3 @@ class modelfeeder:
 #
 # if __name__ == '__main__':
 #     main()
-
-

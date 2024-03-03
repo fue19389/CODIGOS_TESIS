@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/savePHOTO.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modelGENERATOR.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelGENERATOR.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -184,7 +186,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709415944904</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP">
+      <option name="closed" value="true" />
+      <created>1709420843168</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709420843168</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -201,6 +211,7 @@
     <MESSAGE value="El código para poder capturar y guardar está listo, solo falta orientarlo a objetos" />
     <MESSAGE value="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY" />
     <MESSAGE value="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes" />
-    <option name="LAST_COMMIT_MESSAGE" value="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes" />
+    <MESSAGE value="Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP" />
+    <option name="LAST_COMMIT_MESSAGE" value="Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP" />
   </component>
 </project>

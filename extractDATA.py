@@ -7,125 +7,128 @@ import cv2
 import numpy as np
 import pandas as pd
 
-# ------------------------------------------------
-# ----- Seleccionar de datos ---------------------
-# ------------------------------------------------
 
-# 0 extrae imágenes, 1 extrae etiquetas
-imglbl = 1
+class GetModelData:
 
-# 0 extrae grupo de entrenamiento, 1 extrae grupo de prueba
-tsttrn = 1
+    def __init__(self):
 
-# Si se escoge etiquetas, guardar para modelos 0 -> 6
+        # ------------------------------------------------
+        # ----- Seleccionar de datos ---------------------
+        # ------------------------------------------------
 
-lbl = 6
+        # Si se escoge etiquetas, guardar para modelos 0 -> 6
 
-# ------------------------------------------------
-# ----- Directorios a utilizar -------------------
-# ------------------------------------------------
+        self.nmodel = 6
 
-# Se selecciona el archivo .xlsx dentro del repositorio
-lbldir = r"C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx"
-# Directorio para guardar las variables a exportar
-expordir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS'
-# Directorio para con carpetas de fotografias
-imgdir = r'C:\Users\gerar\PycharmProjects'
+        # ------------------------------------------------
+        # ----- Directorios a utilizar -------------------
+        # ------------------------------------------------
 
-# De esta manera solo se tienen que solicitar estos directorios y se aclara que
-# las carpetas de fotografías se llaman TRAINFACE y TESTFACE
-# El nombre de las variables exportadas aún lo tengo de manera fija
+        # Se selecciona el archivo .xlsx dentro del repositorio
+        self.lbldir = r"C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx"
+        # Directorio para guardar las variables a exportar
+        self.expordir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS'
+        # Directorio para con carpetas de fotografias
+        self.imgdir = r'C:\Users\gerar\PycharmProjects'
 
-# ------------------------------------------------
-# ----- Rutina extracción pixeles-----------------
-# ------------------------------------------------
+        # De esta manera solo se tienen que solicitar estos directorios y se aclara que
+        # las carpetas de fotografías se llaman TRAINFACE y TESTFACE
+        # El nombre de las variables exportadas aún lo tengo de manera fija
 
-#Ahora se trabajará con el modelo 6 únicamente, cuando este listo sera el original nada mas
-if imglbl == 0:
+    # ------------------------------------------------
+    # ----- Rutina extracción pixeles-----------------
+    # ------------------------------------------------
 
-    if tsttrn == 0:
-        foldname = 'TRAINFACE'
-        xname = 'x_train6'
-    if tsttrn == 1:
-        foldname = 'TESTFACE'
-        xname = 'x_test6'
+    # Ahora se trabajará con el modelo 6 únicamente, cuando este listo será el original nada mas
 
-    tdir = os.path.join(imgdir, foldname)
-    xdir = os.path.join(expordir, xname)
+    def extracIMG(self, tsttrn):
 
-    xlist = os.listdir(tdir)
-    lenolist = int(len(np.array(xlist)))
-    x_t = np.zeros((lenolist, 180, 320, 3))
-    i = 0
+        tsttrn = int(tsttrn)
 
-    for filename in xlist:
-        # if filename.endswith('.jpg'): / Esto solo aplica si hay mas de un tipo de archivos
-        im = cv2.imread(os.path.join(tdir, filename))
-        imr = cv2.resize(im, (320, 180))
-        imr = cv2.cvtColor(imr, cv2.COLOR_BGR2RGB)
-        x_t[i] = imr
-        i = i + 1
+        if tsttrn == 0:
+            foldname = 'TRAINFACE'
+            xname = 'x_train6'
+        if tsttrn == 1:
+            foldname = 'TESTFACE'
+            xname = 'x_test6'
 
-    x_t = x_t.astype(int)
-    np.save(xdir, x_t)
+        tdir = os.path.join(self.imgdir, foldname)
+        xdir = os.path.join(self.expordir, xname)
 
+        xlist = os.listdir(tdir)
+        lenolist = int(len(np.array(xlist)))
+        x_t = np.zeros((lenolist, 180, 320, 3))
+        i = 0
 
-# ------------------------------------------------
-# ----- Rutina extracción etiquetas---------------
-# ------------------------------------------------
-if imglbl == 1:
+        for filename in xlist:
+            # if filename.endswith('.jpg'): / Esto solo aplica si hay mas de un tipo de archivos
+            im = cv2.imread(os.path.join(tdir, filename))
+            imr = cv2.resize(im, (320, 180))
+            imr = cv2.cvtColor(imr, cv2.COLOR_BGR2RGB)
+            x_t[i] = imr
+            i = i + 1
 
+        x_t = x_t.astype(int)
+        np.save(xdir, x_t)
 
-    # Las variables exportadas de etiquetas se guardan dependiento de la etiqueta
-    if tsttrn == 0:
-        sheet = 'traintags'
-        if lbl == 0:
-            col = 0
-            yname = 'y_train'
-        if lbl == 1:
-            col = 1
-            yname = 'y_train1'
-        if lbl == 2:
-            col = 2
-            yname = 'y_train2'
-        if lbl == 3:
-            col = 3
-            yname = 'y_train3'
-        if lbl == 4:
-            col = 4
-            yname = 'y_train4'
-        if lbl == 5:
-            col = 5
-            yname = 'y_train5'
-        if lbl == 6:
-            col = 6
-            yname = 'y_train6'
+    # ------------------------------------------------
+    # ----- Rutina extracción etiquetas---------------
+    # ------------------------------------------------
 
-    if tsttrn == 1:
-        sheet = 'testtags'
-        if lbl == 0:
-            col = 0
-            yname = 'y_test'
-        if lbl == 1:
-            col = 1
-            yname = 'y_test1'
-        if lbl == 2:
-            col = 2
-            yname = 'y_test2'
-        if lbl == 3:
-            col = 3
-            yname = 'y_test3'
-        if lbl == 4:
-            col = 4
-            yname = 'y_test4'
-        if lbl == 5:
-            col = 5
-            yname = 'y_test5'
-        if lbl == 6:
-            col = 6
-            yname = 'y_test6'
+    def extracLBL(self, tsttrn):
 
-    ydir = os.path.join(expordir, yname)
-    y_t = np.array(pd.read_excel(lbldir, sheet_name=sheet, index_col=col))
-    y_t = y_t.astype(int)
-    np.save(ydir, y_t)
+        tsttrn = int(tsttrn)
+
+        # Las variables exportadas de etiquetas se guardan dependiendo de la etiqueta
+        if tsttrn == 0:
+            sheet = 'traintags'
+            if self.nmodel == 0:
+                col = 0
+                yname = 'y_train'
+            if self.nmodel == 1:
+                col = 1
+                yname = 'y_train1'
+            if self.nmodel == 2:
+                col = 2
+                yname = 'y_train2'
+            if self.nmodel == 3:
+                col = 3
+                yname = 'y_train3'
+            if self.nmodel == 4:
+                col = 4
+                yname = 'y_train4'
+            if self.nmodel == 5:
+                col = 5
+                yname = 'y_train5'
+            if self.nmodel == 6:
+                col = 6
+                yname = 'y_train6'
+
+        if tsttrn == 1:
+            sheet = 'testtags'
+            if self.nmodel == 0:
+                col = 0
+                yname = 'y_test'
+            if self.nmodel == 1:
+                col = 1
+                yname = 'y_test1'
+            if self.nmodel == 2:
+                col = 2
+                yname = 'y_test2'
+            if self.nmodel == 3:
+                col = 3
+                yname = 'y_test3'
+            if self.nmodel == 4:
+                col = 4
+                yname = 'y_test4'
+            if self.nmodel == 5:
+                col = 5
+                yname = 'y_test5'
+            if self.nmodel == 6:
+                col = 6
+                yname = 'y_test6'
+
+        ydir = os.path.join(self.expordir, yname)
+        y_t = np.array(pd.read_excel(self.lbldir, sheet_name=sheet, index_col=col))
+        y_t = y_t.astype(int)
+        np.save(ydir, y_t)
