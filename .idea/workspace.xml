@@ -4,23 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Al fin funciona al 100 la interfaz">
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/Analysis-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/EXE-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/PKG-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/PYZ-00.pyz" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/PYZ-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/Tree-00.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/Tree-01.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/Tree-02.toc" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/base_library.zip" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/projectGUI.pkg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/warn-projectGUI.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build/projectGUI/xref-projectGUI.html" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Inclulir el gitignore">
       <change afterPath="$PROJECT_DIR$/projectGUI.exe" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projectGUI.spec" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CODIGOS_TESIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CODIGOS_TESIS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -315,13 +303,27 @@
       <option name="project" value="LOCAL" />
       <updated>1709535401976</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="Listo, funciona todo ya, hasta se creó un ejecutable para la interfaz">
+      <option name="closed" value="true" />
+      <created>1709539531414</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1709539531414</updated>
+    </task>
+    <task id="LOCAL-00030" summary="Inclulir el gitignore">
+      <option name="closed" value="true" />
+      <created>1709539942454</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1709539942454</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Se generan las matrices de etiquetas" />
-    <MESSAGE value="Se eliminan datos de exportación y se asignan a un nuevo directorio" />
     <MESSAGE value="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar" />
     <MESSAGE value="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora" />
     <MESSAGE value="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos" />
@@ -345,6 +347,8 @@
     <MESSAGE value="aun no se qeu pasa con turtle" />
     <MESSAGE value="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion" />
     <MESSAGE value="Al fin funciona al 100 la interfaz" />
-    <option name="LAST_COMMIT_MESSAGE" value="Al fin funciona al 100 la interfaz" />
+    <MESSAGE value="Listo, funciona todo ya, hasta se creó un ejecutable para la interfaz" />
+    <MESSAGE value="Inclulir el gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inclulir el gitignore" />
   </component>
 </project>
