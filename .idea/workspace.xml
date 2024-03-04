@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Había un problema con la lectura de columnas de excel, ya se solucionó">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -38,27 +37,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.__init__.executor": "Run",
-    "Python.complex_example.executor": "Run",
-    "Python.extractDATA.executor": "Run",
-    "Python.feedDATA.executor": "Run",
-    "Python.liveTEST.executor": "Run",
-    "Python.miscTEST.executor": "Run",
-    "Python.modelGENERATOR.executor": "Run",
-    "Python.photoGUI.executor": "Run",
-    "Python.projectGUI.executor": "Run",
-    "Python.savePHOTO.executor": "Run",
-    "Python.scrollable_frame_example.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/FaceMesh",
-    "settings.editor.selected.configurable": "preferences.editor.code.editing"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.complex_example.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extractDATA.executor&quot;: &quot;Run&quot;,
+    &quot;Python.feedDATA.executor&quot;: &quot;Run&quot;,
+    &quot;Python.liveTEST.executor&quot;: &quot;Run&quot;,
+    &quot;Python.miscTEST.executor&quot;: &quot;Run&quot;,
+    &quot;Python.modelGENERATOR.executor&quot;: &quot;Run&quot;,
+    &quot;Python.photoGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.projectGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.savePHOTO.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scrollable_frame_example.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gerar/PycharmProjects/FaceMesh&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor.code.editing&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -267,7 +266,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709529713526</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100">
+      <option name="closed" value="true" />
+      <created>1709531915244</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1709531915244</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -294,6 +301,7 @@
     <MESSAGE value="Se renombra el archivo con la interfaz" />
     <MESSAGE value="Lista la interfaz con la primera simulacion utilizando Turtle" />
     <MESSAGE value="Había un problema con la lectura de columnas de excel, ya se solucionó" />
-    <option name="LAST_COMMIT_MESSAGE" value="Había un problema con la lectura de columnas de excel, ya se solucionó" />
+    <MESSAGE value="Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100" />
   </component>
 </project>
