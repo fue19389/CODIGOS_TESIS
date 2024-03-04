@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Lista la interfaz con la primera simulacion utilizando Turtle">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Había un problema con la lectura de columnas de excel, ya se solucionó">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -261,7 +259,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709526747754</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Había un problema con la lectura de columnas de excel, ya se solucionó">
+      <option name="closed" value="true" />
+      <created>1709529713526</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1709529713526</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -287,6 +293,7 @@
     <MESSAGE value="Lista la interfaz completa, únicamente falta mejorar la simulación de prediccion, para una mejor visualización" />
     <MESSAGE value="Se renombra el archivo con la interfaz" />
     <MESSAGE value="Lista la interfaz con la primera simulacion utilizando Turtle" />
-    <option name="LAST_COMMIT_MESSAGE" value="Lista la interfaz con la primera simulacion utilizando Turtle" />
+    <MESSAGE value="Había un problema con la lectura de columnas de excel, ya se solucionó" />
+    <option name="LAST_COMMIT_MESSAGE" value="Había un problema con la lectura de columnas de excel, ya se solucionó" />
   </component>
 </project>

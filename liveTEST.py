@@ -30,7 +30,7 @@ class UseModel:
         # ------------------------------------------------------
         
         # Actualmente, se tienen modelos del 0 -> 6
-        self.n_model = 4
+        self.n_model = 6
         # -----------------------------------------------------
 
         # ------------------------------------------------
@@ -112,4 +112,5 @@ class UseModel:
             key = cv2.waitKey(30)
             if key == 27: # 13 = enter, 27 = esc
                 cv2.destroyAllWindows()
+                ttl.reset()
                 break
