@@ -88,11 +88,15 @@ class UseModel:
             y_predicted = self.ho_model.predict(np.array([imgRGB]), verbose=None)
             prediction = int(np.argmax(y_predicted))
 
+            print(prediction)
+
             if prediction == 0:
                 self.leo.forward(5)
                 self.leo.left(10)
             if prediction == 1:
-                pass
+                self.leo.forward(0)
+                self.leo.left(0)
+                self.leo.right(0)
             if prediction == 2:
                 self.leo.forward(5)
                 self.leo.right(10)

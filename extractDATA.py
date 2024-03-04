@@ -94,52 +94,52 @@ class GetModelData:
         if tsttrn == 0:
             sheet = 'traintags'
             if self.nmodel == 0:
-                col = 0
+                col = 'A'
                 yname = 'y_train'
             if self.nmodel == 1:
-                col = 1
+                col = 'B'
                 yname = 'y_train1'
             if self.nmodel == 2:
-                col = 2
+                col = 'C'
                 yname = 'y_train2'
             if self.nmodel == 3:
-                col = 3
+                col = 'D'
                 yname = 'y_train3'
             if self.nmodel == 4:
-                col = 4
+                col = 'E'
                 yname = 'y_train4'
             if self.nmodel == 5:
-                col = 5
+                col = 'F'
                 yname = 'y_train5'
             if self.nmodel == 6:
-                col = 6
+                col = 'G'
                 yname = 'y_train6'
 
         if tsttrn == 1:
             sheet = 'testtags'
             if self.nmodel == 0:
-                col = 0
+                col = 'A'
                 yname = 'y_test'
             if self.nmodel == 1:
-                col = 1
+                col = 'B'
                 yname = 'y_test1'
             if self.nmodel == 2:
-                col = 2
+                col = 'C'
                 yname = 'y_test2'
             if self.nmodel == 3:
-                col = 3
+                col = 'D'
                 yname = 'y_test3'
             if self.nmodel == 4:
-                col = 4
+                col = 'E'
                 yname = 'y_test4'
             if self.nmodel == 5:
-                col = 5
+                col = 'F'
                 yname = 'y_test5'
             if self.nmodel == 6:
-                col = 6
+                col = 'G'
                 yname = 'y_test6'
 
         ydir = os.path.join(self.expordir, yname)
-        y_t = np.array(pd.read_excel(self.lbldir, sheet_name=sheet, index_col=col))
+        y_t = np.array(pd.read_excel(self.lbldir, sheet_name=sheet, usecols=col))
         y_t = y_t.astype(int)
         np.save(ydir, y_t)

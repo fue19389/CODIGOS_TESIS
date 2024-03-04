@@ -4,8 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se renombra el archivo con la interfaz">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Lista la interfaz con la primera simulacion utilizando Turtle">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
     </list>
@@ -251,7 +253,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709524373160</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Lista la interfaz con la primera simulacion utilizando Turtle">
+      <option name="closed" value="true" />
+      <created>1709526747754</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1709526747754</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -276,6 +286,7 @@
     <MESSAGE value="Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset" />
     <MESSAGE value="Lista la interfaz completa, únicamente falta mejorar la simulación de prediccion, para una mejor visualización" />
     <MESSAGE value="Se renombra el archivo con la interfaz" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se renombra el archivo con la interfaz" />
+    <MESSAGE value="Lista la interfaz con la primera simulacion utilizando Turtle" />
+    <option name="LAST_COMMIT_MESSAGE" value="Lista la interfaz con la primera simulacion utilizando Turtle" />
   </component>
 </project>
