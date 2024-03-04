@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="aun no se qeu pasa con turtle">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -282,7 +283,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709532423348</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion">
+      <option name="closed" value="true" />
+      <created>1709534193137</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1709534193137</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -311,6 +320,7 @@
     <MESSAGE value="Había un problema con la lectura de columnas de excel, ya se solucionó" />
     <MESSAGE value="Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100" />
     <MESSAGE value="aun no se qeu pasa con turtle" />
-    <option name="LAST_COMMIT_MESSAGE" value="aun no se qeu pasa con turtle" />
+    <MESSAGE value="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion" />
   </component>
 </project>

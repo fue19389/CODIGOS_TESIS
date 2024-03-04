@@ -137,9 +137,14 @@ class pGUI:
         # ----------------------------- Configuración de Tab: Prueba en vivo -------------------------------------------
         # --------------------------------------------------------------------------------------------------------------
 
-        self.btn_train = ctk.CTkButton(self.tabview.tab('Prueba en vivo'), text='Ejecutar', font=('aptos', 30),
-                                       width=350, height=150, command=self.model_use)
-        self.btn_train.pack(padx=50, pady=(175, 0))
+        self.btn_run = ctk.CTkButton(self.tabview.tab('Prueba en vivo'), text='Ejecutar', font=('aptos', 30),
+                                       width=350, height=150, command=self.turnon)
+        self.btn_run.pack(padx=50, pady=(50, 0))
+
+        self.btn_stop = ctk.CTkButton(self.tabview.tab('Prueba en vivo'), text='Detener', font=('aptos', 30),
+                                       width=350, height=150, command=self.turnoff)
+        self.btn_stop.pack(padx=50, pady=(50, 0))
+
         self.label3 = ctk.CTkLabel(self.tabview.tab('Prueba en vivo'), text='Para terminar presione: Esc', font=('aptos', 22))
         self.label3.pack(pady=20, padx=20)
 
@@ -198,8 +203,11 @@ class pGUI:
     # ----------------------------- Funcion para prueba en vivo  ---------------------------------------------------
     # --------------------------------------------------------------------------------------------------------------
 
-    def model_use(self):
-        self.use_m.start()
+    def turnon(self):
+        self.use_m.onoff(1)
+
+    def turnoff(self):
+        self.use_m.onoff(0)
 
     # --------------------------------------------------------------------------------------------------------------
     # ----------------------------- Funcion de cerrardo  -----------------------------------------------------------

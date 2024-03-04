@@ -66,21 +66,22 @@ class UseModel:
         self.ho_model = tf.keras.models.load_model(self.ho_model)
 
          
-    def start(self):
+    def onoff(self, yn):
 
         # -----------------------------------------------------
         # ---------Inicialización de la Webcam---- ------------
         # -----------------------------------------------------
 
+        yn = int(yn)
         cap = cv2.VideoCapture(0)
         ttl.TurtleScreen._RUNNING = True
         self.leo = ttl.Turtle()
         
         # -----------------------------------------------------
-        # ----Visualizar el predict del modelo LIVE------------
+        # ----Visualizar movimiento de turtle -----------------
         # -----------------------------------------------------
         
-        while True:
+        while yn == 1:
         
             # Saving captured image and transforming from BGR TO RGB
         
@@ -106,16 +107,15 @@ class UseModel:
                 self.leo.right(10)
             if prediction == 3:
                 self.leo.forward(5)
-
-
-            # print(prediction)
         
             # Show the complete image
             cv2.imshow('Image', img)
         
-            key = cv2.waitKey(30)
-            if key == 27: # 13 = enter, 27 = esc
-                cv2.destroyAllWindows()
-                self.leo.clear()
-                self.leo.reset()
-                break
+            # key = cv2.waitKey(5)
+            # if key == 27: # 13 = enter, 27 = esc
+
+            cv2.waitKey()
+        if yn == 0:
+            cv2.destroyAllWindows()
+            ttl.done()
+
