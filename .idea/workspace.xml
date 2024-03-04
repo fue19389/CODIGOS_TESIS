@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora solo falta apgar la cámara al terminar la prueba en vivo">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Finalmente funciona">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,27 +41,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.complex_example.executor&quot;: &quot;Run&quot;,
-    &quot;Python.extractDATA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.feedDATA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.liveTEST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.miscTEST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.modelGENERATOR.executor&quot;: &quot;Run&quot;,
-    &quot;Python.photoGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.projectGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.savePHOTO.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scrollable_frame_example.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gerar/PycharmProjects/FaceMesh&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.__init__.executor": "Run",
+    "Python.complex_example.executor": "Run",
+    "Python.extractDATA.executor": "Run",
+    "Python.feedDATA.executor": "Run",
+    "Python.liveTEST.executor": "Run",
+    "Python.miscTEST.executor": "Run",
+    "Python.modelGENERATOR.executor": "Run",
+    "Python.photoGUI.executor": "Run",
+    "Python.projectGUI.executor": "Run",
+    "Python.savePHOTO.executor": "Run",
+    "Python.scrollable_frame_example.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -374,12 +374,19 @@
       <option name="project" value="LOCAL" />
       <updated>1709545784948</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Finalmente funciona">
+      <option name="closed" value="true" />
+      <created>1709546186658</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1709546186658</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos" />
     <MESSAGE value="Ya se guardan las fotos como se debe, ahora faltan las labels" />
     <MESSAGE value="El código para poder capturar y guardar está listo, solo falta orientarlo a objetos" />
     <MESSAGE value="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY" />
@@ -404,6 +411,7 @@
     <MESSAGE value="Ahora ya funciona todo, solo se cambió de lugar el ejecutable" />
     <MESSAGE value="Aún hacia falta eliminar un waitKey" />
     <MESSAGE value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
+    <MESSAGE value="Finalmente funciona" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finalmente funciona" />
   </component>
 </project>

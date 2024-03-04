@@ -113,8 +113,9 @@ class UseModel:
 
     def stop(self):
         self.cap.release()
-        cv2.destroyAllWindows()
         ttl.bye()
+        cv2.destroyAllWindows()
+
 
 
 

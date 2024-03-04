@@ -44,7 +44,6 @@ class ModelFeeder:
     def takePHOTO(self, hpos):
 
         hpos = int(hpos)
-
         # Take photo
         cap = cv2.VideoCapture(0)
         while True:
