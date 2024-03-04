@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Inclulir el gitignore">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Inclulir el gitignore ahora si">
       <change afterPath="$PROJECT_DIR$/projectGUI.exe" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/projectGUI.spec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.venv/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.venv/.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +59,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/gerar/PycharmProjects/FaceMesh",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
   <component name="SharedIndexes">
@@ -325,12 +326,27 @@
       <option name="project" value="LOCAL" />
       <updated>1709539993243</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Inclulir el gitignore ahora si">
+      <option name="closed" value="true" />
+      <created>1709540173838</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1709540173838</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Inclulir el gitignore ahora si">
+      <option name="closed" value="true" />
+      <created>1709540262979</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1709540262979</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar" />
     <MESSAGE value="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora" />
     <MESSAGE value="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos" />
     <MESSAGE value="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls" />
@@ -355,6 +371,7 @@
     <MESSAGE value="Al fin funciona al 100 la interfaz" />
     <MESSAGE value="Listo, funciona todo ya, hasta se creó un ejecutable para la interfaz" />
     <MESSAGE value="Inclulir el gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inclulir el gitignore" />
+    <MESSAGE value="Inclulir el gitignore ahora si" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inclulir el gitignore ahora si" />
   </component>
 </project>
