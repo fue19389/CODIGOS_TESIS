@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-    </list>
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora ya funciona todo, solo se cambió de lugar el ejecutable" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -350,12 +346,19 @@
       <option name="project" value="LOCAL" />
       <updated>1709540312617</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Ahora ya funciona todo, solo se cambió de lugar el ejecutable">
+      <option name="closed" value="true" />
+      <created>1709541351943</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1709541351943</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora" />
     <MESSAGE value="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos" />
     <MESSAGE value="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls" />
     <MESSAGE value="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos" />
@@ -380,6 +383,7 @@
     <MESSAGE value="Listo, funciona todo ya, hasta se creó un ejecutable para la interfaz" />
     <MESSAGE value="Inclulir el gitignore" />
     <MESSAGE value="Inclulir el gitignore ahora si" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inclulir el gitignore ahora si" />
+    <MESSAGE value="Ahora ya funciona todo, solo se cambió de lugar el ejecutable" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora ya funciona todo, solo se cambió de lugar el ejecutable" />
   </component>
 </project>

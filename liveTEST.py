@@ -112,7 +112,7 @@ class UseModel:
             # key = cv2.waitKey(5)
             # if key == 27: # 13 = enter, 27 = esc
 
-            cv2.waitKey()
+            # cv2.waitKey()
         if yn == 0:
             cv2.destroyAllWindows()
             ttl.done()
