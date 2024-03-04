@@ -22,6 +22,7 @@ from tensorflow import keras
 from tensorflow.keras.optimizers import SGD
 import matplotlib.pyplot as plt
 
+
 class UseModel:
 
     def __init__(self):
@@ -31,6 +32,8 @@ class UseModel:
         
         # Actualmente, se tienen modelos del 0 -> 6
         self.n_model = 6
+
+
         # -----------------------------------------------------
 
         # ------------------------------------------------
@@ -70,6 +73,7 @@ class UseModel:
         # -----------------------------------------------------
 
         cap = cv2.VideoCapture(0)
+        ttl.TurtleScreen._RUNNING = True
         self.leo = ttl.Turtle()
         
         # -----------------------------------------------------
@@ -112,4 +116,6 @@ class UseModel:
             key = cv2.waitKey(30)
             if key == 27: # 13 = enter, 27 = esc
                 cv2.destroyAllWindows()
+                self.leo.clear()
+                self.leo.reset()
                 break
