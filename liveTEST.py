@@ -16,6 +16,7 @@
 import os
 import cv2
 import numpy as np
+import turtle as ttl
 import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras.optimizers import SGD
@@ -69,6 +70,7 @@ class UseModel:
         # -----------------------------------------------------
 
         cap = cv2.VideoCapture(0)
+        self.leo = ttl.Turtle()
         
         # -----------------------------------------------------
         # ----Visualizar el predict del modelo LIVE------------
@@ -84,8 +86,21 @@ class UseModel:
             imgRGB = imgRGB.astype(int)/255
         
             y_predicted = self.ho_model.predict(np.array([imgRGB]), verbose=None)
-            prediction = np.argmax(y_predicted)
-            print(prediction)
+            prediction = int(np.argmax(y_predicted))
+
+            if prediction == 0:
+                self.leo.forward(5)
+                self.leo.left(10)
+            if prediction == 1:
+                pass
+            if prediction == 2:
+                self.leo.forward(5)
+                self.leo.right(10)
+            if prediction == 3:
+                self.leo.forward(5)
+
+
+            # print(prediction)
         
             # Show the complete image
             cv2.imshow('Image', img)
