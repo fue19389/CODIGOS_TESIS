@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Está listo el esqueleto (funciones) y el cascarón (interfaz), solo falta unirlo.&#10;&#10;PS: Aún falta una simulación simple de movimiento">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -229,7 +229,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709456266692</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset">
+      <option name="closed" value="true" />
+      <created>1709516240595</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1709516240595</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -251,6 +259,7 @@
     <MESSAGE value="Ahora también está listo el código de las pruebas en vivo, de la forma OOP" />
     <MESSAGE value="Inicio de pruebas para la GUI" />
     <MESSAGE value="Está listo el esqueleto (funciones) y el cascarón (interfaz), solo falta unirlo.&#10;&#10;PS: Aún falta una simulación simple de movimiento" />
-    <option name="LAST_COMMIT_MESSAGE" value="Está listo el esqueleto (funciones) y el cascarón (interfaz), solo falta unirlo.&#10;&#10;PS: Aún falta una simulación simple de movimiento" />
+    <MESSAGE value="Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset" />
   </component>
 </project>

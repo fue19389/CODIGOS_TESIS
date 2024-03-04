@@ -53,6 +53,7 @@ class ModelFeeder:
             cv2.imshow('Image', frame)
             key = cv2.waitKey(30)
             if key == 13:
+                cv2.destroyAllWindows()
                 break
 
         if key == 13:  # 13 = enter, 27 = esc
@@ -159,19 +160,32 @@ class ModelFeeder:
         # Selección de carga a test o train, con su respectiva columna de inicio
         if tsttrn == 0:
             shtnm = 'traintags'
+            strtrw = 2083
             dirtrgt = self.dirtrain
         elif tsttrn == 1:
-            shtnm = 'testags'
+            shtnm = 'testtags'
+            strtrw = 745
             dirtrgt = self.dirtest
         else:
             pass
 
         # Borrar archivos
-        list = os.listdir(dirtrgt)
-        for file in list:
+        idx = 0
+        filelist = os.listdir(dirtrgt)
+        for file in filelist:
             if file.startswith('z_'):
                 path = os.path.join(dirtrgt, file)
                 os.remove(path)
+                idx += 1
+
+
+        # Borrar etiquetas del excel
+        lbl = [None]*idx
+        df = pd.DataFrame(list(zip(lbl)))
+        with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
+            df.to_excel(writer, sheet_name=shtnm, header=False, index=False, startcol=self.nmodel, startrow=strtrw)
+
+
 
 
 

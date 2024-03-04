@@ -42,10 +42,15 @@ class ProjectGUI:
 
 
     def __init__(self):
+
+        # --------------------------------------------------------------------------------------------------------------
+        # ----------------------------- Configuración Inicial ----------------------------------------------------------
+        # --------------------------------------------------------------------------------------------------------------
+
+        # Se crea la interfaz general
         ctk.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
         ctk.set_default_color_theme("green")  # Themes: "blue" (standard), "green", "dark-blue"
         self.root = ctk.CTk()
-
         self.root.geometry('1000x625')
         self.root.title('HO GUI')
 
@@ -60,13 +65,14 @@ class ProjectGUI:
         self.feed = fD.ModelFeeder()
         self.ppr = eD.GetModelData()
         self.train = mG.ModelGenerate()
+        self.use_m = lT.UseModel()
 
         # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración de Tab: Captura de fotografías -----------------------------------
         # --------------------------------------------------------------------------------------------------------------
 
         self.label1 = ctk.CTkLabel(self.tabview.tab('Captura de fotografías'), \
-                                   text='1. Posicione su cabeza según la dirección del botón\n 2. Presione el botón\n 3. Presione Enter para capturar ', \
+                                   text='1. Escoja la posición de la cabeza\n 2. Presione el botón\n 3. Presione: Enter ', \
                                    font=('aptos', 26))
         self.label1.pack(padx=20, pady=45)
         self.buttonFrame = ctk.CTkFrame(self.tabview.tab('Captura de fotografías'))
@@ -111,16 +117,16 @@ class ProjectGUI:
         self.optionmenu_1.pack(padx=20, pady=20)
         self.buttonFrame2 = ctk.CTkFrame(self.tabview.tab('Manejo de datos'))
 
-        self.btn_prepare = ctk.CTkButton(self.buttonFrame2, text='Preparar', font=('aptos', 18), width=250, height=75, command=self.prepare)
-        self.btn_prepare.grid(row=0, column=0, padx=10, pady=10)
+        self.btn_load = ctk.CTkButton(self.buttonFrame2, text='Cargar Serie', font=('aptos', 18), width=250, height=75, command=self.load)
+        self.btn_load.grid(row=0, column=0, padx=10, pady=10)
 
-        self.btn_load = ctk.CTkButton(self.buttonFrame2, text='Cargar', font=('aptos', 18), width=250, height=75, command=self.load)
-        self.btn_load.grid(row=0, column=1, padx=10, pady=10)
+        self.btn_prepare = ctk.CTkButton(self.buttonFrame2, text='Preparar Serie', font=('aptos', 18), width=250, height=75, command=self.prepare)
+        self.btn_prepare.grid(row=0, column=1, padx=10, pady=10)
 
-        self.btn_erase = ctk.CTkButton(self.buttonFrame2, text='Borrar', font=('aptos', 18), width=250, height=75, command=self.erase)
+        self.btn_erase = ctk.CTkButton(self.buttonFrame2, text='Borrar Serie', font=('aptos', 18), width=250, height=75, command=self.erase)
         self.btn_erase.grid(row=1, column=0, padx=10, pady=10)
 
-        self.btn_reset = ctk.CTkButton(self.buttonFrame2, text='Resetear', font=('aptos', 18), width=250, height=75, command=self.reset)
+        self.btn_reset = ctk.CTkButton(self.buttonFrame2, text='Resetear Modelo', font=('aptos', 18), width=250, height=75, command=self.reset)
         self.btn_reset.grid(row=1, column=1, padx=10, pady=10)
 
         self.buttonFrame2.pack(pady=20)
@@ -132,8 +138,16 @@ class ProjectGUI:
         # --------------------------------------------------------------------------------------------------------------
 
         self.btn_train = ctk.CTkButton(self.tabview.tab('Prueba en vivo'), text='Ejecutar', font=('aptos', 30),
-                                       width=350, height=150)
+                                       width=350, height=150, command=self.model_use)
         self.btn_train.pack(padx=50, pady=(175, 0))
+        self.label3 = ctk.CTkLabel(self.tabview.tab('Prueba en vivo'), text='Para terminar presione: Esc', font=('aptos', 22))
+        self.label3.pack(pady=20, padx=20)
+
+        # --------------------------------------------------------------------------------------------------------------
+        # ----------------------------- Configuración final  -----------------------------------------------------------
+        # --------------------------------------------------------------------------------------------------------------
+
+        self.root.protocol('WM_DELETE_WINDOW', self.on_closing)
         self.root.mainloop()
 
     # --------------------------------------------------------------------------------------------------------------
@@ -160,20 +174,41 @@ class ProjectGUI:
             self.ppr.prepareD(0)
         elif self.optionmenu_1.get() == 'Validación':
             self.ppr.prepareD(1)
+        messagebox.showinfo(message='Listo')
     def load(self):
         if self.optionmenu_1.get() == 'Entrenamiento':
             self.feed.loadD(0)
         elif self.optionmenu_1.get() == 'Validación':
             self.feed.loadD(1)
+        messagebox.showinfo(message='Listo')
     def reset(self):
         if self.optionmenu_1.get() == 'Entrenamiento':
             self.feed.resetMaster(0)
         elif self.optionmenu_1.get() == 'Validación':
             self.feed.resetMaster(1)
+        messagebox.showinfo(message='Listo')
     def erase(self):
         self.feed.eraseSERIES()
+        messagebox.showinfo(message='Listo')
     def trainM(self):
         self.train.TrainModel()
+        messagebox.showinfo(message='Listo')
+
+    # --------------------------------------------------------------------------------------------------------------
+    # ----------------------------- Funcion para prueba en vivo  ---------------------------------------------------
+    # --------------------------------------------------------------------------------------------------------------
+
+    def model_use(self):
+        self.use_m.start()
+
+    # --------------------------------------------------------------------------------------------------------------
+    # ----------------------------- Funcion de cerrardo  -----------------------------------------------------------
+    # --------------------------------------------------------------------------------------------------------------
+
+    def on_closing(self):
+        self.feed.eraseSERIES()
+        self.root.destroy()
+
 
 
 
