@@ -52,7 +52,7 @@ class GetModelData:
 
     # Ahora se trabajará con el modelo 6 únicamente, cuando este listo será el original nada mas
 
-    def prepareIMG(self, tsttrn):
+    def prepareD(self, tsttrn):
 
         tsttrn = int(tsttrn)
 
@@ -86,9 +86,9 @@ class GetModelData:
     # ----- Rutina extracción etiquetas---------------
     # ------------------------------------------------
 
-    def prepareLBL(self, tsttrn):
+    # def prepareLBL(self, tsttrn):
 
-        tsttrn = int(tsttrn)
+        # tsttrn = int(tsttrn)
 
         # Las variables exportadas de etiquetas se guardan dependiendo de la etiqueta
         if tsttrn == 0:

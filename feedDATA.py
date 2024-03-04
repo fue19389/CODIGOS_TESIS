@@ -57,14 +57,16 @@ class ModelFeeder:
 
         if key == 13:  # 13 = enter, 27 = esc
 
-            if hpos == 1 or hpos == 4 or hpos == 7:
+            if hpos == 0:
                 self.pfxname = 'z_00_'
-            if hpos == 2 or hpos == 5:
+            elif hpos == 1:
                 self.pfxname = 'z_01_'
-            if hpos == 3 or hpos == 6 or hpos == 9:
+            elif hpos == 2:
                 self.pfxname = 'z_02_'
-            if hpos == 8:
+            elif hpos == 3:
                 self.pfxname = 'z_03_'
+            else:
+                pass
 
             # ------------------------------------------------
             # ----- Tomar, guardar y nombrar fotografía ------
@@ -98,12 +100,12 @@ class ModelFeeder:
         tsttrn = int(tsttrn)
 
         # Selección de carga a test o train, con su respectiva columna de inicio
-        if tsttrn == 1:
+        if tsttrn == 0:
             shtnm = 'traintags'
             strtrw = 2083
             dirtrgt = self.dirtrain
-        elif tsttrn == 2:
-            shtnm = 'testags'
+        elif tsttrn == 1:
+            shtnm = 'testtags'
             strtrw = 745
             dirtrgt = self.dirtest
         else:
@@ -140,7 +142,7 @@ class ModelFeeder:
     # ----- Borrar fotos de directorio temp-----------
     # ------------------------------------------------
 
-    def eraseD(self):
+    def eraseSERIES(self):
         # Borrar archivos
         holdlist = os.listdir(self.dirhold)
 
@@ -152,13 +154,24 @@ class ModelFeeder:
     # ----- Borrar fotos de directorio temp-----------
     # ------------------------------------------------
 
-    def resetM(self):
-        # Borrar archivos
-        trainlist = os.listdir(self.dirtrain)
+    def resetMaster(self, tsttrn):
 
-        for file in trainlist:
-            path = os.path.join(self.dirtrain, file)
-            os.remove(path)
+        # Selección de carga a test o train, con su respectiva columna de inicio
+        if tsttrn == 0:
+            shtnm = 'traintags'
+            dirtrgt = self.dirtrain
+        elif tsttrn == 1:
+            shtnm = 'testags'
+            dirtrgt = self.dirtest
+        else:
+            pass
+
+        # Borrar archivos
+        list = os.listdir(dirtrgt)
+        for file in list:
+            if file.startswith('z_'):
+                path = os.path.join(dirtrgt, file)
+                os.remove(path)
 
 
 

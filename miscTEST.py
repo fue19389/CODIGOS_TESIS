@@ -40,6 +40,7 @@ from tkinter import messagebox
 
 class ProjectGUI:
 
+
     def __init__(self):
         ctk.set_appearance_mode("System")  # Modes: "System" (standard), "Dark", "Light"
         ctk.set_default_color_theme("green")  # Themes: "blue" (standard), "green", "dark-blue"
@@ -55,6 +56,11 @@ class ProjectGUI:
         self.tabview.add('Prueba en vivo')
         self.tabview.pack()
 
+        # Inicialización de librerías personales
+        self.feed = fD.ModelFeeder()
+        self.ppr = eD.GetModelData()
+        self.train = mG.ModelGenerate()
+
         # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración de Tab: Captura de fotografías -----------------------------------
         # --------------------------------------------------------------------------------------------------------------
@@ -65,31 +71,31 @@ class ProjectGUI:
         self.label1.pack(padx=20, pady=45)
         self.buttonFrame = ctk.CTkFrame(self.tabview.tab('Captura de fotografías'))
 
-        self.btn1 = ctk.CTkButton(self.buttonFrame, text='IZQ-UP', font=('aptos', 18), width=250, height=75)
+        self.btn1 = ctk.CTkButton(self.buttonFrame, text='IZQ-UP', font=('aptos', 18), width=250, height=75, command=self.actL0)
         self.btn1.grid(row=0, column=0, padx=10, pady=10)
 
-        self.btn2 = ctk.CTkButton(self.buttonFrame, text='UP', font=('aptos', 18), width=250, height=75)
+        self.btn2 = ctk.CTkButton(self.buttonFrame, text='UP', font=('aptos', 18), width=250, height=75, command=self.actL3)
         self.btn2.grid(row=0, column=1, padx=10, pady=10)
 
-        self.btn3 = ctk.CTkButton(self.buttonFrame, text='DER-UP', font=('aptos', 18), width=250, height=75)
+        self.btn3 = ctk.CTkButton(self.buttonFrame, text='DER-UP', font=('aptos', 18), width=250, height=75, command=self.actL2)
         self.btn3.grid(row=0, column=2, padx=10, pady=10)
 
-        self.btn4 = ctk.CTkButton(self.buttonFrame, text='IZQ', font=('aptos', 18), width=250, height=75)
+        self.btn4 = ctk.CTkButton(self.buttonFrame, text='IZQ', font=('aptos', 18), width=250, height=75, command=self.actL0)
         self.btn4.grid(row=1, column=0, padx=10, pady=10)
 
-        self.btn5 = ctk.CTkButton(self.buttonFrame, text='FRONT', font=('aptos', 18), width=250, height=75)
+        self.btn5 = ctk.CTkButton(self.buttonFrame, text='FRONT', font=('aptos', 18), width=250, height=75, command=self.actL1)
         self.btn5.grid(row=1, column=1, padx=10, pady=10)
 
-        self.btn6 = ctk.CTkButton(self.buttonFrame, text='DER', font=('aptos', 18), width=250, height=75)
+        self.btn6 = ctk.CTkButton(self.buttonFrame, text='DER', font=('aptos', 18), width=250, height=75, command=self.actL2)
         self.btn6.grid(row=1, column=2, padx=10, pady=10)
 
-        self.btn7 = ctk.CTkButton(self.buttonFrame, text='IZQ-DOWN', font=('aptos', 18), width=250, height=75)
+        self.btn7 = ctk.CTkButton(self.buttonFrame, text='IZQ-DOWN', font=('aptos', 18), width=250, height=75, command=self.actL0)
         self.btn7.grid(row=2, column=0, padx=10, pady=10)
 
-        self.btn8 = ctk.CTkButton(self.buttonFrame, text='DOWN', font=('aptos', 18), width=250, height=75)
+        self.btn8 = ctk.CTkButton(self.buttonFrame, text='DOWN', font=('aptos', 18), width=250, height=75, command=self.actL1)
         self.btn8.grid(row=2, column=1, padx=10, pady=10)
 
-        self.btn9 = ctk.CTkButton(self.buttonFrame, text='DER-DOWN', font=('aptos', 18), width=250, height=75)
+        self.btn9 = ctk.CTkButton(self.buttonFrame, text='DER-DOWN', font=('aptos', 18), width=250, height=75, command=self.actL2)
         self.btn9.grid(row=2, column=2, padx=10, pady=10)
 
         self.buttonFrame.pack()
@@ -105,30 +111,70 @@ class ProjectGUI:
         self.optionmenu_1.pack(padx=20, pady=20)
         self.buttonFrame2 = ctk.CTkFrame(self.tabview.tab('Manejo de datos'))
 
-        self.btn_prepare = ctk.CTkButton(self.buttonFrame2, text='Preparar', font=('aptos', 18), width=250, height=75)
+        self.btn_prepare = ctk.CTkButton(self.buttonFrame2, text='Preparar', font=('aptos', 18), width=250, height=75, command=self.prepare)
         self.btn_prepare.grid(row=0, column=0, padx=10, pady=10)
 
-        self.btn_load = ctk.CTkButton(self.buttonFrame2, text='Cargar', font=('aptos', 18), width=250, height=75)
+        self.btn_load = ctk.CTkButton(self.buttonFrame2, text='Cargar', font=('aptos', 18), width=250, height=75, command=self.load)
         self.btn_load.grid(row=0, column=1, padx=10, pady=10)
 
-        self.btn_erase = ctk.CTkButton(self.buttonFrame2, text='Borrar', font=('aptos', 18), width=250, height=75)
+        self.btn_erase = ctk.CTkButton(self.buttonFrame2, text='Borrar', font=('aptos', 18), width=250, height=75, command=self.erase)
         self.btn_erase.grid(row=1, column=0, padx=10, pady=10)
 
-        self.btn_reset = ctk.CTkButton(self.buttonFrame2, text='Resetear', font=('aptos', 18), width=250, height=75)
+        self.btn_reset = ctk.CTkButton(self.buttonFrame2, text='Resetear', font=('aptos', 18), width=250, height=75, command=self.reset)
         self.btn_reset.grid(row=1, column=1, padx=10, pady=10)
 
         self.buttonFrame2.pack(pady=20)
 
-        self.btn_train = ctk.CTkButton(self.tabview.tab('Manejo de datos'), text='Entrenar modelo', font=('aptos', 18), width=250, height=75)
+        self.btn_train = ctk.CTkButton(self.tabview.tab('Manejo de datos'), text='Entrenar modelo', font=('aptos', 18), width=250, height=75, command=self.trainM)
         self.btn_train.pack(padx=10, pady=10)
         # --------------------------------------------------------------------------------------------------------------
-        # ----------------------------- Configuración de Tab: Prueba en vivo -----------------------------------
+        # ----------------------------- Configuración de Tab: Prueba en vivo -------------------------------------------
         # --------------------------------------------------------------------------------------------------------------
 
         self.btn_train = ctk.CTkButton(self.tabview.tab('Prueba en vivo'), text='Ejecutar', font=('aptos', 30),
                                        width=350, height=150)
         self.btn_train.pack(padx=50, pady=(175, 0))
         self.root.mainloop()
+
+    # --------------------------------------------------------------------------------------------------------------
+    # ----------------------------- Funciones de botones para fotos ------------------------------------------------
+    # --------------------------------------------------------------------------------------------------------------
+    def actL0(self):
+        self.feed.takePHOTO(0)
+
+    def actL1(self):
+        self.feed.takePHOTO(1)
+
+    def actL2(self):
+        self.feed.takePHOTO(2)
+
+    def actL3(self):
+        self.feed.takePHOTO(3)
+
+    # --------------------------------------------------------------------------------------------------------------
+    # ----------------------------- Funciones para manejo de datos  ------------------------------------------------
+    # --------------------------------------------------------------------------------------------------------------
+
+    def prepare(self):
+        if self.optionmenu_1.get() == 'Entrenamiento':
+            self.ppr.prepareD(0)
+        elif self.optionmenu_1.get() == 'Validación':
+            self.ppr.prepareD(1)
+    def load(self):
+        if self.optionmenu_1.get() == 'Entrenamiento':
+            self.feed.loadD(0)
+        elif self.optionmenu_1.get() == 'Validación':
+            self.feed.loadD(1)
+    def reset(self):
+        if self.optionmenu_1.get() == 'Entrenamiento':
+            self.feed.resetMaster(0)
+        elif self.optionmenu_1.get() == 'Validación':
+            self.feed.resetMaster(1)
+    def erase(self):
+        self.feed.eraseSERIES()
+    def trainM(self):
+        self.train.TrainModel()
+
 
 
 ProjectGUI()
