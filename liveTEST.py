@@ -66,14 +66,13 @@ class UseModel:
         self.ho_model = tf.keras.models.load_model(self.ho_model)
 
          
-    def onoff(self, yn):
+    def on(self):
 
         # -----------------------------------------------------
         # ---------Inicialización de la Webcam---- ------------
         # -----------------------------------------------------
 
-        yn = int(yn)
-        cap = cv2.VideoCapture(0)
+        self.cap = cv2.VideoCapture(0)
         ttl.TurtleScreen._RUNNING = True
         self.leo = ttl.Turtle()
         
@@ -85,7 +84,7 @@ class UseModel:
         
             # Saving captured image and transforming from BGR TO RGB
 
-            _, img = cap.read()
+            _, img = self.cap.read()
             imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             imgRGB = cv2.resize(imgRGB, (320, 180))
             imgRGB = imgRGB.astype(int)/255
@@ -112,11 +111,10 @@ class UseModel:
             # key = cv2.waitKey(5)
             # if key == 27: # 13 = enter, 27 = esc
 
-            # cv2.waitKey()
-            if yn == 0:
-                cv2.destroyAllWindows()
-                cap.release()
-                ttl.bye()
-                break
+    def stop(self):
+        self.cap.release()
+        cv2.destroyAllWindows()
+        ttl.bye()
+
 
 

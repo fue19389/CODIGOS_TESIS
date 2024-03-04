@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Aún hacia falta eliminar un waitKey">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora solo falta apgar la cámara al terminar la prueba en vivo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -366,12 +366,19 @@
       <option name="project" value="LOCAL" />
       <updated>1709543540004</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Ahora solo falta apgar la cámara al terminar la prueba en vivo">
+      <option name="closed" value="true" />
+      <created>1709545784948</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1709545784948</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls" />
     <MESSAGE value="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos" />
     <MESSAGE value="Ya se guardan las fotos como se debe, ahora faltan las labels" />
     <MESSAGE value="El código para poder capturar y guardar está listo, solo falta orientarlo a objetos" />
@@ -396,6 +403,7 @@
     <MESSAGE value="Inclulir el gitignore ahora si" />
     <MESSAGE value="Ahora ya funciona todo, solo se cambió de lugar el ejecutable" />
     <MESSAGE value="Aún hacia falta eliminar un waitKey" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aún hacia falta eliminar un waitKey" />
+    <MESSAGE value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
   </component>
 </project>
