@@ -4,10 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Al fin funciona al 100 la interfaz">
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/Analysis-00.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/EXE-00.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/PKG-00.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/PYZ-00.pyz" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/PYZ-00.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/Tree-00.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/Tree-01.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/Tree-02.toc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/base_library.zip" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/projectGUI.pkg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/warn-projectGUI.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/projectGUI/xref-projectGUI.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projectGUI.exe" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/projectGUI.spec" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CODIGOS_TESIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CODIGOS_TESIS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,6 +40,9 @@
   <component name="GithubDefaultAccount">
     <option name="defaultAccountId" value="ffa3a7ec-c3fd-4747-b35d-85710e814352" />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/projectGUI.py" root0="FORCE_HIGHLIGHTING" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 5
 }</component>
@@ -38,27 +54,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.complex_example.executor&quot;: &quot;Run&quot;,
-    &quot;Python.extractDATA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.feedDATA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.liveTEST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.miscTEST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.modelGENERATOR.executor&quot;: &quot;Run&quot;,
-    &quot;Python.photoGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.projectGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.savePHOTO.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scrollable_frame_example.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gerar/PycharmProjects/FaceMesh&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor.code.editing&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.__init__.executor": "Run",
+    "Python.complex_example.executor": "Run",
+    "Python.extractDATA.executor": "Run",
+    "Python.feedDATA.executor": "Run",
+    "Python.liveTEST.executor": "Run",
+    "Python.miscTEST.executor": "Run",
+    "Python.modelGENERATOR.executor": "Run",
+    "Python.photoGUI.executor": "Run",
+    "Python.projectGUI.executor": "Run",
+    "Python.savePHOTO.executor": "Run",
+    "Python.scrollable_frame_example.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/FaceMesh",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -291,12 +307,19 @@
       <option name="project" value="LOCAL" />
       <updated>1709534193137</updated>
     </task>
-    <option name="localTasksCounter" value="28" />
+    <task id="LOCAL-00028" summary="Al fin funciona al 100 la interfaz">
+      <option name="closed" value="true" />
+      <created>1709535401976</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1709535401976</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Colocación de codigos para la tesis, fase 1" />
     <MESSAGE value="Se generan las matrices de etiquetas" />
     <MESSAGE value="Se eliminan datos de exportación y se asignan a un nuevo directorio" />
     <MESSAGE value="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar" />
@@ -321,6 +344,7 @@
     <MESSAGE value="Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100" />
     <MESSAGE value="aun no se qeu pasa con turtle" />
     <MESSAGE value="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion" />
+    <MESSAGE value="Al fin funciona al 100 la interfaz" />
+    <option name="LAST_COMMIT_MESSAGE" value="Al fin funciona al 100 la interfaz" />
   </component>
 </project>
