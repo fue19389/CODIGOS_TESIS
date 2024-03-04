@@ -49,7 +49,6 @@ class ModelFeeder:
         cap = cv2.VideoCapture(0)
         while True:
             _, frame = cap.read()
-            # Show the complete image
             cv2.imshow('Image', frame)
             key = cv2.waitKey(30)
             if key == 13:

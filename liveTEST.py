@@ -80,11 +80,11 @@ class UseModel:
         # -----------------------------------------------------
         # ----Visualizar movimiento de turtle -----------------
         # -----------------------------------------------------
-        
-        while yn == 1:
+
+        while True:
         
             # Saving captured image and transforming from BGR TO RGB
-        
+
             _, img = cap.read()
             imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
             imgRGB = cv2.resize(imgRGB, (320, 180))
@@ -113,7 +113,10 @@ class UseModel:
             # if key == 27: # 13 = enter, 27 = esc
 
             # cv2.waitKey()
-        if yn == 0:
-            cv2.destroyAllWindows()
-            ttl.done()
+            if yn == 0:
+                cv2.destroyAllWindows()
+                cap.release()
+                ttl.bye()
+                break
+
 
