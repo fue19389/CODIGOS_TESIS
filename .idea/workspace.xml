@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Finalmente funciona">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="NUEVO COMMIT DE PRUEBA">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,7 +58,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/FaceMesh",
     "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
@@ -382,12 +382,19 @@
       <option name="project" value="LOCAL" />
       <updated>1709546186658</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="NUEVO COMMIT DE PRUEBA">
+      <option name="closed" value="true" />
+      <created>1709583978356</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1709583978356</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ya se guardan las fotos como se debe, ahora faltan las labels" />
     <MESSAGE value="El código para poder capturar y guardar está listo, solo falta orientarlo a objetos" />
     <MESSAGE value="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY" />
     <MESSAGE value="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes" />
@@ -412,6 +419,7 @@
     <MESSAGE value="Aún hacia falta eliminar un waitKey" />
     <MESSAGE value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
     <MESSAGE value="Finalmente funciona" />
-    <option name="LAST_COMMIT_MESSAGE" value="Finalmente funciona" />
+    <MESSAGE value="NUEVO COMMIT DE PRUEBA" />
+    <option name="LAST_COMMIT_MESSAGE" value="NUEVO COMMIT DE PRUEBA" />
   </component>
 </project>
