@@ -27,7 +27,7 @@ class ModelFeeder:
         # ------------------------------------------------
 
         # Escoge la columna de la data en el archivo excel
-        self.nmodel = 6
+        self.nmodel = 8
 
         # ------------------------------------------------
         # ----- Directorios a utilizar -------------------
@@ -37,6 +37,7 @@ class ModelFeeder:
         self.dirtest = r'C:\Users\gerar\PycharmProjects\TESTFACE'
         self.dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOS'
         self.dirxlsx = r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx'
+        os.startfile(filepath=self.dirhold)
 
     # ------------------------------------------------
     # ----- Tomar y nombrar fotos  -------------------
@@ -88,7 +89,7 @@ class ModelFeeder:
             name = self.pfxname + str(int(idx + 1)) + '.jpg'
             savedir = os.path.join(self.dirhold, name)
             cv2.imwrite(savedir, frame)
-            os.startfile(filepath=self.dirhold)
+
 
     # ------------------------------------------------
     # ----- Cargar fotos al sistema ------------------
@@ -131,6 +132,7 @@ class ModelFeeder:
                 lbl.append(3)
             else:
                 pass
+
 
         # Enviar a archivo excel
         df = pd.DataFrame(list(zip(lbl)))

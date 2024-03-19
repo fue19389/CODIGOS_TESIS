@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="NUEVO COMMIT DE PRUEBA">
+      <change afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ho_sim/worlds/ho_sim.wbt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modelGENERATOR.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelGENERATOR.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +27,11 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GithubDefaultAccount">
@@ -57,11 +67,36 @@
     "Python.scrollable_frame_example.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/FaceMesh",
-    "settings.editor.selected.configurable": "vcs.Git"
+    "git-widget-placeholder": "WebotsNMarkers",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/ho_sim/controllers/face_or/face_or.py",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="face_or" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="CODIGOS_TESIS" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="SDK_NAME" value="Python 3.10 (CODIGOS_TESIS)" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>

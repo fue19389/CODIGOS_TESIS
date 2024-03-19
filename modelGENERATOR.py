@@ -32,7 +32,7 @@ class ModelGenerate:
         
         # Grupo de etiquetas a usar de 0 -> 5
         # Ahora las pruebas requieren usar el 6, que es copia del 4 pero con el sistema de agregar fotos
-        self.ndat = 6
+        self.ndat = 8
         
         # ------------------------------------------------
         # ----- Definición de tamaño de letra y figura----
@@ -104,14 +104,28 @@ class ModelGenerate:
             losacfig = 'LA6'
             cmfig = 'CM6'
             n_nodesal = 4
+        elif self.ndat == 7:
+            y_tt = 'y_test7.npy'
+            y_tn = 'y_train7.npy'
+            mname = 'head_or7.keras'
+            losacfig = 'LA7'
+            cmfig = 'CM7'
+            n_nodesal = 4
+        elif self.ndat == 8:
+            y_tt = 'y_test8.npy'
+            y_tn = 'y_train8.npy'
+            mname = 'head_or8.keras'
+            losacfig = 'LA8'
+            cmfig = 'CM8'
+            n_nodesal = 4
 
 
         # ------------------------------------------------
         # ----Extraer data previamente arreglada----------
         # ------------------------------------------------
 
-        x_tn = 'x_train6.npy'  #POR AHORA SE USAN LAS VARIABLES DEL MODELO 6
-        x_tt = 'x_test6.npy'
+        x_tn = 'x_train8.npy'  #POR AHORA SE USAN LAS VARIABLES DEL MODELO 8
+        x_tt = 'x_test8.npy'
         x_tn = os.path.join(self.expordir, x_tn)
         x_tt = os.path.join(self.expordir, x_tt)
         x_train = np.load(x_tn)
@@ -147,7 +161,7 @@ class ModelGenerate:
         layer6 = tf.keras.layers.Dense(75, activation='relu')
         # layern = tf.keras.layers.Dense(100, activation='relu')
         layer7 = tf.keras.layers.Dense(n_nodesal, activation='softmax')
-        model = tf.keras.Sequential([layer0, layer1, layer2, layer4, layer5, layer7])
+        model = tf.keras.Sequential([layer0, layer1, layer2, layer4, layer5, layer6, layer7])
 
         # ------------------------------------------------------
         # ----Compilar, entrenar, evaluar modelo----------------

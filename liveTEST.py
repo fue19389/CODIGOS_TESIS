@@ -30,8 +30,8 @@ class UseModel:
         # -----------------Selección de modelo------------------
         # ------------------------------------------------------
         
-        # Actualmente, se tienen modelos del 0 -> 6
-        self.n_model = 6
+        # Actualmente, se tienen modelos del 0 -> 8
+        self.n_model = 8
 
 
         # -----------------------------------------------------
@@ -61,6 +61,10 @@ class UseModel:
             self.mname = 'head_or5.keras'
         elif self.n_model == 6:
             self.mname = 'head_or6.keras'
+        elif self.n_model == 7:
+            self.mname = 'head_or7.keras'
+        elif self.n_model == 8:
+            self.mname = 'head_or8.keras'
 
         self.ho_model = os.path.join(self.expordir, self.mname)
         self.ho_model = tf.keras.models.load_model(self.ho_model)
