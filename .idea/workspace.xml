@@ -4,15 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="NUEVO COMMIT DE PRUEBA">
-      <change afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ho_sim/worlds/ho_sim.wbt" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se termino de entrenar el modelo con marcadors y ahora se agrega el controlador de webots">
+      <change afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CODIGOS_TESIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CODIGOS_TESIS.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelGENERATOR.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelGENERATOR.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ho_sim/worlds/ho_sim.wbt" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/worlds/ho_sim.wbt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +56,7 @@
     "Python.__init__.executor": "Run",
     "Python.complex_example.executor": "Run",
     "Python.extractDATA.executor": "Run",
+    "Python.face_or.executor": "Run",
     "Python.feedDATA.executor": "Run",
     "Python.liveTEST.executor": "Run",
     "Python.miscTEST.executor": "Run",
@@ -68,7 +68,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "WebotsNMarkers",
-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/ho_sim/controllers/face_or/face_or.py",
+    "last_opened_file_path": "C:/Program Files/Webots/lib/controller/python",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
@@ -80,6 +80,7 @@
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
+        <env name="Path" value="C:\Program Files\Webots\lib\controller;C:\Program Files\Webots\msys64\mingw64\bin;C:\Program Files\Webots\msys64\mingw64\bin\cpp " />
       </envs>
       <option name="SDK_HOME" value="" />
       <option name="SDK_NAME" value="Python 3.10 (CODIGOS_TESIS)" />
@@ -425,12 +426,19 @@
       <option name="project" value="LOCAL" />
       <updated>1709583978356</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Se termino de entrenar el modelo con marcadors y ahora se agrega el controlador de webots">
+      <option name="closed" value="true" />
+      <created>1710830409302</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1710830409302</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="El código para poder capturar y guardar está listo, solo falta orientarlo a objetos" />
     <MESSAGE value="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY" />
     <MESSAGE value="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes" />
     <MESSAGE value="Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP" />
@@ -455,6 +463,7 @@
     <MESSAGE value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
     <MESSAGE value="Finalmente funciona" />
     <MESSAGE value="NUEVO COMMIT DE PRUEBA" />
-    <option name="LAST_COMMIT_MESSAGE" value="NUEVO COMMIT DE PRUEBA" />
+    <MESSAGE value="Se termino de entrenar el modelo con marcadors y ahora se agrega el controlador de webots" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se termino de entrenar el modelo con marcadors y ahora se agrega el controlador de webots" />
   </component>
 </project>
