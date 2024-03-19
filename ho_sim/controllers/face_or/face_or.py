@@ -29,20 +29,20 @@ while True:
    prediction = int(np.argmax(y_predicted))
 
    if prediction == 0:
-      leftMotor.setVelocity(0.25 * MAX_SPEED)
-      rightMotor.setVelocity(0.45 * MAX_SPEED)
+      leftMotor.setVelocity(0.45 * MAX_SPEED)
+      rightMotor.setVelocity(0.65 * MAX_SPEED)
       robot.stepBegin(TIME_STEP)
    if prediction == 1:
       leftMotor.setVelocity(0.0 * MAX_SPEED)
       rightMotor.setVelocity(0.0 * MAX_SPEED)
       robot.stepBegin(TIME_STEP)
    if prediction == 2:
-      leftMotor.setVelocity(0.45 * MAX_SPEED)
-      rightMotor.setVelocity(0.25 * MAX_SPEED)
+      leftMotor.setVelocity(0.65 * MAX_SPEED)
+      rightMotor.setVelocity(0.45 * MAX_SPEED)
       robot.stepBegin(TIME_STEP)
    if prediction == 3:
-      leftMotor.setVelocity(0.45 * MAX_SPEED)
-      rightMotor.setVelocity(0.45 * MAX_SPEED)
+      leftMotor.setVelocity(0.65 * MAX_SPEED)
+      rightMotor.setVelocity(0.65 * MAX_SPEED)
       robot.stepBegin(TIME_STEP)
 
    robot.stepEnd()

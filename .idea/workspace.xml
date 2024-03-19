@@ -4,14 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se termino de entrenar el modelo con marcadors y ahora se agrega el controlador de webots">
-      <change afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CODIGOS_TESIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CODIGOS_TESIS.iml" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Funciona Webots, al menos con mi cara en la noche en mi lugar de trabajo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ho_sim/worlds/ho_sim.wbt" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/worlds/ho_sim.wbt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +65,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "WebotsNMarkers",
-    "last_opened_file_path": "C:/Program Files/Webots/lib/controller/python",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/FaceMesh",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
   }
 }]]></component>
@@ -434,12 +431,19 @@
       <option name="project" value="LOCAL" />
       <updated>1710830409302</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Funciona Webots, al menos con mi cara en la noche en mi lugar de trabajo">
+      <option name="closed" value="true" />
+      <created>1710831728076</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1710831728076</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY" />
     <MESSAGE value="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes" />
     <MESSAGE value="Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP" />
     <MESSAGE value="Listos todos los códigos en de la forma OOP" />
@@ -464,6 +468,7 @@
     <MESSAGE value="Finalmente funciona" />
     <MESSAGE value="NUEVO COMMIT DE PRUEBA" />
     <MESSAGE value="Se termino de entrenar el modelo con marcadors y ahora se agrega el controlador de webots" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se termino de entrenar el modelo con marcadors y ahora se agrega el controlador de webots" />
+    <MESSAGE value="Funciona Webots, al menos con mi cara en la noche en mi lugar de trabajo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Funciona Webots, al menos con mi cara en la noche en mi lugar de trabajo" />
   </component>
 </project>
