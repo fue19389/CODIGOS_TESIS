@@ -1,6 +1,5 @@
 import cv2
 import mediapipe as mp
-import time
 import numpy as np
 import matplotlib.pylab as plt
 import math
@@ -9,7 +8,7 @@ from glob import glob
 
 class FaceMeshDetector:
 
-    def __init__(self, staticMode=False, maxFaces=2, refineLm=False, minDetectionCon=0.5, minTrackCon=0.5):
+    def __init__(self, staticMode=False, maxFaces=1, refineLm=False, minDetectionCon=0.5, minTrackCon=0.5):
 
         self.staticMode = staticMode
         self.maxFaces = maxFaces
@@ -31,33 +30,35 @@ class FaceMeshDetector:
         self.results = self.faceMesh.process(self.imgRGB)
 
         # Ciclo para dibujar los landmarks, si es que se detecta una cara
-        nface = []
+
         nodes = []
         if self.results.multi_face_landmarks:
             for faceLms in self.results.multi_face_landmarks:
                 if draw:
                     self.mpDraw.draw_landmarks(img, faceLms, self.mpFaceMesh.FACEMESH_CONTOURS, self.drawSpec, self.drawSpec)
 
-                # Ciclo para obtener los landmarks en pixels
-                fpoints = []
+                # Ciclo para obtener los landmarks en pixels y originales
+
                 npoints = []
                 for id, lm in enumerate(faceLms.landmark):
                     # if id % 2 == 0: # Here we have the visual identification of multiples of 5 landmarks
                     # if id == 467:
-                        ih, iw, ic = img.shape
-                        x, y0 = int(lm.x * iw), int(lm.y * ih)
-                        y = int(-1*(lm.y*ih)+ih)
-                        fpoints.append([x, y])
-                        npoints.append([id, lm.x, -1*(lm.y)+1])
+                    ih, iw, ic = img.shape
+                    x, y0 = int(lm.x * iw), int(lm.y * ih)
+                    y = int(-1*(lm.y*ih)+ih)
 
-                        if draw:
-                            # Draw selected landmarks in a differente color (RED)
-                            cv2.circle(img, (x, y0), 3, (0, 0, 255), cv2.FILLED)
+                    npoints.append([id, lm.x, -1*(lm.y)+1])
 
-                nface.append(fpoints)
+
+                    # if draw:
+                    #     # Draw selected landmarks in a differente color (RED)
+                    #     cv2.circle(img, (x, y0), 3, (0, 0, 255), cv2.FILLED)
+
+
                 nodes.append(npoints)
+                nodes = np.squeeze(np.array(nodes))
 
-        return img, nface, nodes
+        return img, nodes
 
 
 def main():
@@ -65,34 +66,23 @@ def main():
 
     cap = cv2.VideoCapture(0)
 
-    # Capture webcam
-    cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-    # HIGH RESOLUTION
-    cap.set(cv2.CAP_PROP_FRAME_WIDTH, 1920)
-    cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 1080)
-    # # lOW RESOLUTION
-    # cap.set(cv2.CAP_PROP_FRAME_WIDTH, 320)
-    # cap.set(cv2.CAP_PROP_FRAME_HEIGHT, 180)
-
     # Variables
     detector = FaceMeshDetector()
 
     while True:
         # Saving captured image and transforming from BGR TO RGB
-        success, img = cap.read()
-        img, nface, nodes = detector.findFaceMesh(img, draw=False)
+        success, imgF = cap.read()
+        # imgF = cv2.imread(r'C:\Users\gerar\PycharmProjects\COMPLETEDATABASE\TRAIN\z_00_73.jpg') #SPECIAL ONE
+        # imgF = cv2.imread(r'C:\Users\gerar\PycharmProjects\COMPLETEDATABASE\TRAIN\z_01_137.jpg')
+        img, nodes = detector.findFaceMesh(imgF)
 
         cv2.imshow('Image', img)
         key = cv2.waitKey(30)
         if key == 27:  # 27= Esc
             break
 
-
-    nodesarray =  np.squeeze(np.array(nodes))
-    print(nodesarray.shape)
-    nodesarray = nodesarray[:, 1:]
-    nfacearray = np.squeeze(np.array(nface))
-    x, y = nodesarray.T
+    nodes = nodes[:, 1:]
+    x, y = nodes.T
 
     plt.scatter(x, y)
     plt.show()
