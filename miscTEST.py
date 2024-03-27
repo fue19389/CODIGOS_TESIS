@@ -1,70 +1,43 @@
-import matplotlib.pylab as plt
-from glob import glob
-import numpy as np
-import cv2
+import tensorflow as tf
+from tensorflow.keras import layers, Model
 
-dirVRLBS = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\x_train6.npy'
-faces = np.load(dirVRLBS)
-face1 = faces[2150]
-face1 = face1.astype(np.uint8)
-face = cv2.imread(r'C:\Users\gerar\PycharmProjects\PFOTOS\speed.jpeg')
-face2 = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
-facehsv = cv2.cvtColor(face, cv2.COLOR_BGR2HSV)
+# Define the parameters
+num_classes = 2  # Number of classes for graph classification
+conv1_output_dim = 64
+conv2_output_dim = 32
 
-skinbottom = np.array([0, 50, 20], np.float32)
-skintop = np.array([30, 180, 255], np.float32)
+# Define placeholders for inputs and adjacency matrices
+inputs = tf.placeholder(tf.float32, shape=(None, None, None))  # Shape: (batch_size, num_nodes, num_features)
+adjacency_matrices = tf.placeholder(tf.float32, shape=(None, None, None))  # Shape: (batch_size, num_nodes, num_nodes)
 
-mask1 = cv2.inRange(facehsv, skinbottom, skintop)
-# mask11 = cv2.cvtColor(mask1, cv2.COLOR_HSV2RGB)
-print(mask1.shape)
-cv2.imshow('filtro2', mask1)
+# Define graph convolution layers
+conv1_kernel = tf.Variable(tf.random.normal([inputs.shape[-1], conv1_output_dim]))
+conv1_messages = tf.matmul(adjacency_matrices, inputs)
+conv1_output = tf.matmul(conv1_messages, conv1_kernel)
+conv1_output = tf.nn.relu(conv1_output)
 
+conv2_kernel = tf.Variable(tf.random.normal([conv1_output_dim, conv2_output_dim]))
+conv2_messages = tf.matmul(adjacency_matrices, conv1_output)
+conv2_output = tf.matmul(conv2_messages, conv2_kernel)
+conv2_output = tf.nn.relu(conv2_output)
 
+# Global pooling (e.g., mean pooling) over nodes
+pooled_output = tf.reduce_mean(conv2_output, axis=1)
 
-blur_kernel = np.array([[0.0625, 0.125, 0.625],
-                        [0.125, 0.25, 0.125],
-                        [0.0625, 0.125, 0.0625]], np.float32)
+# Fully connected output layer
+fc_weights = tf.Variable(tf.random.normal([conv2_output_dim, num_classes]))
+fc_bias = tf.Variable(tf.zeros([num_classes]))
+logits = tf.matmul(pooled_output, fc_weights) + fc_bias
 
-sharp_kernel = np.array([[0, -1, 0],
-                         [-1, 5, -1],
-                         [0, -1, 0]], )
+# Define the loss function and optimization
+labels = tf.placeholder(tf.int32, shape=(None,))
+loss = tf.reduce_mean(tf.nn.sparse_softmax_cross_entropy_with_logits(labels=labels, logits=logits))
+optimizer = tf.keras.optimizers.Adam()
+train_op = optimizer.minimize(loss)
 
-edge_kernel = np.array([[-1, -1, -1],
-                        [-1, 8, -1],
-                        [-1, -1, -1]], np.float32)
-
-emboss_kernel = np.array([[-2, -1, 0],
-                          [-1, 1, 1],
-                          [0, 1, 2]], np.float32)
-
-edged = cv2.filter2D(face2, -1, edge_kernel)
-sharpened = cv2.filter2D(face2, -1, sharp_kernel)
-sharpened = cv2.filter2D(sharpened, -1, edge_kernel)
-blurred = cv2.filter2D(face2, -1, blur_kernel)
-blurred = cv2.filter2D(blurred, -1, edge_kernel)
-embossed = cv2.filter2D(face2, -1, emboss_kernel)
-embossed = cv2.filter2D(embossed, -1, edge_kernel)
-
-fig, ax = plt.subplots(3, 2)
-ax = ax.reshape(-1)
-# ax = ax.reshape(-1)
-ax[0].imshow(face2)
-ax[1].imshow(edged)
-ax[2].imshow(sharpened)
-ax[3].imshow(blurred)
-ax[4].imshow(embossed)
-ax[5].imshow(mask1)
-ax[0].axis('off')
-ax[1].axis('off')
-ax[2].axis('off')
-ax[3].axis('off')
-ax[4].axis('off')
-ax[5].axis('off')
-ax[0].set_title('original')
-ax[1].set_title('bordes')
-ax[2].set_title('afilado + bordes')
-ax[3].set_title('suavizado + bordes')
-ax[4].set_title('realzado + bordes')
-ax[5].set_title('filtro de color')
-
-plt.show()
+# Training loop (assuming you have X_train, y_train, adjacency_matrices_train)
+with tf.Session() as sess:
+    sess.run(tf.global_variables_initializer())
+    for epoch in range(num_epochs):
+        _, epoch_loss = sess.run([train_op, loss], feed_dict={inputs: X_train, labels: y_train, adjacency_matrices: adjacency_matrices_train})
+        print(f"Epoch {epoch + 1}, Loss: {epoch_loss}")

@@ -4,11 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Funciona Webots, al menos con mi cara en la noche en mi lugar de trabajo">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora funciona dificilmente, con nuevos sujetos">
+      <change afterPath="$PROJECT_DIR$/adjacencyMATRIX.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/faceLANDMARKS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,8 +52,10 @@
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.__init__.executor": "Run",
+    "Python.adjacencyMATRIX.executor": "Run",
     "Python.complex_example.executor": "Run",
     "Python.extractDATA.executor": "Run",
+    "Python.faceLANDMARKS.executor": "Run",
     "Python.face_or.executor": "Run",
     "Python.feedDATA.executor": "Run",
     "Python.liveTEST.executor": "Run",
@@ -64,9 +67,9 @@
     "Python.scrollable_frame_example.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "WebotsNMarkers",
-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/FaceMesh",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+    "git-widget-placeholder": "graphMODELS",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RunManager">
