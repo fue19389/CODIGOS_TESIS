@@ -15,7 +15,11 @@
 
 import os
 import cv2
+import time
+import numpy as np
+import pygame as pg
 import pandas as pd
+import faceLANDMARKS as fL
 
 
 class ModelFeeder:
@@ -33,49 +37,58 @@ class ModelFeeder:
         # ----- Directorios a utilizar -------------------
         # ------------------------------------------------
 
-        self.dirtrain = r'C:\Users\gerar\PycharmProjects\TRAINFACE'
-        self.dirtest = r'C:\Users\gerar\PycharmProjects\TESTFACE'
+        self.dirtrain = r'C:\Users\gerar\PycharmProjects\TRAINLIST'
+        self.dirtest = r'C:\Users\gerar\PycharmProjects\TESTLIST'
         self.dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOS'
         self.dirxlsx = r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx'
-        os.startfile(filepath=self.dirhold)
+
+
+        # ------------------------------------------------
+        # ----- Sonidos a utilizar -------------------
+        # ------------------------------------------------
+
+        # Sonidos obtenidos de: https://sfxr.me/
+        pg.init()
+        self.s1 = pg.mixer.Sound('1st.wav')
+        self.s2 = pg.mixer.Sound('2nd.wav')
+        self.s3 = pg.mixer.Sound('3rd.wav')
+        self.sf = pg.mixer.Sound('last.wav')
+
+        # ------------------------------------------------
+        # ----- Obtener Landmarks -------------------
+        # ------------------------------------------------
+
+        self.detector = fL.FaceMeshDetector()
+
 
     # ------------------------------------------------
     # ----- Tomar y nombrar fotos  -------------------
     # ------------------------------------------------
-    def takePHOTO(self, hpos):
+    def takePHOTO(self):
 
-        hpos = int(hpos)
-        # Take photo
+        # First run of photos
+        starttime = time.time()
+
+        # Sound to prepare
+
+        self.s1.play()
+        pg.time.delay(750)
+        self.s2.play()
+        pg.time.delay(750)
+        self.s3.play()
         cap = cv2.VideoCapture(0)
         while True:
+
             _, frame = cap.read()
-            cv2.imshow('Image', frame)
-            key = cv2.waitKey(30)
-            if key == 13:
-                cv2.destroyAllWindows()
-                break
+            # Getting Landmarks
+            _, nodes = self.detector.findFaceMesh(frame)
 
-        if key == 13:  # 13 = enter, 27 = esc
-
-            if hpos == 0:
-                self.pfxname = 'z_00_'
-            elif hpos == 1:
-                self.pfxname = 'z_01_'
-            elif hpos == 2:
-                self.pfxname = 'z_02_'
-            elif hpos == 3:
-                self.pfxname = 'z_03_'
-            else:
-                pass
-
-            # ------------------------------------------------
-            # ----- Tomar, guardar y nombrar fotografía ------
-            # ------------------------------------------------
-
+            self.pfxname = 'z_00_'
             idx = 0
             trainlist = os.listdir(self.dirtrain)
             testlist = os.listdir(self.dirtest)
             holdlist = os.listdir(self.dirhold)
+
             for file in trainlist:
                 if file.startswith(self.pfxname):
                     idx += 1
@@ -86,11 +99,142 @@ class ModelFeeder:
                 if file.startswith(self.pfxname):
                     idx += 1
 
-            name = self.pfxname + str(int(idx + 1)) + '.jpg'
+            # Saving process
+            # Landmarks
+            name = self.pfxname + str(int(idx + 1))
+            savedat = os.path.join(self.dirhold, name)
+            np.save(savedat, nodes)
+            # Images
+            name = name + '.jpg'
             savedir = os.path.join(self.dirhold, name)
             cv2.imwrite(savedir, frame)
 
+            if time.time() - starttime > 8:
+                self.sf.play()
+                pg.time.delay(2000)
+                cv2.destroyAllWindows()
+                break
+            pass
 
+        # # Second run of photos
+        # starttime = time.time()
+        #
+        # # Sound to prepare
+        # self.s1.play()
+        # pg.time.delay(750)
+        # self.s2.play()
+        # pg.time.delay(750)
+        # self.s3.play()
+        # cap = cv2.VideoCapture(0)
+        #
+        # while True:
+        #     _, frame = cap.read()
+        #     self.pfxname = 'z_01_'
+        #     idx = 0
+        #     trainlist = os.listdir(self.dirtrain)
+        #     testlist = os.listdir(self.dirtest)
+        #     holdlist = os.listdir(self.dirhold)
+        #
+        #     for file in trainlist:
+        #         if file.startswith(self.pfxname):
+        #             idx += 1
+        #     for file in testlist:
+        #         if file.startswith(self.pfxname):
+        #             idx += 1
+        #     for file in holdlist:
+        #         if file.startswith(self.pfxname):
+        #             idx += 1
+        #
+        #     name = self.pfxname + str(int(idx + 1)) + '.jpg'
+        #     savedir = os.path.join(self.dirhold, name)
+        #     cv2.imwrite(savedir, frame)
+        #
+        #     if time.time() - starttime > 8:
+        #         self.sf.play()
+        #         pg.time.delay(2000)
+        #         cv2.destroyAllWindows()
+        #         break
+        #     pass
+        #
+        # # Third run of photos
+        # starttime = time.time()
+        #
+        # # Sound to prepare
+        # self.s1.play()
+        # pg.time.delay(750)
+        # self.s2.play()
+        # pg.time.delay(750)
+        # self.s3.play()
+        # cap = cv2.VideoCapture(0)
+        # while True:
+        #     _, frame = cap.read()
+        #     self.pfxname = 'z_02_'
+        #     idx = 0
+        #     trainlist = os.listdir(self.dirtrain)
+        #     testlist = os.listdir(self.dirtest)
+        #     holdlist = os.listdir(self.dirhold)
+        #
+        #     for file in trainlist:
+        #         if file.startswith(self.pfxname):
+        #             idx += 1
+        #     for file in testlist:
+        #         if file.startswith(self.pfxname):
+        #             idx += 1
+        #     for file in holdlist:
+        #         if file.startswith(self.pfxname):
+        #             idx += 1
+        #
+        #     name = self.pfxname + str(int(idx + 1)) + '.jpg'
+        #     savedir = os.path.join(self.dirhold, name)
+        #     cv2.imwrite(savedir, frame)
+        #
+        #     if time.time() - starttime > 8:
+        #         self.sf.play()
+        #         pg.time.delay(2000)
+        #         cv2.destroyAllWindows()
+        #         break
+        #     pass
+        #
+        # # Fourth run of photos
+        # starttime = time.time()
+        #
+        # # Sound to prepare
+        # self.s1.play()
+        # pg.time.delay(750)
+        # self.s2.play()
+        # pg.time.delay(750)
+        # self.s3.play()
+        # cap = cv2.VideoCapture(0)
+        # while True:
+        #     _, frame = cap.read()
+        #     self.pfxname = 'z_03_'
+        #     idx = 0
+        #     trainlist = os.listdir(self.dirtrain)
+        #     testlist = os.listdir(self.dirtest)
+        #     holdlist = os.listdir(self.dirhold)
+        #
+        #     for file in trainlist:
+        #         if file.startswith(self.pfxname):
+        #             idx += 1
+        #     for file in testlist:
+        #         if file.startswith(self.pfxname):
+        #             idx += 1
+        #     for file in holdlist:
+        #         if file.startswith(self.pfxname):
+        #             idx += 1
+        #
+        #     name = self.pfxname + str(int(idx + 1)) + '.jpg'
+        #     savedir = os.path.join(self.dirhold, name)
+        #     cv2.imwrite(savedir, frame)
+        #
+        #     if time.time() - starttime > 8:
+        #         self.sf.play()
+        #         pg.time.delay(750)
+        #         cv2.destroyAllWindows()
+        #         break
+        #     pass
+
+        os.startfile(filepath=self.dirhold)
     # ------------------------------------------------
     # ----- Cargar fotos al sistema ------------------
     # ------------------------------------------------

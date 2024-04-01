@@ -25,7 +25,7 @@ from matplotlib import rcParams
 
 import feedDATA as fD
 import extractDATA as eD
-import modelGENERATOR as mG
+import photoMODEL as mG
 import liveTEST as lT
 
 # Librerías para GUI
@@ -56,6 +56,7 @@ class pGUI:
 
         # Se crea la selección de pestañas
         self.tabview = ctk.CTkTabview(self.root, width=900, height=575)
+        self.tabview.add('Instrucciones Captura')
         self.tabview.add("Captura de fotografías")
         self.tabview.add("Manejo de datos")
         self.tabview.add('Prueba en vivo')
@@ -67,44 +68,54 @@ class pGUI:
         self.train = mG.ModelGenerate()
         self.use_m = lT.UseModel()
 
+
+        # --------------------------------------------------------------------------------------------------------------
+        # ----------------------------- Configuración de Tab: Instrucciones -----------------------------------
+        # --------------------------------------------------------------------------------------------------------------
+        self.label0 = ctk.CTkLabel(self.tabview.tab('Instrucciones Captura'),
+                                   text='1. Primeros 3 sonidos de preparación \n 2. Al finalizar otro sonido alertará', font=('aptos', 26))
+        self.label0.pack(padx=20, pady=45)
         # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración de Tab: Captura de fotografías -----------------------------------
         # --------------------------------------------------------------------------------------------------------------
 
-        self.label1 = ctk.CTkLabel(self.tabview.tab('Captura de fotografías'), \
-                                   text='1. Escoja la posición de la cabeza\n 2. Presione el botón\n 3. Presione: Enter ', \
-                                   font=('aptos', 26))
+
+        self.btn1 = ctk.CTkButton(self.tabview.tab('Captura de fotografías'), text='CAPTURAR', font=('aptos', 30),
+                                  width=350, height=150, command=self.actL)
+        self.btn1.pack(padx=50, pady=50)
+
+        self.label1 = ctk.CTkLabel(self.tabview.tab('Captura de fotografías'),
+                                   text='Movimientos: \n 1.Izquierda (UP-DOWN) \n 2. Centro-Abajo \n 3. Derecha (UP-DOWN) \n 4. Arriba (DER-IZQ, CORTOS)', font=('aptos', 20))
         self.label1.pack(padx=20, pady=45)
-        self.buttonFrame = ctk.CTkFrame(self.tabview.tab('Captura de fotografías'))
+        # self.buttonFrame = ctk.CTkFrame(self.tabview.tab('Captura de fotografías'))
 
-        self.btn1 = ctk.CTkButton(self.buttonFrame, text='IZQ-UP', font=('aptos', 18), width=250, height=75, command=self.actL0)
-        self.btn1.grid(row=0, column=0, padx=10, pady=10)
 
-        self.btn2 = ctk.CTkButton(self.buttonFrame, text='UP', font=('aptos', 18), width=250, height=75, command=self.actL3)
-        self.btn2.grid(row=0, column=1, padx=10, pady=10)
 
-        self.btn3 = ctk.CTkButton(self.buttonFrame, text='DER-UP', font=('aptos', 18), width=250, height=75, command=self.actL2)
-        self.btn3.grid(row=0, column=2, padx=10, pady=10)
+        # self.btn2 = ctk.CTkButton(self.buttonFrame, text='UP', font=('aptos', 18), width=250, height=75, command=self.actL3)
+        # self.btn2.grid(row=0, column=1, padx=10, pady=10)
+        #
+        # self.btn3 = ctk.CTkButton(self.buttonFrame, text='DER-UP', font=('aptos', 18), width=250, height=75, command=self.actL2)
+        # self.btn3.grid(row=0, column=2, padx=10, pady=10)
+        #
+        # self.btn4 = ctk.CTkButton(self.buttonFrame, text='IZQ', font=('aptos', 18), width=250, height=75, command=self.actL0)
+        # self.btn4.grid(row=1, column=0, padx=10, pady=10)
+        #
+        # self.btn5 = ctk.CTkButton(self.buttonFrame, text='FRONT', font=('aptos', 18), width=250, height=75, command=self.actL1)
+        # self.btn5.grid(row=1, column=1, padx=10, pady=10)
+        #
+        # self.btn6 = ctk.CTkButton(self.buttonFrame, text='DER', font=('aptos', 18), width=250, height=75, command=self.actL2)
+        # self.btn6.grid(row=1, column=2, padx=10, pady=10)
+        #
+        # self.btn7 = ctk.CTkButton(self.buttonFrame, text='IZQ-DOWN', font=('aptos', 18), width=250, height=75, command=self.actL0)
+        # self.btn7.grid(row=2, column=0, padx=10, pady=10)
+        #
+        # self.btn8 = ctk.CTkButton(self.buttonFrame, text='DOWN', font=('aptos', 18), width=250, height=75, command=self.actL1)
+        # self.btn8.grid(row=2, column=1, padx=10, pady=10)
+        #
+        # self.btn9 = ctk.CTkButton(self.buttonFrame, text='DER-DOWN', font=('aptos', 18), width=250, height=75, command=self.actL2)
+        # self.btn9.grid(row=2, column=2, padx=10, pady=10)
 
-        self.btn4 = ctk.CTkButton(self.buttonFrame, text='IZQ', font=('aptos', 18), width=250, height=75, command=self.actL0)
-        self.btn4.grid(row=1, column=0, padx=10, pady=10)
-
-        self.btn5 = ctk.CTkButton(self.buttonFrame, text='FRONT', font=('aptos', 18), width=250, height=75, command=self.actL1)
-        self.btn5.grid(row=1, column=1, padx=10, pady=10)
-
-        self.btn6 = ctk.CTkButton(self.buttonFrame, text='DER', font=('aptos', 18), width=250, height=75, command=self.actL2)
-        self.btn6.grid(row=1, column=2, padx=10, pady=10)
-
-        self.btn7 = ctk.CTkButton(self.buttonFrame, text='IZQ-DOWN', font=('aptos', 18), width=250, height=75, command=self.actL0)
-        self.btn7.grid(row=2, column=0, padx=10, pady=10)
-
-        self.btn8 = ctk.CTkButton(self.buttonFrame, text='DOWN', font=('aptos', 18), width=250, height=75, command=self.actL1)
-        self.btn8.grid(row=2, column=1, padx=10, pady=10)
-
-        self.btn9 = ctk.CTkButton(self.buttonFrame, text='DER-DOWN', font=('aptos', 18), width=250, height=75, command=self.actL2)
-        self.btn9.grid(row=2, column=2, padx=10, pady=10)
-
-        self.buttonFrame.pack()
+        # self.buttonFrame.pack()
 
         # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración de Tab: Manejo de datos ------------------------------------------
@@ -158,17 +169,8 @@ class pGUI:
     # --------------------------------------------------------------------------------------------------------------
     # ----------------------------- Funciones de botones para fotos ------------------------------------------------
     # --------------------------------------------------------------------------------------------------------------
-    def actL0(self):
-        self.feed.takePHOTO(0)
-
-    def actL1(self):
-        self.feed.takePHOTO(1)
-
-    def actL2(self):
-        self.feed.takePHOTO(2)
-
-    def actL3(self):
-        self.feed.takePHOTO(3)
+    def actL(self):
+        self.feed.takePHOTO()
 
     # --------------------------------------------------------------------------------------------------------------
     # ----------------------------- Funciones para manejo de datos  ------------------------------------------------

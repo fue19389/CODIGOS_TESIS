@@ -38,22 +38,12 @@ class FaceMeshDetector:
                     self.mpDraw.draw_landmarks(img, faceLms, self.mpFaceMesh.FACEMESH_CONTOURS, self.drawSpec, self.drawSpec)
 
                 # Ciclo para obtener los landmarks en pixels y originales
-
                 npoints = []
                 for id, lm in enumerate(faceLms.landmark):
                     # if id % 2 == 0: # Here we have the visual identification of multiples of 5 landmarks
                     # if id == 467:
                     ih, iw, ic = img.shape
-                    x, y0 = int(lm.x * iw), int(lm.y * ih)
-                    y = int(-1*(lm.y*ih)+ih)
-
-                    npoints.append([id, lm.x, -1*(lm.y)+1])
-
-
-                    # if draw:
-                    #     # Draw selected landmarks in a differente color (RED)
-                    #     cv2.circle(img, (x, y0), 3, (0, 0, 255), cv2.FILLED)
-
+                    npoints.append([lm.x, -1*(lm.y)+1])
 
                 nodes.append(npoints)
                 nodes = np.squeeze(np.array(nodes))
@@ -81,11 +71,10 @@ def main():
         if key == 27:  # 27= Esc
             break
 
-    nodes = nodes[:, 1:]
     x, y = nodes.T
-
     plt.scatter(x, y)
     plt.show()
+    print(nodes)
 
 
 
