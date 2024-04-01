@@ -246,11 +246,9 @@ class ModelFeeder:
         # Selección de carga a test o train, con su respectiva fila de inicio
         if tsttrn == 0:
             shtnm = 'traintags'
-            strtrw = 1
             dirtrgt = self.dirtrain
         elif tsttrn == 1:
             shtnm = 'testtags'
-            strtrw = 1
             dirtrgt = self.dirtest
         else:
             pass
@@ -282,7 +280,7 @@ class ModelFeeder:
         # Enviar a archivo excel
         df = pd.DataFrame(list(zip(lbl)))
         with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
-            df.to_excel(writer, sheet_name=shtnm, header=False, index=False, startcol=self.nmodel, startrow=strtrw)
+            df.to_excel(writer, sheet_name=shtnm, header=False, index=False, startcol=self.nmodel, startrow=1)
 
     # ------------------------------------------------
     # ----- Borrar fotos de directorio temp-----------
@@ -305,11 +303,9 @@ class ModelFeeder:
         # Selección de carga a test o train, con su respectiva fila de inicio
         if tsttrn == 0:
             shtnm = 'traintags'
-            strtrw = 1
             dirtrgt = self.dirtrain
         elif tsttrn == 1:
             shtnm = 'testtags'
-            strtrw = 1
             dirtrgt = self.dirtest
         else:
             pass
@@ -328,7 +324,7 @@ class ModelFeeder:
         lbl = [None]*idx
         df = pd.DataFrame(list(zip(lbl)))
         with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
-            df.to_excel(writer, sheet_name=shtnm, header=False, index=False, startcol=self.nmodel, startrow=strtrw)
+            df.to_excel(writer, sheet_name=shtnm, header=False, index=False, startcol=self.nmodel, startrow=1)
 
 
 

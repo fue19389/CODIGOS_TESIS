@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora ya se guardan los landmarks en formato de npy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faceLANDMARKS.py" beforeDir="false" afterPath="$PROJECT_DIR$/faceLANDMARKS.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -465,12 +463,19 @@
       <option name="project" value="LOCAL" />
       <updated>1711943198267</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Ahora ya se guardan los landmarks en formato de npy">
+      <option name="closed" value="true" />
+      <created>1711945740860</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1711945740860</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ahora también está listo el código de las pruebas en vivo, de la forma OOP" />
     <MESSAGE value="Inicio de pruebas para la GUI" />
     <MESSAGE value="Está listo el esqueleto (funciones) y el cascarón (interfaz), solo falta unirlo.&#10;&#10;PS: Aún falta una simulación simple de movimiento" />
     <MESSAGE value="Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset" />
@@ -495,6 +500,7 @@
     <MESSAGE value="Primeras pruebas generando los datos necesarios para usar GCN o GNN" />
     <MESSAGE value="Listo para pruebas el codigo que genera la data de los landmarks, en vivo y en foto" />
     <MESSAGE value="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras" />
-    <option name="LAST_COMMIT_MESSAGE" value="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras" />
+    <MESSAGE value="Ahora ya se guardan los landmarks en formato de npy" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora ya se guardan los landmarks en formato de npy" />
   </component>
 </project>
