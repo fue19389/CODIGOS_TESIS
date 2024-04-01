@@ -31,7 +31,7 @@ class ModelFeeder:
         # ------------------------------------------------
 
         # Escoge la columna de la data en el archivo excel
-        self.nmodel = 8
+        self.nmodel = 9
 
         # ------------------------------------------------
         # ----- Directorios a utilizar -------------------
@@ -68,9 +68,7 @@ class ModelFeeder:
 
         # First run of photos
         starttime = time.time()
-
         # Sound to prepare
-
         self.s1.play()
         pg.time.delay(750)
         self.s2.play()
@@ -78,9 +76,8 @@ class ModelFeeder:
         self.s3.play()
         cap = cv2.VideoCapture(0)
         while True:
-
+            # Getting landmarks
             _, frame = cap.read()
-            # Getting Landmarks
             _, nodes = self.detector.findFaceMesh(frame)
 
             self.pfxname = 'z_00_'
@@ -90,24 +87,27 @@ class ModelFeeder:
             holdlist = os.listdir(self.dirhold)
 
             for file in trainlist:
-                if file.startswith(self.pfxname):
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
                     idx += 1
             for file in testlist:
-                if file.startswith(self.pfxname):
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
                     idx += 1
             for file in holdlist:
-                if file.startswith(self.pfxname):
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
                     idx += 1
 
             # Saving process
-            # Landmarks
-            name = self.pfxname + str(int(idx + 1))
-            savedat = os.path.join(self.dirhold, name)
-            np.save(savedat, nodes)
-            # Images
-            name = name + '.jpg'
-            savedir = os.path.join(self.dirhold, name)
-            cv2.imwrite(savedir, frame)
+            if len(nodes) != 0:
+                # Landmarks
+                name = self.pfxname + str(int(idx + 1))
+                savedat = os.path.join(self.dirhold, name)
+                np.save(savedat, nodes)
+                # Images
+                name = name + '.jpg'
+                savedir = os.path.join(self.dirhold, name)
+                cv2.imwrite(savedir, frame)
+            elif len(nodes) == 0:
+                pass
 
             if time.time() - starttime > 8:
                 self.sf.play()
@@ -243,14 +243,14 @@ class ModelFeeder:
 
         tsttrn = int(tsttrn)
 
-        # Selección de carga a test o train, con su respectiva columna de inicio
+        # Selección de carga a test o train, con su respectiva fila de inicio
         if tsttrn == 0:
             shtnm = 'traintags'
-            strtrw = 2083
+            strtrw = 1
             dirtrgt = self.dirtrain
         elif tsttrn == 1:
             shtnm = 'testtags'
-            strtrw = 745
+            strtrw = 1
             dirtrgt = self.dirtest
         else:
             pass
@@ -258,9 +258,10 @@ class ModelFeeder:
         # Mover archivos
         holdlist = os.listdir(self.dirhold)
         for file in holdlist:
-            oldpath = os.path.join(self.dirhold, file)
-            newpath = os.path.join(dirtrgt, file)
-            os.replace(oldpath, newpath)
+            if file.endswith('.npy'):
+                oldpath = os.path.join(self.dirhold, file)
+                newpath = os.path.join(dirtrgt, file)
+                os.replace(oldpath, newpath)
 
         # Creación de labels
         lbl = []
@@ -301,14 +302,14 @@ class ModelFeeder:
 
     def resetMaster(self, tsttrn):
 
-        # Selección de carga a test o train, con su respectiva columna de inicio
+        # Selección de carga a test o train, con su respectiva fila de inicio
         if tsttrn == 0:
             shtnm = 'traintags'
-            strtrw = 2083
+            strtrw = 1
             dirtrgt = self.dirtrain
         elif tsttrn == 1:
             shtnm = 'testtags'
-            strtrw = 745
+            strtrw = 1
             dirtrgt = self.dirtest
         else:
             pass

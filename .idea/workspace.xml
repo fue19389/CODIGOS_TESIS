@@ -4,19 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Listo para pruebas el codigo que genera la data de los landmarks, en vivo y en foto">
-      <change afterPath="$PROJECT_DIR$/dir0.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dir1.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dir2.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/dir3.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/graphMODEL.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/last.wav" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/faceLANDMARKS.py" beforeDir="false" afterPath="$PROJECT_DIR$/faceLANDMARKS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/modelGENERATOR.py" beforeDir="false" afterPath="$PROJECT_DIR$/photoMODEL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -465,12 +457,19 @@
       <option name="project" value="LOCAL" />
       <updated>1711523752983</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras">
+      <option name="closed" value="true" />
+      <created>1711943198267</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1711943198267</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Listos todos los códigos en de la forma OOP" />
     <MESSAGE value="Ahora también está listo el código de las pruebas en vivo, de la forma OOP" />
     <MESSAGE value="Inicio de pruebas para la GUI" />
     <MESSAGE value="Está listo el esqueleto (funciones) y el cascarón (interfaz), solo falta unirlo.&#10;&#10;PS: Aún falta una simulación simple de movimiento" />
@@ -495,6 +494,7 @@
     <MESSAGE value="Funciona Webots, al menos con mi cara en la noche en mi lugar de trabajo" />
     <MESSAGE value="Primeras pruebas generando los datos necesarios para usar GCN o GNN" />
     <MESSAGE value="Listo para pruebas el codigo que genera la data de los landmarks, en vivo y en foto" />
-    <option name="LAST_COMMIT_MESSAGE" value="Listo para pruebas el codigo que genera la data de los landmarks, en vivo y en foto" />
+    <MESSAGE value="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras" />
+    <option name="LAST_COMMIT_MESSAGE" value="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras" />
   </component>
 </project>

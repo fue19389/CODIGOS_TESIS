@@ -71,10 +71,13 @@ def main():
         if key == 27:  # 27= Esc
             break
 
-    x, y = nodes.T
-    plt.scatter(x, y)
-    plt.show()
-    print(nodes)
+    if len(nodes) == 0:
+        pass
+    else:
+        x, y = nodes.T
+        plt.scatter(x, y)
+        plt.show()
+        print(nodes)
 
 
 
