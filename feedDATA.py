@@ -16,6 +16,7 @@
 import os
 import cv2
 import time
+import math
 import numpy as np
 import pygame as pg
 import pandas as pd
@@ -50,9 +51,13 @@ class ModelFeeder:
         # Sonidos obtenidos de: https://sfxr.me/
         pg.init()
         self.s1 = pg.mixer.Sound('1st.wav')
+        self.s1.set_volume(0.5)
         self.s2 = pg.mixer.Sound('2nd.wav')
+        self.s2.set_volume(0.5)
         self.s3 = pg.mixer.Sound('3rd.wav')
+        self.s3.set_volume(0.5)
         self.sf = pg.mixer.Sound('last.wav')
+        self.sf.set_volume(0.5)
 
         # ------------------------------------------------
         # ----- Obtener Landmarks -------------------
@@ -116,154 +121,224 @@ class ModelFeeder:
                 break
             pass
 
-        # # Second run of photos
-        # starttime = time.time()
-        #
-        # # Sound to prepare
-        # self.s1.play()
-        # pg.time.delay(750)
-        # self.s2.play()
-        # pg.time.delay(750)
-        # self.s3.play()
-        # cap = cv2.VideoCapture(0)
-        #
-        # while True:
-        #     _, frame = cap.read()
-        #     self.pfxname = 'z_01_'
-        #     idx = 0
-        #     trainlist = os.listdir(self.dirtrain)
-        #     testlist = os.listdir(self.dirtest)
-        #     holdlist = os.listdir(self.dirhold)
-        #
-        #     for file in trainlist:
-        #         if file.startswith(self.pfxname):
-        #             idx += 1
-        #     for file in testlist:
-        #         if file.startswith(self.pfxname):
-        #             idx += 1
-        #     for file in holdlist:
-        #         if file.startswith(self.pfxname):
-        #             idx += 1
-        #
-        #     name = self.pfxname + str(int(idx + 1)) + '.jpg'
-        #     savedir = os.path.join(self.dirhold, name)
-        #     cv2.imwrite(savedir, frame)
-        #
-        #     if time.time() - starttime > 8:
-        #         self.sf.play()
-        #         pg.time.delay(2000)
-        #         cv2.destroyAllWindows()
-        #         break
-        #     pass
-        #
-        # # Third run of photos
-        # starttime = time.time()
-        #
-        # # Sound to prepare
-        # self.s1.play()
-        # pg.time.delay(750)
-        # self.s2.play()
-        # pg.time.delay(750)
-        # self.s3.play()
-        # cap = cv2.VideoCapture(0)
-        # while True:
-        #     _, frame = cap.read()
-        #     self.pfxname = 'z_02_'
-        #     idx = 0
-        #     trainlist = os.listdir(self.dirtrain)
-        #     testlist = os.listdir(self.dirtest)
-        #     holdlist = os.listdir(self.dirhold)
-        #
-        #     for file in trainlist:
-        #         if file.startswith(self.pfxname):
-        #             idx += 1
-        #     for file in testlist:
-        #         if file.startswith(self.pfxname):
-        #             idx += 1
-        #     for file in holdlist:
-        #         if file.startswith(self.pfxname):
-        #             idx += 1
-        #
-        #     name = self.pfxname + str(int(idx + 1)) + '.jpg'
-        #     savedir = os.path.join(self.dirhold, name)
-        #     cv2.imwrite(savedir, frame)
-        #
-        #     if time.time() - starttime > 8:
-        #         self.sf.play()
-        #         pg.time.delay(2000)
-        #         cv2.destroyAllWindows()
-        #         break
-        #     pass
-        #
-        # # Fourth run of photos
-        # starttime = time.time()
-        #
-        # # Sound to prepare
-        # self.s1.play()
-        # pg.time.delay(750)
-        # self.s2.play()
-        # pg.time.delay(750)
-        # self.s3.play()
-        # cap = cv2.VideoCapture(0)
-        # while True:
-        #     _, frame = cap.read()
-        #     self.pfxname = 'z_03_'
-        #     idx = 0
-        #     trainlist = os.listdir(self.dirtrain)
-        #     testlist = os.listdir(self.dirtest)
-        #     holdlist = os.listdir(self.dirhold)
-        #
-        #     for file in trainlist:
-        #         if file.startswith(self.pfxname):
-        #             idx += 1
-        #     for file in testlist:
-        #         if file.startswith(self.pfxname):
-        #             idx += 1
-        #     for file in holdlist:
-        #         if file.startswith(self.pfxname):
-        #             idx += 1
-        #
-        #     name = self.pfxname + str(int(idx + 1)) + '.jpg'
-        #     savedir = os.path.join(self.dirhold, name)
-        #     cv2.imwrite(savedir, frame)
-        #
-        #     if time.time() - starttime > 8:
-        #         self.sf.play()
-        #         pg.time.delay(750)
-        #         cv2.destroyAllWindows()
-        #         break
-        #     pass
+        # Second run of photos
+        starttime = time.time()
+        # Sound to prepare
+        self.s1.play()
+        pg.time.delay(750)
+        self.s2.play()
+        pg.time.delay(750)
+        self.s3.play()
+        cap = cv2.VideoCapture(0)
+        while True:
+            # Getting landmarks
+            _, frame = cap.read()
+            _, nodes = self.detector.findFaceMesh(frame)
+
+            self.pfxname = 'z_01_'
+            idx = 0
+            trainlist = os.listdir(self.dirtrain)
+            testlist = os.listdir(self.dirtest)
+            holdlist = os.listdir(self.dirhold)
+
+            for file in trainlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+            for file in testlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+            for file in holdlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+
+            # Saving process
+            if len(nodes) != 0:
+                # Landmarks
+                name = self.pfxname + str(int(idx + 1))
+                savedat = os.path.join(self.dirhold, name)
+                np.save(savedat, nodes)
+                # Images
+                name = name + '.jpg'
+                savedir = os.path.join(self.dirhold, name)
+                cv2.imwrite(savedir, frame)
+            elif len(nodes) == 0:
+                pass
+
+            if time.time() - starttime > 8:
+                self.sf.play()
+                pg.time.delay(2000)
+                cv2.destroyAllWindows()
+                break
+            pass
+
+        # 3rd run of photos
+        starttime = time.time()
+        # Sound to prepare
+        self.s1.play()
+        pg.time.delay(750)
+        self.s2.play()
+        pg.time.delay(750)
+        self.s3.play()
+        cap = cv2.VideoCapture(0)
+        while True:
+            # Getting landmarks
+            _, frame = cap.read()
+            _, nodes = self.detector.findFaceMesh(frame)
+
+            self.pfxname = 'z_02_'
+            idx = 0
+            trainlist = os.listdir(self.dirtrain)
+            testlist = os.listdir(self.dirtest)
+            holdlist = os.listdir(self.dirhold)
+
+            for file in trainlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+            for file in testlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+            for file in holdlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+
+            # Saving process
+            if len(nodes) != 0:
+                # Landmarks
+                name = self.pfxname + str(int(idx + 1))
+                savedat = os.path.join(self.dirhold, name)
+                np.save(savedat, nodes)
+                # Images
+                name = name + '.jpg'
+                savedir = os.path.join(self.dirhold, name)
+                cv2.imwrite(savedir, frame)
+            elif len(nodes) == 0:
+                pass
+
+            if time.time() - starttime > 8:
+                self.sf.play()
+                pg.time.delay(2000)
+                cv2.destroyAllWindows()
+                break
+            pass
+
+        # Fourth run of photos
+        starttime = time.time()
+        # Sound to prepare
+        self.s1.play()
+        pg.time.delay(750)
+        self.s2.play()
+        pg.time.delay(750)
+        self.s3.play()
+        cap = cv2.VideoCapture(0)
+        while True:
+            # Getting landmarks
+            _, frame = cap.read()
+            _, nodes = self.detector.findFaceMesh(frame)
+
+            self.pfxname = 'z_03_'
+            idx = 0
+            trainlist = os.listdir(self.dirtrain)
+            testlist = os.listdir(self.dirtest)
+            holdlist = os.listdir(self.dirhold)
+
+            for file in trainlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+            for file in testlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+            for file in holdlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+
+            # Saving process
+            if len(nodes) != 0:
+                # Landmarks
+                name = self.pfxname + str(int(idx + 1))
+                savedat = os.path.join(self.dirhold, name)
+                np.save(savedat, nodes)
+                # Images
+                name = name + '.jpg'
+                savedir = os.path.join(self.dirhold, name)
+                cv2.imwrite(savedir, frame)
+            elif len(nodes) == 0:
+                pass
+
+            if time.time() - starttime > 8:
+                self.sf.play()
+                pg.time.delay(2000)
+                cv2.destroyAllWindows()
+                break
+            pass
+
 
         os.startfile(filepath=self.dirhold)
     # ------------------------------------------------
     # ----- Cargar fotos al sistema ------------------
     # ------------------------------------------------
 
-    def loadD(self, tsttrn):
+    def loadD(self):
 
-        tsttrn = int(tsttrn)
+        # Prepare index to separate train and test
+        i0 = 0
+        i1 = 0
+        i2 = 0
+        i3 = 0
+        filelist = os.listdir(self.dirhold)
+        for file in filelist:
+            if file.startswith('z_00') and file.endswith('.npy'):
+                i0 += 1
+            elif file.startswith('z_01') and file.endswith('.npy'):
+                i1 += 1
+            elif file.startswith('z_02') and file.endswith('.npy'):
+                i2 += 1
+            elif file.startswith('z_03') and file.endswith('.npy'):
+                i3 += 1
+            else:
+                pass
+        i0 = int(math.ceil(i0*0.7))
+        i1 = int(math.ceil(i1*0.7))
+        i2 = int(math.ceil(i2*0.7))
+        i3 = int(math.ceil(i3*0.7))
 
-        # Selección de carga a test o train, con su respectiva fila de inicio
-        if tsttrn == 0:
-            shtnm = 'traintags'
-            dirtrgt = self.dirtrain
-        elif tsttrn == 1:
-            shtnm = 'testtags'
-            dirtrgt = self.dirtest
-        else:
-            pass
+        # Mover archivos a train y test
+        ip0 = 0
+        ip1 = 0
+        ip2 = 0
+        ip3 = 0
+        holdlist = os.listdir(self.dirhold)
+        for file in holdlist:
+            if file.startswith('z_00') and file.endswith('.npy') and ip0 <= i0:
+                oldpath = os.path.join(self.dirhold, file)
+                newpath = os.path.join(self.dirtrain, file)
+                os.replace(oldpath, newpath)
+                ip0 += 1
+            if file.startswith('z_01') and file.endswith('.npy') and ip1 <= i1:
+                oldpath = os.path.join(self.dirhold, file)
+                newpath = os.path.join(self.dirtrain, file)
+                os.replace(oldpath, newpath)
+                ip1 += 1
+            if file.startswith('z_02') and file.endswith('.npy') and ip2 <= i2:
+                oldpath = os.path.join(self.dirhold, file)
+                newpath = os.path.join(self.dirtrain, file)
+                os.replace(oldpath, newpath)
+                ip2 += 1
+            if file.startswith('z_03') and file.endswith('.npy') and ip3 <= i3:
+                oldpath = os.path.join(self.dirhold, file)
+                newpath = os.path.join(self.dirtrain, file)
+                os.replace(oldpath, newpath)
+                ip3 += 1
 
-        # Mover archivos
         holdlist = os.listdir(self.dirhold)
         for file in holdlist:
             if file.endswith('.npy'):
                 oldpath = os.path.join(self.dirhold, file)
-                newpath = os.path.join(dirtrgt, file)
+                newpath = os.path.join(self.dirtest, file)
                 os.replace(oldpath, newpath)
 
-        # Creación de labels
+        # Creación de labels TRAIN
         lbl = []
-        filelist = os.listdir(dirtrgt)
+        filelist = os.listdir(self.dirtrain)
         for file in filelist:
             if file.startswith('z_00'):
                 lbl.append(0)
@@ -276,11 +351,31 @@ class ModelFeeder:
             else:
                 pass
 
+        # Enviar a archivo excel
+        df = pd.DataFrame(list(zip(lbl)))
+        with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
+            df.to_excel(writer, sheet_name='traintags', header=False, index=False, startcol=self.nmodel, startrow=1)
+
+        # Creación de labels TEST
+        lbl = []
+        filelist = os.listdir(self.dirtest)
+        for file in filelist:
+            if file.startswith('z_00'):
+                lbl.append(0)
+            elif file.startswith('z_01'):
+                lbl.append(1)
+            elif file.startswith('z_02'):
+                lbl.append(2)
+            elif file.startswith('z_03'):
+                lbl.append(3)
+            else:
+                pass
 
         # Enviar a archivo excel
         df = pd.DataFrame(list(zip(lbl)))
         with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
-            df.to_excel(writer, sheet_name=shtnm, header=False, index=False, startcol=self.nmodel, startrow=1)
+            df.to_excel(writer, sheet_name='testtags', header=False, index=False, startcol=self.nmodel, startrow=1)
+
 
     # ------------------------------------------------
     # ----- Borrar fotos de directorio temp-----------
@@ -298,39 +393,37 @@ class ModelFeeder:
     # ----- Borrar fotos de directorio temp-----------
     # ------------------------------------------------
 
-    def resetMaster(self, tsttrn):
+    def resetMaster(self):
 
-        # Selección de carga a test o train, con su respectiva fila de inicio
-        if tsttrn == 0:
-            shtnm = 'traintags'
-            dirtrgt = self.dirtrain
-        elif tsttrn == 1:
-            shtnm = 'testtags'
-            dirtrgt = self.dirtest
-        else:
-            pass
-
-        # Borrar archivos
+        # Borrar TRAIN
         idx = 0
-        filelist = os.listdir(dirtrgt)
+        filelist = os.listdir(self.dirtrain)
         for file in filelist:
             if file.startswith('z_'):
-                path = os.path.join(dirtrgt, file)
+                path = os.path.join(self.dirtrain, file)
                 os.remove(path)
                 idx += 1
-
 
         # Borrar etiquetas del excel
         lbl = [None]*idx
         df = pd.DataFrame(list(zip(lbl)))
         with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
-            df.to_excel(writer, sheet_name=shtnm, header=False, index=False, startcol=self.nmodel, startrow=1)
+            df.to_excel(writer, sheet_name='traintags', header=False, index=False, startcol=self.nmodel, startrow=1)
 
+        # Borrar TEST
+        idx = 0
+        filelist = os.listdir(self.dirtest)
+        for file in filelist:
+            if file.startswith('z_'):
+                path = os.path.join(self.dirtest, file)
+                os.remove(path)
+                idx += 1
 
-
-
-
-
+        # Borrar etiquetas del excel
+        lbl = [None]*idx
+        df = pd.DataFrame(list(zip(lbl)))
+        with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
+            df.to_excel(writer, sheet_name='testtags', header=False, index=False, startcol=self.nmodel, startrow=1)
 
 
 

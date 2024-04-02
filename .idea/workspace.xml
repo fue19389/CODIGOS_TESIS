@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora ya se guardan los landmarks en formato de npy">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="ajuste de fila de inicio en excel">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -471,12 +474,19 @@
       <option name="project" value="LOCAL" />
       <updated>1711945740860</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="ajuste de fila de inicio en excel">
+      <option name="closed" value="true" />
+      <created>1711945828334</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1711945828334</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Inicio de pruebas para la GUI" />
     <MESSAGE value="Está listo el esqueleto (funciones) y el cascarón (interfaz), solo falta unirlo.&#10;&#10;PS: Aún falta una simulación simple de movimiento" />
     <MESSAGE value="Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset" />
     <MESSAGE value="Lista la interfaz completa, únicamente falta mejorar la simulación de prediccion, para una mejor visualización" />
@@ -501,6 +511,7 @@
     <MESSAGE value="Listo para pruebas el codigo que genera la data de los landmarks, en vivo y en foto" />
     <MESSAGE value="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras" />
     <MESSAGE value="Ahora ya se guardan los landmarks en formato de npy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahora ya se guardan los landmarks en formato de npy" />
+    <MESSAGE value="ajuste de fila de inicio en excel" />
+    <option name="LAST_COMMIT_MESSAGE" value="ajuste de fila de inicio en excel" />
   </component>
 </project>

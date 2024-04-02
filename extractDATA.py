@@ -29,7 +29,7 @@ class GetModelData:
 
         # Si se escoge etiquetas, guardar para modelos 0 -> 8
 
-        self.nmodel = 8
+        self.nmodel = 9
 
         # ------------------------------------------------
         # ----- Directorios a utilizar -------------------
@@ -39,7 +39,7 @@ class GetModelData:
         self.lbldir = r"C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx"
         # Directorio para guardar las variables a exportar
         self.expordir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS'
-        # Directorio para con carpetas de fotografias
+        # Directorio con carpetas de fotografias
         self.imgdir = r'C:\Users\gerar\PycharmProjects'
 
         # De esta manera solo se tienen que solicitar estos directorios y se aclara que
@@ -60,7 +60,7 @@ class GetModelData:
         # Nombres de array para datos de etiquetas y píxeles
         if tsttrn == 0:
             sheet = 'traintags'
-            foldname = 'TRAINFACE'
+            foldname = 'TRAINLIST'
 
             if self.nmodel == 0:
                 col = 'A'
@@ -98,10 +98,14 @@ class GetModelData:
                 col = 'I'
                 yname = 'y_train8'
                 xname = 'x_train8'
+            if self.nmodel == 9:
+                col = 'J'
+                yname = 'y_train9'
+                xname = 'x_train9'
 
         if tsttrn == 1:
             sheet = 'testtags'
-            foldname = 'TESTFACE'
+            foldname = 'TESTLIST'
 
             if self.nmodel == 0:
                 col = 'A'
@@ -139,6 +143,10 @@ class GetModelData:
                 col = 'I'
                 yname = 'y_test8'
                 xname = 'x_test8'
+            if self.nmodel == 9:
+                col = 'J'
+                yname = 'y_test9'
+                xname = 'x_test9'
 
         # Crear la dirección de archivo desde el cual se extraen las fotografías
         tdir = os.path.join(self.imgdir, foldname)

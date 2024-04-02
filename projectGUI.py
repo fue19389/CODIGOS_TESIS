@@ -183,16 +183,10 @@ class pGUI:
             self.ppr.prepareD(1)
         messagebox.showinfo(message='Listo')
     def load(self):
-        if self.optionmenu_1.get() == 'Entrenamiento':
-            self.feed.loadD(0)
-        elif self.optionmenu_1.get() == 'Validación':
-            self.feed.loadD(1)
+        self.feed.loadD()
         messagebox.showinfo(message='Listo')
     def reset(self):
-        if self.optionmenu_1.get() == 'Entrenamiento':
-            self.feed.resetMaster(0)
-        elif self.optionmenu_1.get() == 'Validación':
-            self.feed.resetMaster(1)
+        self.feed.resetMaster()
         messagebox.showinfo(message='Listo')
     def erase(self):
         self.feed.eraseSERIES()
