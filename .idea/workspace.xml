@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="ajuste de fila de inicio en excel">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="la divisi[on de test y train, funciona, pero de una manera extraña, los ciclos for cuentan mal?">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faceLANDMARKS.py" beforeDir="false" afterPath="$PROJECT_DIR$/faceLANDMARKS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphMODEL.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphMODEL.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +58,7 @@
     &quot;Python.faceLANDMARKS.executor&quot;: &quot;Run&quot;,
     &quot;Python.face_or.executor&quot;: &quot;Run&quot;,
     &quot;Python.feedDATA.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphMODEL.executor&quot;: &quot;Run&quot;,
     &quot;Python.liveTEST.executor&quot;: &quot;Run&quot;,
     &quot;Python.miscTEST.executor&quot;: &quot;Run&quot;,
     &quot;Python.modelGENERATOR.executor&quot;: &quot;Run&quot;,
@@ -69,7 +70,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;graphMODELS&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/gerar/PycharmProjects/CODIGOS_TESIS&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
 }</component>
   <component name="RunManager">
@@ -482,12 +483,19 @@
       <option name="project" value="LOCAL" />
       <updated>1711945828334</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="la divisi[on de test y train, funciona, pero de una manera extraña, los ciclos for cuentan mal?">
+      <option name="closed" value="true" />
+      <created>1712037686493</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1712037686493</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Está listo el esqueleto (funciones) y el cascarón (interfaz), solo falta unirlo.&#10;&#10;PS: Aún falta una simulación simple de movimiento" />
     <MESSAGE value="Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset" />
     <MESSAGE value="Lista la interfaz completa, únicamente falta mejorar la simulación de prediccion, para una mejor visualización" />
     <MESSAGE value="Se renombra el archivo con la interfaz" />
@@ -512,6 +520,7 @@
     <MESSAGE value="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras" />
     <MESSAGE value="Ahora ya se guardan los landmarks en formato de npy" />
     <MESSAGE value="ajuste de fila de inicio en excel" />
-    <option name="LAST_COMMIT_MESSAGE" value="ajuste de fila de inicio en excel" />
+    <MESSAGE value="la divisi[on de test y train, funciona, pero de una manera extraña, los ciclos for cuentan mal?" />
+    <option name="LAST_COMMIT_MESSAGE" value="la divisi[on de test y train, funciona, pero de una manera extraña, los ciclos for cuentan mal?" />
   </component>
 </project>

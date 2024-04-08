@@ -296,6 +296,7 @@ class ModelFeeder:
                 i3 += 1
             else:
                 pass
+
         i0 = int(math.ceil(i0*0.7))
         i1 = int(math.ceil(i1*0.7))
         i2 = int(math.ceil(i2*0.7))
@@ -306,24 +307,28 @@ class ModelFeeder:
         ip1 = 0
         ip2 = 0
         ip3 = 0
+
         holdlist = os.listdir(self.dirhold)
         for file in holdlist:
-            if file.startswith('z_00') and file.endswith('.npy') and ip0 <= i0:
+            if file.startswith('z_00') and file.endswith('.npy') and ip0 < i0:
                 oldpath = os.path.join(self.dirhold, file)
                 newpath = os.path.join(self.dirtrain, file)
                 os.replace(oldpath, newpath)
                 ip0 += 1
-            if file.startswith('z_01') and file.endswith('.npy') and ip1 <= i1:
+
+            if file.startswith('z_01') and file.endswith('.npy') and ip1 < i1:
                 oldpath = os.path.join(self.dirhold, file)
                 newpath = os.path.join(self.dirtrain, file)
                 os.replace(oldpath, newpath)
                 ip1 += 1
-            if file.startswith('z_02') and file.endswith('.npy') and ip2 <= i2:
+
+            if file.startswith('z_02') and file.endswith('.npy') and ip2 < i2:
                 oldpath = os.path.join(self.dirhold, file)
                 newpath = os.path.join(self.dirtrain, file)
                 os.replace(oldpath, newpath)
                 ip2 += 1
-            if file.startswith('z_03') and file.endswith('.npy') and ip3 <= i3:
+
+            if file.startswith('z_03') and file.endswith('.npy') and ip3 < i3:
                 oldpath = os.path.join(self.dirhold, file)
                 newpath = os.path.join(self.dirtrain, file)
                 os.replace(oldpath, newpath)
@@ -350,6 +355,7 @@ class ModelFeeder:
                 lbl.append(3)
             else:
                 pass
+
 
         # Enviar a archivo excel
         df = pd.DataFrame(list(zip(lbl)))
@@ -427,24 +433,3 @@ class ModelFeeder:
 
 
 
-
-# def main():
-#
-#     camara = captura()
-#
-#     poshead = int(input('Seleccione la posicion de cabeza: '))
-#     camara.takePHOTO(poshead)
-#     loaddat = int(input('¿Cargar datos? '))
-#     if loaddat == 1:
-#         camara.loadD()
-#     elif loaddat != 1:
-#         pass
-#     erase = int(input('¿Borrar datos? '))
-#     if erase == 1:
-#         camara.eraseD()
-#     elif erase != 1:
-#         pass
-#
-#
-# if __name__ == '__main__':
-#     main()

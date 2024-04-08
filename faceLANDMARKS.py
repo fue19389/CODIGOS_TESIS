@@ -77,7 +77,7 @@ def main():
         x, y = nodes.T
         plt.scatter(x, y)
         plt.show()
-        print(nodes)
+        print(nodes.shape)
 
 
 
