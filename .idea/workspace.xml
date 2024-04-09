@@ -4,12 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="la divisi[on de test y train, funciona, pero de una manera extraña, los ciclos for cuentan mal?">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora, no se necesita el archivo extractData, se hará dicha extracción en el codigo del modelo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faceLANDMARKS.py" beforeDir="false" afterPath="$PROJECT_DIR$/faceLANDMARKS.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphMODEL.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphMODEL.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,9 +30,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubDefaultAccount">
-    <option name="defaultAccountId" value="ffa3a7ec-c3fd-4747-b35d-85710e814352" />
   </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/projectGUI.py" root0="FORCE_HIGHLIGHTING" />
@@ -491,12 +488,19 @@
       <option name="project" value="LOCAL" />
       <updated>1712037686493</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Ahora, no se necesita el archivo extractData, se hará dicha extracción en el codigo del modelo">
+      <option name="closed" value="true" />
+      <created>1712555673282</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1712555673282</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset" />
     <MESSAGE value="Lista la interfaz completa, únicamente falta mejorar la simulación de prediccion, para una mejor visualización" />
     <MESSAGE value="Se renombra el archivo con la interfaz" />
     <MESSAGE value="Lista la interfaz con la primera simulacion utilizando Turtle" />
@@ -521,6 +525,7 @@
     <MESSAGE value="Ahora ya se guardan los landmarks en formato de npy" />
     <MESSAGE value="ajuste de fila de inicio en excel" />
     <MESSAGE value="la divisi[on de test y train, funciona, pero de una manera extraña, los ciclos for cuentan mal?" />
-    <option name="LAST_COMMIT_MESSAGE" value="la divisi[on de test y train, funciona, pero de una manera extraña, los ciclos for cuentan mal?" />
+    <MESSAGE value="Ahora, no se necesita el archivo extractData, se hará dicha extracción en el codigo del modelo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora, no se necesita el archivo extractData, se hará dicha extracción en el codigo del modelo" />
   </component>
 </project>

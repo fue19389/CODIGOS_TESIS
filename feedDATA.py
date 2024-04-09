@@ -114,7 +114,7 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            if time.time() - starttime > 8:
+            if time.time() - starttime > 15:
                 self.sf.play()
                 pg.time.delay(2000)
                 cv2.destroyAllWindows()
@@ -164,7 +164,7 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            if time.time() - starttime > 8:
+            if time.time() - starttime > 15:
                 self.sf.play()
                 pg.time.delay(2000)
                 cv2.destroyAllWindows()
@@ -214,7 +214,7 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            if time.time() - starttime > 8:
+            if time.time() - starttime > 15:
                 self.sf.play()
                 pg.time.delay(2000)
                 cv2.destroyAllWindows()
@@ -264,7 +264,7 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            if time.time() - starttime > 8:
+            if time.time() - starttime > 15:
                 self.sf.play()
                 pg.time.delay(2000)
                 cv2.destroyAllWindows()

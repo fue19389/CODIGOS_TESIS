@@ -87,35 +87,6 @@ class pGUI:
         self.label1 = ctk.CTkLabel(self.tabview.tab('Captura de fotografías'),
                                    text='Movimientos: \n 1.Izquierda (UP-DOWN) \n 2. Centro-Abajo \n 3. Derecha (UP-DOWN) \n 4. Arriba (DER-IZQ, CORTOS)', font=('aptos', 20))
         self.label1.pack(padx=20, pady=45)
-        # self.buttonFrame = ctk.CTkFrame(self.tabview.tab('Captura de fotografías'))
-
-
-
-        # self.btn2 = ctk.CTkButton(self.buttonFrame, text='UP', font=('aptos', 18), width=250, height=75, command=self.actL3)
-        # self.btn2.grid(row=0, column=1, padx=10, pady=10)
-        #
-        # self.btn3 = ctk.CTkButton(self.buttonFrame, text='DER-UP', font=('aptos', 18), width=250, height=75, command=self.actL2)
-        # self.btn3.grid(row=0, column=2, padx=10, pady=10)
-        #
-        # self.btn4 = ctk.CTkButton(self.buttonFrame, text='IZQ', font=('aptos', 18), width=250, height=75, command=self.actL0)
-        # self.btn4.grid(row=1, column=0, padx=10, pady=10)
-        #
-        # self.btn5 = ctk.CTkButton(self.buttonFrame, text='FRONT', font=('aptos', 18), width=250, height=75, command=self.actL1)
-        # self.btn5.grid(row=1, column=1, padx=10, pady=10)
-        #
-        # self.btn6 = ctk.CTkButton(self.buttonFrame, text='DER', font=('aptos', 18), width=250, height=75, command=self.actL2)
-        # self.btn6.grid(row=1, column=2, padx=10, pady=10)
-        #
-        # self.btn7 = ctk.CTkButton(self.buttonFrame, text='IZQ-DOWN', font=('aptos', 18), width=250, height=75, command=self.actL0)
-        # self.btn7.grid(row=2, column=0, padx=10, pady=10)
-        #
-        # self.btn8 = ctk.CTkButton(self.buttonFrame, text='DOWN', font=('aptos', 18), width=250, height=75, command=self.actL1)
-        # self.btn8.grid(row=2, column=1, padx=10, pady=10)
-        #
-        # self.btn9 = ctk.CTkButton(self.buttonFrame, text='DER-DOWN', font=('aptos', 18), width=250, height=75, command=self.actL2)
-        # self.btn9.grid(row=2, column=2, padx=10, pady=10)
-
-        # self.buttonFrame.pack()
 
         # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración de Tab: Manejo de datos ------------------------------------------
@@ -123,22 +94,14 @@ class pGUI:
 
         self.label2 = ctk.CTkLabel(self.tabview.tab('Manejo de datos'), text='Escoja tipo de datos:', font=('aptos', 22))
         self.label2.pack(padx=15, pady=(20,0))
-        self.optionmenu_1 = ctk.CTkOptionMenu(self.tabview.tab('Manejo de datos'), dynamic_resizing=False,
-                                                        values=["Entrenamiento", "Validación"], width=200, height=40, font=('aptos', 18))
-        self.optionmenu_1.pack(padx=20, pady=20)
+
         self.buttonFrame2 = ctk.CTkFrame(self.tabview.tab('Manejo de datos'))
 
-        self.btn_load = ctk.CTkButton(self.buttonFrame2, text='Cargar Serie', font=('aptos', 18), width=250, height=75, command=self.load)
-        self.btn_load.grid(row=0, column=0, padx=10, pady=10)
-
-        self.btn_prepare = ctk.CTkButton(self.buttonFrame2, text='Preparar Serie', font=('aptos', 18), width=250, height=75, command=self.prepare)
-        self.btn_prepare.grid(row=0, column=1, padx=10, pady=10)
-
         self.btn_erase = ctk.CTkButton(self.buttonFrame2, text='Borrar Serie', font=('aptos', 18), width=250, height=75, command=self.erase)
-        self.btn_erase.grid(row=1, column=0, padx=10, pady=10)
+        self.btn_erase.grid(row=0, column=0, padx=10, pady=10)
 
         self.btn_reset = ctk.CTkButton(self.buttonFrame2, text='Resetear Modelo', font=('aptos', 18), width=250, height=75, command=self.reset)
-        self.btn_reset.grid(row=1, column=1, padx=10, pady=10)
+        self.btn_reset.grid(row=0, column=1, padx=10, pady=10)
 
         self.buttonFrame2.pack(pady=20)
 
@@ -176,15 +139,6 @@ class pGUI:
     # ----------------------------- Funciones para manejo de datos  ------------------------------------------------
     # --------------------------------------------------------------------------------------------------------------
 
-    def prepare(self):
-        if self.optionmenu_1.get() == 'Entrenamiento':
-            self.ppr.prepareD(0)
-        elif self.optionmenu_1.get() == 'Validación':
-            self.ppr.prepareD(1)
-        messagebox.showinfo(message='Listo')
-    def load(self):
-        self.feed.loadD()
-        messagebox.showinfo(message='Listo')
     def reset(self):
         self.feed.resetMaster()
         messagebox.showinfo(message='Listo')
@@ -192,7 +146,8 @@ class pGUI:
         self.feed.eraseSERIES()
         messagebox.showinfo(message='Listo')
     def trainM(self):
-        self.train.TrainModel()
+        self.feed.loadD()
+        # self.train.TrainModel()
         messagebox.showinfo(message='Listo')
 
     # --------------------------------------------------------------------------------------------------------------
