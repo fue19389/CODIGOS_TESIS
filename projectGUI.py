@@ -25,7 +25,8 @@ from matplotlib import rcParams
 
 import feedDATA as fD
 import extractDATA as eD
-import photoMODEL as mG
+import photoMODEL as pM
+import graphMODEL as gM
 import liveTEST as lT
 
 # Librerías para GUI
@@ -65,9 +66,9 @@ class pGUI:
         # Inicialización de librerías personales
         self.feed = fD.ModelFeeder()
         self.ppr = eD.GetModelData()
-        self.train = mG.ModelGenerate()
+        self.train = pM.ModelPhoto()
+        self.train1 = gM.ModelGraph()
         self.use_m = lT.UseModel()
-
 
         # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración de Tab: Instrucciones -----------------------------------
@@ -147,7 +148,7 @@ class pGUI:
         messagebox.showinfo(message='Listo')
     def trainM(self):
         self.feed.loadD()
-        # self.train.TrainModel()
+        self.train1.TrainModel()
         messagebox.showinfo(message='Listo')
 
     # --------------------------------------------------------------------------------------------------------------

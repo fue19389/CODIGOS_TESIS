@@ -22,7 +22,7 @@ import os
 from tensorflow import keras
 from tensorflow.keras.optimizers import SGD
 
-class ModelGenerate:
+class ModelPhoto:
     
     def __init__(self):
         
