@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ya se hacen primeras pruebas de simulador, con diferentes tipos de posiciones y gestos 1. Con las 4 posiciones anteriores, 2. con der, izq, center y sonrisa. Siempre hay conflicto con stop y forward">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adjacencyMATRIX.py" beforeDir="false" afterPath="$PROJECT_DIR$/adjacencyMATRIX.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphMODEL.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphMODEL.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
     </list>
@@ -26,7 +26,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="graphMODELS" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -48,31 +48,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.adjacencyMATRIX.executor&quot;: &quot;Run&quot;,
-    &quot;Python.complex_example.executor&quot;: &quot;Run&quot;,
-    &quot;Python.extractDATA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.faceLANDMARKS.executor&quot;: &quot;Run&quot;,
-    &quot;Python.face_or.executor&quot;: &quot;Run&quot;,
-    &quot;Python.feedDATA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.graphMODEL.executor&quot;: &quot;Run&quot;,
-    &quot;Python.liveTEST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.miscTEST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.modelGENERATOR.executor&quot;: &quot;Run&quot;,
-    &quot;Python.photoGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.projectGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.savePHOTO.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scrollable_frame_example.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;graphMODELS&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/graphMODEL.py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.__init__.executor": "Run",
+    "Python.adjacencyMATRIX.executor": "Run",
+    "Python.complex_example.executor": "Run",
+    "Python.extractDATA.executor": "Run",
+    "Python.faceLANDMARKS.executor": "Run",
+    "Python.face_or.executor": "Run",
+    "Python.feedDATA.executor": "Run",
+    "Python.graphMODEL.executor": "Run",
+    "Python.liveTEST.executor": "Run",
+    "Python.miscTEST.executor": "Run",
+    "Python.modelGENERATOR.executor": "Run",
+    "Python.photoGUI.executor": "Run",
+    "Python.projectGUI.executor": "Run",
+    "Python.savePHOTO.executor": "Run",
+    "Python.scrollable_frame_example.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "graphMODELS2",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/graphMODEL.py",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="face_or" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="CODIGOS_TESIS" />
@@ -114,14 +114,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00002" summary="Colocación de codigos para la tesis, fase 1">
-      <option name="closed" value="true" />
-      <created>1709093181077</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1709093181077</updated>
     </task>
     <task id="LOCAL-00003" summary="Colocación de codigos para la tesis, fase 1">
       <option name="closed" value="true" />
@@ -507,12 +499,19 @@
       <option name="project" value="LOCAL" />
       <updated>1712815263969</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!">
+      <option name="closed" value="true" />
+      <created>1712897904481</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1712897904481</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Lista la interfaz con la primera simulacion utilizando Turtle" />
     <MESSAGE value="Había un problema con la lectura de columnas de excel, ya se solucionó" />
     <MESSAGE value="Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100" />
     <MESSAGE value="aun no se qeu pasa con turtle" />
@@ -537,6 +536,7 @@
     <MESSAGE value="Ahora, no se necesita el archivo extractData, se hará dicha extracción en el codigo del modelo" />
     <MESSAGE value="Ya se creó el modelo que usa una forma de GNN usando CONV1D, de tensorflow y keras, y funciona bastante bien, eso si, se requiere 15s por posición de cara" />
     <MESSAGE value="Ya se hacen primeras pruebas de simulador, con diferentes tipos de posiciones y gestos 1. Con las 4 posiciones anteriores, 2. con der, izq, center y sonrisa. Siempre hay conflicto con stop y forward" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ya se hacen primeras pruebas de simulador, con diferentes tipos de posiciones y gestos 1. Con las 4 posiciones anteriores, 2. con der, izq, center y sonrisa. Siempre hay conflicto con stop y forward" />
+    <MESSAGE value="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!" />
+    <option name="LAST_COMMIT_MESSAGE" value="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!" />
   </component>
 </project>

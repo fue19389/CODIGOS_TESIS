@@ -32,7 +32,7 @@ class ModelFeeder:
         # ------------------------------------------------
 
         # Escoge la columna de la data en el archivo excel
-        self.nmodel = 9
+        self.nmodel = 11
 
         # ------------------------------------------------
         # ----- Directorios a utilizar -------------------
@@ -271,6 +271,56 @@ class ModelFeeder:
                 break
             pass
 
+        # Fifth run of photos
+        starttime = time.time()
+        # Sound to prepare
+        self.s1.play()
+        pg.time.delay(750)
+        self.s2.play()
+        pg.time.delay(750)
+        self.s3.play()
+        cap = cv2.VideoCapture(0)
+        while True:
+            # Getting landmarks
+            _, frame = cap.read()
+            _, nodes = self.detector.findFaceMesh(frame)
+
+            self.pfxname = 'z_04_'
+            idx = 0
+            trainlist = os.listdir(self.dirtrain)
+            testlist = os.listdir(self.dirtest)
+            holdlist = os.listdir(self.dirhold)
+
+            for file in trainlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+            for file in testlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+            for file in holdlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+
+            # Saving process
+            if len(nodes) != 0:
+                # Landmarks
+                name = self.pfxname + str(int(idx + 1))
+                savedat = os.path.join(self.dirhold, name)
+                np.save(savedat, nodes)
+                # Images
+                name = name + '.jpg'
+                savedir = os.path.join(self.dirhold, name)
+                cv2.imwrite(savedir, frame)
+            elif len(nodes) == 0:
+                pass
+
+            if time.time() - starttime > 15:
+                self.sf.play()
+                pg.time.delay(2000)
+                cv2.destroyAllWindows()
+                break
+            pass
+
 
         os.startfile(filepath=self.dirhold)
     # ------------------------------------------------
@@ -284,6 +334,7 @@ class ModelFeeder:
         i1 = 0
         i2 = 0
         i3 = 0
+        i4 = 0
         filelist = os.listdir(self.dirhold)
         for file in filelist:
             if file.startswith('z_00') and file.endswith('.npy'):
@@ -294,6 +345,8 @@ class ModelFeeder:
                 i2 += 1
             elif file.startswith('z_03') and file.endswith('.npy'):
                 i3 += 1
+            elif file.startswith('z_04') and file.endswith('.npy'):
+                i4 += 1
             else:
                 pass
 
@@ -301,12 +354,14 @@ class ModelFeeder:
         i1 = int(math.ceil(i1*0.7))
         i2 = int(math.ceil(i2*0.7))
         i3 = int(math.ceil(i3*0.7))
+        i4 = int(math.ceil(i4*0.7))
 
         # Mover archivos a train y test
         ip0 = 0
         ip1 = 0
         ip2 = 0
         ip3 = 0
+        ip4 = 0
 
         holdlist = os.listdir(self.dirhold)
         for file in holdlist:
@@ -333,6 +388,11 @@ class ModelFeeder:
                 newpath = os.path.join(self.dirtrain, file)
                 os.replace(oldpath, newpath)
                 ip3 += 1
+            if file.startswith('z_04') and file.endswith('.npy') and ip4 < i4:
+                oldpath = os.path.join(self.dirhold, file)
+                newpath = os.path.join(self.dirtrain, file)
+                os.replace(oldpath, newpath)
+                ip4 += 1
 
         holdlist = os.listdir(self.dirhold)
         for file in holdlist:
@@ -353,6 +413,8 @@ class ModelFeeder:
                 lbl.append(2)
             elif file.startswith('z_03'):
                 lbl.append(3)
+            elif file.startswith('z_04'):
+                lbl.append(4)
             else:
                 pass
 
@@ -374,6 +436,8 @@ class ModelFeeder:
                 lbl.append(2)
             elif file.startswith('z_03'):
                 lbl.append(3)
+            elif file.startswith('z_04'):
+                lbl.append(4)
             else:
                 pass
 
