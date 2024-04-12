@@ -42,7 +42,7 @@ class ModelGraph:
         self.testdir = r"C:\Users\gerar\PycharmProjects\TESTLIST"
         self.figtssdir = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures'
 
-        self.col = 'L'
+        self.col = 'M'
 
     def TrainModel(self):
 
@@ -85,14 +85,14 @@ class ModelGraph:
         for i in range(len(y_test)):
             admattest[i] = admat
 
-        savefig1 = os.path.join(self.figtssdir, 'LA12')
-        savefig2 = os.path.join(self.figtssdir, 'CM12')
+        savefig1 = os.path.join(self.figtssdir, 'LA13')
+        savefig2 = os.path.join(self.figtssdir, 'CM13')
         # ------------------------------------------------------
         # -----Generación de modelo ----------------------------
         # ------------------------------------------------------
 
         # Parameters
-        num_classes = 5
+        num_classes = 9
         conv1_output_dim = 75
         conv2_output_dim = 150
         conv3_output_dim = 75
@@ -115,7 +115,7 @@ class ModelGraph:
                       metrics=['accuracy'])
 
         history = model.fit([x_train, admattrain], y_train, validation_data=([x_test, admattest], y_test), epochs=num_epochs)
-        model.save(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or12.keras')
+        model.save(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or13.keras')
 
         _, actual_acc = model.evaluate([x_test, admattest], y_test)
 

@@ -33,7 +33,7 @@ class UseModel:
         # ------------------------------------------------------
         
         # Actualmente, se tienen modelos del 0 -> 8
-        self.n_model = 12
+        self.n_model = 13
 
 
         # -----------------------------------------------------
@@ -80,6 +80,8 @@ class UseModel:
             self.mname = 'head_or11.keras'
         elif self.n_model == 12:
             self.mname = 'head_or12.keras'
+        elif self.n_model == 13:
+            self.mname = 'head_or13.keras'
 
         self.ho_model = os.path.join(self.expordir, self.mname)
         self.ho_model = tf.keras.models.load_model(self.ho_model)
@@ -112,20 +114,32 @@ class UseModel:
 
 
             if prediction == 0:
-                # self.leo.forward(5)
-                self.leo.left(7)
+                self.leo.right(6)
+                self.leo.backward(5)
             if prediction == 1:
+                self.leo.backward(5)
+            if prediction == 2:
+                self.leo.left(6)
+                self.leo.backward(5)
+
+            if prediction == 3:
+                self.leo.right(5)
+            if prediction == 4:
                 self.leo.backward(0)
                 self.leo.forward(0)
                 self.leo.left(0)
                 self.leo.right(0)
-            if prediction == 2:
-                # self.leo.forward(5)
-                self.leo.right(7)
-            if prediction == 3:
+            if prediction == 5:
+                self.leo.left(5)
+
+            if prediction == 6:
+                self.leo.left(6)
                 self.leo.forward(5)
-            if prediction == 4:
-                self.leo.backward(5)
+            if prediction == 7:
+                self.leo.forward(5)
+            if prediction == 8:
+                self.leo.right(6)
+                self.leo.forward(5)
             else:
                 pass
         
