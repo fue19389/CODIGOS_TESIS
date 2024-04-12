@@ -32,7 +32,7 @@ class ModelFeeder:
         # ------------------------------------------------
 
         # Escoge la columna de la data en el archivo excel
-        self.nmodel = 12
+        self.nmodel = 13
 
         # ------------------------------------------------
         # ----- Directorios a utilizar -------------------

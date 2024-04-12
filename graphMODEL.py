@@ -42,7 +42,7 @@ class ModelGraph:
         self.testdir = r"C:\Users\gerar\PycharmProjects\TESTLIST"
         self.figtssdir = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures'
 
-        self.col = 'M'
+        self.col = 'N'
 
     def TrainModel(self):
 
@@ -85,8 +85,8 @@ class ModelGraph:
         for i in range(len(y_test)):
             admattest[i] = admat
 
-        savefig1 = os.path.join(self.figtssdir, 'LA13')
-        savefig2 = os.path.join(self.figtssdir, 'CM13')
+        savefig1 = os.path.join(self.figtssdir, 'LA14')
+        savefig2 = os.path.join(self.figtssdir, 'CM14')
         # ------------------------------------------------------
         # -----Generación de modelo ----------------------------
         # ------------------------------------------------------
@@ -96,7 +96,7 @@ class ModelGraph:
         conv1_output_dim = 75
         conv2_output_dim = 150
         conv3_output_dim = 75
-        num_epochs = 10
+        num_epochs = 5
 
         # Layers
         conv1 = layers.Conv1D(conv1_output_dim, kernel_size=2, activation='relu', input_shape=(468, 2))
@@ -115,7 +115,7 @@ class ModelGraph:
                       metrics=['accuracy'])
 
         history = model.fit([x_train, admattrain], y_train, validation_data=([x_test, admattest], y_test), epochs=num_epochs)
-        model.save(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or13.keras')
+        model.save(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or14.keras')
 
         _, actual_acc = model.evaluate([x_test, admattest], y_test)
 
