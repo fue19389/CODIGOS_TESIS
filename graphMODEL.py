@@ -42,6 +42,8 @@ class ModelGraph:
         self.testdir = r"C:\Users\gerar\PycharmProjects\TESTLIST"
         self.figtssdir = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures'
 
+        self.col = 'J'
+
     def TrainModel(self):
 
         # ------------------------------------------------
@@ -65,12 +67,12 @@ class ModelGraph:
 
         # LABELS
         # Extraer el archivo de etiquetas desde una columna de excel
-        y_t = np.array(pd.read_excel(self.lbldir, sheet_name='traintags', usecols='J').dropna())
+        y_t = np.array(pd.read_excel(self.lbldir, sheet_name='traintags', usecols=self.col).dropna())
         # Convertir el archivo de etiquetas para reducir tamaño
         y_train = y_t.astype(int)
 
         # Extraer el archivo de etiquetas desde una columna de excel
-        y_t = np.array(pd.read_excel(self.lbldir, sheet_name='testtags', usecols='J').dropna())
+        y_t = np.array(pd.read_excel(self.lbldir, sheet_name='testtags', usecols=self.col).dropna())
         # Convertir el archivo de etiquetas para reducir tamaño
         y_test = y_t.astype(int)
 
@@ -160,6 +162,6 @@ class ModelGraph:
         plt.savefig(savefig2)
         plt.show()
 
-if __name__ == '__main__':
-    main()
+# if __name__ == '__main__':
+#     main()
 

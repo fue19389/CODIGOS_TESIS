@@ -76,6 +76,8 @@ class UseModel:
             self.mname = 'head_or9.keras'
         elif self.n_model == 10:
             self.mname = 'head_or10.keras'
+        elif self.n_model == 11:
+            self.mname = 'head_or11.keras'
 
         self.ho_model = os.path.join(self.expordir, self.mname)
         self.ho_model = tf.keras.models.load_model(self.ho_model)

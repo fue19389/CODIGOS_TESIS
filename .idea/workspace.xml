@@ -4,13 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ya se creó el modelo que usa una forma de GNN usando CONV1D, de tensorflow y keras, y funciona bastante bien, eso si, se requiere 15s por posición de cara">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ya se hacen primeras pruebas de simulador, con diferentes tipos de posiciones y gestos 1. Con las 4 posiciones anteriores, 2. con der, izq, center y sonrisa. Siempre hay conflicto con stop y forward">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/adjacencyMATRIX.py" beforeDir="false" afterPath="$PROJECT_DIR$/adjacencyMATRIX.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphMODEL.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphMODEL.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/photoMODEL.py" beforeDir="false" afterPath="$PROJECT_DIR$/photoMODEL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,14 +114,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00001" summary="Colocación de codigos para la tesis, fase 1">
-      <option name="closed" value="true" />
-      <created>1709092956582</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1709092956582</updated>
     </task>
     <task id="LOCAL-00002" summary="Colocación de codigos para la tesis, fase 1">
       <option name="closed" value="true" />
@@ -508,12 +499,19 @@
       <option name="project" value="LOCAL" />
       <updated>1712641983804</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Ya se hacen primeras pruebas de simulador, con diferentes tipos de posiciones y gestos 1. Con las 4 posiciones anteriores, 2. con der, izq, center y sonrisa. Siempre hay conflicto con stop y forward">
+      <option name="closed" value="true" />
+      <created>1712815263968</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1712815263969</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Se renombra el archivo con la interfaz" />
     <MESSAGE value="Lista la interfaz con la primera simulacion utilizando Turtle" />
     <MESSAGE value="Había un problema con la lectura de columnas de excel, ya se solucionó" />
     <MESSAGE value="Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100" />
@@ -538,6 +536,7 @@
     <MESSAGE value="la divisi[on de test y train, funciona, pero de una manera extraña, los ciclos for cuentan mal?" />
     <MESSAGE value="Ahora, no se necesita el archivo extractData, se hará dicha extracción en el codigo del modelo" />
     <MESSAGE value="Ya se creó el modelo que usa una forma de GNN usando CONV1D, de tensorflow y keras, y funciona bastante bien, eso si, se requiere 15s por posición de cara" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ya se creó el modelo que usa una forma de GNN usando CONV1D, de tensorflow y keras, y funciona bastante bien, eso si, se requiere 15s por posición de cara" />
+    <MESSAGE value="Ya se hacen primeras pruebas de simulador, con diferentes tipos de posiciones y gestos 1. Con las 4 posiciones anteriores, 2. con der, izq, center y sonrisa. Siempre hay conflicto con stop y forward" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ya se hacen primeras pruebas de simulador, con diferentes tipos de posiciones y gestos 1. Con las 4 posiciones anteriores, 2. con der, izq, center y sonrisa. Siempre hay conflicto con stop y forward" />
   </component>
 </project>
