@@ -167,7 +167,7 @@ class UseModel:
 
             else:
                 pass
-            print('p, f, c, ca, cb')
+            print('p f c a b')
             print(prediction, flag, cont, conta, contb)
 
             # Show the complete image

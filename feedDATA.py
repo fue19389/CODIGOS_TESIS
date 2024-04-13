@@ -72,7 +72,6 @@ class ModelFeeder:
     def takePHOTO(self):
 
         # First run of photos
-        starttime = time.time()
         # Sound to prepare
         self.s1.play()
         pg.time.delay(750)
@@ -114,15 +113,15 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            if time.time() - starttime > 15:
+            holditems = len(os.listdir(self.dirhold))
+            if holditems > 699:
                 self.sf.play()
-                pg.time.delay(2000)
-                cv2.destroyAllWindows()
+                cap.release()
+                # cv2.destroyAllWindows()
                 break
-            pass
+        time.sleep(2)
 
         # Second run of photos
-        starttime = time.time()
         # Sound to prepare
         self.s1.play()
         pg.time.delay(750)
@@ -164,15 +163,15 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            if time.time() - starttime > 15:
+            holditems = len(os.listdir(self.dirhold)) - 700
+            if holditems > 699:
                 self.sf.play()
-                pg.time.delay(2000)
-                cv2.destroyAllWindows()
+                cap.release()
+                # cv2.destroyAllWindows()
                 break
-            pass
+        time.sleep(2)
 
         # 3rd run of photos
-        starttime = time.time()
         # Sound to prepare
         self.s1.play()
         pg.time.delay(750)
@@ -214,15 +213,15 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            if time.time() - starttime > 15:
+            holditems = len(os.listdir(self.dirhold)) - 1400
+            if holditems > 699:
                 self.sf.play()
-                pg.time.delay(2000)
-                cv2.destroyAllWindows()
+                cap.release()
+                # cv2.destroyAllWindows()
                 break
-            pass
+        time.sleep(2)
 
         # Fourth run of photos
-        starttime = time.time()
         # Sound to prepare
         self.s1.play()
         pg.time.delay(750)
@@ -264,15 +263,15 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            if time.time() - starttime > 15:
+            holditems = len(os.listdir(self.dirhold)) - 2100
+            if holditems > 699:
                 self.sf.play()
-                pg.time.delay(2000)
-                cv2.destroyAllWindows()
+                cap.release()
+                # cv2.destroyAllWindows()
                 break
-            pass
+        time.sleep(2)
 
         # Fifth run of photos
-        starttime = time.time()
         # Sound to prepare
         self.s1.play()
         pg.time.delay(750)
@@ -314,13 +313,13 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            if time.time() - starttime > 15:
+            holditems = len(os.listdir(self.dirhold)) - 2800
+            if holditems > 699:
                 self.sf.play()
-                pg.time.delay(2000)
-                cv2.destroyAllWindows()
+                cap.release()
+                # cv2.destroyAllWindows()
                 break
-            pass
-
+        time.sleep(1)
 
         os.startfile(filepath=self.dirhold)
     # ------------------------------------------------

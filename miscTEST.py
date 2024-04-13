@@ -1,5 +1,5 @@
 import numpy as np
+import os
 
-x = np.load(r'C:\Users\gerar\PycharmProjects\PFOTOS\z_00_1.npy')
-
-print(x)
+holdlist = os.listdir(r'C:\Users\gerar\PycharmProjects\TRAINFACE')
+print(len(holdlist))
