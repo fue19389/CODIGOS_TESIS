@@ -50,10 +50,10 @@ class UseModel:
          
     def on(self):
 
+
         # -----------------------------------------------------
         # -------------------Cargar modelo---------------------
         # -----------------------------------------------------
-
         if self.n_model == 0:
             self.mname = 'head_or.keras'
         elif self.n_model == 1:
@@ -93,6 +93,11 @@ class UseModel:
         self.leo = ttl.Turtle()
         detector = fL.FaceMeshDetector()
         self.admat = np.array([np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\admat.npy')])
+        cont = 0
+        conta = 0
+        contb = 0
+        flag = 0
+
         # -----------------------------------------------------
         # ----Visualizar movimiento de turtle -----------------
         # -----------------------------------------------------
@@ -105,30 +110,65 @@ class UseModel:
             img, nodes = detector.findFaceMesh(imgF)
             nodes = np.array([nodes])
             if nodes.any() != 0:
-                y_predicted = self.ho_model.predict(nodes, verbose=2)
+                y_predicted = self.ho_model.predict(nodes, verbose=0)
                 prediction = int(np.argmax(y_predicted))
             else:
                 prediction = 1
 
 
             if prediction == 0:
-                # self.leo.forward(5)
                 self.leo.left(7)
+                self.leo.forward(conta)
+                self.leo.backward(contb)
+                flag = 0
             if prediction == 1:
-                self.leo.backward(0)
-                self.leo.forward(0)
-                self.leo.left(0)
-                self.leo.right(0)
+                self.leo.forward(conta)
+                self.leo.backward(contb)
+                flag = 0
             if prediction == 2:
-                # self.leo.forward(5)
                 self.leo.right(7)
+                self.leo.forward(conta)
+                self.leo.backward(contb)
+                flag = 0
+
             if prediction == 3:
-                self.leo.forward(5)
+                if flag == 0:
+                    cont += 1
+                    if cont > -1 and cont < 5:
+                        conta = int(cont)
+                    if cont < 1 and cont > -5:
+                        contb = int(-1*cont)
+                    if cont > 4:
+                        conta = int(4)
+                        cont = 4
+                    if cont < -4:
+                        contb = int(4)
+                        cont = -4
+                    flag = 1
+                else:
+                    pass
+
             if prediction == 4:
-                self.leo.backward(5)
+                if flag == 0:
+                    cont -= 1
+                    if cont > -1 and cont < 5:
+                        conta = int(cont)
+                    if cont < 1 and cont > -5:
+                        contb = int(-1*cont)
+                    if cont > 4:
+                        conta = int(4)
+                        cont = 4
+                    if cont < -4:
+                        contb = int(4)
+                        cont = -4
+                    flag = 1
+                else:
+                    pass
+
             else:
                 pass
-        
+            print(flag, cont, conta, contb)
+
             # Show the complete image
             cv2.imshow('Image', img)
         
