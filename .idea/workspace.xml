@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se mejoró la captura de datos, ya no es por tiempo, ahora es por cantidad de imagenes">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ya funcionó el modelo, pero se requirieron 700 capturas por posición, por el momento,">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,14 +112,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar">
-      <option name="closed" value="true" />
-      <created>1709098459764</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1709098459764</updated>
     </task>
     <task id="LOCAL-00007" summary="En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora">
       <option name="closed" value="true" />
@@ -505,12 +497,19 @@
       <option name="project" value="LOCAL" />
       <updated>1712986673872</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="Ya funcionó el modelo, pero se requirieron 700 capturas por posición, por el momento,">
+      <option name="closed" value="true" />
+      <created>1712988354887</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1712988354887</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion" />
     <MESSAGE value="Al fin funciona al 100 la interfaz" />
     <MESSAGE value="Listo, funciona todo ya, hasta se creó un ejecutable para la interfaz" />
     <MESSAGE value="Inclulir el gitignore" />
@@ -535,6 +534,7 @@
     <MESSAGE value="Ya empieza a funcionar el control de velocidad" />
     <MESSAGE value="El problema ahora es que aun confunde un poco la posición de la cabeza hacia arriba, con la del frente" />
     <MESSAGE value="Se mejoró la captura de datos, ya no es por tiempo, ahora es por cantidad de imagenes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se mejoró la captura de datos, ya no es por tiempo, ahora es por cantidad de imagenes" />
+    <MESSAGE value="Ya funcionó el modelo, pero se requirieron 700 capturas por posición, por el momento," />
+    <option name="LAST_COMMIT_MESSAGE" value="Ya funcionó el modelo, pero se requirieron 700 capturas por posición, por el momento," />
   </component>
 </project>
