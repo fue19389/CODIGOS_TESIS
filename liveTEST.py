@@ -120,7 +120,7 @@ class UseModel:
                 self.leo.left(7)
                 self.leo.forward(conta)
                 self.leo.backward(contb)
-                flag = 0
+
             if prediction == 1:
                 self.leo.forward(conta)
                 self.leo.backward(contb)
@@ -129,7 +129,7 @@ class UseModel:
                 self.leo.right(7)
                 self.leo.forward(conta)
                 self.leo.backward(contb)
-                flag = 0
+
 
             if prediction == 3:
                 if flag == 0:
@@ -167,7 +167,8 @@ class UseModel:
 
             else:
                 pass
-            print(flag, cont, conta, contb)
+            print('p, f, c, ca, cb')
+            print(prediction, flag, cont, conta, contb)
 
             # Show the complete image
             cv2.imshow('Image', img)

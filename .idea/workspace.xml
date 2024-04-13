@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ya empieza a funcionar el control de velocidad">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
     </list>
@@ -111,14 +111,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00003" summary="Colocación de codigos para la tesis, fase 1">
-      <option name="closed" value="true" />
-      <created>1709093373538</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1709093373538</updated>
     </task>
     <task id="LOCAL-00004" summary="Se generan las matrices de etiquetas">
       <option name="closed" value="true" />
@@ -504,12 +496,19 @@
       <option name="project" value="LOCAL" />
       <updated>1712897904481</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Ya empieza a funcionar el control de velocidad">
+      <option name="closed" value="true" />
+      <created>1712983838587</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1712983838588</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Había un problema con la lectura de columnas de excel, ya se solucionó" />
     <MESSAGE value="Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100" />
     <MESSAGE value="aun no se qeu pasa con turtle" />
     <MESSAGE value="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion" />
@@ -534,6 +533,7 @@
     <MESSAGE value="Ya se creó el modelo que usa una forma de GNN usando CONV1D, de tensorflow y keras, y funciona bastante bien, eso si, se requiere 15s por posición de cara" />
     <MESSAGE value="Ya se hacen primeras pruebas de simulador, con diferentes tipos de posiciones y gestos 1. Con las 4 posiciones anteriores, 2. con der, izq, center y sonrisa. Siempre hay conflicto con stop y forward" />
     <MESSAGE value="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!" />
+    <MESSAGE value="Ya empieza a funcionar el control de velocidad" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ya empieza a funcionar el control de velocidad" />
   </component>
 </project>
