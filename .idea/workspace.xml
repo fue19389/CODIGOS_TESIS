@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="El problema ahora es que aun confunde un poco la posición de la cabeza hacia arriba, con la del frente">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se mejoró la captura de datos, ya no es por tiempo, ahora es por cantidad de imagenes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,14 +112,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00005" summary="Se eliminan datos de exportación y se asignan a un nuevo directorio">
-      <option name="closed" value="true" />
-      <created>1709096961328</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1709096961328</updated>
     </task>
     <task id="LOCAL-00006" summary="Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar">
       <option name="closed" value="true" />
@@ -507,12 +497,19 @@
       <option name="project" value="LOCAL" />
       <updated>1712984468062</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="Se mejoró la captura de datos, ya no es por tiempo, ahora es por cantidad de imagenes">
+      <option name="closed" value="true" />
+      <created>1712986673872</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1712986673872</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="aun no se qeu pasa con turtle" />
     <MESSAGE value="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion" />
     <MESSAGE value="Al fin funciona al 100 la interfaz" />
     <MESSAGE value="Listo, funciona todo ya, hasta se creó un ejecutable para la interfaz" />
@@ -537,6 +534,7 @@
     <MESSAGE value="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!" />
     <MESSAGE value="Ya empieza a funcionar el control de velocidad" />
     <MESSAGE value="El problema ahora es que aun confunde un poco la posición de la cabeza hacia arriba, con la del frente" />
-    <option name="LAST_COMMIT_MESSAGE" value="El problema ahora es que aun confunde un poco la posición de la cabeza hacia arriba, con la del frente" />
+    <MESSAGE value="Se mejoró la captura de datos, ya no es por tiempo, ahora es por cantidad de imagenes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se mejoró la captura de datos, ya no es por tiempo, ahora es por cantidad de imagenes" />
   </component>
 </project>
