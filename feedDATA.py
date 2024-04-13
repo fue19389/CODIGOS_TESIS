@@ -163,8 +163,8 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            holditems = len(os.listdir(self.dirhold)) - 700
-            if holditems > 2099:
+            holditems = len(os.listdir(self.dirhold)) - 1050
+            if holditems > 1049:
                 self.sf.play()
                 cap.release()
                 # cv2.destroyAllWindows()
@@ -213,8 +213,8 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            holditems = len(os.listdir(self.dirhold)) - 3149
-            if holditems > 699:
+            holditems = len(os.listdir(self.dirhold)) - 2100
+            if holditems > 1049:
                 self.sf.play()
                 cap.release()
                 # cv2.destroyAllWindows()
@@ -263,8 +263,8 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            holditems = len(os.listdir(self.dirhold)) - 4199
-            if holditems > 699:
+            holditems = len(os.listdir(self.dirhold)) - 3150
+            if holditems > 1049:
                 self.sf.play()
                 cap.release()
                 # cv2.destroyAllWindows()
@@ -313,8 +313,8 @@ class ModelFeeder:
             elif len(nodes) == 0:
                 pass
 
-            holditems = len(os.listdir(self.dirhold)) - 2800
-            if holditems > 699:
+            holditems = len(os.listdir(self.dirhold)) - 4200
+            if holditems > 1049:
                 self.sf.play()
                 cap.release()
                 # cv2.destroyAllWindows()

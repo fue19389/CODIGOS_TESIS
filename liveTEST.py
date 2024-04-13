@@ -104,7 +104,7 @@ class UseModel:
 
         while True:
         
-            # Saving captured image and transforming from BGR TO RGB
+            # Saving captured image
 
             _, imgF = self.cap.read()
             img, nodes = detector.findFaceMesh(imgF)

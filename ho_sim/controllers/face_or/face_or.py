@@ -2,11 +2,12 @@ from controller import Robot, Motor
 import tensorflow as tf
 import numpy as np
 import cv2
+import faceLANDMARKS as fL
 
 TIME_STEP = 32
-MAX_SPEED = 6.28
+SPEED = 6.28
 CAP = cv2.VideoCapture(0)
-ho_model = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or8.keras'
+ho_model = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or12.keras'
 ho_model = tf.keras.models.load_model(ho_model)
 
 # create the Robot instance.
@@ -17,16 +18,22 @@ leftMotor = robot.getDevice('left wheel motor')
 rightMotor = robot.getDevice('right wheel motor')
 leftMotor.setPosition(float('inf'))
 rightMotor.setPosition(float('inf'))
+detector = fL.FaceMeshDetector()
+cont = 0
+SPEEDC = 0
+flag = 0
 
 
 while True:
-   _, img = CAP.read()
-   imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-   imgRGB = cv2.resize(imgRGB, (320, 180))
-   imgRGB = imgRGB.astype(int) / 255
+   _, imgF = CAP.read()
+   img, nodes = detector.findFaceMesh(imgF)
+   nodes = np.array([nodes])
+   if nodes.any() != 0:
+      y_predicted = ho_model.predict(nodes, verbose=None)
+      prediction = int(np.argmax(y_predicted))
+   else:
+      prediction = 1
 
-   y_predicted = ho_model.predict(np.array([imgRGB]), verbose=None)
-   prediction = int(np.argmax(y_predicted))
 
    if prediction == 0:
       leftMotor.setVelocity(0.45 * MAX_SPEED)
@@ -44,6 +51,40 @@ while True:
       leftMotor.setVelocity(0.65 * MAX_SPEED)
       rightMotor.setVelocity(0.65 * MAX_SPEED)
       robot.stepBegin(TIME_STEP)
+       
+   if prediction == 3:
+      if flag == 0:
+         cont += 1
+         if cont > -5 and cont < 5:
+            SPEEDC = int(cont/5)
+         if cont > 4:
+            cont = 4
+            SPEEDC = int(cont/5)
+         if cont < -4:
+            cont = -4
+            SPEEDC = int(cont/5)
+         flag = 1
+      else:
+         pass
+       
+   if prediction == 4:
+      if flag == 0:
+         cont -= 1
+         if cont > -5 and cont < 5:
+            SPEEDC = int(cont/5)
+         if cont > 4:
+            cont = 4
+            SPEEDC = int(cont/5)
+         if cont < -4:
+            cont = -4
+            SPEEDC = int(cont/5)
+         flag = 1
+      else:
+         pass
+
+   else:
+      pass
+
 
    robot.stepEnd()
 
