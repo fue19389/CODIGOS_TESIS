@@ -149,7 +149,7 @@ class pGUI:
     def trainM(self):
         self.feed.loadD()
         self.feed.eraseSERIES()
-        self.train1.TrainModel()
+        self.train1.TrainModelFace()
         messagebox.showinfo(message='Listo')
 
     # --------------------------------------------------------------------------------------------------------------

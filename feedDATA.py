@@ -417,7 +417,6 @@ class ModelFeeder:
             else:
                 pass
 
-
         # Enviar a archivo excel
         df = pd.DataFrame(list(zip(lbl)))
         with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
