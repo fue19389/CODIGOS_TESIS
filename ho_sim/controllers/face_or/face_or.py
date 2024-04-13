@@ -5,7 +5,7 @@ import cv2
 import faceLANDMARKS as fL
 
 TIME_STEP = 32
-SPEED = 6.28
+MAX_SPEED = 6.28
 CAP = cv2.VideoCapture(0)
 ho_model = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or12.keras'
 ho_model = tf.keras.models.load_model(ho_model)
@@ -36,56 +36,63 @@ while True:
 
 
    if prediction == 0:
-      leftMotor.setVelocity(0.45 * MAX_SPEED)
-      rightMotor.setVelocity(0.65 * MAX_SPEED)
+      if SPEEDC != 0:
+         leftMotor.setVelocity(0.70 * SPEEDC * MAX_SPEED)
+         rightMotor.setVelocity(SPEEDC * MAX_SPEED)
+      else:
+         leftMotor.setVelocity(SPEEDC * MAX_SPEED)
+         rightMotor.setVelocity(0.3 * MAX_SPEED)
       robot.stepBegin(TIME_STEP)
    if prediction == 1:
-      leftMotor.setVelocity(0.0 * MAX_SPEED)
-      rightMotor.setVelocity(0.0 * MAX_SPEED)
+      leftMotor.setVelocity(SPEEDC * MAX_SPEED)
+      rightMotor.setVelocity(SPEEDC * MAX_SPEED)
+      flag = 0
       robot.stepBegin(TIME_STEP)
    if prediction == 2:
-      leftMotor.setVelocity(0.65 * MAX_SPEED)
-      rightMotor.setVelocity(0.45 * MAX_SPEED)
-      robot.stepBegin(TIME_STEP)
-   if prediction == 3:
-      leftMotor.setVelocity(0.65 * MAX_SPEED)
-      rightMotor.setVelocity(0.65 * MAX_SPEED)
+      if SPEEDC != 0:
+         leftMotor.setVelocity(SPEEDC * MAX_SPEED)
+         rightMotor.setVelocity(0.70 * SPEEDC * MAX_SPEED)
+      else:
+         leftMotor.setVelocity(0.3 * MAX_SPEED)
+         rightMotor.setVelocity(SPEEDC * MAX_SPEED)
       robot.stepBegin(TIME_STEP)
        
    if prediction == 3:
       if flag == 0:
          cont += 1
          if cont > -5 and cont < 5:
-            SPEEDC = int(cont/5)
+            SPEEDC = cont/4
          if cont > 4:
             cont = 4
-            SPEEDC = int(cont/5)
+            SPEEDC = cont/4
          if cont < -4:
             cont = -4
-            SPEEDC = int(cont/5)
+            SPEEDC = cont/4
          flag = 1
       else:
          pass
+      robot.stepBegin(TIME_STEP)
        
    if prediction == 4:
       if flag == 0:
          cont -= 1
          if cont > -5 and cont < 5:
-            SPEEDC = int(cont/5)
+            SPEEDC = cont/4
          if cont > 4:
             cont = 4
-            SPEEDC = int(cont/5)
+            SPEEDC = cont/4
          if cont < -4:
             cont = -4
-            SPEEDC = int(cont/5)
+            SPEEDC = cont/4
          flag = 1
       else:
          pass
+      robot.stepBegin(TIME_STEP)
 
    else:
       pass
 
-
+   print(prediction, cont, SPEEDC)
    robot.stepEnd()
 
 

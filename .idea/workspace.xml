@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Aun no he probado, pero veo que un solo entrenamiento de 300 capturas por clase no funciona, entonces lo cambié a 525 por clase, lo pruebo mañana">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora ya empecé a modificar el archivo para utilizar webots">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,14 +111,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos">
-      <option name="closed" value="true" />
-      <created>1709189028445</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1709189028445</updated>
     </task>
     <task id="LOCAL-00009" summary="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls">
       <option name="closed" value="true" />
@@ -507,12 +496,19 @@
       <option name="project" value="LOCAL" />
       <updated>1712989256066</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL-00057" summary="Ahora ya empecé a modificar el archivo para utilizar webots">
+      <option name="closed" value="true" />
+      <created>1713025133771</created>
+      <option name="number" value="00057" />
+      <option name="presentableId" value="LOCAL-00057" />
+      <option name="project" value="LOCAL" />
+      <updated>1713025133771</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Listo, funciona todo ya, hasta se creó un ejecutable para la interfaz" />
     <MESSAGE value="Inclulir el gitignore" />
     <MESSAGE value="Inclulir el gitignore ahora si" />
     <MESSAGE value="Ahora ya funciona todo, solo se cambió de lugar el ejecutable" />
@@ -537,6 +533,14 @@
     <MESSAGE value="Se mejoró la captura de datos, ya no es por tiempo, ahora es por cantidad de imagenes" />
     <MESSAGE value="Ya funcionó el modelo, pero se requirieron 700 capturas por posición, por el momento," />
     <MESSAGE value="Aun no he probado, pero veo que un solo entrenamiento de 300 capturas por clase no funciona, entonces lo cambié a 525 por clase, lo pruebo mañana" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aun no he probado, pero veo que un solo entrenamiento de 300 capturas por clase no funciona, entonces lo cambié a 525 por clase, lo pruebo mañana" />
+    <MESSAGE value="Ahora ya empecé a modificar el archivo para utilizar webots" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora ya empecé a modificar el archivo para utilizar webots" />
+  </component>
+  <component name="XDebuggerManager">
+    <watches-manager>
+      <configuration name="PythonConfigurationType">
+        <watch expression="flag" language="Python" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>
