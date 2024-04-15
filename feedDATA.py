@@ -28,19 +28,17 @@ class ModelFeeder:
     def __init__(self):
 
         # ------------------------------------------------
-        # ----- Seleccionar modelo -----------------------
-        # ------------------------------------------------
-
-        # Escoge la columna de la data en el archivo excel
-        self.nmodel = 11
-
-        # ------------------------------------------------
         # ----- Directorios a utilizar -------------------
         # ------------------------------------------------
 
         self.dirtrain = r'C:\Users\gerar\PycharmProjects\TRAINLIST'
         self.dirtest = r'C:\Users\gerar\PycharmProjects\TESTLIST'
         self.dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOS'
+
+        self.dirtrain = r'C:\Users\gerar\PycharmProjects\TRAINLISTM'
+        self.dirtest = r'C:\Users\gerar\PycharmProjects\TESTLISTM'
+        self.dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOSM'
+
         self.dirxlsx = r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx'
 
 
@@ -319,7 +317,57 @@ class ModelFeeder:
                 cap.release()
                 # cv2.destroyAllWindows()
                 break
-        time.sleep(1)
+        time.sleep(2)
+
+        # Sixth run of photos
+        # Sound to prepare
+        self.s1.play()
+        pg.time.delay(750)
+        self.s2.play()
+        pg.time.delay(750)
+        self.s3.play()
+        cap = cv2.VideoCapture(0)
+        while True:
+            # Getting landmarks
+            _, frame = cap.read()
+            _, nodes = self.detector.findMouthMesh(frame)
+
+            self.pfxname = 'z_04_'
+            idx = 0
+            trainlist = os.listdir(self.dirtrainmouth)
+            testlist = os.listdir(self.dirtestmouth)
+            holdlist = os.listdir(self.dirholdmouth)
+
+            for file in trainlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+            for file in testlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+            for file in holdlist:
+                if file.startswith(self.pfxname) and file.endswith('.npy'):
+                    idx += 1
+
+            # Saving process
+            if len(nodes) != 0:
+                # Landmarks
+                name = self.pfxname + str(int(idx + 1))
+                savedat = os.path.join(self.dirhold, name)
+                np.save(savedat, nodes)
+                # Images
+                name = name + '.jpg'
+                savedir = os.path.join(self.dirhold, name)
+                cv2.imwrite(savedir, frame)
+            elif len(nodes) == 0:
+                pass
+
+            holditems = len(os.listdir(self.dirhold)) - 4200
+            if holditems > 1049:
+                self.sf.play()
+                cap.release()
+                # cv2.destroyAllWindows()
+                break
+        time.sleep(2)
 
         os.startfile(filepath=self.dirhold)
     # ------------------------------------------------
@@ -420,7 +468,7 @@ class ModelFeeder:
         # Enviar a archivo excel
         df = pd.DataFrame(list(zip(lbl)))
         with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
-            df.to_excel(writer, sheet_name='traintags', header=False, index=False, startcol=self.nmodel, startrow=1)
+            df.to_excel(writer, sheet_name='trainmodel', header=False, index=False, startcol=0, startrow=1)
 
         # Creación de labels TEST
         lbl = []
@@ -442,7 +490,7 @@ class ModelFeeder:
         # Enviar a archivo excel
         df = pd.DataFrame(list(zip(lbl)))
         with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
-            df.to_excel(writer, sheet_name='testtags', header=False, index=False, startcol=self.nmodel, startrow=1)
+            df.to_excel(writer, sheet_name='testmodel', header=False, index=False, startcol=0, startrow=1)
 
 
     # ------------------------------------------------
@@ -476,7 +524,7 @@ class ModelFeeder:
         lbl = [None]*idx
         df = pd.DataFrame(list(zip(lbl)))
         with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
-            df.to_excel(writer, sheet_name='traintags', header=False, index=False, startcol=self.nmodel, startrow=1)
+            df.to_excel(writer, sheet_name='trainmodel', header=False, index=False, startcol=0, startrow=1)
 
         # Borrar TEST
         idx = 0
@@ -491,7 +539,7 @@ class ModelFeeder:
         lbl = [None]*idx
         df = pd.DataFrame(list(zip(lbl)))
         with pd.ExcelWriter(self.dirxlsx, mode='a', if_sheet_exists='overlay') as writer:
-            df.to_excel(writer, sheet_name='testtags', header=False, index=False, startcol=self.nmodel, startrow=1)
+            df.to_excel(writer, sheet_name='testmodel', header=False, index=False, startcol=0, startrow=1)
 
 
 

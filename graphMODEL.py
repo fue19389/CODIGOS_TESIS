@@ -42,7 +42,7 @@ class ModelGraph:
         self.testdir = r"C:\Users\gerar\PycharmProjects\TESTLIST"
         self.figtssdir = r'C:\Users\gerar\Desktop\UVG\10semestre\TESIS\DOCUMENTO_TESIS\figures'
 
-        self.col = 'L'
+
 
     def TrainModelFace(self):
 
@@ -67,12 +67,12 @@ class ModelGraph:
 
         # LABELS
         # Extraer el archivo de etiquetas desde una columna de excel
-        y_t = np.array(pd.read_excel(self.lbldir, sheet_name='traintags', usecols=self.col).dropna())
+        y_t = np.array(pd.read_excel(self.lbldir, sheet_name='trainmodel', usecols='A').dropna())
         # Convertir el archivo de etiquetas para reducir tamaño
         y_train = y_t.astype(int)
 
         # Extraer el archivo de etiquetas desde una columna de excel
-        y_t = np.array(pd.read_excel(self.lbldir, sheet_name='testtags', usecols=self.col).dropna())
+        y_t = np.array(pd.read_excel(self.lbldir, sheet_name='testmodel', usecols='A').dropna())
         # Convertir el archivo de etiquetas para reducir tamaño
         y_test = y_t.astype(int)
 
@@ -85,8 +85,8 @@ class ModelGraph:
         for i in range(len(y_test)):
             admattest[i] = admat
 
-        savefig1 = os.path.join(self.figtssdir, 'LA12')
-        savefig2 = os.path.join(self.figtssdir, 'CM12')
+        savefig1 = os.path.join(self.figtssdir, 'LA_FACE')
+        savefig2 = os.path.join(self.figtssdir, 'CM_FACE')
         # ------------------------------------------------------
         # -----Generación de modelo ----------------------------
         # ------------------------------------------------------
@@ -115,7 +115,7 @@ class ModelGraph:
                       metrics=['accuracy'])
 
         history = model.fit([x_train, admattrain], y_train, validation_data=([x_test, admattest], y_test), epochs=num_epochs)
-        model.save(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or12.keras')
+        model.save(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\face.keras')
 
         _, actual_acc = model.evaluate([x_test, admattest], y_test)
 

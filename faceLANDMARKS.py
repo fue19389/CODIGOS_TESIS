@@ -90,7 +90,7 @@ def main():
         success, imgF = cap.read()
         # imgF = cv2.imread(r'C:\Users\gerar\PycharmProjects\COMPLETEDATABASE\TRAIN\z_00_73.jpg') #SPECIAL ONE
         # imgF = cv2.imread(r'C:\Users\gerar\PycharmProjects\COMPLETEDATABASE\TRAIN\z_01_137.jpg')
-        img, nodes = detector.findMouthMesh(imgF)
+        img, nodes = detector.findFaceMesh(imgF)
 
         cv2.imshow('Image', img)
         key = cv2.waitKey(30)

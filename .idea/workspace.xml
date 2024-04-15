@@ -4,12 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ya funciona en Webots">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se inician los ajustes para trabajar con 2 modelos simultaneos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/faceLANDMARKS.py" beforeDir="false" afterPath="$PROJECT_DIR$/faceLANDMARKS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/graphMODEL.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphMODEL.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +70,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "graphMODELS2.1",
-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/FaceMesh",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/faceLANDMARKS.py",
     "settings.editor.selected.configurable": "vcs.Git"
   }
 }]]></component>
@@ -114,14 +115,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00010" summary="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos">
-      <option name="closed" value="true" />
-      <created>1709269839256</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1709269839256</updated>
     </task>
     <task id="LOCAL-00011" summary="Ya se guardan las fotos como se debe, ahora faltan las labels">
       <option name="closed" value="true" />
@@ -507,12 +500,19 @@
       <option name="project" value="LOCAL" />
       <updated>1713029694760</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Se inician los ajustes para trabajar con 2 modelos simultaneos">
+      <option name="closed" value="true" />
+      <created>1713032679608</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1713032679608</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Inclulir el gitignore ahora si" />
     <MESSAGE value="Ahora ya funciona todo, solo se cambió de lugar el ejecutable" />
     <MESSAGE value="Aún hacia falta eliminar un waitKey" />
     <MESSAGE value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
@@ -537,7 +537,8 @@
     <MESSAGE value="Aun no he probado, pero veo que un solo entrenamiento de 300 capturas por clase no funciona, entonces lo cambié a 525 por clase, lo pruebo mañana" />
     <MESSAGE value="Ahora ya empecé a modificar el archivo para utilizar webots" />
     <MESSAGE value="Ya funciona en Webots" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ya funciona en Webots" />
+    <MESSAGE value="Se inician los ajustes para trabajar con 2 modelos simultaneos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se inician los ajustes para trabajar con 2 modelos simultaneos" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
