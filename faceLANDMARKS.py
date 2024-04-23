@@ -2,9 +2,6 @@ import cv2
 import mediapipe as mp
 import numpy as np
 import matplotlib.pylab as plt
-import math
-from glob import glob
-
 
 class FaceMeshDetector:
 
