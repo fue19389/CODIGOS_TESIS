@@ -4,17 +4,11 @@ import numpy as np
 import cv2
 import faceLANDMARKS as fL
 
-# MAC address of the ESP32 Bluetooth device
-esp32_mac_address = "CC:50:E3:96:CC:50"  # Replace with your ESP32's MAC address
-# Create a Bluetooth socket object
-
 CAP = cv2.VideoCapture(0)
 ho_model = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or12.keras'
 ho_model = tf.keras.models.load_model(ho_model)
 detector = fL.FaceMeshDetector()
 flag = 0
-
-
 
 try:
     BT = serial.Serial('COM4', 115200)
