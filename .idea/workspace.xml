@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="detalle">
-      <change afterPath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sendBT.py" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Inicio de codigo para bluetooth">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" beforeDir="false" afterPath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sendBT.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendBT.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +64,7 @@
     "Python.projectGUI.executor": "Run",
     "Python.savePHOTO.executor": "Run",
     "Python.scrollable_frame_example.executor": "Run",
+    "Python.sendBT.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "graphMODELS2",
@@ -112,14 +113,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00009" summary="se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls">
-      <option name="closed" value="true" />
-      <created>1709266074369</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1709266074370</updated>
     </task>
     <task id="LOCAL-00010" summary="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos">
       <option name="closed" value="true" />
@@ -505,12 +498,19 @@
       <option name="project" value="LOCAL" />
       <updated>1713025133771</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Inicio de codigo para bluetooth">
+      <option name="closed" value="true" />
+      <created>1714630704370</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1714630704371</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Inclulir el gitignore" />
     <MESSAGE value="Inclulir el gitignore ahora si" />
     <MESSAGE value="Ahora ya funciona todo, solo se cambió de lugar el ejecutable" />
     <MESSAGE value="Aún hacia falta eliminar un waitKey" />
@@ -535,7 +535,8 @@
     <MESSAGE value="Ya funcionó el modelo, pero se requirieron 700 capturas por posición, por el momento," />
     <MESSAGE value="Aun no he probado, pero veo que un solo entrenamiento de 300 capturas por clase no funciona, entonces lo cambié a 525 por clase, lo pruebo mañana" />
     <MESSAGE value="Ahora ya empecé a modificar el archivo para utilizar webots" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahora ya empecé a modificar el archivo para utilizar webots" />
+    <MESSAGE value="Inicio de codigo para bluetooth" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inicio de codigo para bluetooth" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
