@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Inicio de codigo para bluetooth">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Codigos para BLUETOOTH, pero creo que el BT de mi compu falla, tampoco funcionaba con mis audifonos xd">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" beforeDir="false" afterPath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sendBT.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendBT.py" afterDir="false" />
@@ -46,32 +46,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.__init__.executor": "Run",
-    "Python.adjacencyMATRIX.executor": "Run",
-    "Python.complex_example.executor": "Run",
-    "Python.extractDATA.executor": "Run",
-    "Python.faceLANDMARKS.executor": "Run",
-    "Python.face_or.executor": "Run",
-    "Python.feedDATA.executor": "Run",
-    "Python.graphMODEL.executor": "Run",
-    "Python.liveTEST.executor": "Run",
-    "Python.miscTEST.executor": "Run",
-    "Python.modelGENERATOR.executor": "Run",
-    "Python.photoGUI.executor": "Run",
-    "Python.projectGUI.executor": "Run",
-    "Python.savePHOTO.executor": "Run",
-    "Python.scrollable_frame_example.executor": "Run",
-    "Python.sendBT.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "graphMODELS2",
-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/ho_sim/controllers/face_or/face_or.py",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.adjacencyMATRIX.executor&quot;: &quot;Run&quot;,
+    &quot;Python.complex_example.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extractDATA.executor&quot;: &quot;Run&quot;,
+    &quot;Python.faceLANDMARKS.executor&quot;: &quot;Run&quot;,
+    &quot;Python.face_or.executor&quot;: &quot;Run&quot;,
+    &quot;Python.feedDATA.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphMODEL.executor&quot;: &quot;Run&quot;,
+    &quot;Python.liveTEST.executor&quot;: &quot;Run&quot;,
+    &quot;Python.miscTEST.executor&quot;: &quot;Run&quot;,
+    &quot;Python.modelGENERATOR.executor&quot;: &quot;Run&quot;,
+    &quot;Python.photoGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.projectGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.savePHOTO.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scrollable_frame_example.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sendBT.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;graphMODELS2&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/ho_sim/controllers/face_or/face_or.py&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="face_or" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="CODIGOS_TESIS" />
@@ -113,14 +113,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00010" summary="listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos">
-      <option name="closed" value="true" />
-      <created>1709269839256</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1709269839256</updated>
     </task>
     <task id="LOCAL-00011" summary="Ya se guardan las fotos como se debe, ahora faltan las labels">
       <option name="closed" value="true" />
@@ -506,12 +498,19 @@
       <option name="project" value="LOCAL" />
       <updated>1714630704371</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="Codigos para BLUETOOTH, pero creo que el BT de mi compu falla, tampoco funcionaba con mis audifonos xd">
+      <option name="closed" value="true" />
+      <created>1714714167048</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1714714167049</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Inclulir el gitignore ahora si" />
     <MESSAGE value="Ahora ya funciona todo, solo se cambió de lugar el ejecutable" />
     <MESSAGE value="Aún hacia falta eliminar un waitKey" />
     <MESSAGE value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
@@ -536,7 +535,8 @@
     <MESSAGE value="Aun no he probado, pero veo que un solo entrenamiento de 300 capturas por clase no funciona, entonces lo cambié a 525 por clase, lo pruebo mañana" />
     <MESSAGE value="Ahora ya empecé a modificar el archivo para utilizar webots" />
     <MESSAGE value="Inicio de codigo para bluetooth" />
-    <option name="LAST_COMMIT_MESSAGE" value="Inicio de codigo para bluetooth" />
+    <MESSAGE value="Codigos para BLUETOOTH, pero creo que el BT de mi compu falla, tampoco funcionaba con mis audifonos xd" />
+    <option name="LAST_COMMIT_MESSAGE" value="Codigos para BLUETOOTH, pero creo que el BT de mi compu falla, tampoco funcionaba con mis audifonos xd" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

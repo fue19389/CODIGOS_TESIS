@@ -1,4 +1,4 @@
-import socket
+import serial
 import tensorflow as tf
 import numpy as np
 import cv2
@@ -15,22 +15,26 @@ detector = fL.FaceMeshDetector()
 flag = 0
 
 
+
+try:
+    BT = serial.Serial('COM4', 115200)
+    print('Conexión exitosa')
+except:
+    print('Error de la conexión')
 while True:
+    mensaje = input('Ingrese un valor 0 o 1: ')
+    BT.write(mensaje.encode('utf-8'))
 
-    sock = socket.socket(socket.AF_BLUETOOTH, socket.SOCK_STREAM, socket.BTPROTO_RFCOMM)
-
-    _, imgF = CAP.read()
-    img, nodes = detector.findFaceMesh(imgF)
-    nodes = np.array([nodes])
-    if nodes.any() != 0:
-       y_predicted = ho_model.predict(nodes, verbose=None)
-       prediction = int(np.argmax(y_predicted))
-    else:
-       prediction = 1
-
-    # Connect to the ESP32 using channel 4
-    sock.connect((esp32_mac_address, 4))
-    # Convert integer to bytes before sending
-    data_bytes = prediction.to_bytes(4, byteorder='little')  # Assuming integer is 32 bits (4 bytes)
-    # Send the data
-    sock.sendall(data_bytes)
+# while True:
+#
+#     esp = serial.Serial('COM4',9600)
+#     _, imgF = CAP.read()
+#     img, nodes = detector.findFaceMesh(imgF)
+#     nodes = np.array([nodes])
+#     if nodes.any() != 0:
+#        y_predicted = ho_model.predict(nodes, verbose=None)
+#        prediction = int(np.argmax(y_predicted))
+#     else:
+#        prediction = 1
+#
+#     esp.write((r'1\n').encode())
