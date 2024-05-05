@@ -4,9 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Codigos para BLUETOOTH, pero creo que el BT de mi compu falla, tampoco funcionaba con mis audifonos xd">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora si funciona, ma;ana se ve lo del modelo">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" beforeDir="false" afterPath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sendBT.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendBT.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,22 +114,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Ya se guardan las fotos como se debe, ahora faltan las labels">
-      <option name="closed" value="true" />
-      <created>1709280083111</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1709280083111</updated>
-    </task>
-    <task id="LOCAL-00012" summary="El código para poder capturar y guardar está listo, solo falta orientarlo a objetos">
-      <option name="closed" value="true" />
-      <created>1709338846778</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1709338846778</updated>
     </task>
     <task id="LOCAL-00013" summary="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY">
       <option name="closed" value="true" />
@@ -506,13 +491,27 @@
       <option name="project" value="LOCAL" />
       <updated>1714714167049</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Esta versi[on de condexion si funciona">
+      <option name="closed" value="true" />
+      <created>1714720889600</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1714720889600</updated>
+    </task>
+    <task id="LOCAL-00061" summary="Ahora si funciona, ma;ana se ve lo del modelo">
+      <option name="closed" value="true" />
+      <created>1714720934011</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1714720934012</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ahora ya funciona todo, solo se cambió de lugar el ejecutable" />
-    <MESSAGE value="Aún hacia falta eliminar un waitKey" />
     <MESSAGE value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
     <MESSAGE value="Finalmente funciona" />
     <MESSAGE value="NUEVO COMMIT DE PRUEBA" />
@@ -536,7 +535,9 @@
     <MESSAGE value="Ahora ya empecé a modificar el archivo para utilizar webots" />
     <MESSAGE value="Inicio de codigo para bluetooth" />
     <MESSAGE value="Codigos para BLUETOOTH, pero creo que el BT de mi compu falla, tampoco funcionaba con mis audifonos xd" />
-    <option name="LAST_COMMIT_MESSAGE" value="Codigos para BLUETOOTH, pero creo que el BT de mi compu falla, tampoco funcionaba con mis audifonos xd" />
+    <MESSAGE value="Esta versi[on de condexion si funciona" />
+    <MESSAGE value="Ahora si funciona, ma;ana se ve lo del modelo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Ahora si funciona, ma;ana se ve lo del modelo" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
