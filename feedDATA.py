@@ -35,9 +35,9 @@ class ModelFeeder:
         self.dirtest = r'C:\Users\gerar\PycharmProjects\TESTLIST'
         self.dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOS'
 
-        self.dirtrain = r'C:\Users\gerar\PycharmProjects\TRAINLISTM'
-        self.dirtest = r'C:\Users\gerar\PycharmProjects\TESTLISTM'
-        self.dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOSM'
+        # self.dirtrain = r'C:\Users\gerar\PycharmProjects\TRAINLISTM'
+        # self.dirtest = r'C:\Users\gerar\PycharmProjects\TESTLISTM'
+        # self.dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOSM'
 
         self.dirxlsx = r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\facelabels.xlsx'
 
