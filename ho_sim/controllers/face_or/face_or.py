@@ -1,4 +1,4 @@
-from controller import self.robot, Motor
+from controller import robot, Motor
 import tensorflow as tf
 import numpy as np
 import cv2
@@ -20,7 +20,7 @@ class wModel:
         subprocess.Popen(self.open_com)
 
         # create the self.robot instance.
-        self.robot = self.robot()
+        self.robot = robot()
 
         # get a handler to the motors and set target position to infinity (speed control)
         self.leftMotor = self.robot.getDevice('left wheel motor')
@@ -47,7 +47,6 @@ class wModel:
             else:
                 prediction = 1
 
-
             if prediction == 0:
                 if SPEEDC != 0:
                     self.leftMotor.setVelocity(0.70 * SPEEDC * self.MAX_SPEED)
@@ -73,41 +72,42 @@ class wModel:
             if prediction == 3:
                 if flag == 0:
                     cont += 1
-                if cont > -5 and cont < 5:
-                    SPEEDC = cont/4
-                if cont > 4:
-                    cont = 4
-                    SPEEDC = cont/4
-                if cont < -4:
-                    cont = -4
-                    SPEEDC = cont/4
-                flag = 1
+                    if cont > -5 and cont < 5:
+                        SPEEDC = cont/4
+                    if cont > 4:
+                        cont = 4
+                        SPEEDC = cont/4
+                    if cont < -4:
+                        cont = -4
+                        SPEEDC = cont/4
+                    flag = 1
                 else:
                     pass
-            self.robot.stepBegin(self.TIME_STEP)
+                self.robot.stepBegin(self.TIME_STEP)
 
             if prediction == 4:
                 if flag == 0:
                     cont -= 1
-                if cont > -5 and cont < 5:
-                    SPEEDC = cont/4
-                if cont > 4:
-                    cont = 4
-                    SPEEDC = cont/4
-                if cont < -4:
-                    cont = -4
-                    SPEEDC = cont/4
-                flag = 1
-            else:
-                pass
-            self.robot.stepBegin(self.TIME_STEP)
+                    if cont > -5 and cont < 5:
+                        SPEEDC = cont/4
+                    if cont > 4:
+                        cont = 4
+                        SPEEDC = cont/4
+                    if cont < -4:
+                        cont = -4
+                        SPEEDC = cont/4
+                    flag = 1
+                else:
+                    pass
+                self.robot.stepBegin(self.TIME_STEP)
 
             else:
                 pass
 
-            print(self.prediction, cont, SPEEDC)
+            print(prediction, cont, SPEEDC)
             self.robot.stepEnd()
 
     def stop(self):
+
         self.CAP.release()
         cv2.destroyAllWindows()
