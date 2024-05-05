@@ -29,7 +29,9 @@ import photoMODEL as pM
 import graphMODEL as gM
 import liveTEST as lT
 import sendBT as bT
-
+import sys
+sys.path.append(r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\ho_sim\controllers\face_or')
+import face_or as
 # Librerías para GUI
 import customtkinter as ctk
 import tkinter as tk
@@ -61,8 +63,9 @@ class pGUI:
         self.tabview.add('Instrucciones Captura')
         self.tabview.add("Captura de fotografías")
         self.tabview.add("Manejo de datos")
-        self.tabview.add('Prueba turtle')
-        self.tabview.add('Prueba esp32')
+        self.tabview.add('Prueba Turtle')
+        self.tabview.add('Prueba Webots')
+        self.tabview.add('Prueba ESP32/POLOLU')
         self.tabview.pack()
 
         # Inicialización de librerías personales
@@ -72,6 +75,7 @@ class pGUI:
         self.train1 = gM.ModelGraph()
         self.use_m = lT.UseModel()
         self.use_bt = bT.Use_BT_MODEL()
+        self.use_w = ho_sim.controllers.face_or.face_or()
 
         # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración de Tab: Instrucciones -----------------------------------
@@ -112,21 +116,29 @@ class pGUI:
         self.btn_train = ctk.CTkButton(self.tabview.tab('Manejo de datos'), text='Entrenar modelo', font=('aptos', 18), width=250, height=75, command=self.trainM)
         self.btn_train.pack(padx=10, pady=10)
         # --------------------------------------------------------------------------------------------------------------
-        # ----------------------------- Configuración de Tab: Prueba en vivo -------------------------------------------
+        # ----------------------------- Configuración de Tabs Pruebas en vivo -------------------------------------------
         # --------------------------------------------------------------------------------------------------------------
 
 
-        self.btn_run = ctk.CTkButton(self.tabview.tab('Prueba turtle'), text='Ejecutar', font=('aptos', 30), width=350, height=150, command=self.turnon)
+        self.btn_run = ctk.CTkButton(self.tabview.tab('Prueba Turtle'), text='Ejecutar', font=('aptos', 30), width=350, height=150, command=self.turnon)
         self.btn_run.pack(padx=10, pady=10)
 
-        self.btn_stop = ctk.CTkButton(self.tabview.tab('Prueba turtle'), text='Detener', font=('aptos', 30), width=350, height=150, command=self.turnoff)
+        self.btn_stop = ctk.CTkButton(self.tabview.tab('Prueba Turtle'), text='Detener', font=('aptos', 30), width=350, height=150, command=self.turnoff)
         self.btn_stop.pack(padx=10, pady=10)
 
-        # self.btn_runp = ctk.CTkButton(self.buttonFrame3, text='Ejecutar Físico', font=('aptos', 30), width=350, height=150, command=self.turnonp)
-        # self.btn_runp.grid(row=0, column=1, padx=10, pady=10)
-        #
-        # self.btn_stopp = ctk.CTkButton(self.buttonFrame3, text='Detener Físico', font=('aptos', 30), width=350, height=150, command=self.turnoffp)
-        # self.btn_stopp.grid(row=1, column=1, padx=10, pady=10)
+        self.btn_runW = ctk.CTkButton(self.tabview.tab('Prueba Webots'), text='Ejecutar', font=('aptos', 30), width=350, height=150, command=self.turnonW)
+        self.btn_runW.pack(padx=10, pady=10)
+
+        self.btn_stopW = ctk.CTkButton(self.tabview.tab('Prueba Webots'), text='Detener', font=('aptos', 30), width=350, height=150, command=self.turnoffW)
+        self.btn_stopW.pack(padx=10, pady=10)
+
+        self.btn_runE = ctk.CTkButton(self.tabview.tab('Prueba ESP32/POLOLU'), text='Ejecutar', font=('aptos', 30), width=350, height=150, command=self.turnonE)
+        self.btn_runE.pack(padx=10, pady=10)
+
+        self.btn_stopE = ctk.CTkButton(self.tabview.tab('Prueba ESP32/POLOLU'), text='Detener', font=('aptos', 30), width=350, height=150, command=self.turnoffE)
+        self.btn_stopE.pack(padx=10, pady=10)
+
+
 
 
 
@@ -168,6 +180,19 @@ class pGUI:
 
     def turnoff(self):
         self.use_m.stop()
+
+    def turnonW(self):
+        self.use_m.on()
+
+    def turnoffW(self):
+        self.use_m.stop()
+
+    def turnonE(self):
+        self.use_m.on()
+
+    def turnoffE(self):
+        self.use_m.stop()
+
 
 
     # --------------------------------------------------------------------------------------------------------------

@@ -31,8 +31,6 @@ class wModel:
 
 
 
-
-
     def on(self):
         cont = 0
         SPEEDC = 0

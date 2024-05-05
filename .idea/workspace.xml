@@ -4,9 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA SE SOLUCIONO, SOLO HABÍA QUE AGREGAR EL WAITKEY LUEGO DEL IMSHOW">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="SOLUCIONADOS LOS INDENTS">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,14 +111,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00014" summary="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes">
-      <option name="closed" value="true" />
-      <created>1709415944904</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1709415944904</updated>
     </task>
     <task id="LOCAL-00015" summary="Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP">
       <option name="closed" value="true" />
@@ -504,7 +496,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714890292699</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="SOLUCIONADOS LOS INDENTS">
+      <option name="closed" value="true" />
+      <created>1714893805892</created>
+      <option name="number" value="00063" />
+      <option name="presentableId" value="LOCAL-00063" />
+      <option name="project" value="LOCAL" />
+      <updated>1714893805892</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -520,7 +520,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Finalmente funciona" />
     <MESSAGE value="NUEVO COMMIT DE PRUEBA" />
     <MESSAGE value="Se termino de entrenar el modelo con marcadors y ahora se agrega el controlador de webots" />
     <MESSAGE value="Funciona Webots, al menos con mi cara en la noche en mi lugar de trabajo" />
@@ -545,7 +544,8 @@
     <MESSAGE value="AQUI TAMBIEN ESTA EL ERROR DE TURTLE" />
     <MESSAGE value="peque;os ajustes que no funcionaron" />
     <MESSAGE value="YA SE SOLUCIONO, SOLO HABÍA QUE AGREGAR EL WAITKEY LUEGO DEL IMSHOW" />
-    <option name="LAST_COMMIT_MESSAGE" value="YA SE SOLUCIONO, SOLO HABÍA QUE AGREGAR EL WAITKEY LUEGO DEL IMSHOW" />
+    <MESSAGE value="SOLUCIONADOS LOS INDENTS" />
+    <option name="LAST_COMMIT_MESSAGE" value="SOLUCIONADOS LOS INDENTS" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
