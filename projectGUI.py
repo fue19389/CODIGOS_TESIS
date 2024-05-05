@@ -29,6 +29,10 @@ import photoMODEL as pM
 import graphMODEL as gM
 import liveTEST as lT
 import sendBT as bT
+import subprocess
+import onoffWEBOTS as owbts
+owbts.start_webots()
+
 from ho_sim.controllers.face_or import face_or as fO
 # Librerías para GUI
 import customtkinter as ctk
@@ -74,6 +78,8 @@ class pGUI:
         self.use_m = lT.UseModel()
         self.use_bt = bT.Use_BT_MODEL()
         self.use_w = fO.wModel()
+
+        # WEBOTS
 
         # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración de Tab: Instrucciones -----------------------------------
@@ -126,6 +132,9 @@ class pGUI:
 
         self.btn_runW = ctk.CTkButton(self.tabview.tab('Prueba Webots'), text='Ejecutar', font=('aptos', 30), width=350, height=150, command=self.turnonW)
         self.btn_runW.pack(padx=10, pady=10)
+
+        self.btn_runSIM = ctk.CTkButton(self.tabview.tab('Prueba Webots'), text='SIMULADOR', font=('aptos', 30), width=350, height=150, command=self.turnonSIM)
+        self.btn_runSIM.pack(padx=10, pady=10)
 
         self.btn_stopW = ctk.CTkButton(self.tabview.tab('Prueba Webots'), text='Detener', font=('aptos', 30), width=350, height=150, command=self.turnoffW)
         self.btn_stopW.pack(padx=10, pady=10)
@@ -182,8 +191,11 @@ class pGUI:
     def turnonW(self):
         self.use_w.on()
 
+    def turnonSIM(self):
+        owbts.start_webots()
+
     def turnoffW(self):
-        self.use_w.stop()
+        owbts.stop_webots()
 
     def turnonE(self):
         self.use_bt.on()
