@@ -45,57 +45,54 @@ class UseModel:
         # Directorio para guardar las variables a exportar
         self.expordir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS'
 
+        # detector de landmarks
+        self.detector = fL.FaceMeshDetector()
+
+
+    # -----------------------------------------------------
+    # -------------------Cargar modelo---------------------
+    # -----------------------------------------------------
+
+    def load_model(self):
+
+        if self.n_model in range(13):
+            self.mname = f'head_or{self.n_model}.keras'
+            self.ho_model = os.path.join(self.expordir, self.mname)
+            self.ho_model = tf.keras.models.load_model(self.ho_model)
+        else:
+            raise ValueError("Invalid model number")
+
+    # -----------------------------------------------------
+    # -------------------Predicción de modelo---------------------
+    # -----------------------------------------------------
+    def or_predict(self, img):
+
+        # Perform face detection using the FaceMeshDetector
+
+        img, nodes = self.detector.findFaceMesh(img)
+        nodes = np.array([nodes])
+        # Check if any face landmarks were detected
+        if nodes.any() != 0:
+            y_predicted = self.ho_model.predict(nodes, verbose=0)
+            prediction = int(np.argmax(y_predicted))
+        else:
+            prediction = 1
+
+        return img, prediction
 
     def on(self):
-
-
-
-        # -----------------------------------------------------
-        # -------------------Cargar modelo---------------------
-        # -----------------------------------------------------
-        if self.n_model == 0:
-            self.mname = 'head_or.keras'
-        elif self.n_model == 1:
-            self.mname = 'head_or1.keras'
-        elif self.n_model == 2:
-            self.mname = 'head_or2.keras'
-        elif self.n_model == 3:
-            self.mname = 'head_or3.keras'
-        elif self.n_model == 4:
-            self.mname = 'head_or4.keras'
-        elif self.n_model == 5:
-            self.mname = 'head_or5.keras'
-        elif self.n_model == 6:
-            self.mname = 'head_or6.keras'
-        elif self.n_model == 7:
-            self.mname = 'head_or7.keras'
-        elif self.n_model == 8:
-            self.mname = 'head_or8.keras'
-        elif self.n_model == 9:
-            self.mname = 'head_or9.keras'
-        elif self.n_model == 10:
-            self.mname = 'head_or10.keras'
-        elif self.n_model == 11:
-            self.mname = 'head_or11.keras'
-        elif self.n_model == 12:
-            self.mname = 'head_or12.keras'
-
-        self.ho_model = os.path.join(self.expordir, self.mname)
-        self.ho_model = tf.keras.models.load_model(self.ho_model)
-
         # -----------------------------------------------------
         # ---------Inicialización de la Webcam---- ------------
         # -----------------------------------------------------
-
-        self.cap = cv2.VideoCapture(0)
-        ttl.TurtleScreen._RUNNING = True
-        self.leo = ttl.Turtle()
-        detector = fL.FaceMeshDetector()
-        self.admat = np.array([np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\admat.npy')])
         cont = 0
         conta = 0
         contb = 0
         flag = 0
+
+        self.load_model()
+        self.cap = cv2.VideoCapture(0)
+        ttl.TurtleScreen._RUNNING = True
+        self.leo = ttl.Turtle()
 
         # -----------------------------------------------------
         # ----Visualizar movimiento de turtle -----------------
@@ -104,15 +101,11 @@ class UseModel:
         while True:
 
             # Saving captured image
+            _, img = self.cap.read()
 
-            _, imgF = self.cap.read()
-            img, nodes = detector.findFaceMesh(imgF)
-            nodes = np.array([nodes])
-            if nodes.any() != 0:
-                y_predicted = self.ho_model.predict(nodes, verbose=0)
-                prediction = int(np.argmax(y_predicted))
-            else:
-                prediction = 1
+            img, prediction = self.or_predict(img)
+            cv2.imshow('Image', img)
+            cv2.waitKey(1) #This helps the program to not stop
 
             if prediction == 0:
                 self.leo.left(7)
@@ -129,6 +122,7 @@ class UseModel:
                 self.leo.backward(contb)
 
             if prediction == 3:
+
                 if flag == 0:
                     cont += 1
                     if cont > -1 and cont < 5:
@@ -146,6 +140,7 @@ class UseModel:
                     pass
 
             if prediction == 4:
+
                 if flag == 0:
                     cont -= 1
                     if cont > -1 and cont < 5:
@@ -166,9 +161,9 @@ class UseModel:
                 pass
             print('p f c a b')
             print(prediction, flag, cont, conta, contb)
-
+            # cv2.imshow('Image', img)
             # Show the complete image
-            cv2.imshow('Image', img)
+
 
         self.cap.release()
         cv2.destroyAllWindows()

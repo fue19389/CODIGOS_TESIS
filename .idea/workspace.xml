@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se inician los ajustes para trabajar con 2 modelos simultaneos">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="peque;os ajustes que no funcionaron">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +24,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="graphMODELS2.1" />
+        <entry key="$PROJECT_DIR$" value="graphMODELS2" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -46,31 +46,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.adjacencyMATRIX.executor&quot;: &quot;Run&quot;,
-    &quot;Python.complex_example.executor&quot;: &quot;Run&quot;,
-    &quot;Python.extractDATA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.faceLANDMARKS.executor&quot;: &quot;Run&quot;,
-    &quot;Python.face_or.executor&quot;: &quot;Run&quot;,
-    &quot;Python.feedDATA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.graphMODEL.executor&quot;: &quot;Run&quot;,
-    &quot;Python.liveTEST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.miscTEST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.modelGENERATOR.executor&quot;: &quot;Run&quot;,
-    &quot;Python.photoGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.projectGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.savePHOTO.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scrollable_frame_example.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;graphMODELS2&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/faceLANDMARKS.py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.__init__.executor": "Run",
+    "Python.adjacencyMATRIX.executor": "Run",
+    "Python.complex_example.executor": "Run",
+    "Python.extractDATA.executor": "Run",
+    "Python.faceLANDMARKS.executor": "Run",
+    "Python.face_or.executor": "Run",
+    "Python.feedDATA.executor": "Run",
+    "Python.graphMODEL.executor": "Run",
+    "Python.liveTEST.executor": "Run",
+    "Python.miscTEST.executor": "Run",
+    "Python.modelGENERATOR.executor": "Run",
+    "Python.photoGUI.executor": "Run",
+    "Python.projectGUI.executor": "Run",
+    "Python.savePHOTO.executor": "Run",
+    "Python.scrollable_frame_example.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "graphMODELS2__optlivetest",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/ho_sim/controllers/face_or/face_or.py",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="face_or" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="CODIGOS_TESIS" />
@@ -112,14 +112,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00012" summary="El código para poder capturar y guardar está listo, solo falta orientarlo a objetos">
-      <option name="closed" value="true" />
-      <created>1709338846778</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1709338846778</updated>
     </task>
     <task id="LOCAL-00013" summary="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY">
       <option name="closed" value="true" />
@@ -505,7 +497,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714883127919</updated>
     </task>
-    <option name="localTasksCounter" value="61" />
+    <task id="LOCAL-00061" summary="peque;os ajustes que no funcionaron">
+      <option name="closed" value="true" />
+      <created>1714884042366</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1714884042366</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -521,7 +521,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Aún hacia falta eliminar un waitKey" />
     <MESSAGE value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
     <MESSAGE value="Finalmente funciona" />
     <MESSAGE value="NUEVO COMMIT DE PRUEBA" />
@@ -546,7 +545,8 @@
     <MESSAGE value="Ya funciona en Webots" />
     <MESSAGE value="Se inician los ajustes para trabajar con 2 modelos simultaneos" />
     <MESSAGE value="AQUI TAMBIEN ESTA EL ERROR DE TURTLE" />
-    <option name="LAST_COMMIT_MESSAGE" value="AQUI TAMBIEN ESTA EL ERROR DE TURTLE" />
+    <MESSAGE value="peque;os ajustes que no funcionaron" />
+    <option name="LAST_COMMIT_MESSAGE" value="peque;os ajustes que no funcionaron" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
