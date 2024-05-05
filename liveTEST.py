@@ -78,7 +78,7 @@ class UseModel:
         self.ho_model = os.path.join(self.expordir, self.mname)
         self.ho_model = tf.keras.models.load_model(self.ho_model)
 
-        self.cap = cv2.VideoCapture(0)
+
         self.detector = fL.FaceMeshDetector()
 
 
@@ -87,92 +87,90 @@ class UseModel:
     def on(self):
 
 
-        def run_on():
-            # -----------------------------------------------------
-            # ---------Inicialización de variables---- ------------
-            # -----------------------------------------------------
-            ttl.TurtleScreen._RUNNING = True
-            self.leo = ttl.Turtle()
-            cont = 0
-            conta = 0
-            contb = 0
-            flag = 0
+        # -----------------------------------------------------
+        # ---------Inicialización de variables---- ------------
+        # -----------------------------------------------------
+        ttl.TurtleScreen._RUNNING = True
+        self.cap = cv2.VideoCapture(0)
+        self.leo = ttl.Turtle()
+        cont = 0
+        conta = 0
+        contb = 0
+        flag = 0
 
-            # -----------------------------------------------------
-            # ----Visualizar movimiento de turtle -----------------
-            # -----------------------------------------------------
-            while True:
-
-                # Saving captured image
-                _, imgF = self.cap.read()
-                img, nodes = self.detector.findFaceMesh(imgF)
-                nodes = np.array([nodes])
-                if nodes.any() != 0:
-                    y_predicted = self.ho_model.predict(nodes, verbose=0)
-                    prediction = int(np.argmax(y_predicted))
-                else:
-                    prediction = 1
-
-                if prediction == 0:
-                    self.leo.left(7)
-                    self.leo.forward(conta)
-                    self.leo.backward(contb)
-
-                if prediction == 1:
-                    self.leo.forward(conta)
-                    self.leo.backward(contb)
-                    flag = 0
-                if prediction == 2:
-                    self.leo.right(7)
-                    self.leo.forward(conta)
-                    self.leo.backward(contb)
+        # -----------------------------------------------------
+        # ----Visualizar movimiento de turtle -----------------
+        # -----------------------------------------------------
+        while True:
 
 
-                if prediction == 3:
-                    if flag == 0:
-                        cont += 1
-                        if cont > -1 and cont < 5:
-                            conta = int(cont)
-                        if cont < 1 and cont > -5:
-                            contb = int(-1*cont)
-                        if cont > 4:
-                            conta = int(4)
-                            cont = 4
-                        if cont < -4:
-                            contb = int(4)
-                            cont = -4
-                        flag = 1
-                    else:
-                        pass
+            # Saving captured image
+            _, imgF = self.cap.read()
+            img, nodes = self.detector.findFaceMesh(imgF)
+            nodes = np.array([nodes])
+            if nodes.any() != 0:
+                y_predicted = self.ho_model.predict(nodes, verbose=0)
+                prediction = int(np.argmax(y_predicted))
+            else:
+                prediction = 1
 
-                if prediction == 4:
-                    if flag == 0:
-                        cont -= 1
-                        if cont > -1 and cont < 5:
-                            conta = int(cont)
-                        if cont < 1 and cont > -5:
-                            contb = int(-1*cont)
-                        if cont > 4:
-                            conta = int(4)
-                            cont = 4
-                        if cont < -4:
-                            contb = int(4)
-                            cont = -4
-                        flag = 1
-                    else:
-                        pass
+            if prediction == 0:
+                self.leo.left(7)
+                self.leo.forward(conta)
+                self.leo.backward(contb)
 
+            if prediction == 1:
+                self.leo.forward(conta)
+                self.leo.backward(contb)
+                flag = 0
+            if prediction == 2:
+                self.leo.right(7)
+                self.leo.forward(conta)
+                self.leo.backward(contb)
+
+
+            if prediction == 3:
+                if flag == 0:
+                    cont += 1
+                    if cont > -1 and cont < 5:
+                        conta = int(cont)
+                    if cont < 1 and cont > -5:
+                        contb = int(-1*cont)
+                    if cont > 4:
+                        conta = int(4)
+                        cont = 4
+                    if cont < -4:
+                        contb = int(4)
+                        cont = -4
+                    flag = 1
                 else:
                     pass
-                print('p f c a b')
-                print(prediction, flag, cont, conta, contb)
 
-                # Show the complete image
-                cv2.imshow('Image', img)
+            if prediction == 4:
+                if flag == 0:
+                    cont -= 1
+                    if cont > -1 and cont < 5:
+                        conta = int(cont)
+                    if cont < 1 and cont > -5:
+                        contb = int(-1*cont)
+                    if cont > 4:
+                        conta = int(4)
+                        cont = 4
+                    if cont < -4:
+                        contb = int(4)
+                        cont = -4
+                    flag = 1
+                else:
+                    pass
 
-        on_thread = threading.Thread(target=run_on)
-        on_thread.daemon = True
-        on_thread.start()
+            else:
+                pass
+            print('p f c a b')
+            print(prediction, flag, cont, conta, contb)
+
+            # Show the complete image
+            cv2.imshow('Image', img)
+
 
 
     def stop(self):

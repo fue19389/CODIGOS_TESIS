@@ -12,7 +12,7 @@ class Use_BT_MODEL:
         self.ho_model = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or12.keras'
         self.ho_model = tf.keras.models.load_model(self.ho_model)
         self.detector = fL.FaceMeshDetector()
-        self.CAP = cv2.VideoCapture(0)
+
 
 
     def on(self):
@@ -24,6 +24,7 @@ class Use_BT_MODEL:
             except:
                 print('Error de conexión')
 
+            self.CAP = cv2.VideoCapture(0)
             while True:
                 _, imgF = self.CAP.read()
                 img, nodes = self.detector.findFaceMesh(imgF)
@@ -40,6 +41,9 @@ class Use_BT_MODEL:
         on_thread.start()
 
     def stop(self):
-        self.CAP.release()
+
+        prediction = 1
+        self.BT.write(str(prediction).encode('utf-8'))
         self.BT.close()
+        self.CAP.release()
         cv2.destroyAllWindows()
