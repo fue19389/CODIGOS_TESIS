@@ -4,10 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="peque;os ajustes que no funcionaron">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA SE SOLUCIONO, SOLO HABÍA QUE AGREGAR EL WAITKEY LUEGO DEL IMSHOW">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sendBT.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendBT.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,14 +113,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY">
-      <option name="closed" value="true" />
-      <created>1709365442617</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1709365442617</updated>
     </task>
     <task id="LOCAL-00014" summary="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes">
       <option name="closed" value="true" />
@@ -505,7 +498,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714884042366</updated>
     </task>
-    <option name="localTasksCounter" value="62" />
+    <task id="LOCAL-00062" summary="YA SE SOLUCIONO, SOLO HABÍA QUE AGREGAR EL WAITKEY LUEGO DEL IMSHOW">
+      <option name="closed" value="true" />
+      <created>1714890292699</created>
+      <option name="number" value="00062" />
+      <option name="presentableId" value="LOCAL-00062" />
+      <option name="project" value="LOCAL" />
+      <updated>1714890292699</updated>
+    </task>
+    <option name="localTasksCounter" value="63" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -521,7 +522,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ahora solo falta apgar la cámara al terminar la prueba en vivo" />
     <MESSAGE value="Finalmente funciona" />
     <MESSAGE value="NUEVO COMMIT DE PRUEBA" />
     <MESSAGE value="Se termino de entrenar el modelo con marcadors y ahora se agrega el controlador de webots" />
@@ -546,7 +546,8 @@
     <MESSAGE value="Se inician los ajustes para trabajar con 2 modelos simultaneos" />
     <MESSAGE value="AQUI TAMBIEN ESTA EL ERROR DE TURTLE" />
     <MESSAGE value="peque;os ajustes que no funcionaron" />
-    <option name="LAST_COMMIT_MESSAGE" value="peque;os ajustes que no funcionaron" />
+    <MESSAGE value="YA SE SOLUCIONO, SOLO HABÍA QUE AGREGAR EL WAITKEY LUEGO DEL IMSHOW" />
+    <option name="LAST_COMMIT_MESSAGE" value="YA SE SOLUCIONO, SOLO HABÍA QUE AGREGAR EL WAITKEY LUEGO DEL IMSHOW" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

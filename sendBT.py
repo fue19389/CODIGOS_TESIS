@@ -13,8 +13,6 @@ class Use_BT_MODEL:
         self.ho_model = tf.keras.models.load_model(self.ho_model)
         self.detector = fL.FaceMeshDetector()
 
-
-
     def on(self):
         def run_on():
 

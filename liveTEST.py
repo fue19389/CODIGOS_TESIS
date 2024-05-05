@@ -47,6 +47,8 @@ class UseModel:
 
         # detector de landmarks
         self.detector = fL.FaceMeshDetector()
+        # predicción incial
+        self.prediction = 1
 
 
     # -----------------------------------------------------
@@ -65,7 +67,7 @@ class UseModel:
     # -----------------------------------------------------
     # -------------------Predicción de modelo---------------------
     # -----------------------------------------------------
-    def or_predict(self, img):
+    def or_predict(self, img, predict0):
 
         # Perform face detection using the FaceMeshDetector
 
@@ -76,9 +78,9 @@ class UseModel:
             y_predicted = self.ho_model.predict(nodes, verbose=0)
             prediction = int(np.argmax(y_predicted))
         else:
-            prediction = 1
+            prediction = predict0
 
-        return img, prediction
+        return prediction
 
     def on(self):
         # -----------------------------------------------------
@@ -102,26 +104,25 @@ class UseModel:
 
             # Saving captured image
             _, img = self.cap.read()
-
-            img, prediction = self.or_predict(img)
+            self.prediction = self.or_predict(img, self.prediction)
             cv2.imshow('Image', img)
             cv2.waitKey(1) #This helps the program to not stop
 
-            if prediction == 0:
+            if self.prediction == 0:
                 self.leo.left(7)
                 self.leo.forward(conta)
                 self.leo.backward(contb)
 
-            if prediction == 1:
+            if self.prediction == 1:
                 self.leo.forward(conta)
                 self.leo.backward(contb)
                 flag = 0
-            if prediction == 2:
+            if self.prediction == 2:
                 self.leo.right(7)
                 self.leo.forward(conta)
                 self.leo.backward(contb)
 
-            if prediction == 3:
+            if self.prediction == 3:
 
                 if flag == 0:
                     cont += 1
@@ -139,7 +140,7 @@ class UseModel:
                 else:
                     pass
 
-            if prediction == 4:
+            if self.prediction == 4:
 
                 if flag == 0:
                     cont -= 1
@@ -160,11 +161,9 @@ class UseModel:
             else:
                 pass
             print('p f c a b')
-            print(prediction, flag, cont, conta, contb)
+            print(self.prediction, flag, cont, conta, contb)
             # cv2.imshow('Image', img)
             # Show the complete image
-
-
         self.cap.release()
         cv2.destroyAllWindows()
 
