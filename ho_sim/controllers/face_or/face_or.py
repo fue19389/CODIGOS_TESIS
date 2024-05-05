@@ -1,4 +1,4 @@
-from controller import robot, Motor
+from controller import Robot, Motor
 import tensorflow as tf
 import numpy as np
 import cv2
@@ -20,7 +20,7 @@ class wModel:
         subprocess.Popen(self.open_com)
 
         # create the self.robot instance.
-        self.robot = robot()
+        self.robot = Robot()
 
         # get a handler to the motors and set target position to infinity (speed control)
         self.leftMotor = self.robot.getDevice('left wheel motor')
@@ -116,10 +116,7 @@ def main():
 
     webots = wModel()
 
-
-    while True:
-        # Saving captured image and transforming from BGR TO RGB
-        wModel.on()
+    webots.on()
 
 
 
