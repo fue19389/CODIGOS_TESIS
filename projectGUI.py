@@ -29,7 +29,7 @@ import photoMODEL as pM
 import graphMODEL as gM
 import liveTEST as lT
 import sendBT as bT
-
+from ho_sim.controllers.face_or import face_or as fO
 # Librerías para GUI
 import customtkinter as ctk
 import tkinter as tk
@@ -73,7 +73,7 @@ class pGUI:
         self.train1 = gM.ModelGraph()
         self.use_m = lT.UseModel()
         self.use_bt = bT.Use_BT_MODEL()
-        self.use_w =
+        self.use_w = fO.wModel()
 
         # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración de Tab: Instrucciones -----------------------------------
@@ -180,16 +180,16 @@ class pGUI:
         self.use_m.stop()
 
     def turnonW(self):
-        self.use_m.on()
+        self.use_w.on()
 
     def turnoffW(self):
-        self.use_m.stop()
+        self.use_w.stop()
 
     def turnonE(self):
-        self.use_m.on()
+        self.use_bt.on()
 
     def turnoffE(self):
-        self.use_m.stop()
+        self.use_bt.stop()
 
 
 

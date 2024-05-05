@@ -4,11 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="tratanto de que el simulador de webots funciona con la GUI">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="agregue los init que encontre que supuestamente se necesitan">
+      <change afterPath="$PROJECT_DIR$/ho_sim/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ho_sim/controllers/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sendBT.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendBT.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,14 +117,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Listos todos los códigos en de la forma OOP">
-      <option name="closed" value="true" />
-      <created>1709433806456</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1709433806456</updated>
     </task>
     <task id="LOCAL-00017" summary="Ahora también está listo el código de las pruebas en vivo, de la forma OOP">
       <option name="closed" value="true" />
@@ -506,7 +502,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714895288930</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="agregue los init que encontre que supuestamente se necesitan">
+      <option name="closed" value="true" />
+      <created>1714896866780</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1714896866780</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -522,7 +526,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Se termino de entrenar el modelo con marcadors y ahora se agrega el controlador de webots" />
     <MESSAGE value="Funciona Webots, al menos con mi cara en la noche en mi lugar de trabajo" />
     <MESSAGE value="Primeras pruebas generando los datos necesarios para usar GCN o GNN" />
     <MESSAGE value="Listo para pruebas el codigo que genera la data de los landmarks, en vivo y en foto" />
@@ -547,7 +550,8 @@
     <MESSAGE value="YA SE SOLUCIONO, SOLO HABÍA QUE AGREGAR EL WAITKEY LUEGO DEL IMSHOW" />
     <MESSAGE value="SOLUCIONADOS LOS INDENTS" />
     <MESSAGE value="tratanto de que el simulador de webots funciona con la GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="tratanto de que el simulador de webots funciona con la GUI" />
+    <MESSAGE value="agregue los init que encontre que supuestamente se necesitan" />
+    <option name="LAST_COMMIT_MESSAGE" value="agregue los init que encontre que supuestamente se necesitan" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

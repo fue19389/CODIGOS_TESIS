@@ -14,24 +14,31 @@ class wModel:
         self.CAP = cv2.VideoCapture(0)
         self.ho_model = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or12.keras'
         self.ho_model = tf.keras.models.load_model(self.ho_model)
+
+        self.robot = Robot()
         self.webots_path = r'C:\Program Files\Webots\msys64\mingw64\bin\webotsw.exe'
         self.webots_world = r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\ho_sim\worlds\ho_sim.wbt'
         self.open_com = [self.webots_path, "--mode=fast", self.webots_world]
-        subprocess.Popen(self.open_com)
+        self.process = subprocess.Popen(self.open_com)
 
-        # create the self.robot instance.
-        self.robot = Robot()
-
-        # get a handler to the motors and set target position to infinity (speed control)
         self.leftMotor = self.robot.getDevice('left wheel motor')
         self.rightMotor = self.robot.getDevice('right wheel motor')
         self.leftMotor.setPosition(float('inf'))
         self.rightMotor.setPosition(float('inf'))
         self.detector = fL.FaceMeshDetector()
+        self.process = None
 
+    def start_webots(self):
+
+        self.process = subprocess.Popen(self.open_com)
 
 
     def on(self):
+        if self.process == False:
+            self.start_webots()
+        else:
+            pass
+
         cont = 0
         SPEEDC = 0
         flag = 0
@@ -105,20 +112,9 @@ class wModel:
             print(prediction, cont, SPEEDC)
             self.robot.stepEnd()
 
-    def stop(self):
 
+    def stop(self):
+        if self.process:
+            self.process.terminate()
         self.CAP.release()
         cv2.destroyAllWindows()
-
-
-def main():
-    # Capture photo
-
-    webots = wModel()
-
-    webots.on()
-
-
-
-if __name__ == '__main__':
-    main()

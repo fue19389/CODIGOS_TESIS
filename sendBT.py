@@ -12,6 +12,8 @@ class Use_BT_MODEL:
         self.ho_model = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or12.keras'
         self.ho_model = tf.keras.models.load_model(self.ho_model)
         self.detector = fL.FaceMeshDetector()
+        self.BT = None  # Initialize BT attribute to None
+        self.CAP = None
 
     def on(self):
         def run_on():
