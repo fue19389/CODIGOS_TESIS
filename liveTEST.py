@@ -15,7 +15,6 @@
 
 import os
 import cv2
-import threading
 import numpy as np
 import turtle as ttl
 import tensorflow as tf
@@ -32,7 +31,7 @@ class UseModel:
         # ------------------------------------------------------
         # -----------------Selección de modelo------------------
         # ------------------------------------------------------
-        
+
         # Actualmente, se tienen modelos del 0 -> 8
         self.n_model = 12
 
@@ -41,9 +40,11 @@ class UseModel:
         # ------------------------------------------------
         # ----- Directorios a utilizar -------------------
         # ------------------------------------------------
-        
+
         # Directorio para guardar las variables a exportar
         self.expordir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS'
+
+    def on(self):
 
         # -----------------------------------------------------
         # -------------------Cargar modelo---------------------
@@ -78,21 +79,15 @@ class UseModel:
         self.ho_model = os.path.join(self.expordir, self.mname)
         self.ho_model = tf.keras.models.load_model(self.ho_model)
 
-
-        self.detector = fL.FaceMeshDetector()
-
-
-
-         
-    def on(self):
-
-
         # -----------------------------------------------------
-        # ---------Inicialización de variables---- ------------
+        # ---------Inicialización de la Webcam---- ------------
         # -----------------------------------------------------
-        ttl.TurtleScreen._RUNNING = True
+
         self.cap = cv2.VideoCapture(0)
+        ttl.TurtleScreen._RUNNING = True
         self.leo = ttl.Turtle()
+        detector = fL.FaceMeshDetector()
+        self.admat = np.array([np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\admat.npy')])
         cont = 0
         conta = 0
         contb = 0
@@ -101,12 +96,13 @@ class UseModel:
         # -----------------------------------------------------
         # ----Visualizar movimiento de turtle -----------------
         # -----------------------------------------------------
+
         while True:
 
-
             # Saving captured image
+
             _, imgF = self.cap.read()
-            img, nodes = self.detector.findFaceMesh(imgF)
+            img, nodes = detector.findFaceMesh(imgF)
             nodes = np.array([nodes])
             if nodes.any() != 0:
                 y_predicted = self.ho_model.predict(nodes, verbose=0)
@@ -128,14 +124,13 @@ class UseModel:
                 self.leo.forward(conta)
                 self.leo.backward(contb)
 
-
             if prediction == 3:
                 if flag == 0:
                     cont += 1
                     if cont > -1 and cont < 5:
                         conta = int(cont)
                     if cont < 1 and cont > -5:
-                        contb = int(-1*cont)
+                        contb = int(-1 * cont)
                     if cont > 4:
                         conta = int(4)
                         cont = 4
@@ -152,7 +147,7 @@ class UseModel:
                     if cont > -1 and cont < 5:
                         conta = int(cont)
                     if cont < 1 and cont > -5:
-                        contb = int(-1*cont)
+                        contb = int(-1 * cont)
                     if cont > 4:
                         conta = int(4)
                         cont = 4
@@ -171,7 +166,8 @@ class UseModel:
             # Show the complete image
             cv2.imshow('Image', img)
 
-
+            # key = cv2.waitKey(5)
+            # if key == 27: # 13 = enter, 27 = esc
 
     def stop(self):
         self.cap.release()

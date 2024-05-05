@@ -61,7 +61,8 @@ class pGUI:
         self.tabview.add('Instrucciones Captura')
         self.tabview.add("Captura de fotografías")
         self.tabview.add("Manejo de datos")
-        self.tabview.add('Prueba en vivo')
+        self.tabview.add('Prueba turtle')
+        self.tabview.add('Prueba esp32')
         self.tabview.pack()
 
         # Inicialización de librerías personales
@@ -114,21 +115,20 @@ class pGUI:
         # ----------------------------- Configuración de Tab: Prueba en vivo -------------------------------------------
         # --------------------------------------------------------------------------------------------------------------
 
-        self.buttonFrame3 = ctk.CTkFrame(self.tabview.tab('Prueba en vivo'))
 
-        self.btn_run = ctk.CTkButton(self.buttonFrame3, text='Ejecutar', font=('aptos', 30), width=350, height=150, command=self.turnon)
-        self.btn_run.grid(row=0, column=0, padx=10, pady=10)
+        self.btn_run = ctk.CTkButton(self.tabview.tab('Prueba turtle'), text='Ejecutar', font=('aptos', 30), width=350, height=150, command=self.turnon)
+        self.btn_run.grid(padx=10, pady=10)
 
-        self.btn_stop = ctk.CTkButton(self.buttonFrame3, text='Detener', font=('aptos', 30), width=350, height=150, command=self.turnoff)
-        self.btn_stop.grid(row=1, column=0, padx=10, pady=10)
+        self.btn_stop = ctk.CTkButton(self.tabview.tab('Prueba turtle'), text='Detener', font=('aptos', 30), width=350, height=150, command=self.turnoff)
+        self.btn_stop.grid(padx=10, pady=10)
 
-        self.btn_runp = ctk.CTkButton(self.buttonFrame3, text='Ejecutar Físico', font=('aptos', 30), width=350, height=150, command=self.turnonp)
-        self.btn_runp.grid(row=0, column=1, padx=10, pady=10)
+        # self.btn_runp = ctk.CTkButton(self.buttonFrame3, text='Ejecutar Físico', font=('aptos', 30), width=350, height=150, command=self.turnonp)
+        # self.btn_runp.grid(row=0, column=1, padx=10, pady=10)
+        #
+        # self.btn_stopp = ctk.CTkButton(self.buttonFrame3, text='Detener Físico', font=('aptos', 30), width=350, height=150, command=self.turnoffp)
+        # self.btn_stopp.grid(row=1, column=1, padx=10, pady=10)
 
-        self.btn_stopp = ctk.CTkButton(self.buttonFrame3, text='Detener Físico', font=('aptos', 30), width=350, height=150, command=self.turnoffp)
-        self.btn_stopp.grid(row=1, column=1, padx=10, pady=10)
 
-        self.buttonFrame3.pack(pady=20)
 
         # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración final  -----------------------------------------------------------
@@ -169,11 +169,6 @@ class pGUI:
     def turnoff(self):
         self.use_m.stop()
 
-    def turnonp(self):
-        self.use_bt.on()
-
-    def turnoffp(self):
-        self.use_bt.stop()
 
     # --------------------------------------------------------------------------------------------------------------
     # ----------------------------- Funcion de cerrardo  -----------------------------------------------------------
