@@ -117,10 +117,10 @@ class pGUI:
 
 
         self.btn_run = ctk.CTkButton(self.tabview.tab('Prueba turtle'), text='Ejecutar', font=('aptos', 30), width=350, height=150, command=self.turnon)
-        self.btn_run.grid(padx=10, pady=10)
+        self.btn_run.pack(padx=10, pady=10)
 
         self.btn_stop = ctk.CTkButton(self.tabview.tab('Prueba turtle'), text='Detener', font=('aptos', 30), width=350, height=150, command=self.turnoff)
-        self.btn_stop.grid(padx=10, pady=10)
+        self.btn_stop.pack(padx=10, pady=10)
 
         # self.btn_runp = ctk.CTkButton(self.buttonFrame3, text='Ejecutar Físico', font=('aptos', 30), width=350, height=150, command=self.turnonp)
         # self.btn_runp.grid(row=0, column=1, padx=10, pady=10)

@@ -15,6 +15,7 @@
 
 import os
 import cv2
+import threading
 import numpy as np
 import turtle as ttl
 import tensorflow as tf
@@ -44,7 +45,10 @@ class UseModel:
         # Directorio para guardar las variables a exportar
         self.expordir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS'
 
+
     def on(self):
+
+
 
         # -----------------------------------------------------
         # -------------------Cargar modelo---------------------
@@ -166,8 +170,8 @@ class UseModel:
             # Show the complete image
             cv2.imshow('Image', img)
 
-            # key = cv2.waitKey(5)
-            # if key == 27: # 13 = enter, 27 = esc
+        self.cap.release()
+        cv2.destroyAllWindows()
 
     def stop(self):
         self.cap.release()
