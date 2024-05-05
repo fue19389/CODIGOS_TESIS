@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Ahora deberiaf uncionar">
-      <change afterPath="$PROJECT_DIR$/onoffWEBOTS.py" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA FUNCIONA TODO, CON EL DETALLE QUE AL CERRAR WEBTOS, SE CIERRA LA GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
@@ -47,32 +46,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.__init__.executor": "Run",
-    "Python.adjacencyMATRIX.executor": "Run",
-    "Python.complex_example.executor": "Run",
-    "Python.extractDATA.executor": "Run",
-    "Python.faceLANDMARKS.executor": "Run",
-    "Python.face_or.executor": "Run",
-    "Python.feedDATA.executor": "Run",
-    "Python.graphMODEL.executor": "Run",
-    "Python.liveTEST.executor": "Run",
-    "Python.miscTEST.executor": "Run",
-    "Python.modelGENERATOR.executor": "Run",
-    "Python.photoGUI.executor": "Run",
-    "Python.projectGUI.executor": "Run",
-    "Python.savePHOTO.executor": "Run",
-    "Python.scrollable_frame_example.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "graphMODELS2__optlivetest",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/ho_sim/controllers/face_or/face_or.py",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.adjacencyMATRIX.executor&quot;: &quot;Run&quot;,
+    &quot;Python.complex_example.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extractDATA.executor&quot;: &quot;Run&quot;,
+    &quot;Python.faceLANDMARKS.executor&quot;: &quot;Run&quot;,
+    &quot;Python.face_or.executor&quot;: &quot;Run&quot;,
+    &quot;Python.feedDATA.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphMODEL.executor&quot;: &quot;Run&quot;,
+    &quot;Python.liveTEST.executor&quot;: &quot;Run&quot;,
+    &quot;Python.miscTEST.executor&quot;: &quot;Run&quot;,
+    &quot;Python.modelGENERATOR.executor&quot;: &quot;Run&quot;,
+    &quot;Python.photoGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.projectGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.savePHOTO.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scrollable_frame_example.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;graphMODELS2__optlivetest&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/ho_sim/controllers/face_or/face_or.py&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="face_or" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="CODIGOS_TESIS" />
@@ -114,14 +113,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00018" summary="Inicio de pruebas para la GUI">
-      <option name="closed" value="true" />
-      <created>1709441766055</created>
-      <option name="number" value="00018" />
-      <option name="presentableId" value="LOCAL-00018" />
-      <option name="project" value="LOCAL" />
-      <updated>1709441766055</updated>
     </task>
     <task id="LOCAL-00019" summary="Está listo el esqueleto (funciones) y el cascarón (interfaz), solo falta unirlo.&#10;&#10;PS: Aún falta una simulación simple de movimiento">
       <option name="closed" value="true" />
@@ -507,7 +498,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714899818414</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="YA FUNCIONA TODO, CON EL DETALLE QUE AL CERRAR WEBTOS, SE CIERRA LA GUI">
+      <option name="closed" value="true" />
+      <created>1714902017594</created>
+      <option name="number" value="00067" />
+      <option name="presentableId" value="LOCAL-00067" />
+      <option name="project" value="LOCAL" />
+      <updated>1714902017594</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -523,7 +522,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Primeras pruebas generando los datos necesarios para usar GCN o GNN" />
     <MESSAGE value="Listo para pruebas el codigo que genera la data de los landmarks, en vivo y en foto" />
     <MESSAGE value="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras" />
     <MESSAGE value="Ahora ya se guardan los landmarks en formato de npy" />
@@ -548,7 +546,8 @@
     <MESSAGE value="tratanto de que el simulador de webots funciona con la GUI" />
     <MESSAGE value="agregue los init que encontre que supuestamente se necesitan" />
     <MESSAGE value="Ahora deberiaf uncionar" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ahora deberiaf uncionar" />
+    <MESSAGE value="YA FUNCIONA TODO, CON EL DETALLE QUE AL CERRAR WEBTOS, SE CIERRA LA GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="YA FUNCIONA TODO, CON EL DETALLE QUE AL CERRAR WEBTOS, SE CIERRA LA GUI" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

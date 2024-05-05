@@ -30,10 +30,13 @@ import graphMODEL as gM
 import liveTEST as lT
 import sendBT as bT
 import subprocess
-import onoffWEBOTS as owbts
-owbts.start_webots()
+webots_path = r'C:\Program Files\Webots\msys64\mingw64\bin\webotsw.exe'
+webots_world = r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\ho_sim\worlds\ho_sim.wbt'
+open_com = [webots_path, "--mode=fast", webots_world]
+subprocess.Popen(open_com)
 
 from ho_sim.controllers.face_or import face_or as fO
+
 # Librerías para GUI
 import customtkinter as ctk
 import tkinter as tk
@@ -133,9 +136,6 @@ class pGUI:
         self.btn_runW = ctk.CTkButton(self.tabview.tab('Prueba Webots'), text='Ejecutar', font=('aptos', 30), width=350, height=150, command=self.turnonW)
         self.btn_runW.pack(padx=10, pady=10)
 
-        self.btn_runSIM = ctk.CTkButton(self.tabview.tab('Prueba Webots'), text='SIMULADOR', font=('aptos', 30), width=350, height=150, command=self.turnonSIM)
-        self.btn_runSIM.pack(padx=10, pady=10)
-
         self.btn_stopW = ctk.CTkButton(self.tabview.tab('Prueba Webots'), text='Detener', font=('aptos', 30), width=350, height=150, command=self.turnoffW)
         self.btn_stopW.pack(padx=10, pady=10)
 
@@ -191,11 +191,8 @@ class pGUI:
     def turnonW(self):
         self.use_w.on()
 
-    def turnonSIM(self):
-        owbts.start_webots()
-
     def turnoffW(self):
-        owbts.stop_webots()
+        self.use_w.stop()
 
     def turnonE(self):
         self.use_bt.on()
