@@ -29,9 +29,6 @@ import photoMODEL as pM
 import graphMODEL as gM
 import liveTEST as lT
 import sendBT as bT
-import sys
-sys.path.append(r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\ho_sim\controllers\face_or')
-import face_or as
 # Librerías para GUI
 import customtkinter as ctk
 import tkinter as tk

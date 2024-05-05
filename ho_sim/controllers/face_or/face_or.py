@@ -109,3 +109,19 @@ class wModel:
 
         self.CAP.release()
         cv2.destroyAllWindows()
+
+
+def main():
+    # Capture photo
+
+    webots = wModel()
+
+
+    while True:
+        # Saving captured image and transforming from BGR TO RGB
+        wModel.on()
+
+
+
+if __name__ == '__main__':
+    main()
