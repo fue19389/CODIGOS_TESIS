@@ -13,14 +13,14 @@ olip = [61,185,40,39,37,0,267,269,270,409,291,375,321,405,314,17,84,181,91,146]
 fcontour = [10,338,297,332,284,251,389,356,454,323,361,288,397,365,379,378,400,377,152,148,176,149,150,136,172,58,132,93,234,127,162,21,54,103,67,109]
 
 admat = np.zeros((468, 468))
-# list = range(0, len(admat))
-#
-# for i in list:
-#     for j in list:
-#         admat[i, j] = 1
-#         admat[j, i] = 1
-# admat = admat.astype(int)
-# print(admat)
+admatlip = np.zeros((40, 40))
+
+list = range(0, len(admatlip))
+for i in list:
+    for j in list:
+        admatlip[i, j] = 1
+        admatlip[j, i] = 1
+
 
 for i in lebw:
     for j in lebw:
@@ -56,8 +56,18 @@ plt.ylim(0, 467)
 plt.xlim(0, 467)
 plt.show()
 
+print(admatlip)
+plt.imshow(admatlip)
+plt.ylim(0, 39)
+plt.xlim(0, 39)
+plt.show()
+
 expordir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS'
 expordir = os.path.join(expordir, 'admat')
 np.save(expordir, admat)
+expordir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS'
+expordir = os.path.join(expordir, 'admatlip')
+np.save(expordir, admatlip)
 print(admat.shape)
+print(admatlip.shape)
 

@@ -49,6 +49,7 @@ class UseModel:
         self.detector = fL.FaceMeshDetector()
         # predicción incial
         self.prediction = 1
+        self.predictionM = 1
 
 
     # -----------------------------------------------------
@@ -59,19 +60,22 @@ class UseModel:
 
         if self.n_model in range(13):
             self.mname = f'head_or{self.n_model}.keras'
+            self.mnameM = f'head_or{self.n_model}M.keras'
             self.ho_model = os.path.join(self.expordir, self.mname)
             self.ho_model = tf.keras.models.load_model(self.ho_model)
+            self.mo_model = os.path.join(self.expordir, self.mnameM)
+            self.mo_model = tf.keras.models.load_model(self.mo_model)
         else:
             raise ValueError("Invalid model number")
 
     # -----------------------------------------------------
     # -------------------Predicción de modelo---------------------
     # -----------------------------------------------------
-    def or_predict(self, img, predict0):
+    def or_predict(self, imgOG, predict0):
 
         # Perform face detection using the FaceMeshDetector
 
-        img, nodes = self.detector.findFaceMesh(img)
+        img, nodes = self.detector.findFaceMesh(imgOG)
         nodes = np.array([nodes])
         # Check if any face landmarks were detected
         if nodes.any() != 0:
@@ -80,7 +84,16 @@ class UseModel:
         else:
             prediction = predict0
 
-        return prediction
+        img, nodes = self.detector.findMouthMesh(imgOG)
+        nodes = np.array([nodes])
+        # Check if any face landmarks were detected
+        if nodes.any() != 0:
+            y_predicted = self.mo_model.predict(nodes, verbose=0)
+            predictionM = int(np.argmax(y_predicted))
+        else:
+            predictionM = predict0
+
+        return prediction, predictionM
 
     def on(self):
         # -----------------------------------------------------
@@ -104,62 +117,73 @@ class UseModel:
 
             # Saving captured image
             _, img = self.cap.read()
-            self.prediction = self.or_predict(img, self.prediction)
-            cv2.imshow('Image', img)
-            cv2.waitKey(1) #This helps the program to not stop
+            self.prediction, self.predictionM = self.or_predict(img, self.prediction)
 
-            if self.prediction == 0:
-                self.leo.left(7)
-                self.leo.forward(conta)
-                self.leo.backward(contb)
+            # cv2.imshow('Image', img)
+            # cv2.waitKey(1) #This helps the program to not stop
 
-            if self.prediction == 1:
-                self.leo.forward(conta)
-                self.leo.backward(contb)
+            if self.predictionM == 0:
+                if self.prediction == 0:
+                    self.leo.left(7)
+                    self.leo.forward(conta)
+                    self.leo.backward(contb)
+
+                if self.prediction == 1:
+                    self.leo.forward(conta)
+                    self.leo.backward(contb)
+                    flag = 0
+                if self.prediction == 2:
+                    self.leo.right(7)
+                    self.leo.forward(conta)
+                    self.leo.backward(contb)
+
+                if self.prediction == 3:
+
+                    if flag == 0:
+                        cont += 1
+                        if cont > -1 and cont < 5:
+                            conta = int(cont)
+                        if cont < 1 and cont > -5:
+                            contb = int(-1 * cont)
+                        if cont > 4:
+                            conta = int(4)
+                            cont = 4
+                        if cont < -4:
+                            contb = int(4)
+                            cont = -4
+                        flag = 1
+                    else:
+                        pass
+
+                if self.prediction == 4:
+
+                    if flag == 0:
+                        cont -= 1
+                        if cont > -1 and cont < 5:
+                            conta = int(cont)
+                        if cont < 1 and cont > -5:
+                            contb = int(-1 * cont)
+                        if cont > 4:
+                            conta = int(4)
+                            cont = 4
+                        if cont < -4:
+                            contb = int(4)
+                            cont = -4
+                        flag = 1
+                    else:
+                        pass
+
+                else:
+                    pass
+
+            elif self.predictionM == 1:
+                self.leo.forward(0)
+                self.leo.backward(0)
+                cont = 0
+                conta = 0
+                contb = 0
                 flag = 0
-            if self.prediction == 2:
-                self.leo.right(7)
-                self.leo.forward(conta)
-                self.leo.backward(contb)
 
-            if self.prediction == 3:
-
-                if flag == 0:
-                    cont += 1
-                    if cont > -1 and cont < 5:
-                        conta = int(cont)
-                    if cont < 1 and cont > -5:
-                        contb = int(-1 * cont)
-                    if cont > 4:
-                        conta = int(4)
-                        cont = 4
-                    if cont < -4:
-                        contb = int(4)
-                        cont = -4
-                    flag = 1
-                else:
-                    pass
-
-            if self.prediction == 4:
-
-                if flag == 0:
-                    cont -= 1
-                    if cont > -1 and cont < 5:
-                        conta = int(cont)
-                    if cont < 1 and cont > -5:
-                        contb = int(-1 * cont)
-                    if cont > 4:
-                        conta = int(4)
-                        cont = 4
-                    if cont < -4:
-                        contb = int(4)
-                        cont = -4
-                    flag = 1
-                else:
-                    pass
-
-            else:
-                pass
             print('p f c a b')
             print(self.prediction, flag, cont, conta, contb)
             # cv2.imshow('Image', img)

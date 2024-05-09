@@ -27,6 +27,7 @@ import feedDATA as fD
 import extractDATA as eD
 import photoMODEL as pM
 import graphMODEL as gM
+import graphSTOP as gS
 import liveTEST as lT
 import sendBT as bT
 import subprocess
@@ -78,6 +79,7 @@ class pGUI:
         self.ppr = eD.GetModelData()
         self.train = pM.ModelPhoto()
         self.train1 = gM.ModelGraph()
+        self.train2 = gS.ModelGraphStop()
         self.use_m = lT.UseModel()
         self.use_bt = bT.Use_BT_MODEL()
         self.use_w = fO.wModel()
@@ -161,6 +163,7 @@ class pGUI:
     # --------------------------------------------------------------------------------------------------------------
     def actL(self):
         self.feed.takePHOTO()
+        self.feed.mouthPHOTO()
 
     # --------------------------------------------------------------------------------------------------------------
     # ----------------------------- Funciones para manejo de datos  ------------------------------------------------
@@ -174,8 +177,10 @@ class pGUI:
         messagebox.showinfo(message='Listo')
     def trainM(self):
         self.feed.loadD()
+        self.feed.loadMouthD()
         self.feed.eraseSERIES()
         self.train1.TrainModel()
+        self.train2.TrainModel()
         messagebox.showinfo(message='Listo')
 
     # --------------------------------------------------------------------------------------------------------------
