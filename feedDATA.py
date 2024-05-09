@@ -644,6 +644,12 @@ class ModelFeeder:
             path = os.path.join(self.dirhold, file)
             os.remove(path)
 
+        holdlist = os.listdir(self.mouthhold)
+
+        for file in holdlist:
+            path = os.path.join(self.mouthhold, file)
+            os.remove(path)
+
     # ------------------------------------------------
     # ----- Borrar fotos de directorio temp-----------
     # ------------------------------------------------

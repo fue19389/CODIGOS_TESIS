@@ -76,8 +76,8 @@ class ModelGraphStop:
 
         # Adjacency Matrix
         admatlip = np.array([np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\admatlip.npy')])
-        admattest = np.zeros((len(y_test), 468, 468))
-        admattrain = np.zeros((len(y_train), 468, 468))
+        admattest = np.zeros((len(y_test), 40, 40))
+        admattrain = np.zeros((len(y_train), 40, 40))
         for i in range(len(y_train)):
             admattrain[i] = admatlip
         for i in range(len(y_test)):
@@ -93,16 +93,16 @@ class ModelGraphStop:
         num_classes = 2
         conv1_output_dim = 75
         conv2_output_dim = 150
-        conv3_output_dim = 75
-        num_epochs = 5
+        # conv3_output_dim = 75
+        num_epochs = 10
 
         # Layers
         conv1 = layers.Conv1D(conv1_output_dim, kernel_size=2, activation='relu', input_shape=(40, 2))
         conv2 = layers.Conv1D(conv2_output_dim, kernel_size=4, activation='relu')
-        conv3 = layers.Conv1D(conv3_output_dim, kernel_size=2, activation='relu')
+        # conv3 = layers.Conv1D(conv3_output_dim, kernel_size=2, activation='relu')
         global_pooling = layers.GlobalAveragePooling1D()
         output_layer = layers.Dense(num_classes, activation='softmax')
-        model = Sequential([conv1, conv2, conv3, global_pooling, output_layer])
+        model = Sequential([conv1, conv2, global_pooling, output_layer])
 
         # ------------------------------------------------------
         # ----Compilar, entrenar, evaluar modelo----------------

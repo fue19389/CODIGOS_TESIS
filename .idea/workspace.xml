@@ -4,14 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA FUNCIONA LA INTERFAZ DE UNA MANERA ACEPTABLE">
-      <change afterPath="$PROJECT_DIR$/graphSTOP.py" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="SE ARREGLARON LOS CODIGOS PARA LAS PRUEBAS DE TURTLE CON LA FUNCIÓN DE STOP">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adjacencyMATRIX.py" beforeDir="false" afterPath="$PROJECT_DIR$/adjacencyMATRIX.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/faceLANDMARKS.py" beforeDir="false" afterPath="$PROJECT_DIR$/faceLANDMARKS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphSTOP.py" beforeDir="false" afterPath="$PROJECT_DIR$/graphSTOP.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -117,14 +115,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00020" summary="Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset">
-      <option name="closed" value="true" />
-      <created>1709516240595</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1709516240595</updated>
     </task>
     <task id="LOCAL-00021" summary="Lista la interfaz completa, únicamente falta mejorar la simulación de prediccion, para una mejor visualización">
       <option name="closed" value="true" />
@@ -510,7 +500,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714938195785</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="SE ARREGLARON LOS CODIGOS PARA LAS PRUEBAS DE TURTLE CON LA FUNCIÓN DE STOP">
+      <option name="closed" value="true" />
+      <created>1715237728432</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1715237728432</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -526,7 +524,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="En este caso, se modificó la GUI, para optimizar la captura de datos, asi mismo ahora se obtienen los landmarks de las caras" />
     <MESSAGE value="Ahora ya se guardan los landmarks en formato de npy" />
     <MESSAGE value="ajuste de fila de inicio en excel" />
     <MESSAGE value="la divisi[on de test y train, funciona, pero de una manera extraña, los ciclos for cuentan mal?" />
@@ -551,7 +548,8 @@
     <MESSAGE value="Ahora deberiaf uncionar" />
     <MESSAGE value="YA FUNCIONA TODO, CON EL DETALLE QUE AL CERRAR WEBTOS, SE CIERRA LA GUI" />
     <MESSAGE value="YA FUNCIONA LA INTERFAZ DE UNA MANERA ACEPTABLE" />
-    <option name="LAST_COMMIT_MESSAGE" value="YA FUNCIONA LA INTERFAZ DE UNA MANERA ACEPTABLE" />
+    <MESSAGE value="SE ARREGLARON LOS CODIGOS PARA LAS PRUEBAS DE TURTLE CON LA FUNCIÓN DE STOP" />
+    <option name="LAST_COMMIT_MESSAGE" value="SE ARREGLARON LOS CODIGOS PARA LAS PRUEBAS DE TURTLE CON LA FUNCIÓN DE STOP" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

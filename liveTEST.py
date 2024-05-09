@@ -91,7 +91,7 @@ class UseModel:
             y_predicted = self.mo_model.predict(nodes, verbose=0)
             predictionM = int(np.argmax(y_predicted))
         else:
-            predictionM = predict0
+            predictionM = 0
 
         return prediction, predictionM
 
