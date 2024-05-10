@@ -97,9 +97,13 @@ class pGUI:
         # --------------------------------------------------------------------------------------------------------------
 
 
-        self.btn1 = ctk.CTkButton(self.tabview.tab('Captura de fotografías'), text='CAPTURAR', font=('aptos', 30),
+        self.btn1 = ctk.CTkButton(self.tabview.tab('Captura de fotografías'), text='ROSTRO', font=('aptos', 30),
                                   width=350, height=150, command=self.actL)
         self.btn1.pack(padx=50, pady=50)
+
+        self.btn2 = ctk.CTkButton(self.tabview.tab('Captura de fotografías'), text='BOCA', font=('aptos', 30),
+                                  width=350, height=150, command=self.actM)
+        self.btn2.pack(padx=50, pady=50)
 
         self.label1 = ctk.CTkLabel(self.tabview.tab('Captura de fotografías'),
                                    text='Movimientos: \n 1.Izquierda (UP-DOWN) \n 2. Centro-Abajo \n 3. Derecha (UP-DOWN) \n 4. Arriba (DER-IZQ, CORTOS)', font=('aptos', 20))
@@ -163,6 +167,8 @@ class pGUI:
     # --------------------------------------------------------------------------------------------------------------
     def actL(self):
         self.feed.takePHOTO()
+
+    def actM(self):
         self.feed.mouthPHOTO()
 
     # --------------------------------------------------------------------------------------------------------------

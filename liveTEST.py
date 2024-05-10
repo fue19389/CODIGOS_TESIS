@@ -175,8 +175,11 @@ class UseModel:
 
                 else:
                     pass
+                print('p f c a b')
+                print(self.prediction, flag, cont, conta, contb)
 
             elif self.predictionM == 1:
+                print('stop')
                 self.leo.forward(0)
                 self.leo.backward(0)
                 cont = 0
@@ -184,10 +187,6 @@ class UseModel:
                 contb = 0
                 flag = 0
 
-            print('p f c a b')
-            print(self.prediction, flag, cont, conta, contb)
-            # cv2.imshow('Image', img)
-            # Show the complete image
         self.cap.release()
         cv2.destroyAllWindows()
 

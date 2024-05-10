@@ -20,8 +20,8 @@ class FaceMeshDetector:
                                                  self.refineLm, self.minDetectionCon,
                                                  self.minTrackCon)
         self.drawSpec = self.mpDraw.DrawingSpec(thickness=1, circle_radius=1, color=(0, 255, 0))
-        self.lip = [78, 191, 80, 81, 82, 13, 312, 311, 310, 415, 308, 324, 318, 402, 317, 14, 87, 178, 88, 95,
-                    61, 185, 40, 39, 37, 0, 267, 269, 270, 409, 291, 375, 321, 405, 314, 17, 84, 181, 91, 146]
+        self.lip = [78, 191, 80, 81, 82, 13, 312, 311, 310, 415, 308, 324, 318, 402, 317, 14, 87, 178, 88, 95]
+        self.it = 0
 
     def findFaceMesh(self, img, draw=True):
 
@@ -50,6 +50,7 @@ class FaceMeshDetector:
         return img, nodes
 
     def findMouthMesh(self, img, draw=True):
+        self.it = 0
 
         self.imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         self.results = self.faceMesh.process(self.imgRGB)
@@ -67,7 +68,14 @@ class FaceMeshDetector:
                 for i in self.lip:
                     for id, lm in enumerate(faceLms.landmark):
                         if i == id:
+                            self.it += 1
+                            ih, iw, ic = img.shape
+                            x, y0 = int(lm.x * iw), int(lm.y * ih)
                             npoints.append([lm.x, -1*(lm.y)+1])
+                            if draw:
+                                # Draw selected landmarks in a differente color (RED)
+                                cv2.circle(img, (x, y0), 3, (0, 0, 255), cv2.FILLED)
+                                cv2.putText(img, str(self.it), (x, y0), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 1)
 
                 nodes.append(npoints)
                 nodes = np.squeeze(np.array(nodes))

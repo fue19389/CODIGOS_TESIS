@@ -50,10 +50,10 @@ class ModelGraphStop:
 
         # TRAIN N TEST
         trainlist = os.listdir(self.traindir)
-        x_train = np.zeros((len(trainlist), 40, 2))
+        x_train = np.zeros((len(trainlist), 20, 2))
         itn = 0
         testlist = os.listdir(self.testdir)
-        x_test = np.zeros((len(testlist), 40, 2))
+        x_test = np.zeros((len(testlist), 20, 2))
         itt = 0
         # Generación de variables
         for file in trainlist:
@@ -76,8 +76,8 @@ class ModelGraphStop:
 
         # Adjacency Matrix
         admatlip = np.array([np.load(r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\admatlip.npy')])
-        admattest = np.zeros((len(y_test), 40, 40))
-        admattrain = np.zeros((len(y_train), 40, 40))
+        admattest = np.zeros((len(y_test), 20, 20))
+        admattrain = np.zeros((len(y_train), 20, 20))
         for i in range(len(y_train)):
             admattrain[i] = admatlip
         for i in range(len(y_test)):
@@ -91,17 +91,17 @@ class ModelGraphStop:
 
         # Parameters
         num_classes = 2
-        conv1_output_dim = 75
-        conv2_output_dim = 150
+        conv1_output_dim = 50
+        conv2_output_dim = 100
         # conv3_output_dim = 75
-        num_epochs = 10
+        num_epochs = 15
 
         # Layers
         conv1 = layers.Conv1D(conv1_output_dim, kernel_size=2, activation='relu', input_shape=(40, 2))
         conv2 = layers.Conv1D(conv2_output_dim, kernel_size=4, activation='relu')
         # conv3 = layers.Conv1D(conv3_output_dim, kernel_size=2, activation='relu')
         global_pooling = layers.GlobalAveragePooling1D()
-        output_layer = layers.Dense(num_classes, activation='softmax')
+        output_layer = layers.Dense(num_classes, activation='sigmoid')
         model = Sequential([conv1, conv2, global_pooling, output_layer])
 
         # ------------------------------------------------------
