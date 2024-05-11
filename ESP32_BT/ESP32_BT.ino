@@ -1,76 +1,77 @@
 #include "BluetoothSerial.h"
 
-#if !defined(CONFIG_BT_ENABLED) || !defined(CONFIG_BLUEDROID_ENABLED)
-#ERROR Bluetooth is not enabled! Please run 'make menuconfig' to and enable it
-#endif
-
-BluetoothSerial SerialBT;
+BluetoothSerial BT;
 #define FORWARD 12
-#define RIGHT 27
-#define LEFT 25
-#define BACKWARD 32
+#define RIGHT 14
+#define LEFT 27
+#define BACKWARD 26
+#define STOP 25
 
-int time_delay = 1000;
 int flag = 0;
 int count = 0;
 
+
 void setup() {
-  SerialBT.begin("ESP32_BT"); // Bluetooth device name
+  BT.begin("MYESP32");
   pinMode(FORWARD, OUTPUT);
   pinMode(RIGHT, OUTPUT);
   pinMode(LEFT, OUTPUT);
   pinMode(BACKWARD, OUTPUT);
+  pinMode(STOP, OUTPUT);
 }
 
-
 void loop() {
-  if (SerialBT.available()) {
-    int predictInt = SerialBT.read();
+  if (BT.available()) { 
+    String datos = BT.readStringUntil('/'); 
+    int predict = datos.substring(0, datos.indexOf(',')).toInt(); 
+    double lipdif = datos.substring(datos.indexOf(',') + 1).toDouble(); 
 
-    if (predictInt == 0) {
-        digitalWrite(LEFT, HIGH); 
-    }
-    else if (predictInt == 1){
-        digitalWrite(LEFT, LOW); 
-        digitalWrite(RIGHT, LOW); 
-        flag = 0;
-    }
-    else if (predictInt == 2){
-        digitalWrite(RIGHT, HIGH); 
-    }
-    else if (predictInt == 3){
-        if (flag == 0){
-          count = count + 1;
-          flag = 1;
-        }
-    }
-    else if (predictInt == 4){
-        if (flag == 0){
-          count = count - 1;
-          flag = 1;
-        }
-    }
+
+    if (lipdif < 0.03) {
     
-    // Adjust count to be within range [-4, 4]
-    if (count > 4) {
-      count = 4;
-    } else if (count < -4) {
-      count = -4;
+      if (predict == 0) {
+          digitalWrite(LEFT, HIGH);
+          digitalWrite(RIGHT, LOW);  
+          digitalWrite(BACKWARD, LOW);
+          digitalWrite(FORWARD, LOW); 
+          digitalWrite(STOP, LOW);
+      }
+      else if (predict == 1){
+          digitalWrite(LEFT, LOW);
+          digitalWrite(RIGHT, LOW);  
+          digitalWrite(BACKWARD, LOW);
+          digitalWrite(FORWARD, LOW); 
+          digitalWrite(STOP, LOW);
+      }
+      else if (predict == 2){
+          digitalWrite(LEFT, LOW);
+          digitalWrite(RIGHT, HIGH);  
+          digitalWrite(BACKWARD, LOW);
+          digitalWrite(FORWARD, LOW); 
+          digitalWrite(STOP, LOW);
+      }
+      else if (predict == 3){
+          digitalWrite(LEFT, LOW);
+          digitalWrite(RIGHT, LOW);  
+          digitalWrite(BACKWARD, LOW);
+          digitalWrite(FORWARD, HIGH); 
+          digitalWrite(STOP, LOW);
+      }
+      else if (predict == 4){
+          digitalWrite(LEFT, LOW);
+          digitalWrite(RIGHT, LOW);  
+          digitalWrite(BACKWARD, HIGH);
+          digitalWrite(FORWARD, LOW); 
+          digitalWrite(STOP, LOW);
+      }
     }
-    
-    if (count > 0) {
-      digitalWrite(FORWARD, HIGH);
-      delay(time_delay / count); 
-      digitalWrite(FORWARD, LOW);  
-      delay(time_delay / count);    
-    } else if (count < 0) {
-      digitalWrite(BACKWARD, HIGH);
-      delay(time_delay / (-count)); 
-      digitalWrite(BACKWARD, LOW);  
-      delay(time_delay / (-count));         
-    } else {
-      digitalWrite(FORWARD, LOW); 
-      digitalWrite(BACKWARD, LOW);
-    }
+
+    else if (lipdif >= 0.03){
+          digitalWrite(LEFT, LOW);
+          digitalWrite(RIGHT, LOW);  
+          digitalWrite(BACKWARD, LOW);
+          digitalWrite(FORWARD, LOW); 
+          digitalWrite(STOP, HIGH);
   }
+ }
 }

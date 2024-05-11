@@ -65,7 +65,6 @@ class pGUI:
 
         # Se crea la selección de pestañas
         self.tabview = ctk.CTkTabview(self.root, width=900, height=575)
-        self.tabview.add('Instrucciones Captura')
         self.tabview.add("Captura de fotografías")
         self.tabview.add("Manejo de datos")
         self.tabview.add('Prueba Turtle')
@@ -85,22 +84,17 @@ class pGUI:
         # WEBOTS
 
         # --------------------------------------------------------------------------------------------------------------
-        # ----------------------------- Configuración de Tab: Instrucciones -----------------------------------
-        # --------------------------------------------------------------------------------------------------------------
-        self.label0 = ctk.CTkLabel(self.tabview.tab('Instrucciones Captura'),
-                                   text='1. Primeros 3 sonidos de preparación \n 2. Al finalizar otro sonido alertará', font=('aptos', 26))
-        self.label0.pack(padx=20, pady=45)
-        # --------------------------------------------------------------------------------------------------------------
         # ----------------------------- Configuración de Tab: Captura de fotografías -----------------------------------
         # --------------------------------------------------------------------------------------------------------------
 
 
-        self.btn1 = ctk.CTkButton(self.tabview.tab('Captura de fotografías'), text='ROSTRO', font=('aptos', 30),
+        self.btn1 = ctk.CTkButton(self.tabview.tab('Captura de fotografías'), text='CAPTURAR', font=('aptos', 30),
                                   width=350, height=150, command=self.actL)
         self.btn1.pack(padx=50, pady=50)
 
         self.label1 = ctk.CTkLabel(self.tabview.tab('Captura de fotografías'),
-                                   text='Movimientos: \n 1.Izquierda (UP-DOWN) \n 2. Centro-Abajo \n 3. Derecha (UP-DOWN) \n 4. Arriba (DER-IZQ, CORTOS)', font=('aptos', 20))
+                                   text='Mueva la cabeza según las instrucciones audiovisuales \n (Punto de referencia en la luz de la cámara)',
+                                   font=('aptos', 20))
         self.label1.pack(padx=20, pady=45)
 
         # --------------------------------------------------------------------------------------------------------------
@@ -120,7 +114,7 @@ class pGUI:
 
         self.buttonFrame2.pack(pady=20)
 
-        self.btn_train = ctk.CTkButton(self.tabview.tab('Manejo de datos'), text='Entrenar modelo F', font=('aptos', 18), width=250, height=75, command=self.trainM)
+        self.btn_train = ctk.CTkButton(self.tabview.tab('Manejo de datos'), text='Entrenar', font=('aptos', 18), width=250, height=75, command=self.trainM)
         self.btn_train.pack(padx=10, pady=10)
 
         # --------------------------------------------------------------------------------------------------------------
@@ -200,8 +194,6 @@ class pGUI:
 
     def turnoffE(self):
         self.use_bt.stop()
-
-
 
     # --------------------------------------------------------------------------------------------------------------
     # ----------------------------- Funcion de cerrardo  -----------------------------------------------------------

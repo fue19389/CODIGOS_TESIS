@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA FUNCIONAN LAS SIMULACIONES CON STOP!!!">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="inicio pruebas stop con BLUETOOTH">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" beforeDir="false" afterPath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/sendBT.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendBT.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,6 +69,7 @@
     "Python.projectGUI.executor": "Run",
     "Python.savePHOTO.executor": "Run",
     "Python.scrollable_frame_example.executor": "Run",
+    "Python.sendBT.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "graphMODELS2__STOPF",
@@ -116,14 +119,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00024" summary="Había un problema con la lectura de columnas de excel, ya se solucionó">
-      <option name="closed" value="true" />
-      <created>1709529713526</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1709529713526</updated>
     </task>
     <task id="LOCAL-00025" summary="Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100">
       <option name="closed" value="true" />
@@ -509,7 +504,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715392165249</updated>
     </task>
-    <option name="localTasksCounter" value="73" />
+    <task id="LOCAL-00073" summary="inicio pruebas stop con BLUETOOTH">
+      <option name="closed" value="true" />
+      <created>1715392848724</created>
+      <option name="number" value="00073" />
+      <option name="presentableId" value="LOCAL-00073" />
+      <option name="project" value="LOCAL" />
+      <updated>1715392848724</updated>
+    </task>
+    <option name="localTasksCounter" value="74" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -525,7 +528,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ahora, no se necesita el archivo extractData, se hará dicha extracción en el codigo del modelo" />
     <MESSAGE value="Ya se creó el modelo que usa una forma de GNN usando CONV1D, de tensorflow y keras, y funciona bastante bien, eso si, se requiere 15s por posición de cara" />
     <MESSAGE value="Ya se hacen primeras pruebas de simulador, con diferentes tipos de posiciones y gestos 1. Con las 4 posiciones anteriores, 2. con der, izq, center y sonrisa. Siempre hay conflicto con stop y forward" />
     <MESSAGE value="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!" />
@@ -550,7 +552,8 @@
     <MESSAGE value="YA FUNCIONA LA MEZCLA DE DOS MODELOS, SOLO FALTA AFINAR COMANDOS!!!!!" />
     <MESSAGE value="PRUEBAS SIN RESULTADO POSITIBO DEL MODELO DE APRENDIZAJE DE LA BOCA" />
     <MESSAGE value="YA FUNCIONAN LAS SIMULACIONES CON STOP!!!" />
-    <option name="LAST_COMMIT_MESSAGE" value="YA FUNCIONAN LAS SIMULACIONES CON STOP!!!" />
+    <MESSAGE value="inicio pruebas stop con BLUETOOTH" />
+    <option name="LAST_COMMIT_MESSAGE" value="inicio pruebas stop con BLUETOOTH" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

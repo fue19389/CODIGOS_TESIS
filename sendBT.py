@@ -33,12 +33,17 @@ class Use_BT_MODEL:
                     xlip = (nodes[0][13][0]) - (nodes[0][14][0])
                     ylip = (nodes[0][13][1]) - (nodes[0][14][1])
                     lipdif = ((xlip ** 2) + (ylip ** 2)) ** 0.5
+                    lipdif = round(lipdif, 3)
                     y_predicted = self.ho_model.predict(nodes, verbose=None)
                     prediction = int(np.argmax(y_predicted))
                 else:
                     prediction = 1
                     lipdif = 0.0
-                self.BT.write(str(prediction).encode('utf-8'))
+
+                data_string = str(prediction) + ',' + str(lipdif) + '/'
+                self.BT.write(data_string.encode())
+                print(data_string)
+
 
         on_thread = threading.Thread(target=run_on)
         on_thread.daemon = True
@@ -47,7 +52,9 @@ class Use_BT_MODEL:
     def stop(self):
 
         prediction = 1
-        self.BT.write(str(prediction).encode('utf-8'))
+        lipdif = 0.0
+        data_string = str(prediction) + ',' + str(lipdif) + '/'
+        self.BT.write(data_string.encode())
         self.BT.close()
         self.CAP.release()
         cv2.destroyAllWindows()

@@ -17,6 +17,7 @@ import os
 import cv2
 import time
 import math
+import subprocess
 import numpy as np
 import pygame as pg
 import pandas as pd
@@ -59,6 +60,18 @@ class ModelFeeder:
         self.sf = pg.mixer.Sound('last.wav')
         self.sf.set_volume(0.5)
 
+        self.sup = pg.mixer.Sound('up.wav')
+        self.sup.set_volume(0.5)
+        self.sdown = pg.mixer.Sound('down.wav')
+        self.sdown.set_volume(0.5)
+        self.sleft = pg.mixer.Sound('left.wav')
+        self.sleft.set_volume(0.5)
+        self.sright = pg.mixer.Sound('right.wav')
+        self.sright.set_volume(0.5)
+        self.sfront = pg.mixer.Sound('front.wav')
+        self.sfront.set_volume(0.5)
+        self.sfinale = pg.mixer.Sound('finale.wav')
+        self.sfinale.set_volume(0.5)
         # ------------------------------------------------
         # ----- Obtener Landmarks -------------------
         # ------------------------------------------------
@@ -71,8 +84,23 @@ class ModelFeeder:
     # ------------------------------------------------
     def takePHOTO(self):
 
+
+
+
+
         # First run of photos
+        # Image prepare
+        image = cv2.imread("left.jpg")
+        window_width, window_height = image.shape[1], image.shape[0]
+        x_pos = (2560 - window_width) // 2
+        y_pos = 0
+        cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
+        cv2.moveWindow("Image", x_pos, y_pos)
+        cv2.imshow("Image", image)
+        cv2.waitKey(1)
         # Sound to prepare
+        self.sleft.play()
+        pg.time.delay(4000)
         self.s1.play()
         pg.time.delay(750)
         self.s2.play()
@@ -117,12 +145,23 @@ class ModelFeeder:
             if holditems > 524:
                 self.sf.play()
                 cap.release()
-                # cv2.destroyAllWindows()
+                cv2.destroyAllWindows()
                 break
-        time.sleep(2)
+        time.sleep(1)
 
         # Second run of photos
+        # Image prepare
+        image = cv2.imread("front.jpg")
+        window_width, window_height = image.shape[1], image.shape[0]
+        x_pos = (2560 - window_width) // 2
+        y_pos = 0
+        cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
+        cv2.moveWindow("Image", x_pos, y_pos)
+        cv2.imshow("Image", image)
+        cv2.waitKey(1)
         # Sound to prepare
+        self.sfront.play()
+        pg.time.delay(3700)
         self.s1.play()
         pg.time.delay(750)
         self.s2.play()
@@ -167,12 +206,23 @@ class ModelFeeder:
             if holditems > 524:
                 self.sf.play()
                 cap.release()
-                # cv2.destroyAllWindows()
+                cv2.destroyAllWindows()
                 break
-        time.sleep(2)
+        time.sleep(1)
 
         # 3rd run of photos
+        # Image prepare
+        image = cv2.imread("right.jpg")
+        window_width, window_height = image.shape[1], image.shape[0]
+        x_pos = (2560 - window_width) // 2
+        y_pos = 0
+        cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
+        cv2.moveWindow("Image", x_pos, y_pos)
+        cv2.imshow("Image", image)
+        cv2.waitKey(1)
         # Sound to prepare
+        self.sright.play()
+        pg.time.delay(3700)
         self.s1.play()
         pg.time.delay(750)
         self.s2.play()
@@ -217,12 +267,23 @@ class ModelFeeder:
             if holditems > 524:
                 self.sf.play()
                 cap.release()
-                # cv2.destroyAllWindows()
+                cv2.destroyAllWindows()
                 break
-        time.sleep(2)
+        time.sleep(1)
 
         # Fourth run of photos
+        # Image prepare
+        image = cv2.imread("up.jpg")
+        window_width, window_height = image.shape[1], image.shape[0]
+        x_pos = (2560 - window_width) // 2
+        y_pos = 0
+        cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
+        cv2.moveWindow("Image", x_pos, y_pos)
+        cv2.imshow("Image", image)
+        cv2.waitKey(1)
         # Sound to prepare
+        self.sup.play()
+        pg.time.delay(3700)
         self.s1.play()
         pg.time.delay(750)
         self.s2.play()
@@ -267,12 +328,23 @@ class ModelFeeder:
             if holditems > 524:
                 self.sf.play()
                 cap.release()
-                # cv2.destroyAllWindows()
+                cv2.destroyAllWindows()
                 break
-        time.sleep(2)
+        time.sleep(1)
 
         # Fifth run of photos
+        # Image prepare
+        image = cv2.imread("down.jpg")
+        window_width, window_height = image.shape[1], image.shape[0]
+        x_pos = (2560 - window_width) // 2
+        y_pos = 0
+        cv2.namedWindow("Image", cv2.WINDOW_NORMAL)
+        cv2.moveWindow("Image", x_pos, y_pos)
+        cv2.imshow("Image", image)
+        cv2.waitKey(1)
         # Sound to prepare
+        self.sdown.play()
+        pg.time.delay(4000)
         self.s1.play()
         pg.time.delay(750)
         self.s2.play()
@@ -317,9 +389,12 @@ class ModelFeeder:
             if holditems > 524:
                 self.sf.play()
                 cap.release()
-                # cv2.destroyAllWindows()
+                cv2.destroyAllWindows()
                 break
         time.sleep(1)
+
+        self.sfinale.play()
+        pg.time.delay(4000)
 
         os.startfile(filepath=self.dirhold)
 
