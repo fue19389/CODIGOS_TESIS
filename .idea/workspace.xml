@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="inicio pruebas stop con BLUETOOTH">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se suben los archivos de instrucciones audiovisuales">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" beforeDir="false" afterPath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sendBT.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendBT.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,22 +114,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00025" summary="Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100">
-      <option name="closed" value="true" />
-      <created>1709531915244</created>
-      <option name="number" value="00025" />
-      <option name="presentableId" value="LOCAL-00025" />
-      <option name="project" value="LOCAL" />
-      <updated>1709531915244</updated>
-    </task>
-    <task id="LOCAL-00026" summary="aun no se qeu pasa con turtle">
-      <option name="closed" value="true" />
-      <created>1709532423348</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1709532423348</updated>
     </task>
     <task id="LOCAL-00027" summary="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion">
       <option name="closed" value="true" />
@@ -512,7 +491,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715392848724</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL-00074" summary="Ya fuciona BT en todas las preubas de la interfaz y ya se tienen instrucciones audiovisuales">
+      <option name="closed" value="true" />
+      <created>1715410037852</created>
+      <option name="number" value="00074" />
+      <option name="presentableId" value="LOCAL-00074" />
+      <option name="project" value="LOCAL" />
+      <updated>1715410037852</updated>
+    </task>
+    <task id="LOCAL-00075" summary="Se suben los archivos de instrucciones audiovisuales">
+      <option name="closed" value="true" />
+      <created>1715410086193</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1715410086193</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -528,8 +523,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ya se creó el modelo que usa una forma de GNN usando CONV1D, de tensorflow y keras, y funciona bastante bien, eso si, se requiere 15s por posición de cara" />
-    <MESSAGE value="Ya se hacen primeras pruebas de simulador, con diferentes tipos de posiciones y gestos 1. Con las 4 posiciones anteriores, 2. con der, izq, center y sonrisa. Siempre hay conflicto con stop y forward" />
     <MESSAGE value="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!" />
     <MESSAGE value="Ya empieza a funcionar el control de velocidad" />
     <MESSAGE value="El problema ahora es que aun confunde un poco la posición de la cabeza hacia arriba, con la del frente" />
@@ -553,7 +546,9 @@
     <MESSAGE value="PRUEBAS SIN RESULTADO POSITIBO DEL MODELO DE APRENDIZAJE DE LA BOCA" />
     <MESSAGE value="YA FUNCIONAN LAS SIMULACIONES CON STOP!!!" />
     <MESSAGE value="inicio pruebas stop con BLUETOOTH" />
-    <option name="LAST_COMMIT_MESSAGE" value="inicio pruebas stop con BLUETOOTH" />
+    <MESSAGE value="Ya fuciona BT en todas las preubas de la interfaz y ya se tienen instrucciones audiovisuales" />
+    <MESSAGE value="Se suben los archivos de instrucciones audiovisuales" />
+    <option name="LAST_COMMIT_MESSAGE" value="Se suben los archivos de instrucciones audiovisuales" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
