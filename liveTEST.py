@@ -79,9 +79,9 @@ class UseModel:
         nodes = np.array([nodes])
         # Check if any face landmarks were detected
         if nodes.any() != 0:
-            uplip = (((nodes[0][13][1])**2) + ((nodes[0][13][0])**2))**0.5
-            lowlip = (((nodes[0][14][1])**2) + ((nodes[0][14][0])**2))**0.5
-            lipdif = uplip - lowlip
+            xlip = (nodes[0][13][0]) - (nodes[0][14][0])
+            ylip = (nodes[0][13][1]) - (nodes[0][14][1])
+            lipdif = ((xlip**2)+(ylip**2))**0.5
             y_predicted = self.ho_model.predict(nodes, verbose=0)
             prediction = int(np.argmax(y_predicted))
         else:

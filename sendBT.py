@@ -30,10 +30,14 @@ class Use_BT_MODEL:
                 img, nodes = self.detector.findFaceMesh(imgF)
                 nodes = np.array([nodes])
                 if nodes.any() != 0:
+                    xlip = (nodes[0][13][0]) - (nodes[0][14][0])
+                    ylip = (nodes[0][13][1]) - (nodes[0][14][1])
+                    lipdif = ((xlip ** 2) + (ylip ** 2)) ** 0.5
                     y_predicted = self.ho_model.predict(nodes, verbose=None)
                     prediction = int(np.argmax(y_predicted))
                 else:
                     prediction = 1
+                    lipdif = 0.0
                 self.BT.write(str(prediction).encode('utf-8'))
 
         on_thread = threading.Thread(target=run_on)
