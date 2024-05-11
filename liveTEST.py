@@ -60,11 +60,8 @@ class UseModel:
 
         if self.n_model in range(13):
             self.mname = f'head_or{self.n_model}.keras'
-            # self.mnameM = f'head_or{self.n_model}M.keras'
             self.ho_model = os.path.join(self.expordir, self.mname)
             self.ho_model = tf.keras.models.load_model(self.ho_model)
-            # self.mo_model = os.path.join(self.expordir, self.mnameM)
-            # self.mo_model = tf.keras.models.load_model(self.mo_model)
         else:
             raise ValueError("Invalid model number")
 

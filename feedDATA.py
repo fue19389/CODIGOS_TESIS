@@ -17,7 +17,7 @@ import os
 import cv2
 import time
 import math
-import subprocess
+import threading
 import numpy as np
 import pygame as pg
 import pandas as pd
@@ -77,16 +77,14 @@ class ModelFeeder:
         # ------------------------------------------------
 
         self.detector = fL.FaceMeshDetector()
+        self.cap = cv2.VideoCapture(0)
+        self.finish = 0
 
 
     # ------------------------------------------------
     # ----- Tomar y nombrar fotos  -------------------
     # ------------------------------------------------
     def takePHOTO(self):
-
-
-
-
 
         # First run of photos
         # Image prepare
@@ -106,10 +104,10 @@ class ModelFeeder:
         self.s2.play()
         pg.time.delay(750)
         self.s3.play()
-        cap = cv2.VideoCapture(0)
+        # cap = cv2.VideoCapture(0)
         while True:
             # Getting landmarks
-            _, frame = cap.read()
+            _, frame = self.cap.read()
             _, nodes = self.detector.findFaceMesh(frame)
 
             self.pfxname = 'z_00_'
@@ -144,8 +142,8 @@ class ModelFeeder:
             holditems = len(os.listdir(self.dirhold))
             if holditems > 524:
                 self.sf.play()
-                cap.release()
-                cv2.destroyAllWindows()
+                # self.cap.release()
+                cv2.destroyWindow("Image")
                 break
         time.sleep(1)
 
@@ -167,10 +165,10 @@ class ModelFeeder:
         self.s2.play()
         pg.time.delay(750)
         self.s3.play()
-        cap = cv2.VideoCapture(0)
+        # cap = cv2.VideoCapture(0)
         while True:
             # Getting landmarks
-            _, frame = cap.read()
+            _, frame = self.cap.read()
             _, nodes = self.detector.findFaceMesh(frame)
 
             self.pfxname = 'z_01_'
@@ -205,8 +203,8 @@ class ModelFeeder:
             holditems = len(os.listdir(self.dirhold)) - 525
             if holditems > 524:
                 self.sf.play()
-                cap.release()
-                cv2.destroyAllWindows()
+                # self.cap.release()
+                cv2.destroyWindow("Image")
                 break
         time.sleep(1)
 
@@ -228,10 +226,10 @@ class ModelFeeder:
         self.s2.play()
         pg.time.delay(750)
         self.s3.play()
-        cap = cv2.VideoCapture(0)
+        # cap = cv2.VideoCapture(0)
         while True:
             # Getting landmarks
-            _, frame = cap.read()
+            _, frame = self.cap.read()
             _, nodes = self.detector.findFaceMesh(frame)
 
             self.pfxname = 'z_02_'
@@ -266,8 +264,8 @@ class ModelFeeder:
             holditems = len(os.listdir(self.dirhold)) - 1050
             if holditems > 524:
                 self.sf.play()
-                cap.release()
-                cv2.destroyAllWindows()
+                # self.cap.release()
+                cv2.destroyWindow("Image")
                 break
         time.sleep(1)
 
@@ -289,10 +287,10 @@ class ModelFeeder:
         self.s2.play()
         pg.time.delay(750)
         self.s3.play()
-        cap = cv2.VideoCapture(0)
+        # cap = cv2.VideoCapture(0)
         while True:
             # Getting landmarks
-            _, frame = cap.read()
+            _, frame = self.cap.read()
             _, nodes = self.detector.findFaceMesh(frame)
 
             self.pfxname = 'z_03_'
@@ -327,8 +325,8 @@ class ModelFeeder:
             holditems = len(os.listdir(self.dirhold)) - 1575
             if holditems > 524:
                 self.sf.play()
-                cap.release()
-                cv2.destroyAllWindows()
+                # self.cap.release()
+                cv2.destroyWindow("Image")
                 break
         time.sleep(1)
 
@@ -350,10 +348,10 @@ class ModelFeeder:
         self.s2.play()
         pg.time.delay(750)
         self.s3.play()
-        cap = cv2.VideoCapture(0)
+        # cap = cv2.VideoCapture(0)
         while True:
             # Getting landmarks
-            _, frame = cap.read()
+            _, frame = self.cap.read()
             _, nodes = self.detector.findFaceMesh(frame)
 
             self.pfxname = 'z_04_'
@@ -388,15 +386,16 @@ class ModelFeeder:
             holditems = len(os.listdir(self.dirhold)) - 2100
             if holditems > 524:
                 self.sf.play()
-                cap.release()
-                cv2.destroyAllWindows()
+                self.cap.release()
+                cv2.destroyWindow("Image")
                 break
         time.sleep(1)
-
+        self.finish = 1
         self.sfinale.play()
         pg.time.delay(4000)
-
         os.startfile(filepath=self.dirhold)
+
+
 
     # ------------------------------------------------
     # ----- Cargar fotos al sistema ------------------
@@ -537,7 +536,23 @@ class ModelFeeder:
     # ------------------------------------------------
     # ----- Borrar fotos de directorio temp-----------
     # ------------------------------------------------
-
+    def showIMG(self):
+        def run_on():
+            while True:
+                _, img = self.cap.read()
+                img = cv2.flip(img, 1)
+                cv2.namedWindow('WEBCAM', cv2.WINDOW_NORMAL)
+                cv2.moveWindow('WEBCAM', 0, 0)
+                cv2.imshow('WEBCAM', img)
+                cv2.waitKey(1)
+                if self.finish != 0:
+                    cv2.destroyAllWindows()
+                    self.cap.release()
+                    self.finish = 0
+                    break
+        on_thread = threading.Thread(target=run_on)
+        on_thread.daemon = True
+        on_thread.start()
     def resetMaster(self):
 
         # Borrar TRAIN FACE

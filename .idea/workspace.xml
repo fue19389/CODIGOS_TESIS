@@ -5,7 +5,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se suben los archivos de instrucciones audiovisuales">
+      <change afterPath="$PROJECT_DIR$/ESP32_BT/mt3006_base_reto1.ino" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,35 +49,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Python.DUMMY.executor": "Run",
-    "Python.__init__.executor": "Run",
-    "Python.adjacencyMATRIX.executor": "Run",
-    "Python.complex_example.executor": "Run",
-    "Python.extractDATA.executor": "Run",
-    "Python.faceLANDMARKS.executor": "Run",
-    "Python.face_or.executor": "Run",
-    "Python.feedDATA.executor": "Run",
-    "Python.graphMODEL.executor": "Run",
-    "Python.graphSTOP.executor": "Run",
-    "Python.liveTEST.executor": "Run",
-    "Python.miscTEST.executor": "Run",
-    "Python.modelGENERATOR.executor": "Run",
-    "Python.photoGUI.executor": "Run",
-    "Python.projectGUI.executor": "Run",
-    "Python.savePHOTO.executor": "Run",
-    "Python.scrollable_frame_example.executor": "Run",
-    "Python.sendBT.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "graphMODELS2__STOPF",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/sendBT.py",
-    "settings.editor.selected.configurable": "vcs.Git"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python.DUMMY.executor&quot;: &quot;Run&quot;,
+    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
+    &quot;Python.adjacencyMATRIX.executor&quot;: &quot;Run&quot;,
+    &quot;Python.complex_example.executor&quot;: &quot;Run&quot;,
+    &quot;Python.extractDATA.executor&quot;: &quot;Run&quot;,
+    &quot;Python.faceLANDMARKS.executor&quot;: &quot;Run&quot;,
+    &quot;Python.face_or.executor&quot;: &quot;Run&quot;,
+    &quot;Python.feedDATA.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphMODEL.executor&quot;: &quot;Run&quot;,
+    &quot;Python.graphSTOP.executor&quot;: &quot;Run&quot;,
+    &quot;Python.liveTEST.executor&quot;: &quot;Run&quot;,
+    &quot;Python.miscTEST.executor&quot;: &quot;Run&quot;,
+    &quot;Python.modelGENERATOR.executor&quot;: &quot;Run&quot;,
+    &quot;Python.photoGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.projectGUI.executor&quot;: &quot;Run&quot;,
+    &quot;Python.savePHOTO.executor&quot;: &quot;Run&quot;,
+    &quot;Python.scrollable_frame_example.executor&quot;: &quot;Run&quot;,
+    &quot;Python.sendBT.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;graphMODELS2__STOPF&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/sendBT.py&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="face_or" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="CODIGOS_TESIS" />
@@ -114,14 +119,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00027" summary="Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion">
-      <option name="closed" value="true" />
-      <created>1709534193137</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1709534193137</updated>
     </task>
     <task id="LOCAL-00028" summary="Al fin funciona al 100 la interfaz">
       <option name="closed" value="true" />
@@ -507,7 +504,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715410086193</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="Se suben los archivos de instrucciones audiovisuales">
+      <option name="closed" value="true" />
+      <created>1715410144047</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1715410144047</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
