@@ -27,7 +27,6 @@ import feedDATA as fD
 import extractDATA as eD
 import photoMODEL as pM
 import graphMODEL as gM
-import graphSTOP as gS
 import liveTEST as lT
 import sendBT as bT
 import subprocess
@@ -79,7 +78,6 @@ class pGUI:
         self.ppr = eD.GetModelData()
         self.train = pM.ModelPhoto()
         self.train1 = gM.ModelGraph()
-        self.train2 = gS.ModelGraphStop()
         self.use_m = lT.UseModel()
         self.use_bt = bT.Use_BT_MODEL()
         self.use_w = fO.wModel()
@@ -100,10 +98,6 @@ class pGUI:
         self.btn1 = ctk.CTkButton(self.tabview.tab('Captura de fotografías'), text='ROSTRO', font=('aptos', 30),
                                   width=350, height=150, command=self.actL)
         self.btn1.pack(padx=50, pady=50)
-
-        self.btn2 = ctk.CTkButton(self.tabview.tab('Captura de fotografías'), text='BOCA', font=('aptos', 30),
-                                  width=350, height=150, command=self.actM)
-        self.btn2.pack(padx=50, pady=50)
 
         self.label1 = ctk.CTkLabel(self.tabview.tab('Captura de fotografías'),
                                    text='Movimientos: \n 1.Izquierda (UP-DOWN) \n 2. Centro-Abajo \n 3. Derecha (UP-DOWN) \n 4. Arriba (DER-IZQ, CORTOS)', font=('aptos', 20))
@@ -126,12 +120,12 @@ class pGUI:
 
         self.buttonFrame2.pack(pady=20)
 
-        self.btn_train = ctk.CTkButton(self.tabview.tab('Manejo de datos'), text='Entrenar modelo', font=('aptos', 18), width=250, height=75, command=self.trainM)
+        self.btn_train = ctk.CTkButton(self.tabview.tab('Manejo de datos'), text='Entrenar modelo F', font=('aptos', 18), width=250, height=75, command=self.trainM)
         self.btn_train.pack(padx=10, pady=10)
-        # --------------------------------------------------------------------------------------------------------------
-        # ----------------------------- Configuración de Tabs Pruebas en vivo -------------------------------------------
-        # --------------------------------------------------------------------------------------------------------------
 
+        # --------------------------------------------------------------------------------------------------------------
+        # ----------------------------- Configuración de Tabs Pruebas en vivo ------------------------------------------
+        # --------------------------------------------------------------------------------------------------------------
 
         self.btn_run = ctk.CTkButton(self.tabview.tab('Prueba Turtle'), text='Ejecutar', font=('aptos', 30), width=350, height=150, command=self.turnon)
         self.btn_run.pack(padx=10, pady=10)
@@ -168,9 +162,6 @@ class pGUI:
     def actL(self):
         self.feed.takePHOTO()
 
-    def actM(self):
-        self.feed.mouthPHOTO()
-
     # --------------------------------------------------------------------------------------------------------------
     # ----------------------------- Funciones para manejo de datos  ------------------------------------------------
     # --------------------------------------------------------------------------------------------------------------
@@ -183,11 +174,10 @@ class pGUI:
         messagebox.showinfo(message='Listo')
     def trainM(self):
         self.feed.loadD()
-        self.feed.loadMouthD()
         self.feed.eraseSERIES()
         self.train1.TrainModel()
-        self.train2.TrainModel()
         messagebox.showinfo(message='Listo')
+
 
     # --------------------------------------------------------------------------------------------------------------
     # ----------------------------- Funcion para prueba en vivo  ---------------------------------------------------

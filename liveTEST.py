@@ -49,7 +49,7 @@ class UseModel:
         self.detector = fL.FaceMeshDetector()
         # predicción incial
         self.prediction = 1
-        self.predictionM = 1
+        self.lipdif = 0.0
 
 
     # -----------------------------------------------------
@@ -60,11 +60,11 @@ class UseModel:
 
         if self.n_model in range(13):
             self.mname = f'head_or{self.n_model}.keras'
-            self.mnameM = f'head_or{self.n_model}M.keras'
+            # self.mnameM = f'head_or{self.n_model}M.keras'
             self.ho_model = os.path.join(self.expordir, self.mname)
             self.ho_model = tf.keras.models.load_model(self.ho_model)
-            self.mo_model = os.path.join(self.expordir, self.mnameM)
-            self.mo_model = tf.keras.models.load_model(self.mo_model)
+            # self.mo_model = os.path.join(self.expordir, self.mnameM)
+            # self.mo_model = tf.keras.models.load_model(self.mo_model)
         else:
             raise ValueError("Invalid model number")
 
@@ -79,21 +79,16 @@ class UseModel:
         nodes = np.array([nodes])
         # Check if any face landmarks were detected
         if nodes.any() != 0:
+            uplip = (((nodes[0][13][1])**2) + ((nodes[0][13][0])**2))**0.5
+            lowlip = (((nodes[0][14][1])**2) + ((nodes[0][14][0])**2))**0.5
+            lipdif = uplip - lowlip
             y_predicted = self.ho_model.predict(nodes, verbose=0)
             prediction = int(np.argmax(y_predicted))
         else:
             prediction = predict0
+            lipdif = 0.0
 
-        img, nodes = self.detector.findMouthMesh(imgOG)
-        nodes = np.array([nodes])
-        # Check if any face landmarks were detected
-        if nodes.any() != 0:
-            y_predicted = self.mo_model.predict(nodes, verbose=0)
-            predictionM = int(np.argmax(y_predicted))
-        else:
-            predictionM = 0
-
-        return prediction, predictionM
+        return prediction, lipdif
 
     def on(self):
         # -----------------------------------------------------
@@ -117,12 +112,12 @@ class UseModel:
 
             # Saving captured image
             _, img = self.cap.read()
-            self.prediction, self.predictionM = self.or_predict(img, self.prediction)
+            self.prediction, self.lipdif = self.or_predict(img, self.prediction)
 
             # cv2.imshow('Image', img)
             # cv2.waitKey(1) #This helps the program to not stop
 
-            if self.predictionM == 0:
+            if self.lipdif < 0.03:
                 if self.prediction == 0:
                     self.leo.left(7)
                     self.leo.forward(conta)
@@ -175,10 +170,10 @@ class UseModel:
 
                 else:
                     pass
-                print('p f c a b')
-                print(self.prediction, flag, cont, conta, contb)
+                print('p f c a b SN')
+                print(self.prediction, flag, cont, conta, contb, self.lipdif)
 
-            elif self.predictionM == 1:
+            elif self.lipdif >= 0.03:
                 print('stop')
                 self.leo.forward(0)
                 self.leo.backward(0)

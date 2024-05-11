@@ -20,7 +20,7 @@ class FaceMeshDetector:
                                                  self.refineLm, self.minDetectionCon,
                                                  self.minTrackCon)
         self.drawSpec = self.mpDraw.DrawingSpec(thickness=1, circle_radius=1, color=(0, 255, 0))
-        self.lip = [78, 191, 80, 81, 82, 13, 312, 311, 310, 415, 308, 324, 318, 402, 317, 14, 87, 178, 88, 95]
+        self.eyelip = [78, 191, 80, 81, 82, 13, 312, 311, 310, 415, 308, 324, 318, 402, 317, 14, 87, 178, 88, 95]
         self.it = 0
 
     def findFaceMesh(self, img, draw=True):
@@ -39,9 +39,7 @@ class FaceMeshDetector:
                 # Ciclo para obtener los landmarks en pixels y originales
                 npoints = []
                 for id, lm in enumerate(faceLms.landmark):
-                    # if id % 2 == 0: # Here we have the visual identification of multiples of 5 landmarks
-                    # if id == 467:
-                    ih, iw, ic = img.shape
+
                     npoints.append([lm.x, -1*(lm.y)+1])
 
                 nodes.append(npoints)
@@ -49,38 +47,38 @@ class FaceMeshDetector:
 
         return img, nodes
 
-    def findMouthMesh(self, img, draw=True):
-        self.it = 0
-
-        self.imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-        self.results = self.faceMesh.process(self.imgRGB)
-
-        # Ciclo para dibujar los landmarks, si es que se detecta una cara
-
-        nodes = []
-        if self.results.multi_face_landmarks:
-            for faceLms in self.results.multi_face_landmarks:
-                if draw:
-                    self.mpDraw.draw_landmarks(img, faceLms, self.mpFaceMesh.FACEMESH_CONTOURS, self.drawSpec, self.drawSpec)
-
-                # Ciclo para obtener los landmarks en pixels y originales
-                npoints = []
-                for i in self.lip:
-                    for id, lm in enumerate(faceLms.landmark):
-                        if i == id:
-                            self.it += 1
-                            ih, iw, ic = img.shape
-                            x, y0 = int(lm.x * iw), int(lm.y * ih)
-                            npoints.append([lm.x, -1*(lm.y)+1])
-                            if draw:
-                                # Draw selected landmarks in a differente color (RED)
-                                cv2.circle(img, (x, y0), 3, (0, 0, 255), cv2.FILLED)
-                                cv2.putText(img, str(self.it), (x, y0), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 1)
-
-                nodes.append(npoints)
-                nodes = np.squeeze(np.array(nodes))
-
-        return img, nodes
+    # def findMouthMesh(self, img, draw=True):
+    #     self.it = 0
+    #
+    #     self.imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+    #     self.results = self.faceMesh.process(self.imgRGB)
+    #
+    #     # Ciclo para dibujar los landmarks, si es que se detecta una cara
+    #
+    #     nodes = []
+    #     if self.results.multi_face_landmarks:
+    #         for faceLms in self.results.multi_face_landmarks:
+    #             if draw:
+    #                 self.mpDraw.draw_landmarks(img, faceLms, self.mpFaceMesh.FACEMESH_CONTOURS, self.drawSpec, self.drawSpec)
+    #
+    #             # Ciclo para obtener los landmarks en pixels y originales
+    #             npoints = []
+    #             for i in self.eyelip:
+    #                 for id, lm in enumerate(faceLms.landmark):
+    #                     if i == id:
+    #                         self.it += 1
+    #                         ih, iw, ic = img.shape
+    #                         x, y0 = int(lm.x * iw), int(lm.y * ih)
+    #                         npoints.append([lm.x, -1*(lm.y)+1])
+    #                         if draw:
+    #                             # Draw selected landmarks in a differente color (RED)
+    #                             cv2.circle(img, (x, y0), 3, (0, 0, 255), cv2.FILLED)
+    #                             cv2.putText(img, str(self.it), (x, y0), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 1)
+    #
+    #             nodes.append(npoints)
+    #             nodes = np.squeeze(np.array(nodes))
+    #
+    #     return img, nodes
 
 
 def main():
@@ -95,7 +93,7 @@ def main():
         # Saving captured image and transforming from BGR TO RGB
         success, imgF = cap.read()
         # imgF = cv2.imread(r'C:\Users\gerar\PycharmProjects\COMPLETEDATABASE\TRAIN\z_00_73.jpg') #SPECIAL ONE
-        img, nodes = detector.findMouthMesh(imgF)
+        img, nodes = detector.findFaceMesh(imgF)
 
         cv2.imshow('Image', img)
         key = cv2.waitKey(30)
@@ -105,8 +103,12 @@ def main():
     if len(nodes) == 0:
         pass
     else:
+        # nodes = np.array([nodes])
         x, y = nodes.T
         plt.scatter(x, y)
+        # for i in range(len(x)):
+        #     plt.annotate(i , (x[i], y[i]), textcoords="offset points", xytext=(0, 10), ha='center')
+
         plt.show()
         print(nodes.shape)
 

@@ -11,6 +11,7 @@ class wModel:
       
         self.TIME_STEP = 32
         self.MAX_SPEED = 6.28
+        lipdif = 0.0
 
         self.ho_model = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or12.keras'
         self.ho_model = tf.keras.models.load_model(self.ho_model)
@@ -41,70 +42,81 @@ class wModel:
                 img, nodes = self.detector.findFaceMesh(imgF)
                 nodes = np.array([nodes])
                 if nodes.any() != 0:
+                    uplip = (((nodes[0][13][1]) ** 2) + ((nodes[0][13][0]) ** 2)) ** 0.5
+                    lowlip = (((nodes[0][14][1]) ** 2) + ((nodes[0][14][0]) ** 2)) ** 0.5
+                    lipdif = uplip - lowlip
                     y_predicted = self.ho_model.predict(nodes, verbose=None)
                     prediction = int(np.argmax(y_predicted))
                 else:
                     prediction = 1
+                    lipdif = 0.0
 
-                if prediction == 0:
-                    if SPEEDC != 0:
-                        self.leftMotor.setVelocity(0.70 * SPEEDC * self.MAX_SPEED)
-                        self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
-                    else:
+                if lipdif < 0.03:
+                    if prediction == 0:
+                        if SPEEDC != 0:
+                            self.leftMotor.setVelocity(0.60 * SPEEDC * self.MAX_SPEED)
+                            self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        else:
+                            self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                            self.rightMotor.setVelocity(0.3 * self.MAX_SPEED)
+                        self.robot.stepBegin(self.TIME_STEP)
+                    if prediction == 1:
                         self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
-                        self.rightMotor.setVelocity(0.3 * self.MAX_SPEED)
-                    self.robot.stepBegin(self.TIME_STEP)
-                if prediction == 1:
-                    self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
-                    self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        flag = 0
+                        self.robot.stepBegin(self.TIME_STEP)
+                    if prediction == 2:
+                        if SPEEDC != 0:
+                            self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                            self.rightMotor.setVelocity(0.60 * SPEEDC * self.MAX_SPEED)
+                        else:
+                            self.leftMotor.setVelocity(0.3 * self.MAX_SPEED)
+                            self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        self.robot.stepBegin(self.TIME_STEP)
+
+                    if prediction == 3:
+                        if flag == 0:
+                            cont += 1
+                            if cont > -5 and cont < 5:
+                                SPEEDC = cont/4
+                            if cont > 4:
+                                cont = 4
+                                SPEEDC = cont/4
+                            if cont < -4:
+                                cont = -4
+                                SPEEDC = cont/4
+                            flag = 1
+                        else:
+                            pass
+                        self.robot.stepBegin(self.TIME_STEP)
+
+                    if prediction == 4:
+                        if flag == 0:
+                            cont -= 1
+                            if cont > -5 and cont < 5:
+                                SPEEDC = cont/4
+                            if cont > 4:
+                                cont = 4
+                                SPEEDC = cont/4
+                            if cont < -4:
+                                cont = -4
+                                SPEEDC = cont/4
+                            flag = 1
+                        else:
+                            pass
+                        self.robot.stepBegin(self.TIME_STEP)
+
+                    else:
+                        pass
+
+                    print(prediction, cont, SPEEDC)
+                    self.robot.stepEnd()
+
+                elif lipdif >= 0.03:
+                    cont = 0
+                    SPEEDC = 0
                     flag = 0
-                    self.robot.stepBegin(self.TIME_STEP)
-                if prediction == 2:
-                    if SPEEDC != 0:
-                        self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
-                        self.rightMotor.setVelocity(0.70 * SPEEDC * self.MAX_SPEED)
-                    else:
-                        self.leftMotor.setVelocity(0.3 * self.MAX_SPEED)
-                        self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
-                    self.robot.stepBegin(self.TIME_STEP)
 
-                if prediction == 3:
-                    if flag == 0:
-                        cont += 1
-                        if cont > -5 and cont < 5:
-                            SPEEDC = cont/4
-                        if cont > 4:
-                            cont = 4
-                            SPEEDC = cont/4
-                        if cont < -4:
-                            cont = -4
-                            SPEEDC = cont/4
-                        flag = 1
-                    else:
-                        pass
-                    self.robot.stepBegin(self.TIME_STEP)
-
-                if prediction == 4:
-                    if flag == 0:
-                        cont -= 1
-                        if cont > -5 and cont < 5:
-                            SPEEDC = cont/4
-                        if cont > 4:
-                            cont = 4
-                            SPEEDC = cont/4
-                        if cont < -4:
-                            cont = -4
-                            SPEEDC = cont/4
-                        flag = 1
-                    else:
-                        pass
-                    self.robot.stepBegin(self.TIME_STEP)
-
-                else:
-                    pass
-
-                print(prediction, cont, SPEEDC)
-                self.robot.stepEnd()
 
         on_thread = threading.Thread(target=run_on)
         on_thread.daemon = True
