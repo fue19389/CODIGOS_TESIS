@@ -100,7 +100,7 @@ class UseModel:
         self.load_model()
         self.cap = cv2.VideoCapture(0)
         # ttl.TurtleScreen._RUNNING = True
-        # self.leo = ttl.Turtle()
+        self.leo = ttl.Turtle()
 
         # -----------------------------------------------------
         # ----Visualizar movimiento de turtle -----------------
@@ -117,20 +117,17 @@ class UseModel:
 
             if self.lipdif < 0.03:
                 if self.prediction == 0:
-                    # self.leo.left(7)
-                    # self.leo.forward(conta)
-                    # self.leo.backward(contb)
+                    self.leo.left(7)
+                    self.leo.forward(conta)
                     pass
 
                 if self.prediction == 1:
-                    # self.leo.forward(conta)
-                    # self.leo.backward(contb)
+                    self.leo.forward(conta)
                     flag = 0
                     pass
                 if self.prediction == 2:
-                    # self.leo.right(7)
-                    # self.leo.forward(conta)
-                    # self.leo.backward(contb)
+                    self.leo.right(7)
+                    self.leo.forward(conta)
                     pass
 
 
@@ -141,7 +138,10 @@ class UseModel:
                         flag = 1
                     cont += 0.2
                     if abs(cont - oldcont) > 4.0:
-                        conta += 0.1
+                        conta += 0.2
+                        if conta > 4.99:
+                            conta = 5.0
+                    self.leo.forward(conta)
                 else:
                     pass
 
@@ -153,11 +153,14 @@ class UseModel:
                         flag = 1
                     cont -= 0.2
                     if abs(cont - oldcont) > 4.0:
-                        conta -= 0.1
+                        conta -= 0.2
+                        if conta < -4.99:
+                            conta = -5.0
+                    self.leo.forward(conta)
                 else:
                     pass
 
-                print('p f c a b SN')
+                print('p f a SN')
                 print(self.prediction, flag, conta, self.lipdif)
 
             elif self.lipdif >= 0.03:
