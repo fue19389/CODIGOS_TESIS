@@ -47,80 +47,49 @@ encode_send_wheel_speeds_task(void * p_params)
 // Programar la funcionalidad de visual servoing aquí
 // ================================================================================ 
 void
-visual_servoing_task(void * p_params)
+head_orientation_task(void * p_params)
 {
 
-  while(1) // loop()
-  {
-      if (BT.available()) { 
+  while(1){
+    if (BT.available()) { 
     String datos = BT.readStringUntil('/'); 
     int predict = datos.substring(0, datos.indexOf(',')).toInt(); 
-    double lipdif = datos.substring(datos.indexOf(',') + 1).toDouble(); 
-
-
-    if (lipdif < 0.03) {
-      // CÓDIGO !STOP
+   // double lipdif = datos.substring(datos.indexOf(',') + 1).toDouble(); 
     
       if (predict == 0) {
-                        if (speedwheel != 0.0){
-                            phi_ell = (0.60 * speedwheel * 100)
-                            phi_r = (speedwheel * 100)
-                        }
-                        else (){
-                            phi_ell = (speedwheel * 100)
-                            phi_r = (0.3 * 100)
-                        }
+                            phi_ell = (speedwheel * 100);
+                            phi_r = (0.3 * 100);
+                        
       }
+      if (predict == 2){
+                            phi_ell = (0.3 * 100);
+                            phi_r = (speedwheel * 100);
       
-      else if (predict == 1){
-                            phi_ell = (speedwheel * 100)
-                            phi_r = (speedwheel * 100)
-                            flag = 0
       }
-      
-      else if (predict == 2){
-                        if (speedwheel != 0.0){
-                            phi_ell = (speedwheel * 100)
-                            phi_r = (0.60 * speedwheel * 100)
-                        }
-                        else (){
-                            phi_ell = (0.3 * 100)
-                            phi_r = (speedwheel * 100)
-                        }         
-      }
-      else if (predict == 3){
-          // CÓDIGO PARA INCREMENTAR
-      }
-      else if (predict == 4){
-          // CÓDIGO PARA DECREMENTAR
-      }
-    }
+      vTaskDelay(50 / portTICK_PERIOD_MS); // delay de 1 segundo (thread safe) 
 
-    else if (lipdif >= 0.03){
-      // CÓDIGO STOP
-  }
- }
-    phi_ell = 100;
-    phi_r = -100;
+    //phi_ell = 100;
+    //phi_r = -100;
 
-    vTaskDelay(1000 / portTICK_PERIOD_MS); // delay de 1 segundo (thread safe)  
   }
+  }
+
 }
-
 
 void 
 setup() 
 {
-  BT.begin("ESP32_UVG");
+
   Serial.begin(115200); // ***NO MODIFICAR***
   Serial2.begin(115200); // ***NO MODIFICAR***
   TinyCBOR.init(); // ***NO MODIFICAR***
 
   // Si alguna de sus librerías requiere setup, colocarlo aquí
+  BT.begin("MYESP32E");
 
   // Creación de tasks ***NO MODIFICAR***
   xTaskCreate(encode_send_wheel_speeds_task, "encode_send_wheel_speeds_task", 1024*2, NULL, configMAX_PRIORITIES, NULL);
-  xTaskCreate(visual_servoing_task, "visual_servoing_task", 1024*2, NULL, configMAX_PRIORITIES-1, NULL);
+  xTaskCreate(head_orientation_task, "head_orientation_task", 1024*2, NULL, configMAX_PRIORITIES-1, NULL);
 }
 
 

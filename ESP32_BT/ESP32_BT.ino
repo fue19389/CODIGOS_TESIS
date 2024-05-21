@@ -12,7 +12,7 @@ int count = 0;
 
 
 void setup() {
-  BT.begin("MYESP32");
+  BT.begin("MYESP32E");
   pinMode(FORWARD, OUTPUT);
   pinMode(RIGHT, OUTPUT);
   pinMode(LEFT, OUTPUT);

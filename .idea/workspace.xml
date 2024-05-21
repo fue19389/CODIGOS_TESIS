@@ -4,13 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se suben los archivos de instrucciones audiovisuales">
-      <change afterPath="$PROJECT_DIR$/ESP32_BT/mt3006_base_reto1.ino" afterDir="false" />
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Por el momento todo bien">
+      <change afterPath="$PROJECT_DIR$/ESP32_P3PI/ESP32_P3PI.ino" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/funcionamientoesp.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" beforeDir="false" afterPath="$PROJECT_DIR$/ESP32_BT/ESP32_BT.ino" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ESP32_BT/mt3006_base_reto1.ino" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/worlds/.ho_sim.wbproj" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/projectGUI.py" beforeDir="false" afterPath="$PROJECT_DIR$/projectGUI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -27,7 +29,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="graphMODELS2_optlivetest" />
+        <entry key="$PROJECT_DIR$" value="graphMODELS2_STOPF" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -49,35 +51,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.DUMMY.executor&quot;: &quot;Run&quot;,
-    &quot;Python.__init__.executor&quot;: &quot;Run&quot;,
-    &quot;Python.adjacencyMATRIX.executor&quot;: &quot;Run&quot;,
-    &quot;Python.complex_example.executor&quot;: &quot;Run&quot;,
-    &quot;Python.extractDATA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.faceLANDMARKS.executor&quot;: &quot;Run&quot;,
-    &quot;Python.face_or.executor&quot;: &quot;Run&quot;,
-    &quot;Python.feedDATA.executor&quot;: &quot;Run&quot;,
-    &quot;Python.graphMODEL.executor&quot;: &quot;Run&quot;,
-    &quot;Python.graphSTOP.executor&quot;: &quot;Run&quot;,
-    &quot;Python.liveTEST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.miscTEST.executor&quot;: &quot;Run&quot;,
-    &quot;Python.modelGENERATOR.executor&quot;: &quot;Run&quot;,
-    &quot;Python.photoGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.projectGUI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.savePHOTO.executor&quot;: &quot;Run&quot;,
-    &quot;Python.scrollable_frame_example.executor&quot;: &quot;Run&quot;,
-    &quot;Python.sendBT.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;graphMODELS2__STOPF&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/sendBT.py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;vcs.Git&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.DUMMY.executor": "Run",
+    "Python.__init__.executor": "Run",
+    "Python.adjacencyMATRIX.executor": "Run",
+    "Python.complex_example.executor": "Run",
+    "Python.extractDATA.executor": "Run",
+    "Python.faceLANDMARKS.executor": "Run",
+    "Python.face_or.executor": "Run",
+    "Python.feedDATA.executor": "Run",
+    "Python.graphMODEL.executor": "Run",
+    "Python.graphSTOP.executor": "Run",
+    "Python.liveTEST.executor": "Run",
+    "Python.miscTEST.executor": "Run",
+    "Python.modelGENERATOR.executor": "Run",
+    "Python.photoGUI.executor": "Run",
+    "Python.projectGUI.executor": "Run",
+    "Python.savePHOTO.executor": "Run",
+    "Python.scrollable_frame_example.executor": "Run",
+    "Python.sendBT.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "graphMODELS2__ANALOG",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/sendBT.py",
+    "settings.editor.selected.configurable": "vcs.Git"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="face_or" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="CODIGOS_TESIS" />
@@ -119,14 +121,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00028" summary="Al fin funciona al 100 la interfaz">
-      <option name="closed" value="true" />
-      <created>1709535401976</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1709535401976</updated>
     </task>
     <task id="LOCAL-00029" summary="Listo, funciona todo ya, hasta se creó un ejecutable para la interfaz">
       <option name="closed" value="true" />
@@ -512,7 +506,15 @@
       <option name="project" value="LOCAL" />
       <updated>1715410144047</updated>
     </task>
-    <option name="localTasksCounter" value="77" />
+    <task id="LOCAL-00077" summary="cambios para tener la c[amara disponible al momento de capturar fotograf[ias">
+      <option name="closed" value="true" />
+      <created>1715453994314</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1715453994315</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -528,7 +530,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="YA FUNCIONA EL MODELO DE LAS 4 POSICIOENS!!!!!!!!" />
     <MESSAGE value="Ya empieza a funcionar el control de velocidad" />
     <MESSAGE value="El problema ahora es que aun confunde un poco la posición de la cabeza hacia arriba, con la del frente" />
     <MESSAGE value="Se mejoró la captura de datos, ya no es por tiempo, ahora es por cantidad de imagenes" />
@@ -553,7 +554,8 @@
     <MESSAGE value="inicio pruebas stop con BLUETOOTH" />
     <MESSAGE value="Ya fuciona BT en todas las preubas de la interfaz y ya se tienen instrucciones audiovisuales" />
     <MESSAGE value="Se suben los archivos de instrucciones audiovisuales" />
-    <option name="LAST_COMMIT_MESSAGE" value="Se suben los archivos de instrucciones audiovisuales" />
+    <MESSAGE value="cambios para tener la c[amara disponible al momento de capturar fotograf[ias" />
+    <option name="LAST_COMMIT_MESSAGE" value="cambios para tener la c[amara disponible al momento de capturar fotograf[ias" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

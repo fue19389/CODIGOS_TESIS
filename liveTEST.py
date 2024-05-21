@@ -91,15 +91,16 @@ class UseModel:
         # -----------------------------------------------------
         # ---------Inicialización de la Webcam---- ------------
         # -----------------------------------------------------
-        cont = 0
+        cont = 0.0
+        oldcont = 0.0
         conta = 0
         contb = 0
         flag = 0
 
         self.load_model()
         self.cap = cv2.VideoCapture(0)
-        ttl.TurtleScreen._RUNNING = True
-        self.leo = ttl.Turtle()
+        # ttl.TurtleScreen._RUNNING = True
+        # self.leo = ttl.Turtle()
 
         # -----------------------------------------------------
         # ----Visualizar movimiento de turtle -----------------
@@ -116,64 +117,53 @@ class UseModel:
 
             if self.lipdif < 0.03:
                 if self.prediction == 0:
-                    self.leo.left(7)
-                    self.leo.forward(conta)
-                    self.leo.backward(contb)
+                    # self.leo.left(7)
+                    # self.leo.forward(conta)
+                    # self.leo.backward(contb)
+                    pass
 
                 if self.prediction == 1:
-                    self.leo.forward(conta)
-                    self.leo.backward(contb)
+                    # self.leo.forward(conta)
+                    # self.leo.backward(contb)
                     flag = 0
+                    pass
                 if self.prediction == 2:
-                    self.leo.right(7)
-                    self.leo.forward(conta)
-                    self.leo.backward(contb)
+                    # self.leo.right(7)
+                    # self.leo.forward(conta)
+                    # self.leo.backward(contb)
+                    pass
+
 
                 if self.prediction == 3:
-
                     if flag == 0:
-                        cont += 1
-                        if cont > -1 and cont < 5:
-                            conta = int(cont)
-                        if cont < 1 and cont > -5:
-                            contb = int(-1 * cont)
-                        if cont > 4:
-                            conta = int(4)
-                            cont = 4
-                        if cont < -4:
-                            contb = int(4)
-                            cont = -4
+                        oldcont = cont
+                        conta += 0.2
                         flag = 1
-                    else:
-                        pass
-
-                if self.prediction == 4:
-
-                    if flag == 0:
-                        cont -= 1
-                        if cont > -1 and cont < 5:
-                            conta = int(cont)
-                        if cont < 1 and cont > -5:
-                            contb = int(-1 * cont)
-                        if cont > 4:
-                            conta = int(4)
-                            cont = 4
-                        if cont < -4:
-                            contb = int(4)
-                            cont = -4
-                        flag = 1
-                    else:
-                        pass
-
+                    cont += 0.2
+                    if abs(cont - oldcont) > 4.0:
+                        conta += 0.1
                 else:
                     pass
+
+
+                if self.prediction == 4:
+                    if flag == 0:
+                        oldcont = cont
+                        conta -= 0.2
+                        flag = 1
+                    cont -= 0.2
+                    if abs(cont - oldcont) > 4.0:
+                        conta -= 0.1
+                else:
+                    pass
+
                 print('p f c a b SN')
-                print(self.prediction, flag, cont, conta, contb, self.lipdif)
+                print(self.prediction, flag, conta, self.lipdif)
 
             elif self.lipdif >= 0.03:
                 print('stop')
-                self.leo.forward(0)
-                self.leo.backward(0)
+                # self.leo.forward(0)
+                # self.leo.backward(0)
                 cont = 0
                 conta = 0
                 contb = 0

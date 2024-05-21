@@ -1,0 +1,52 @@
+    if (lipdif < 0.03) {
+      // CÓDIGO !STOP
+    
+      if (predict == 0) {
+                        if (speedwheel != 0.0){
+                            phi_ell = (0.60 * speedwheel * 100);
+                            phi_r = (speedwheel * 100);
+                            vTaskDelay(1000 / portTICK_PERIOD_MS); // delay de 1 segundo (thread safe) 
+                        }
+                        else{
+                            phi_ell = (speedwheel * 100);
+                            phi_r = (0.3 * 100);
+                            vTaskDelay(1000 / portTICK_PERIOD_MS); // delay de 1 segundo (thread safe) 
+                        }
+      }
+      
+      else if (predict == 1){
+                            phi_ell = (speedwheel * 100);
+                            phi_r = (speedwheel * 100);
+                            vTaskDelay(1000 / portTICK_PERIOD_MS); // delay de 1 segundo (thread safe) 
+                            flag = 0;
+      }
+      
+      else if (predict == 2){
+                        if (speedwheel != 0.0){
+                            phi_ell = (speedwheel * 100);
+                            phi_r = (0.60 * speedwheel * 100);
+                            vTaskDelay(1000 / portTICK_PERIOD_MS); // delay de 1 segundo (thread safe) 
+                        }
+                        else{
+                            phi_ell = (0.3 * 100);
+                            phi_r = (speedwheel * 100);
+                            vTaskDelay(1000 / portTICK_PERIOD_MS); // delay de 1 segundo (thread safe) 
+                        }         
+      }
+      else if (predict == 3){
+          // CÓDIGO PARA INCREMENTAR
+          vTaskDelay(1000 / portTICK_PERIOD_MS); // delay de 1 segundo (thread safe) 
+      }
+      else if (predict == 4){
+          // CÓDIGO PARA DECREMENTAR
+          vTaskDelay(1000 / portTICK_PERIOD_MS); // delay de 1 segundo (thread safe) 
+      }
+    }
+
+    else if (lipdif >= 0.03){
+          phi_ell = (0);
+          phi_r = (0);
+          vTaskDelay(1000 / portTICK_PERIOD_MS); // delay de 1 segundo (thread safe) 
+  }
+       
+ }
