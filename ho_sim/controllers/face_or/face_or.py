@@ -34,6 +34,7 @@ class wModel:
         def run_on():
             self.CAP = cv2.VideoCapture(0)
             cont = 0
+            oldcont = 0
             SPEEDC = 0
             flag = 0
 
@@ -60,11 +61,13 @@ class wModel:
                             self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                             self.rightMotor.setVelocity(0.3 * self.MAX_SPEED)
                         self.robot.stepBegin(self.TIME_STEP)
+
                     if prediction == 1:
                         self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         flag = 0
                         self.robot.stepBegin(self.TIME_STEP)
+
                     if prediction == 2:
                         if SPEEDC != 0:
                             self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
@@ -76,36 +79,35 @@ class wModel:
 
                     if prediction == 3:
                         if flag == 0:
-                            cont += 1
-                            if cont > -5 and cont < 5:
-                                SPEEDC = cont/4
-                            if cont > 4:
-                                cont = 4
-                                SPEEDC = cont/4
-                            if cont < -4:
-                                cont = -4
-                                SPEEDC = cont/4
+                            oldcont = cont
+                            SPEEDC += 0.2
                             flag = 1
-                        else:
-                            pass
+                        cont += 0.2
+                        if abs(cont - oldcont) > 4.0:
+                            SPEEDC += 0.05
+                            if SPEEDC > 0.98:
+                                SPEEDC = 0.99
+
+                        self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         self.robot.stepBegin(self.TIME_STEP)
+                    else:
+                        pass
 
                     if prediction == 4:
                         if flag == 0:
-                            cont -= 1
-                            if cont > -5 and cont < 5:
-                                SPEEDC = cont/4
-                            if cont > 4:
-                                cont = 4
-                                SPEEDC = cont/4
-                            if cont < -4:
-                                cont = -4
-                                SPEEDC = cont/4
+                            oldcont = cont
+                            SPEEDC -= 0.2
                             flag = 1
-                        else:
-                            pass
-                        self.robot.stepBegin(self.TIME_STEP)
+                        cont -= 0.2
+                        if abs(cont - oldcont) > 4.0:
+                            SPEEDC -= 0.05
+                            if SPEEDC < -0.98:
+                                SPEEDC = -0.99
 
+                        self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        self.robot.stepBegin(self.TIME_STEP)
                     else:
                         pass
 
@@ -113,8 +115,24 @@ class wModel:
                     self.robot.stepEnd()
 
                 elif lipdif >= 0.03:
+                    if SPEEDC > 0:
+                        SPEEDC -= 0.3
+                        if SPEEDC <= 0:
+                            SPEEDC = 0
+                        self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        self.robot.stepBegin(self.TIME_STEP)
+                    if SPEEDC < 0:
+                        SPEEDC += 0.3
+                        if SPEEDC >= 0:
+                            SPEEDC = 0
+                        self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
+                        self.robot.stepBegin(self.TIME_STEP)
+                    print(prediction, cont, SPEEDC)
+
+                    self.robot.stepEnd()
                     cont = 0
-                    SPEEDC = 0
                     flag = 0
 
 

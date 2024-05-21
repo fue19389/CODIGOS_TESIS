@@ -94,7 +94,6 @@ class UseModel:
         cont = 0.0
         oldcont = 0.0
         conta = 0
-        contb = 0
         flag = 0
 
         self.load_model()
@@ -136,7 +135,7 @@ class UseModel:
                         oldcont = cont
                         conta += 0.2
                         flag = 1
-                    cont += 0.2
+                    cont += 0.3
                     if abs(cont - oldcont) > 4.0:
                         conta += 0.2
                         if conta > 4.99:
@@ -151,7 +150,7 @@ class UseModel:
                         oldcont = cont
                         conta -= 0.2
                         flag = 1
-                    cont -= 0.2
+                    cont -= 0.3
                     if abs(cont - oldcont) > 4.0:
                         conta -= 0.2
                         if conta < -4.99:
@@ -164,12 +163,18 @@ class UseModel:
                 print(self.prediction, flag, conta, self.lipdif)
 
             elif self.lipdif >= 0.03:
+                if conta > 0:
+                    conta -= 0.4
+                    if conta <= 0:
+                        conta = 0
+                    self.leo.forward(conta)
+                if conta < 0:
+                    conta += 0.4
+                    if conta >= 0:
+                        conta = 0
+                    self.leo.forward(conta)
                 print('stop')
-                # self.leo.forward(0)
-                # self.leo.backward(0)
                 cont = 0
-                conta = 0
-                contb = 0
                 flag = 0
 
         self.cap.release()
