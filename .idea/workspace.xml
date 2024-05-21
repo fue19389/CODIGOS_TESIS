@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="LISTO WEBOTS ANALOGICO">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA SOLO TENGO PROBLEMAS CON WEBOTS, YA FUNCION[O LA DESACELERACI[ON CON TURTLE">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
@@ -116,14 +116,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00030" summary="Inclulir el gitignore">
-      <option name="closed" value="true" />
-      <created>1709539942454</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1709539942454</updated>
     </task>
     <task id="LOCAL-00031" summary="Inclulir el gitignore">
       <option name="closed" value="true" />
@@ -509,7 +501,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716270582103</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="YA SOLO TENGO PROBLEMAS CON WEBOTS, YA FUNCION[O LA DESACELERACI[ON CON TURTLE">
+      <option name="closed" value="true" />
+      <created>1716274310935</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1716274310935</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -525,7 +525,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="El problema ahora es que aun confunde un poco la posición de la cabeza hacia arriba, con la del frente" />
     <MESSAGE value="Se mejoró la captura de datos, ya no es por tiempo, ahora es por cantidad de imagenes" />
     <MESSAGE value="Ya funcionó el modelo, pero se requirieron 700 capturas por posición, por el momento," />
     <MESSAGE value="Aun no he probado, pero veo que un solo entrenamiento de 300 capturas por clase no funciona, entonces lo cambié a 525 por clase, lo pruebo mañana" />
@@ -550,7 +549,8 @@
     <MESSAGE value="Se suben los archivos de instrucciones audiovisuales" />
     <MESSAGE value="cambios para tener la c[amara disponible al momento de capturar fotograf[ias" />
     <MESSAGE value="LISTO WEBOTS ANALOGICO" />
-    <option name="LAST_COMMIT_MESSAGE" value="LISTO WEBOTS ANALOGICO" />
+    <MESSAGE value="YA SOLO TENGO PROBLEMAS CON WEBOTS, YA FUNCION[O LA DESACELERACI[ON CON TURTLE" />
+    <option name="LAST_COMMIT_MESSAGE" value="YA SOLO TENGO PROBLEMAS CON WEBOTS, YA FUNCION[O LA DESACELERACI[ON CON TURTLE" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>

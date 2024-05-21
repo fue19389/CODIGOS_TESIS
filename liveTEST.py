@@ -138,8 +138,8 @@ class UseModel:
                     cont += 0.3
                     if abs(cont - oldcont) > 4.0:
                         conta += 0.2
-                        if conta > 4.99:
-                            conta = 5.0
+                    if conta > 4.99:
+                        conta = 5.0
                     self.leo.forward(conta)
                 else:
                     pass
@@ -153,8 +153,8 @@ class UseModel:
                     cont -= 0.3
                     if abs(cont - oldcont) > 4.0:
                         conta -= 0.2
-                        if conta < -4.99:
-                            conta = -5.0
+                    if conta < -4.99:
+                        conta = -5.0
                     self.leo.forward(conta)
                 else:
                     pass

@@ -55,11 +55,11 @@ class wModel:
                 if lipdif < 0.03:
                     if prediction == 0:
                         if SPEEDC != 0:
-                            self.leftMotor.setVelocity(0.60 * SPEEDC * self.MAX_SPEED)
+                            self.leftMotor.setVelocity(0.50 * SPEEDC * self.MAX_SPEED)
                             self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         else:
                             self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
-                            self.rightMotor.setVelocity(0.3 * self.MAX_SPEED)
+                            self.rightMotor.setVelocity(0.35 * self.MAX_SPEED)
                         self.robot.stepBegin(self.TIME_STEP)
 
                     if prediction == 1:
@@ -71,9 +71,9 @@ class wModel:
                     if prediction == 2:
                         if SPEEDC != 0:
                             self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
-                            self.rightMotor.setVelocity(0.60 * SPEEDC * self.MAX_SPEED)
+                            self.rightMotor.setVelocity(0.50 * SPEEDC * self.MAX_SPEED)
                         else:
-                            self.leftMotor.setVelocity(0.3 * self.MAX_SPEED)
+                            self.leftMotor.setVelocity(0.35 * self.MAX_SPEED)
                             self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         self.robot.stepBegin(self.TIME_STEP)
 
@@ -85,8 +85,8 @@ class wModel:
                         cont += 0.2
                         if abs(cont - oldcont) > 4.0:
                             SPEEDC += 0.05
-                            if SPEEDC > 0.98:
-                                SPEEDC = 0.99
+                        if SPEEDC > 0.99:
+                            SPEEDC = 0.99
 
                         self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
@@ -102,8 +102,8 @@ class wModel:
                         cont -= 0.2
                         if abs(cont - oldcont) > 4.0:
                             SPEEDC -= 0.05
-                            if SPEEDC < -0.98:
-                                SPEEDC = -0.99
+                        if SPEEDC < -0.99:
+                            SPEEDC = -0.99
 
                         self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
@@ -111,27 +111,27 @@ class wModel:
                     else:
                         pass
 
-                    print(prediction, cont, SPEEDC)
+                    print(prediction, cont, SPEEDC, SPEEDC*self.MAX_SPEED)
                     self.robot.stepEnd()
 
                 elif lipdif >= 0.03:
                     if SPEEDC > 0:
-                        SPEEDC -= 0.3
+                        SPEEDC -= 0.2
                         if SPEEDC <= 0:
                             SPEEDC = 0
                         self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         self.robot.stepBegin(self.TIME_STEP)
                     if SPEEDC < 0:
-                        SPEEDC += 0.3
+                        SPEEDC += 0.2
                         if SPEEDC >= 0:
                             SPEEDC = 0
                         self.leftMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         self.rightMotor.setVelocity(SPEEDC * self.MAX_SPEED)
                         self.robot.stepBegin(self.TIME_STEP)
+                    else:
+                        pass
                     print(prediction, cont, SPEEDC)
-
-                    self.robot.stepEnd()
                     cont = 0
                     flag = 0
 
