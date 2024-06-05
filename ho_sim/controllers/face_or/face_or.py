@@ -37,6 +37,7 @@ class wModel:
             oldcont = 0
             SPEEDC = 0
             flag = 0
+            flagp = 0
 
             while True:
                 _, imgF = self.CAP.read()
@@ -51,6 +52,9 @@ class wModel:
                 else:
                     prediction = 1
                     lipdif = 0.0
+
+
+
 
                 if lipdif < 0.03:
                     if prediction == 0:

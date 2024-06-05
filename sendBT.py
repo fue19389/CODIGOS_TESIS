@@ -17,7 +17,7 @@ class Use_BT_MODEL:
 
     def on(self):
         def run_on():
-
+            prediction = 1
             try:
                 self.BT = serial.Serial('COM4', 115200)
                 print('Conexión exitosa')
@@ -26,6 +26,7 @@ class Use_BT_MODEL:
 
             self.CAP = cv2.VideoCapture(0)
             while True:
+                predictionold = prediction
                 _, imgF = self.CAP.read()
                 img, nodes = self.detector.findFaceMesh(imgF)
                 nodes = np.array([nodes])
@@ -40,8 +41,14 @@ class Use_BT_MODEL:
                     prediction = 1
                     lipdif = 0.0
 
-                data_string = str(prediction) + ',' + str(lipdif) + '/'
+                if prediction != predictionold:
+                    realp = predictionold
+                else:
+                    realp = prediction
+
+                data_string = str(realp) + ',' + str(lipdif) + '/'
                 self.BT.write(data_string.encode())
+
                 print(data_string)
 
 
