@@ -77,7 +77,7 @@ class ModelFeeder:
         # ------------------------------------------------
 
         self.detector = fL.FaceMeshDetector()
-        self.cap = cv2.VideoCapture(0)
+        # self.cap = cv2.VideoCapture(0)
         self.finish = 0
 
 
@@ -538,15 +538,17 @@ class ModelFeeder:
     # ------------------------------------------------
     def showIMG(self):
         def run_on():
+            self.cap = cv2.VideoCapture(0)
             while True:
                 _, img = self.cap.read()
+
                 img = cv2.flip(img, 1)
                 cv2.namedWindow('WEBCAM', cv2.WINDOW_NORMAL)
                 cv2.moveWindow('WEBCAM', 0, 0)
                 cv2.imshow('WEBCAM', img)
                 cv2.waitKey(1)
                 if self.finish != 0:
-                    cv2.destroyAllWindows()
+                    cv2.destroyWindow('WEBCAM')
                     self.cap.release()
                     self.finish = 0
                     break

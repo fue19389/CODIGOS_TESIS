@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA FUNCIONA EN WEBOTS Y EN TURTLE">
+    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA FUNCIONA TODO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ESP32_P3PI/ESP32_P3PI.ino" beforeDir="false" afterPath="$PROJECT_DIR$/ESP32_P3PI/ESP32_P3PI.ino" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/sendBT.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendBT.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,14 +116,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1709092735931</updated>
-    </task>
-    <task id="LOCAL-00032" summary="Inclulir el gitignore ahora si">
-      <option name="closed" value="true" />
-      <created>1709540173838</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1709540173838</updated>
     </task>
     <task id="LOCAL-00033" summary="Inclulir el gitignore ahora si">
       <option name="closed" value="true" />
@@ -511,7 +501,15 @@
       <option name="project" value="LOCAL" />
       <updated>1716275558015</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="YA FUNCIONA TODO">
+      <option name="closed" value="true" />
+      <created>1717571705323</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1717571705325</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -527,7 +525,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Ya funcionó el modelo, pero se requirieron 700 capturas por posición, por el momento," />
     <MESSAGE value="Aun no he probado, pero veo que un solo entrenamiento de 300 capturas por clase no funciona, entonces lo cambié a 525 por clase, lo pruebo mañana" />
     <MESSAGE value="Ahora ya empecé a modificar el archivo para utilizar webots" />
     <MESSAGE value="Ya funciona en Webots" />
@@ -552,7 +549,8 @@
     <MESSAGE value="LISTO WEBOTS ANALOGICO" />
     <MESSAGE value="YA SOLO TENGO PROBLEMAS CON WEBOTS, YA FUNCION[O LA DESACELERACI[ON CON TURTLE" />
     <MESSAGE value="YA FUNCIONA EN WEBOTS Y EN TURTLE" />
-    <option name="LAST_COMMIT_MESSAGE" value="YA FUNCIONA EN WEBOTS Y EN TURTLE" />
+    <MESSAGE value="YA FUNCIONA TODO" />
+    <option name="LAST_COMMIT_MESSAGE" value="YA FUNCIONA TODO" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
