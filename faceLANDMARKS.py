@@ -47,38 +47,6 @@ class FaceMeshDetector:
 
         return img, nodes
 
-    # def findMouthMesh(self, img, draw=True):
-    #     self.it = 0
-    #
-    #     self.imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
-    #     self.results = self.faceMesh.process(self.imgRGB)
-    #
-    #     # Ciclo para dibujar los landmarks, si es que se detecta una cara
-    #
-    #     nodes = []
-    #     if self.results.multi_face_landmarks:
-    #         for faceLms in self.results.multi_face_landmarks:
-    #             if draw:
-    #                 self.mpDraw.draw_landmarks(img, faceLms, self.mpFaceMesh.FACEMESH_CONTOURS, self.drawSpec, self.drawSpec)
-    #
-    #             # Ciclo para obtener los landmarks en pixels y originales
-    #             npoints = []
-    #             for i in self.eyelip:
-    #                 for id, lm in enumerate(faceLms.landmark):
-    #                     if i == id:
-    #                         self.it += 1
-    #                         ih, iw, ic = img.shape
-    #                         x, y0 = int(lm.x * iw), int(lm.y * ih)
-    #                         npoints.append([lm.x, -1*(lm.y)+1])
-    #                         if draw:
-    #                             # Draw selected landmarks in a differente color (RED)
-    #                             cv2.circle(img, (x, y0), 3, (0, 0, 255), cv2.FILLED)
-    #                             cv2.putText(img, str(self.it), (x, y0), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 1)
-    #
-    #             nodes.append(npoints)
-    #             nodes = np.squeeze(np.array(nodes))
-    #
-    #     return img, nodes
 
 
 def main():
@@ -90,9 +58,8 @@ def main():
     detector = FaceMeshDetector()
 
     while True:
-        # Saving captured image and transforming from BGR TO RGB
+        # Guardar y cambiar de BGR a RGB
         success, imgF = cap.read()
-        # imgF = cv2.imread(r'C:\Users\gerar\PycharmProjects\COMPLETEDATABASE\TRAIN\z_00_73.jpg') #SPECIAL ONE
         img, nodes = detector.findFaceMesh(imgF)
 
         cv2.imshow('Image', img)
@@ -103,11 +70,9 @@ def main():
     if len(nodes) == 0:
         pass
     else:
-        # nodes = np.array([nodes])
         x, y = nodes.T
         plt.scatter(x, y)
-        # for i in range(len(x)):
-        #     plt.annotate(i , (x[i], y[i]), textcoords="offset points", xytext=(0, 10), ha='center')
+
 
         plt.show()
         print(nodes.shape)

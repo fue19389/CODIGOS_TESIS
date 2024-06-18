@@ -6,8 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="YA FUNCIONA TODO">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/faceLANDMARKS.py" beforeDir="false" afterPath="$PROJECT_DIR$/faceLANDMARKS.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/funcionamientoesp.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" beforeDir="false" afterPath="$PROJECT_DIR$/ho_sim/controllers/face_or/face_or.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sendBT.py" beforeDir="false" afterPath="$PROJECT_DIR$/sendBT.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="graphMODELS2_STOPF" />
+        <entry key="$PROJECT_DIR$" value="MarkersNIndividual" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />

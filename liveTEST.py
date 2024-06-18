@@ -70,11 +70,11 @@ class UseModel:
     # -----------------------------------------------------
     def or_predict(self, imgOG, predict0):
 
-        # Perform face detection using the FaceMeshDetector
+        # Detección usando FaceMesh
 
         img, nodes = self.detector.findFaceMesh(imgOG)
         nodes = np.array([nodes])
-        # Check if any face landmarks were detected
+        # Verificar si se detectaron los marcadores o landmarks
         if nodes.any() != 0:
             xlip = (nodes[0][13][0]) - (nodes[0][14][0])
             ylip = (nodes[0][13][1]) - (nodes[0][14][1])
@@ -98,7 +98,6 @@ class UseModel:
 
         self.load_model()
         self.cap = cv2.VideoCapture(0)
-        # ttl.TurtleScreen._RUNNING = True
         self.leo = ttl.Turtle()
 
         # -----------------------------------------------------
@@ -107,12 +106,8 @@ class UseModel:
 
         while True:
 
-            # Saving captured image
             _, img = self.cap.read()
             self.prediction, self.lipdif = self.or_predict(img, self.prediction)
-
-            # cv2.imshow('Image', img)
-            # cv2.waitKey(1) #This helps the program to not stop
 
             if self.lipdif < 0.03:
                 if self.prediction == 0:

@@ -17,9 +17,6 @@ class wModel:
         self.ho_model = tf.keras.models.load_model(self.ho_model)
 
         self.robot = Robot()
-        # self.webots_path = r'C:\Program Files\Webots\msys64\mingw64\bin\webotsw.exe'
-        # self.webots_world = r'C:\Users\gerar\PycharmProjects\CODIGOS_TESIS\ho_sim\worlds\ho_sim.wbt'
-        # self.open_com = [self.webots_path, "--mode=fast", self.webots_world]
 
         self.leftMotor = self.robot.getDevice('left wheel motor')
         self.rightMotor = self.robot.getDevice('right wheel motor')
