@@ -1,0 +1,577 @@
+Index: extractDATA.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ------------------------------------------------\r\n# ------------- Datos Generales ------------------\r\n# ------------------------------------------------\r\n\r\n# Universidad del Valle de Guatemala\r\n# Facultad de Ingeniería\r\n# Departamento de Electrónica, Mecatrónica y Biomédica\r\n# Gerardo Andres Fuentes Bámaca\r\n# 19389\r\n# Código para transformar las fotos y labels de excel en datos utilizables\r\n\r\n# ------------------------------------------------\r\n# ----- Librerías a utilizar ---------------------\r\n# ------------------------------------------------\r\n\r\nimport os\r\nimport cv2\r\nimport numpy as np\r\nimport pandas as pd\r\n\r\n\r\nclass GetModelData:\r\n\r\n    def __init__(self):\r\n\r\n        # ------------------------------------------------\r\n        # ----- Seleccionar de datos ---------------------\r\n        # ------------------------------------------------\r\n\r\n        # Si se escoge etiquetas, guardar para modelos 0 -> 6\r\n\r\n        self.nmodel = 6\r\n\r\n        self.edge_kernel = np.array([[-1, -1, -1],\r\n                                [-1, 8, -1],\r\n                                [-1, -1, -1]], np.float32)\r\n        self.emboss_kernel = np.array([[-2, -1, 0],\r\n                                  [-1, 1, 1],\r\n                                  [0, 1, 2]], np.float32)\r\n        self.blur_kernel = np.array([[0.0625, 0.125, 0.625],\r\n                                [0.125, 0.25, 0.125],\r\n                                [0.0625, 0.125, 0.0625]], np.float32)\r\n\r\n        # ------------------------------------------------\r\n        # ----- Directorios a utilizar -------------------\r\n        # ------------------------------------------------\r\n\r\n        # Se selecciona el archivo .xlsx dentro del repositorio\r\n        self.lbldir = r\"C:\\Users\\gerar\\PycharmProjects\\CODIGOS_TESIS\\facelabels.xlsx\"\r\n        # Directorio para guardar las variables a exportar\r\n        self.expordir = r'C:\\Users\\gerar\\PycharmProjects\\EXPOR_TESIS'\r\n        # Directorio para con carpetas de fotografias\r\n        self.imgdir = r'C:\\Users\\gerar\\PycharmProjects'\r\n\r\n        # De esta manera solo se tienen que solicitar estos directorios y se aclara que\r\n        # las carpetas de fotografías se llaman TRAINFACE y TESTFACE\r\n        # El nombre de las variables exportadas aún lo tengo de manera fija\r\n\r\n    # ------------------------------------------------\r\n    # ----- Rutina extracción pixeles-----------------\r\n    # ------------------------------------------------\r\n\r\n    # Ahora se trabajará con el modelo 6 únicamente, cuando este listo será el original nada mas\r\n\r\n    def prepareD(self, tsttrn):\r\n\r\n        tsttrn = int(tsttrn)\r\n\r\n        if tsttrn == 0:\r\n            foldname = 'TRAINFACE'\r\n            xname = 'x_train7'\r\n        if tsttrn == 1:\r\n            foldname = 'TESTFACE'\r\n            xname = 'x_test7'\r\n\r\n        tdir = os.path.join(self.imgdir, foldname)\r\n        xdir = os.path.join(self.expordir, xname)\r\n\r\n        xlist = os.listdir(tdir)\r\n        lenolist = int(len(np.array(xlist)))\r\n        x_t = np.zeros((lenolist, 180, 320, 3))\r\n        i = 0\r\n\r\n        for filename in xlist:\r\n            # if filename.endswith('.jpg'): / Esto solo aplica si hay mas de un tipo de archivos\r\n            im = cv2.imread(os.path.join(tdir, filename))\r\n            imr = cv2.resize(im, (320, 180))\r\n            imr = cv2.cvtColor(imr, cv2.COLOR_BGR2RGB)\r\n            # imr = cv2.filter2D(imr, -1, self.edge_kernel) #FILTRO DE BORDES\r\n            imr = cv2.filter2D(imr, -1, self.emboss_kernel) #FILTRO DE REALZADO\r\n            x_t[i] = imr\r\n            i = i + 1\r\n\r\n        x_t = x_t.astype(int)\r\n        # print(x_t.shape)\r\n        np.save(xdir, x_t)\r\n\r\n\r\n\r\n    # ------------------------------------------------\r\n    # ----- Rutina extracción etiquetas---------------\r\n    # ------------------------------------------------\r\n\r\n    # def prepareLBL(self, tsttrn):\r\n\r\n        # tsttrn = int(tsttrn)\r\n\r\n        # Las variables exportadas de etiquetas se guardan dependiendo de la etiqueta\r\n        if tsttrn == 0:\r\n            sheet = 'traintags'\r\n            if self.nmodel == 0:\r\n                col = 'A'\r\n                yname = 'y_train'\r\n            if self.nmodel == 1:\r\n                col = 'B'\r\n                yname = 'y_train1'\r\n            if self.nmodel == 2:\r\n                col = 'C'\r\n                yname = 'y_train2'\r\n            if self.nmodel == 3:\r\n                col = 'D'\r\n                yname = 'y_train3'\r\n            if self.nmodel == 4:\r\n                col = 'E'\r\n                yname = 'y_train4'\r\n            if self.nmodel == 5:\r\n                col = 'F'\r\n                yname = 'y_train5'\r\n            if self.nmodel == 6:\r\n                col = 'G'\r\n                yname = 'y_train6'\r\n            if self.nmodel == 7:\r\n                col = 'H'\r\n                yname = 'y_train7'\r\n\r\n        if tsttrn == 1:\r\n            sheet = 'testtags'\r\n            if self.nmodel == 0:\r\n                col = 'A'\r\n                yname = 'y_test'\r\n            if self.nmodel == 1:\r\n                col = 'B'\r\n                yname = 'y_test1'\r\n            if self.nmodel == 2:\r\n                col = 'C'\r\n                yname = 'y_test2'\r\n            if self.nmodel == 3:\r\n                col = 'D'\r\n                yname = 'y_test3'\r\n            if self.nmodel == 4:\r\n                col = 'E'\r\n                yname = 'y_test4'\r\n            if self.nmodel == 5:\r\n                col = 'F'\r\n                yname = 'y_test5'\r\n            if self.nmodel == 6:\r\n                col = 'G'\r\n                yname = 'y_test6'\r\n            if self.nmodel == 7:\r\n                col = 'H'\r\n                yname = 'y_test7'\r\n\r\n        ydir = os.path.join(self.expordir, yname)\r\n        y_t = np.array(pd.read_excel(self.lbldir, sheet_name=sheet, usecols=col))\r\n        y_t = y_t.astype(int)\r\n        np.save(ydir, y_t)\r\n\r\n\r\n# run = GetModelData()\r\n# run.prepareD(0)
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/extractDATA.py b/extractDATA.py
+--- a/extractDATA.py	
++++ b/extractDATA.py	
+@@ -68,10 +68,10 @@
+ 
+         if tsttrn == 0:
+             foldname = 'TRAINFACE'
+-            xname = 'x_train7'
++            xname = 'x_train6'
+         if tsttrn == 1:
+             foldname = 'TESTFACE'
+-            xname = 'x_test7'
++            xname = 'x_test6'
+ 
+         tdir = os.path.join(self.imgdir, foldname)
+         xdir = os.path.join(self.expordir, xname)
+@@ -87,12 +87,12 @@
+             imr = cv2.resize(im, (320, 180))
+             imr = cv2.cvtColor(imr, cv2.COLOR_BGR2RGB)
+             # imr = cv2.filter2D(imr, -1, self.edge_kernel) #FILTRO DE BORDES
+-            imr = cv2.filter2D(imr, -1, self.emboss_kernel) #FILTRO DE REALZADO
++            # imr = cv2.filter2D(imr, -1, self.emboss_kernel) #FILTRO DE REALZADO
+             x_t[i] = imr
+             i = i + 1
+ 
+         x_t = x_t.astype(int)
+-        # print(x_t.shape)
++        print(x_t.shape)
+         np.save(xdir, x_t)
+ 
+ 
+@@ -166,5 +166,5 @@
+         np.save(ydir, y_t)
+ 
+ 
+-# run = GetModelData()
+-# run.prepareD(0)
+\ No newline at end of file
++run = GetModelData()
++run.prepareD(0)
+\ No newline at end of file
+Index: miscTEST.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import matplotlib.pylab as plt\r\nimport numpy as np\r\nimport cv2\r\n\r\ndirVRLBS = r'C:\\Users\\gerar\\PycharmProjects\\EXPOR_TESIS\\x_train6.npy'\r\nfaces = np.load(dirVRLBS)\r\nface1 = faces[2150]\r\nface1 = face1.astype(np.uint8)\r\nface = cv2.imread(r'C:\\Users\\gerar\\PycharmProjects\\TRAINFACE\\person03146+0+0.jpg')\r\nface2 = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)\r\nprint(face2.dtype)\r\n# facehsv = cv2.cvtColor(face, cv2.COLOR_BGR2HSV)\r\n\r\n# Se cancela idea de colores, si reconoce la cara pero no la orientación, menos los gestos\r\n# skinbottom = np.array([3, 64, 50], np.float32)\r\n# skintop = np.array([30, 210, 210], np.float32)\r\n#\r\n# skinbottom2 = np.array([0, 20, 20], np.float32)\r\n# skintop2 = np.array([30, 220, 250], np.float32)\r\n#\r\n# mask1 = cv2.inRange(facehsv, skinbottom2, skintop2)\r\n# # mask11 = cv2.cvtColor(mask1, cv2.COLOR_HSV2RGB)\r\n# print(mask1.shape)\r\n# cv2.imshow('filtro2', mask1)\r\n\r\n\r\n\r\nblur_kernel = np.array([[0.0625, 0.125, 0.625],\r\n                        [0.125, 0.25, 0.125],\r\n                        [0.0625, 0.125, 0.0625]], np.float32)\r\n\r\nsharp_kernel = np.array([[0, -1, 0],\r\n                         [-1, 5, -1],\r\n                         [0, -1, 0]], )\r\n\r\nedge_kernel = np.array([[-1, -1, -1],\r\n                        [-1, 8, -1],\r\n                        [-1, -1, -1]], np.float32)\r\n\r\nemboss_kernel = np.array([[-2, -1, 0],\r\n                          [-1, 1, 1],\r\n                          [0, 1, 2]], np.float32)\r\n\r\nedged = cv2.filter2D(face2, -1, edge_kernel)\r\nsharpened = cv2.filter2D(face2, -1, edge_kernel)\r\nsharpened = cv2.filter2D(sharpened, -1, sharp_kernel)\r\nblurred = cv2.filter2D(face2, -1, edge_kernel)\r\nblurred = cv2.filter2D(blurred, -1, blur_kernel)\r\nblurred = cv2.filter2D(blurred, -1, emboss_kernel)\r\nembossed = cv2.filter2D(face2, -1, edge_kernel)\r\nembossed = cv2.filter2D(embossed, -1, emboss_kernel)\r\nprint(edged.shape)\r\n\r\nfig, ax = plt.subplots(3, 2)\r\nax = ax.reshape(-1)\r\n# ax = ax.reshape(-1)\r\nax[0].imshow(face2)\r\nax[1].imshow(edged)\r\nax[2].imshow(sharpened)\r\nax[3].imshow(blurred)\r\nax[4].imshow(embossed)\r\n# ax[5].imshow(mask1)\r\nax[0].axis('off')\r\nax[1].axis('off')\r\nax[2].axis('off')\r\nax[3].axis('off')\r\nax[4].axis('off')\r\nax[5].axis('off')\r\nax[0].set_title('original')\r\nax[1].set_title('bordes')\r\nax[2].set_title('afilado + bordes')\r\nax[3].set_title('suavizado + bordes')\r\nax[4].set_title('realzado + bordes')\r\nax[5].set_title('filtro de color')\r\n\r\nplt.show()\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/miscTEST.py b/miscTEST.py
+--- a/miscTEST.py	
++++ b/miscTEST.py	
+@@ -6,22 +6,19 @@
+ faces = np.load(dirVRLBS)
+ face1 = faces[2150]
+ face1 = face1.astype(np.uint8)
+-face = cv2.imread(r'C:\Users\gerar\PycharmProjects\TRAINFACE\person03146+0+0.jpg')
+-face2 = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
+-print(face2.dtype)
++# face = cv2.imread(r'C:\Users\gerar\PycharmProjects\PFOTOS\hola5.jpg')
++# face2 = cv2.cvtColor(face, cv2.COLOR_BGR2RGB)
++# print(face2.dtype)
+ # facehsv = cv2.cvtColor(face, cv2.COLOR_BGR2HSV)
+ 
+-# Se cancela idea de colores, si reconoce la cara pero no la orientación, menos los gestos
+-# skinbottom = np.array([3, 64, 50], np.float32)
+-# skintop = np.array([30, 210, 210], np.float32)
+-#
+-# skinbottom2 = np.array([0, 20, 20], np.float32)
+-# skintop2 = np.array([30, 220, 250], np.float32)
+-#
+-# mask1 = cv2.inRange(facehsv, skinbottom2, skintop2)
+-# # mask11 = cv2.cvtColor(mask1, cv2.COLOR_HSV2RGB)
+-# print(mask1.shape)
+-# cv2.imshow('filtro2', mask1)
++# Verde
++low = np.array([40, 50, 40], np.float32)
++high = np.array([75, 254, 234], np.float32)
++
++#  # Amarillo
++# low = np.array([25, 40, 60], np.float32)
++# high = np.array([50, 254, 254], np.float32)
++
+ 
+ 
+ 
+@@ -41,36 +38,55 @@
+                           [-1, 1, 1],
+                           [0, 1, 2]], np.float32)
+ 
+-edged = cv2.filter2D(face2, -1, edge_kernel)
+-sharpened = cv2.filter2D(face2, -1, edge_kernel)
+-sharpened = cv2.filter2D(sharpened, -1, sharp_kernel)
+-blurred = cv2.filter2D(face2, -1, edge_kernel)
+-blurred = cv2.filter2D(blurred, -1, blur_kernel)
+-blurred = cv2.filter2D(blurred, -1, emboss_kernel)
+-embossed = cv2.filter2D(face2, -1, edge_kernel)
+-embossed = cv2.filter2D(embossed, -1, emboss_kernel)
+-print(edged.shape)
++# edged = cv2.filter2D(face2, -1, edge_kernel)
++# sharpened = cv2.filter2D(face2, -1, edge_kernel)
++# sharpened = cv2.filter2D(sharpened, -1, sharp_kernel)
++# blurred = cv2.filter2D(face2, -1, edge_kernel)
++# blurred = cv2.filter2D(blurred, -1, blur_kernel)
++# blurred = cv2.filter2D(blurred, -1, emboss_kernel)
++# embossed = cv2.filter2D(face2, -1, edge_kernel)
++# embossed = cv2.filter2D(embossed, -1, emboss_kernel)
++# print(edged.shape)
++
++
++cap = cv2.VideoCapture(0)
++
++
++while True:
++    _, im = cap.read()
++    imgHSV = cv2.cvtColor(im, cv2.COLOR_BGR2HSV)
++    mask = cv2.inRange(imgHSV, low, high)
++    cv2.imshow('GREEN FILTER', mask)
++    cv2.imshow('WITHOUT FILTER', im)
++    key = cv2.waitKey(30)
++    if key == 27:
++        cv2.destroyAllWindows()
++        break
++
++
++
+ 
+-fig, ax = plt.subplots(3, 2)
+-ax = ax.reshape(-1)
++
++# fig, ax = plt.subplots(3, 2)
+ # ax = ax.reshape(-1)
+-ax[0].imshow(face2)
+-ax[1].imshow(edged)
+-ax[2].imshow(sharpened)
+-ax[3].imshow(blurred)
+-ax[4].imshow(embossed)
++# # ax = ax.reshape(-1)
++# ax[0].imshow(face2)
++# ax[1].imshow(edged)
++# ax[2].imshow(sharpened)
++# ax[3].imshow(blurred)
++# ax[4].imshow(embossed)
+ # ax[5].imshow(mask1)
+-ax[0].axis('off')
+-ax[1].axis('off')
+-ax[2].axis('off')
+-ax[3].axis('off')
+-ax[4].axis('off')
+-ax[5].axis('off')
+-ax[0].set_title('original')
+-ax[1].set_title('bordes')
+-ax[2].set_title('afilado + bordes')
+-ax[3].set_title('suavizado + bordes')
+-ax[4].set_title('realzado + bordes')
+-ax[5].set_title('filtro de color')
+-
+-plt.show()
++# ax[0].axis('off')
++# ax[1].axis('off')
++# ax[2].axis('off')
++# ax[3].axis('off')
++# ax[4].axis('off')
++# ax[5].axis('off')
++# ax[0].set_title('original')
++# ax[1].set_title('bordes')
++# ax[2].set_title('afilado + bordes')
++# ax[3].set_title('suavizado + bordes')
++# ax[4].set_title('realzado + bordes')
++# ax[5].set_title('filtro de color')
++#
++# plt.show()
+Index: liveTEST.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ------------------------------------------------\r\n# ------------- Datos Generales ------------------\r\n# ------------------------------------------------\r\n\r\n# Universidad del Valle de Guatemala\r\n# Facultad de Ingeniería\r\n# Departamento de Electrónica, Mecatrónica y Biomédica\r\n# Gerardo Andres Fuentes Bámaca\r\n# 19389\r\n# Código para realizar pruebas de reconocimiento de orientación de cabeza\r\n\r\n# ------------------------------------------------------\r\n# -----------------Librerías a utilizar-----------------\r\n# ------------------------------------------------------\r\n\r\nimport os\r\nimport cv2\r\nimport numpy as np\r\nimport turtle as ttl\r\nimport tensorflow as tf\r\nfrom tensorflow import keras\r\nfrom tensorflow.keras.optimizers import SGD\r\nimport matplotlib.pyplot as plt\r\n\r\n\r\nclass UseModel:\r\n\r\n    def __init__(self):\r\n        # ------------------------------------------------------\r\n        # -----------------Selección de modelo------------------\r\n        # ------------------------------------------------------\r\n        \r\n        # Actualmente, se tienen modelos del 0 -> 6\r\n        self.n_model = 6\r\n        self.edge_kernel = np.array([[-1, -1, -1],\r\n                                [-1, 8, -1],\r\n                                [-1, -1, -1]], np.float32)\r\n        self.emboss_kernel = np.array([[-2, -1, 0],\r\n                                       [-1, 1, 1],\r\n                                       [0, 1, 2]], np.float32)\r\n        self.blur_kernel = np.array([[0.0625, 0.125, 0.625],\r\n                                [0.125, 0.25, 0.125],\r\n                                [0.0625, 0.125, 0.0625]], np.float32)\r\n\r\n        # -----------------------------------------------------\r\n\r\n        # ------------------------------------------------\r\n        # ----- Directorios a utilizar -------------------\r\n        # ------------------------------------------------\r\n        \r\n        # Directorio para guardar las variables a exportar\r\n        self.expordir = r'C:\\Users\\gerar\\PycharmProjects\\EXPOR_TESIS'\r\n\r\n    # -----------------------------------------------------\r\n    # -------------------Cargar modelo---------------------\r\n    # -----------------------------------------------------\r\n\r\n        if self.n_model == 0:\r\n            self.mname = 'head_or.keras'\r\n        elif self.n_model == 1:\r\n            self.mname = 'head_or1.keras'\r\n        elif self.n_model == 2:\r\n            self.mname = 'head_or2.keras'\r\n        elif self.n_model == 3:\r\n            self.mname = 'head_or3.keras'\r\n        elif self.n_model == 4:\r\n            self.mname = 'head_or4.keras'\r\n        elif self.n_model == 5:\r\n            self.mname = 'head_or5.keras'\r\n        elif self.n_model == 6:\r\n            self.mname = 'head_or6.keras'\r\n        elif self.n_model == 7:\r\n            self.mname = 'head_or7.keras'\r\n\r\n        self.ho_model = os.path.join(self.expordir, self.mname)\r\n        self.ho_model = tf.keras.models.load_model(self.ho_model)\r\n\r\n         \r\n    def on(self):\r\n\r\n        # -----------------------------------------------------\r\n        # ---------Inicialización de la Webcam---- ------------\r\n        # -----------------------------------------------------\r\n\r\n        self.cap = cv2.VideoCapture(0)\r\n        ttl.TurtleScreen._RUNNING = True\r\n        self.leo = ttl.Turtle()\r\n        \r\n        # -----------------------------------------------------\r\n        # ----Visualizar movimiento de turtle -----------------\r\n        # -----------------------------------------------------\r\n\r\n        while True:\r\n        \r\n            # Saving captured image and transforming from BGR TO RGB\r\n\r\n            _, img = self.cap.read()\r\n            imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)\r\n            # imgRGB = cv2.filter2D(imgRGB, -1, self.edge_kernel) #FILTRO DE BORDES\r\n            # imgRGB = cv2.filter2D(imgRGB, -1, self.emboss_kernel) #FILTRO DE REALZADO\r\n            imgRGB = cv2.resize(imgRGB, (320, 180))\r\n            imgRGB = imgRGB.astype(int)/255\r\n        \r\n            y_predicted = self.ho_model.predict(np.array([imgRGB]), verbose=None)\r\n            prediction = int(np.argmax(y_predicted))\r\n\r\n            if prediction == 0:\r\n                self.leo.forward(5)\r\n                self.leo.left(10)\r\n            if prediction == 1:\r\n                self.leo.forward(0)\r\n                self.leo.left(0)\r\n                self.leo.right(0)\r\n            if prediction == 2:\r\n                self.leo.forward(5)\r\n                self.leo.right(10)\r\n            if prediction == 3:\r\n                self.leo.forward(5)\r\n        \r\n            # Show the complete image\r\n            cv2.imshow('Image', img)\r\n        \r\n            # key = cv2.waitKey(5)\r\n            # if key == 27: # 13 = enter, 27 = esc\r\n\r\n    def stop(self):\r\n        self.cap.release()\r\n        ttl.bye()\r\n        cv2.destroyAllWindows()\r\n\r\n\r\n\r\n\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/liveTEST.py b/liveTEST.py
+--- a/liveTEST.py	
++++ b/liveTEST.py	
+@@ -94,11 +94,11 @@
+         
+             # Saving captured image and transforming from BGR TO RGB
+ 
+-            _, img = self.cap.read()
++            _, im = self.cap.read()
++            img = cv2.resize(im, (320, 180))
+             imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
+             # imgRGB = cv2.filter2D(imgRGB, -1, self.edge_kernel) #FILTRO DE BORDES
+             # imgRGB = cv2.filter2D(imgRGB, -1, self.emboss_kernel) #FILTRO DE REALZADO
+-            imgRGB = cv2.resize(imgRGB, (320, 180))
+             imgRGB = imgRGB.astype(int)/255
+         
+             y_predicted = self.ho_model.predict(np.array([imgRGB]), verbose=None)
+@@ -118,7 +118,7 @@
+                 self.leo.forward(5)
+         
+             # Show the complete image
+-            cv2.imshow('Image', img)
++            cv2.imshow('Image', im)
+         
+             # key = cv2.waitKey(5)
+             # if key == 27: # 13 = enter, 27 = esc
+Index: modelGENERATOR.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># ------------------------------------------------\r\n# ------------- Datos Generales ------------------\r\n# ------------------------------------------------\r\n\r\n# Universidad del Valle de Guatemala\r\n# Facultad de Ingeniería\r\n# Departamento de Electrónica, Mecatrónica y Biomédica\r\n# Gerardo Andres Fuentes Bámaca\r\n# 19389\r\n# Código para generar el modelo de aprendizaje con base en la data obtenida\r\n\r\n# ------------------------------------------------\r\n# ----- Librerías a utilizar ---------------------\r\n# ------------------------------------------------\r\n\r\nfrom matplotlib import pyplot as plt\r\nfrom matplotlib import rcParams\r\nimport numpy as np\r\nimport seaborn as sn\r\nimport tensorflow as tf\r\nimport os\r\nfrom tensorflow import keras\r\nfrom tensorflow.keras.optimizers import SGD\r\n\r\nclass ModelGenerate:\r\n    \r\n    def __init__(self):\r\n        \r\n        # ------------------------------------------------\r\n        # ----- Seleccionar de datos ---------------------\r\n        # ------------------------------------------------\r\n        \r\n        # Grupo de etiquetas a usar de 0 -> 5\r\n        # Ahora las pruebas requieren usar el 6, que es copia del 4 pero con el sistema de agregar fotos\r\n        self.ndat = 6\r\n        \r\n        # ------------------------------------------------\r\n        # ----- Definición de tamaño de letra y figura----\r\n        # ------------------------------------------------\r\n        rcParams.update({'font.size': 12})\r\n        plt.rcParams['figure.figsize'] = [12, 12]\r\n\r\n        # ------------------------------------------------\r\n        # ----- Directorios a utilizar -------------------\r\n        # ------------------------------------------------\r\n        \r\n        # Directorio para guardar las variables a exportar\r\n        self.expordir = r'C:\\Users\\gerar\\PycharmProjects\\EXPOR_TESIS'\r\n        # Directorio de imagenes de la tesis en textudio\r\n        self.figtssdir = r'C:\\Users\\gerar\\Desktop\\UVG\\10semestre\\TESIS\\DOCUMENTO_TESIS\\figures'\r\n\r\n        # ------------------------------------------------\r\n        # ----Elección de etiquetas para modelo ----------\r\n        # ------------------------------------------------\r\n\r\n    def TrainModel(self):\r\n\r\n        if self.ndat == 0:\r\n            y_tt = 'y_test.npy'\r\n            y_tn = 'y_train.npy'\r\n            mname = 'head_or.keras'\r\n            losacfig = 'LA0'\r\n            cmfig = 'CM0'\r\n            n_nodesal = 9\r\n        elif self.ndat == 1:\r\n            y_tt = 'y_test1.npy'\r\n            y_tn = 'y_train1.npy'\r\n            mname = 'head_or1.keras'\r\n            losacfig = 'LA1'\r\n            cmfig = 'CM1'\r\n            n_nodesal = 9\r\n        elif self.ndat == 2:\r\n            y_tt = 'y_test2.npy'\r\n            y_tn = 'y_train2.npy'\r\n            mname = 'head_or2.keras'\r\n            losacfig = 'LA2'\r\n            cmfig = 'CM2'\r\n            n_nodesal = 6\r\n        elif self.ndat == 3:\r\n            y_tt = 'y_test3.npy'\r\n            y_tn = 'y_train3.npy'\r\n            mname = 'head_or3.keras'\r\n            losacfig = 'LA3'\r\n            cmfig = 'CM3'\r\n            n_nodesal = 6\r\n        elif self.ndat == 4:\r\n            y_tt = 'y_test4.npy'\r\n            y_tn = 'y_train4.npy'\r\n            mname = 'head_or4.keras'\r\n            losacfig = 'LA4'\r\n            cmfig = 'CM4'\r\n            n_nodesal = 4\r\n        elif self.ndat == 5:\r\n            y_tt = 'y_test5.npy'\r\n            y_tn = 'y_train5.npy'\r\n            mname = 'head_or5.keras'\r\n            losacfig = 'LA5'\r\n            cmfig = 'CM5'\r\n            n_nodesal = 3\r\n        elif self.ndat == 6:\r\n            y_tt = 'y_test6.npy'\r\n            y_tn = 'y_train6.npy'\r\n            mname = 'head_or6.keras'\r\n            losacfig = 'LA6'\r\n            cmfig = 'CM6'\r\n            n_nodesal = 4\r\n        elif self.ndat == 7:\r\n            y_tt = 'y_test7.npy'\r\n            y_tn = 'y_train7.npy'\r\n            mname = 'head_or7.keras'\r\n            losacfig = 'LA7'\r\n            cmfig = 'CM7'\r\n            n_nodesal = 4\r\n\r\n\r\n        # ------------------------------------------------\r\n        # ----Extraer data previamente arreglada----------\r\n        # ------------------------------------------------\r\n\r\n        x_tn = 'x_train7.npy'  #POR AHORA SE USAN LAS VARIABLES DEL MODELO 7\r\n        x_tt = 'x_test7.npy'\r\n        x_tn = os.path.join(self.expordir, x_tn)\r\n        x_tt = os.path.join(self.expordir, x_tt)\r\n        x_train = np.load(x_tn)\r\n        x_test = np.load(x_tt)\r\n\r\n\r\n        y_tn = os.path.join(self.expordir, y_tn)\r\n        y_tt = os.path.join(self.expordir, y_tt)\r\n        y_test = np.load(y_tt)\r\n        y_train = np.load(y_tn)\r\n\r\n        dirmodel = os.path.join(self.expordir, mname)\r\n        savefig1 = os.path.join(self.figtssdir, losacfig)\r\n        savefig2 = os.path.join(self.figtssdir, cmfig)\r\n\r\n        # --------------------------------------------------\r\n        # ----Normalizar datos -----------------------------\r\n        # --------------------------------------------------\r\n\r\n        x_train = x_train / 255\r\n        x_test = x_test / 255\r\n\r\n        # ------------------------------------------------------\r\n        # -----Generación de modelo ----------------------------\r\n        # ------------------------------------------------------\r\n\r\n        layer0 = tf.keras.layers.Conv2D(10, (4, 4), activation='relu', input_shape=(180, 320, 3))\r\n        layer1 = tf.keras.layers.MaxPooling2D(2)\r\n        layer2 = tf.keras.layers.Flatten()\r\n        # layer3 = tf.keras.layers.Dropout(0.5)\r\n        layer4 = tf.keras.layers.Dense(75, activation='relu')\r\n        layer5 = tf.keras.layers.Dense(150, activation='relu')\r\n        layer6 = tf.keras.layers.Dense(75, activation='relu')\r\n        # layern = tf.keras.layers.Dense(100, activation='relu')\r\n        layer7 = tf.keras.layers.Dense(n_nodesal, activation='softmax')\r\n        model = tf.keras.Sequential([layer0, layer1, layer2, layer4, layer5, layer6, layer7])\r\n\r\n        # ------------------------------------------------------\r\n        # ----Compilar, entrenar, evaluar modelo----------------\r\n        # ------------------------------------------------------\r\n\r\n        # optimizer = SGD(learning_rate=0.01, momentum=0.9)\r\n        model.compile(optimizer='adam',\r\n                      loss='sparse_categorical_crossentropy',\r\n                      metrics=['accuracy']\r\n                      )\r\n\r\n        history = model.fit(x_train, y_train, validation_data=(x_test, y_test), epochs=10)\r\n        model.save(dirmodel)\r\n\r\n        _, actual_acc = model.evaluate(x_test, y_test)\r\n\r\n        # ------------------------------------------------------\r\n        # ----GRAFICAS LOSS Y ACCURACY: TEST, TRAIN-------------\r\n        # ------------------------------------------------------\r\n        plt.subplot(211)\r\n        plt.title('Loss')\r\n        plt.plot(history.history['loss'], label='train')\r\n        plt.plot(history.history['val_loss'], label='test')\r\n        plt.xlabel('Epochs')\r\n        plt.legend()\r\n\r\n        plt.subplot(212)\r\n        plt.title('Accuracy')\r\n        plt.plot(history.history['accuracy'], label='train')\r\n        plt.plot(history.history['val_accuracy'], label='test')\r\n        plt.xlabel('Epochs')\r\n        plt.legend()\r\n        plt.savefig(savefig1)\r\n        plt.show()\r\n\r\n        # -----------------------------------------------------\r\n        # ----Predict del modelo completo ---------------------\r\n        # -----------------------------------------------------\r\n\r\n        y_predicted_full = model.predict(x_test, verbose=2)\r\n        prediction_labels = np.zeros_like(y_test)\r\n        for i in range(len(x_test)):\r\n            prediction_labels[i] = np.argmax(y_predicted_full[i])\r\n\r\n        # -----------------------------------------------------\r\n        # ----Matriz de confusión -----------------------------\r\n        # -----------------------------------------------------\r\n\r\n        y_test = np.squeeze(y_test)\r\n        prediction_labels = np.squeeze(prediction_labels)\r\n        cm = tf.math.confusion_matrix(labels=y_test, predictions=prediction_labels)\r\n\r\n        plt.figure(figsize=(10, 7))\r\n        sn.heatmap(cm, annot=True, fmt='d')\r\n        plt.xlabel('Predicted')\r\n        plt.ylabel('Truth')\r\n        plt.savefig(savefig2)\r\n        plt.show()\r\n\r\n# m = ModelGenerate()\r\n# m.TrainModel()\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/modelGENERATOR.py b/modelGENERATOR.py
+--- a/modelGENERATOR.py	
++++ b/modelGENERATOR.py	
+@@ -117,8 +117,8 @@
+         # ----Extraer data previamente arreglada----------
+         # ------------------------------------------------
+ 
+-        x_tn = 'x_train7.npy'  #POR AHORA SE USAN LAS VARIABLES DEL MODELO 7
+-        x_tt = 'x_test7.npy'
++        x_tn = 'x_train6.npy'  #POR AHORA SE USAN LAS VARIABLES DEL MODELO 7
++        x_tt = 'x_test6.npy'
+         x_tn = os.path.join(self.expordir, x_tn)
+         x_tt = os.path.join(self.expordir, x_tt)
+         x_train = np.load(x_tn)
+@@ -145,16 +145,18 @@
+         # -----Generación de modelo ----------------------------
+         # ------------------------------------------------------
+ 
+-        layer0 = tf.keras.layers.Conv2D(10, (4, 4), activation='relu', input_shape=(180, 320, 3))
++        layer0 = tf.keras.layers.Conv2D(10, (3, 3), activation='relu', input_shape=(180, 320, 3))
+         layer1 = tf.keras.layers.MaxPooling2D(2)
+-        layer2 = tf.keras.layers.Flatten()
++        layer2 = tf.keras.layers.Conv2D(10, (3, 3), activation='relu')
++        layer3 = tf.keras.layers.MaxPooling2D(2)
++        layer4 = tf.keras.layers.Flatten()
+         # layer3 = tf.keras.layers.Dropout(0.5)
+-        layer4 = tf.keras.layers.Dense(75, activation='relu')
+-        layer5 = tf.keras.layers.Dense(150, activation='relu')
+-        layer6 = tf.keras.layers.Dense(75, activation='relu')
++        layer5 = tf.keras.layers.Dense(75, activation='relu')
++        layer6 = tf.keras.layers.Dense(150, activation='relu')
++        layer7 = tf.keras.layers.Dense(75, activation='relu')
+         # layern = tf.keras.layers.Dense(100, activation='relu')
+-        layer7 = tf.keras.layers.Dense(n_nodesal, activation='softmax')
+-        model = tf.keras.Sequential([layer0, layer1, layer2, layer4, layer5, layer6, layer7])
++        layer8 = tf.keras.layers.Dense(n_nodesal, activation='softmax')
++        model = tf.keras.Sequential([layer0, layer1, layer2, layer3, layer4, layer5, layer6, layer7, layer8])
+ 
+         # ------------------------------------------------------
+         # ----Compilar, entrenar, evaluar modelo----------------
+Index: TEST/worlds/TEST.wbt
+===================================================================
+diff --git a/TEST/worlds/TEST.wbt b/TEST/worlds/TEST.wbt
+new file mode 100644
+--- /dev/null	
++++ b/TEST/worlds/TEST.wbt	
+@@ -0,0 +1,39 @@
++#VRML_SIM R2023b utf8
++
++EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackground.proto"
++EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/backgrounds/protos/TexturedBackgroundLight.proto"
++EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/floors/protos/RectangleArena.proto"
++EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/objects/factory/containers/protos/WoodenBox.proto"
++EXTERNPROTO "https://raw.githubusercontent.com/cyberbotics/webots/R2023b/projects/robots/gctronic/e-puck/protos/E-puck.proto"
++
++WorldInfo {
++}
++Viewpoint {
++  orientation -0.20766826308164382 0.23658790279553682 0.9491575510732992 1.492692088065309
++  position -0.22586170329266428 -1.9914217311094304 1.1052104645108396
++}
++TexturedBackground {
++}
++TexturedBackgroundLight {
++}
++RectangleArena {
++  floorTileSize 0.25 0.25
++  wallHeight 0.05
++}
++WoodenBox {
++  translation 0.33448 -0.297576 0.05
++  size 0.1 0.1 0.1
++}
++WoodenBox {
++  translation -0.348174 -0.249404 0.05
++  name "wooden box(2)"
++  size 0.1 0.1 0.1
++}
++WoodenBox {
++  translation -0.344383 0.25921 0.05
++  name "wooden box(1)"
++  size 0.1 0.1 0.1
++}
++E-puck {
++  controller "<extern>"
++}
+Index: TEST/worlds/.TEST.wbproj
+===================================================================
+diff --git a/TEST/worlds/.TEST.wbproj b/TEST/worlds/.TEST.wbproj
+new file mode 100644
+--- /dev/null	
++++ b/TEST/worlds/.TEST.wbproj	
+@@ -0,0 +1,10 @@
++Webots Project File version R2023b
++perspectives: 000000ff00000000fd0000000300000000000001ca0000039ffc0200000001fb00000012005300630065006e0065005400720065006501000000000000039f00000000000000000000000100000077000004b2fc0200000001fb0000001400540065007800740045006400690074006f0072000000001e000004b20000004600ffffff00000003000004fc000000dafc0100000002fb0000000e0043006f006e0073006f006c006501000001d0000005b00000000000000000fb0000001a0043006f006e0073006f006c00650041006c006c0041006c006c0100000000000004fc0000006900ffffff000004fc000004b200000004000000040000000100000008fc00000000
++simulationViewPerspectives: 000000ff000000010000000200000187000002210100000002010000000101
++sceneTreePerspectives: 000000ff0000000100000003000000260000047d000000fa0100000002010000000201
++maximizedDockId: -1
++centralWidgetVisible: 1
++orthographicViewHeight: 1
++textFiles: -1
++consoles: Console:All:All
++renderingDevicePerspectives: e-puck:camera;0;0.820513;0;0
+Index: TEST/controllers/epuckCONTROLLER/epuckCONTROLLER.py
+===================================================================
+diff --git a/TEST/controllers/epuckCONTROLLER/epuckCONTROLLER.py b/TEST/controllers/epuckCONTROLLER/epuckCONTROLLER.py
+new file mode 100644
+--- /dev/null	
++++ b/TEST/controllers/epuckCONTROLLER/epuckCONTROLLER.py	
+@@ -0,0 +1,58 @@
++from controller import Robot, Motor
++import cv2
++import numpy as np
++import tensorflow as tf
++
++
++
++TIME_STEP = 500
++MAX_SPEED = 6.28
++cap = cv2.VideoCapture(0)
++mdldir = r'C:\Users\gerar\PycharmProjects\EXPOR_TESIS\head_or6.keras'
++ho_model = tf.keras.models.load_model(mdldir)
++
++# create the Robot instance.
++robot = Robot()
++leftMotor = robot.getDevice('left wheel motor')
++rightMotor = robot.getDevice('right wheel motor')
++leftMotor.setPosition(float('inf'))
++rightMotor.setPosition(float('inf'))
++
++while True:
++
++   _, im = cap.read()
++   # cv2.imshow('Image', im)
++   img = cv2.resize(im, (320, 180))
++   imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
++   imgRGB = imgRGB.astype(int) / 255
++   # Show the complete image
++
++
++   y_predicted = ho_model.predict(np.array([imgRGB]), verbose=None)
++   h = int(np.argmax(y_predicted))
++   print(h)
++   # get the motor devices
++   if h == 3 :
++      # set the target position of the motors
++      leftMotor.setVelocity(0.1 * MAX_SPEED)
++      rightMotor.setVelocity(0.1 * MAX_SPEED)
++      robot.stepBegin(TIME_STEP)
++
++   elif h == 1:
++      leftMotor.setVelocity(0.0 * MAX_SPEED)
++      rightMotor.setVelocity(0.0 * MAX_SPEED)
++      robot.stepBegin(TIME_STEP)
++
++   elif h == 0:
++      leftMotor.setVelocity(0.07 * MAX_SPEED)
++      rightMotor.setVelocity(0.15 * MAX_SPEED)
++      robot.stepBegin(TIME_STEP)
++
++   elif h == 2:
++      leftMotor.setVelocity(0.15 * MAX_SPEED)
++      rightMotor.setVelocity(0.07 * MAX_SPEED)
++      robot.stepBegin(TIME_STEP)
++
++   robot.stepEnd()
++
++
+Index: .idea/CODIGOS_TESIS.iml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<module type=\"PYTHON_MODULE\" version=\"4\">\r\n  <component name=\"NewModuleRootManager\">\r\n    <content url=\"file://$MODULE_DIR$\">\r\n      <excludeFolder url=\"file://$MODULE_DIR$/.venv\" />\r\n    </content>\r\n    <orderEntry type=\"jdk\" jdkName=\"Python 3.10 (CODIGOS_TESIS)\" jdkType=\"Python SDK\" />\r\n    <orderEntry type=\"sourceFolder\" forTests=\"false\" />\r\n  </component>\r\n</module>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/CODIGOS_TESIS.iml b/.idea/CODIGOS_TESIS.iml
+--- a/.idea/CODIGOS_TESIS.iml	
++++ b/.idea/CODIGOS_TESIS.iml	
+@@ -1,6 +1,7 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <module type="PYTHON_MODULE" version="4">
+   <component name="NewModuleRootManager">
++    <content url="file://C:/Program Files/Webots/lib/controller/python" />
+     <content url="file://$MODULE_DIR$">
+       <excludeFolder url="file://$MODULE_DIR$/.venv" />
+     </content>
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"af612446-7e38-4ab8-969b-02483fc9a84e\" name=\"Changes\" comment=\"PRUEBAS DE FILTROS DE COLOR Y BORDES\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/extractDATA.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/extractDATA.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/facelabels.xlsx\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/facelabels.xlsx\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/liveTEST.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/liveTEST.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/miscTEST.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/miscTEST.py\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/modelGENERATOR.py\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/modelGENERATOR.py\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"FileTemplateManagerImpl\">\r\n    <option name=\"RECENT_TEMPLATES\">\r\n      <list>\r\n        <option value=\"Python Script\" />\r\n      </list>\r\n    </option>\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"master\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GithubDefaultAccount\">\r\n    <option name=\"defaultAccountId\" value=\"ffa3a7ec-c3fd-4747-b35d-85710e814352\" />\r\n  </component>\r\n  <component name=\"HighlightingSettingsPerFile\">\r\n    <setting file=\"file://$PROJECT_DIR$/projectGUI.py\" root0=\"FORCE_HIGHLIGHTING\" />\r\n  </component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 5\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"2cynYjKbXyoWSnGnOvJwF1mF8tA\" />\r\n  <component name=\"ProjectLevelVcsManager\" settingsEditedManually=\"true\">\r\n    <ConfirmationsSetting value=\"2\" id=\"Add\" />\r\n  </component>\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_ADD_EXTERNAL_FILES\": \"true\",\r\n    \"Python.__init__.executor\": \"Run\",\r\n    \"Python.complex_example.executor\": \"Run\",\r\n    \"Python.extractDATA.executor\": \"Run\",\r\n    \"Python.feedDATA.executor\": \"Run\",\r\n    \"Python.liveTEST.executor\": \"Run\",\r\n    \"Python.miscTEST.executor\": \"Run\",\r\n    \"Python.modelGENERATOR.executor\": \"Run\",\r\n    \"Python.photoGUI.executor\": \"Run\",\r\n    \"Python.projectGUI.executor\": \"Run\",\r\n    \"Python.savePHOTO.executor\": \"Run\",\r\n    \"Python.scrollable_frame_example.executor\": \"Run\",\r\n    \"RunOnceActivity.OpenProjectViewOnStart\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"git-widget-placeholder\": \"PruebaEDGEFilter\",\r\n    \"last_opened_file_path\": \"C:/Users/gerar/PycharmProjects/CODIGOS_TESIS\",\r\n    \"settings.editor.selected.configurable\": \"vcs.Git\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SharedIndexes\">\r\n    <attachedChunks>\r\n      <set>\r\n        <option value=\"bundled-python-sdk-50da183f06c8-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13135.95\" />\r\n      </set>\r\n    </attachedChunks>\r\n  </component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"af612446-7e38-4ab8-969b-02483fc9a84e\" name=\"Changes\" comment=\"\" />\r\n      <created>1709092735931</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1709092735931</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"Colocación de codigos para la tesis, fase 1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709092956582</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709092956582</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"Colocación de codigos para la tesis, fase 1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709093181077</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709093181077</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"Colocación de codigos para la tesis, fase 1\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709093373538</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709093373538</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00004\" summary=\"Se generan las matrices de etiquetas\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709094486939</created>\r\n      <option name=\"number\" value=\"00004\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00004\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709094486939</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00005\" summary=\"Se eliminan datos de exportación y se asignan a un nuevo directorio\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709096961328</created>\r\n      <option name=\"number\" value=\"00005\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00005\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709096961328</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00006\" summary=\"Se agrega un código para hacer pequeñas pruebas de cosas que pueden funcionar\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709098459764</created>\r\n      <option name=\"number\" value=\"00006\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00006\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709098459764</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00007\" summary=\"En este caso se añadieron dos modelos nuevos que siguen necesitando mas pruebas para su mejora\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709106149066</created>\r\n      <option name=\"number\" value=\"00007\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00007\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709106149066</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00008\" summary=\"Ajuste de documento excel para facilitar la creación de etiquetas, ajuste de modelos\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709189028445</created>\r\n      <option name=\"number\" value=\"00008\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00008\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709189028445</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00009\" summary=\"se agrega un ejemplo de interfaz, asi como el archivo que servir[a para la interfaz, tambien se agrega al codigo de pruebas la forma de guardar img y lbls\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709266074369</created>\r\n      <option name=\"number\" value=\"00009\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00009\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709266074370</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00010\" summary=\"listos los codigos muy basicos para la generacion de series de fotos, falta el de mover archivos\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709269839256</created>\r\n      <option name=\"number\" value=\"00010\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00010\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709269839256</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00011\" summary=\"Ya se guardan las fotos como se debe, ahora faltan las labels\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709280083111</created>\r\n      <option name=\"number\" value=\"00011\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00011\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709280083111</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00012\" summary=\"El código para poder capturar y guardar está listo, solo falta orientarlo a objetos\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709338846778</created>\r\n      <option name=\"number\" value=\"00012\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00012\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709338846778</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00013\" summary=\"Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709365442617</created>\r\n      <option name=\"number\" value=\"00013\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00013\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709365442617</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00014\" summary=\"En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709415944904</created>\r\n      <option name=\"number\" value=\"00014\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00014\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709415944904</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00015\" summary=\"Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709420843168</created>\r\n      <option name=\"number\" value=\"00015\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00015\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709420843168</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00016\" summary=\"Listos todos los códigos en de la forma OOP\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709433806456</created>\r\n      <option name=\"number\" value=\"00016\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00016\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709433806456</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00017\" summary=\"Ahora también está listo el código de las pruebas en vivo, de la forma OOP\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709441562430</created>\r\n      <option name=\"number\" value=\"00017\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00017\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709441562430</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00018\" summary=\"Inicio de pruebas para la GUI\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709441766055</created>\r\n      <option name=\"number\" value=\"00018\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00018\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709441766055</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00019\" summary=\"Está listo el esqueleto (funciones) y el cascarón (interfaz), solo falta unirlo.&#10;&#10;PS: Aún falta una simulación simple de movimiento\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709456266692</created>\r\n      <option name=\"number\" value=\"00019\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00019\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709456266692</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00020\" summary=\"Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709516240595</created>\r\n      <option name=\"number\" value=\"00020\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00020\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709516240595</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00021\" summary=\"Lista la interfaz completa, únicamente falta mejorar la simulación de prediccion, para una mejor visualización\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709522412011</created>\r\n      <option name=\"number\" value=\"00021\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00021\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709522412011</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00022\" summary=\"Se renombra el archivo con la interfaz\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709524373160</created>\r\n      <option name=\"number\" value=\"00022\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00022\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709524373160</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00023\" summary=\"Lista la interfaz con la primera simulacion utilizando Turtle\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709526747754</created>\r\n      <option name=\"number\" value=\"00023\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00023\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709526747754</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00024\" summary=\"Había un problema con la lectura de columnas de excel, ya se solucionó\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709529713526</created>\r\n      <option name=\"number\" value=\"00024\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00024\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709529713526</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00025\" summary=\"Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709531915244</created>\r\n      <option name=\"number\" value=\"00025\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00025\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709531915244</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00026\" summary=\"aun no se qeu pasa con turtle\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709532423348</created>\r\n      <option name=\"number\" value=\"00026\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00026\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709532423348</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00027\" summary=\"Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709534193137</created>\r\n      <option name=\"number\" value=\"00027\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00027\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709534193137</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00028\" summary=\"Al fin funciona al 100 la interfaz\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709535401976</created>\r\n      <option name=\"number\" value=\"00028\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00028\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709535401976</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00029\" summary=\"Listo, funciona todo ya, hasta se creó un ejecutable para la interfaz\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709539531414</created>\r\n      <option name=\"number\" value=\"00029\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00029\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709539531414</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00030\" summary=\"Inclulir el gitignore\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709539942454</created>\r\n      <option name=\"number\" value=\"00030\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00030\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709539942454</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00031\" summary=\"Inclulir el gitignore\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709539993243</created>\r\n      <option name=\"number\" value=\"00031\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00031\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709539993243</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00032\" summary=\"Inclulir el gitignore ahora si\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709540173838</created>\r\n      <option name=\"number\" value=\"00032\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00032\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709540173838</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00033\" summary=\"Inclulir el gitignore ahora si\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709540262979</created>\r\n      <option name=\"number\" value=\"00033\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00033\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709540262979</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00034\" summary=\"Inclulir el gitignore ahora si\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709540312617</created>\r\n      <option name=\"number\" value=\"00034\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00034\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709540312617</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00035\" summary=\"Ahora ya funciona todo, solo se cambió de lugar el ejecutable\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709541351943</created>\r\n      <option name=\"number\" value=\"00035\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00035\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709541351943</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00036\" summary=\"Aún hacia falta eliminar un waitKey\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709543540004</created>\r\n      <option name=\"number\" value=\"00036\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00036\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709543540004</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00037\" summary=\"Ahora solo falta apgar la cámara al terminar la prueba en vivo\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709545784948</created>\r\n      <option name=\"number\" value=\"00037\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00037\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709545784948</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00038\" summary=\"Finalmente funciona\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709546186658</created>\r\n      <option name=\"number\" value=\"00038\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00038\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709546186658</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00039\" summary=\"NUEVO COMMIT DE PRUEBA\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709583978356</created>\r\n      <option name=\"number\" value=\"00039\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00039\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709583978356</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00040\" summary=\"PRUEBAS DE FILTROS DE COLOR Y BORDES\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1709887743401</created>\r\n      <option name=\"number\" value=\"00040\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00040\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1709887743401</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"41\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <option name=\"ADD_EXTERNAL_FILES_SILENTLY\" value=\"true\" />\r\n    <MESSAGE value=\"Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY\" />\r\n    <MESSAGE value=\"En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes\" />\r\n    <MESSAGE value=\"Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP\" />\r\n    <MESSAGE value=\"Listos todos los códigos en de la forma OOP\" />\r\n    <MESSAGE value=\"Ahora también está listo el código de las pruebas en vivo, de la forma OOP\" />\r\n    <MESSAGE value=\"Inicio de pruebas para la GUI\" />\r\n    <MESSAGE value=\"Está listo el esqueleto (funciones) y el cascarón (interfaz), solo falta unirlo.&#10;&#10;PS: Aún falta una simulación simple de movimiento\" />\r\n    <MESSAGE value=\"Ya esta casi lista la parte de la interfaze que carga y entrena, solo falta eliminar las etiquetas del .xlsx con el boton de reset\" />\r\n    <MESSAGE value=\"Lista la interfaz completa, únicamente falta mejorar la simulación de prediccion, para una mejor visualización\" />\r\n    <MESSAGE value=\"Se renombra el archivo con la interfaz\" />\r\n    <MESSAGE value=\"Lista la interfaz con la primera simulacion utilizando Turtle\" />\r\n    <MESSAGE value=\"Había un problema con la lectura de columnas de excel, ya se solucionó\" />\r\n    <MESSAGE value=\"Solo falta arreglar porque Turtle solo funciona 1 vez, lo demás funciona al 100\" />\r\n    <MESSAGE value=\"aun no se qeu pasa con turtle\" />\r\n    <MESSAGE value=\"Se solucionó Turtle, todo fallaba por una bandera de la librería que no regreesaba a su estado default leugo de cerrar la apliacion\" />\r\n    <MESSAGE value=\"Al fin funciona al 100 la interfaz\" />\r\n    <MESSAGE value=\"Listo, funciona todo ya, hasta se creó un ejecutable para la interfaz\" />\r\n    <MESSAGE value=\"Inclulir el gitignore\" />\r\n    <MESSAGE value=\"Inclulir el gitignore ahora si\" />\r\n    <MESSAGE value=\"Ahora ya funciona todo, solo se cambió de lugar el ejecutable\" />\r\n    <MESSAGE value=\"Aún hacia falta eliminar un waitKey\" />\r\n    <MESSAGE value=\"Ahora solo falta apgar la cámara al terminar la prueba en vivo\" />\r\n    <MESSAGE value=\"Finalmente funciona\" />\r\n    <MESSAGE value=\"NUEVO COMMIT DE PRUEBA\" />\r\n    <MESSAGE value=\"PRUEBAS DE FILTROS DE COLOR Y BORDES\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"PRUEBAS DE FILTROS DE COLOR Y BORDES\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	
++++ b/.idea/workspace.xml	
+@@ -4,10 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="PRUEBAS DE FILTROS DE COLOR Y BORDES">
++    <list default="true" id="af612446-7e38-4ab8-969b-02483fc9a84e" name="Changes" comment="Se agregan los filtros a las imagenes y se agregan imagenes">
++      <change afterPath="$PROJECT_DIR$/TEST/controllers/epuckCONTROLLER/epuckCONTROLLER.py" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/TEST/worlds/.TEST.jpg" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/TEST/worlds/.TEST.wbproj" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/TEST/worlds/TEST.wbt" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/renumberPHOTOS.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/CODIGOS_TESIS.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CODIGOS_TESIS.iml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/extractDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/extractDATA.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/facelabels.xlsx" beforeDir="false" afterPath="$PROJECT_DIR$/facelabels.xlsx" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/feedDATA.py" beforeDir="false" afterPath="$PROJECT_DIR$/feedDATA.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/liveTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/liveTEST.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/miscTEST.py" beforeDir="false" afterPath="$PROJECT_DIR$/miscTEST.py" afterDir="false" />
+       <change beforePath="$PROJECT_DIR$/modelGENERATOR.py" beforeDir="false" afterPath="$PROJECT_DIR$/modelGENERATOR.py" afterDir="false" />
+@@ -27,7 +34,7 @@
+   <component name="Git.Settings">
+     <option name="RECENT_BRANCH_BY_REPOSITORY">
+       <map>
+-        <entry key="$PROJECT_DIR$" value="master" />
++        <entry key="$PROJECT_DIR$" value="PruebaMarcadores" />
+       </map>
+     </option>
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+@@ -54,10 +61,13 @@
+     "ASKED_ADD_EXTERNAL_FILES": "true",
+     "Python.__init__.executor": "Run",
+     "Python.complex_example.executor": "Run",
++    "Python.epuckCONTROLLER.executor": "Run",
++    "Python.epuck_go_forward.executor": "Run",
+     "Python.extractDATA.executor": "Run",
+     "Python.feedDATA.executor": "Run",
+     "Python.liveTEST.executor": "Run",
+     "Python.miscTEST.executor": "Run",
++    "Python.miscTEST2.executor": "Run",
+     "Python.modelGENERATOR.executor": "Run",
+     "Python.photoGUI.executor": "Run",
+     "Python.projectGUI.executor": "Run",
+@@ -66,10 +76,35 @@
+     "RunOnceActivity.OpenProjectViewOnStart": "true",
+     "RunOnceActivity.ShowReadmeOnStart": "true",
+     "git-widget-placeholder": "PruebaEDGEFilter",
+-    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS",
+-    "settings.editor.selected.configurable": "vcs.Git"
++    "last_opened_file_path": "C:/Users/gerar/PycharmProjects/CODIGOS_TESIS/TEST/controllers/epuckCONTROLLER/epuckCONTROLLER.py",
++    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PythonContentEntriesConfigurable"
+   }
+ }]]></component>
++  <component name="RunManager">
++    <configuration name="epuckCONTROLLER" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
++      <module name="CODIGOS_TESIS" />
++      <option name="ENV_FILES" value="" />
++      <option name="INTERPRETER_OPTIONS" value="" />
++      <option name="PARENT_ENVS" value="true" />
++      <envs>
++        <env name="PYTHONUNBUFFERED" value="1" />
++      </envs>
++      <option name="SDK_HOME" value="" />
++      <option name="SDK_NAME" value="Python 3.10 (CODIGOS_TESIS)" />
++      <option name="WORKING_DIRECTORY" value="" />
++      <option name="IS_MODULE_SDK" value="false" />
++      <option name="ADD_CONTENT_ROOTS" value="true" />
++      <option name="ADD_SOURCE_ROOTS" value="true" />
++      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/TEST/controllers/epuckCONTROLLER/epuckCONTROLLER.py" />
++      <option name="PARAMETERS" value="" />
++      <option name="SHOW_COMMAND_LINE" value="false" />
++      <option name="EMULATE_TERMINAL" value="false" />
++      <option name="MODULE_MODE" value="false" />
++      <option name="REDIRECT_INPUT" value="false" />
++      <option name="INPUT_FILE" value="" />
++      <method v="2" />
++    </configuration>
++  </component>
+   <component name="SharedIndexes">
+     <attachedChunks>
+       <set>
+@@ -406,12 +441,19 @@
+       <option name="project" value="LOCAL" />
+       <updated>1709887743401</updated>
+     </task>
+-    <option name="localTasksCounter" value="41" />
++    <task id="LOCAL-00041" summary="Se agregan los filtros a las imagenes y se agregan imagenes">
++      <option name="closed" value="true" />
++      <created>1710001810609</created>
++      <option name="number" value="00041" />
++      <option name="presentableId" value="LOCAL-00041" />
++      <option name="project" value="LOCAL" />
++      <updated>1710001810609</updated>
++    </task>
++    <option name="localTasksCounter" value="42" />
+     <servers />
+   </component>
+   <component name="VcsManagerConfiguration">
+     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+-    <MESSAGE value="Codigo OOP para la base de la interfaz que carga datos nuevos YEEEEY" />
+     <MESSAGE value="En este caso el código para captura de fotos, etiquetas y borrado, ya funciona, solo faltan pequeños ajustes" />
+     <MESSAGE value="Listo el código para alimentar el modelo con fotos del usuario, de la forma OOP" />
+     <MESSAGE value="Listos todos los códigos en de la forma OOP" />
+@@ -436,6 +478,7 @@
+     <MESSAGE value="Finalmente funciona" />
+     <MESSAGE value="NUEVO COMMIT DE PRUEBA" />
+     <MESSAGE value="PRUEBAS DE FILTROS DE COLOR Y BORDES" />
+-    <option name="LAST_COMMIT_MESSAGE" value="PRUEBAS DE FILTROS DE COLOR Y BORDES" />
++    <MESSAGE value="Se agregan los filtros a las imagenes y se agregan imagenes" />
++    <option name="LAST_COMMIT_MESSAGE" value="Se agregan los filtros a las imagenes y se agregan imagenes" />
+   </component>
+ </project>
+\ No newline at end of file
+Index: renumberPHOTOS.py
+===================================================================
+diff --git a/renumberPHOTOS.py b/renumberPHOTOS.py
+new file mode 100644
+--- /dev/null	
++++ b/renumberPHOTOS.py	
+@@ -0,0 +1,44 @@
++import os
++import cv2
++import pandas as pd
++
++dirtrain = r'C:\Users\gerar\PycharmProjects\TRAINFACEOG'  # CARPETA DE FOTOS DE ENTRENAMIENTO
++dirbase = r'C:\Users\gerar\PycharmProjects\TRAINFACEALTER' # CARPETA DE FOTOS NUEVAS
++dirtest = r'C:\Users\gerar\PycharmProjects\TESTFACEOG' # CARPETA DE FOTOS DE VALIDACI[ON
++dirhold = r'C:\Users\gerar\PycharmProjects\PFOTOS' # CARPETA DONDE SE ESCRIBEN LAS FOTOS CON NUEVA NUMERACION
++
++pfxname = 'z_03_'
++idx = 0
++trainlist = os.listdir(dirtrain)
++testlist = os.listdir(dirtest)
++baselist = os.listdir(dirbase)
++holdlist = os.listdir(dirhold)
++
++
++for file in trainlist:
++    if file.startswith(pfxname):
++        name = pfxname + str(int(idx + 1)) + '.jpg'
++        prename = os.path.join(dirtrain, file)
++        newname = os.path.join(dirhold, name)
++        os.replace(prename, newname)
++        idx += 1
++
++for file in testlist:
++    if file.startswith(pfxname):
++        name = pfxname + str(int(idx + 1)) + '.jpg'
++        prename = os.path.join(dirtest, file)
++        newname = os.path.join(dirhold, name)
++        os.replace(prename, newname)
++        idx += 1
++
++for file in baselist:
++    if file.startswith(pfxname):
++        name = pfxname + str(int(idx + 1)) + '.jpg'
++        prename = os.path.join(dirbase, file)
++        newname = os.path.join(dirhold, name)
++        os.replace(prename, newname)
++        idx += 1
++
++
++
++
